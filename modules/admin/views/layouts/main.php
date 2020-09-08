@@ -29,7 +29,7 @@ AdminAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
+        'brandLabel' => 'Qartuli',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -39,6 +39,10 @@ AdminAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'На сайт', 'url' => ['/site/index']],
+            ['label' => 'Лента', 'url' => ['/admin/page']],
+            ['label' => 'Меню', 'url' => ['/admin/page']],
+            ['label' => 'Бронь', 'url' => ['/admin/page']],
+            ['label' => 'Блоки', 'url' => ['/admin/page']],
             ['label' => 'Старницы', 'url' => ['/admin/page']],
         ],
     ]);
@@ -56,9 +60,7 @@ AdminAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-left">&copy; qartuli <?= date('Y') ?></p>
     </div>
 </footer>
 

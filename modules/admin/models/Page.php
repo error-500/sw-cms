@@ -35,7 +35,7 @@ class Page extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['tech_name'], 'required'],
+            [['tech_name', 'active'], 'required'],
             [['active'], 'integer'],
             [['text'], 'string'],
             [['created'], 'safe'],

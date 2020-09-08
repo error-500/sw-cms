@@ -8,15 +8,14 @@
     <div class="container content overlay-content white text-center" data-anima="fade-top" data-timeline="asc" data-time="1000">
         <hr class="space" />
         <hr class="space" />
-        <h5 class="text-uppercase anima">If music be the food of love play on</h5>
-        <h2 class="text-bold text-xxl anima">RESTAURANT</h2>
+        <h5 class="text-uppercase anima">Qartuli: вкусно и душевно!</h5>
+        <h2 class="text-bold text-xxl anima">Лого</h2>
         <hr class="space xs" />
         <p class="anima">
-            Food, in the end, in our own tradition, is something holy. It's not about nutrients and calories.<br />
-            It's about sharing. It's about honesty. It's about identity.
+            Грузинская кухня заслуженно входит в число великих кухонь мира
         </p>
         <hr class="space s" />
-        <a href="#" class="btn btn-border btn-sm anima anima-fade-bottom">VIEW THE MENU</a>
+        <a href="#" class="btn btn-border btn-sm anima anima-fade-bottom">Доставка</a>
         <hr class="space" />
         <hr class="space" />
     </div>
@@ -27,17 +26,16 @@
             <div class="col-md-6 col-sm-12 text-center-sm">
                 <div class="title-base text-left text-center-sm">
                     <hr />
-                    <h2>Our story</h2>
-                    <p>Sweet and tiny like a chocolate</p>
+                    <h2>О нас</h2>
+                    <p>Qartuli: грузинский ресторан в прямом смысле слова! </p>
                 </div>
                 <p>
-                    Tincidunt integer eu augue augue nunc elit dolor luctus placerat scelerisque euismod iaculis eu lacus nunc mi elit vehicula ut laoreet
-                    acaliquam sit amet justo nunc tempor metus vel. Lorem ipsum dolor sit amet consectetur adipiscing
-                    elitsed do eiusmod tempor incididunt utlabore et dolore magna aliqua.
-                    Utenim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    В переводе с грузинского языка слово «картули» означает «грузинский».
+                    Но картули – это еще и традиционный свадебный танец, который пара исполняет в сопровождении инструментального ансамбля. Изящный танец-соревнование, где женщина подобна белому лебедю, а мужчина – горному орлу.  
+                    Назвав так новый ресторан, мы хотим подчеркнуть атмосферу грузинского праздника и подлинного гостеприимства, которую наша команда создаёт ежедневно для дорогих гостей
                 </p>
                 <hr class="space s" />
-                <img src="/theme/images/sign-2.png" alt="" />
+                <a href="#" class="btn btn-border btn-sm anima anima-fade-bottom">Читать далее</a>
             </div>
             <div class="col-md-6 col-sm-12 text-center-sm" data-anima="fade-right">
                 <hr class="space m visible-sm" />
@@ -113,7 +111,7 @@
         </div>
     </div>
 </div>
-<div class="section-bg-color overflow-visible">
+<!-- <div class="section-bg-color overflow-visible">
     <div class="container content">
         <div class="row">
             <div class="col-md-3">
@@ -128,13 +126,13 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <div class="section-empty">
     <div class="container content">
         <div class="title-base">
             <hr />
-            <h2>Our menu</h2>
-            <p>Genuine and delicious</p>
+            <h2>Наше меню</h2>
+            <p>Грузинская кухня - это контраст пряного и острого. Это насыщенный вкус и необычная подача</p>
         </div>
         <hr class="space s" />
         <div class="row">
@@ -259,7 +257,7 @@
         </div>
         <hr class="space l" />
         <div class="text-center">
-            <a href="#" class="btn btn-sm">FULL MENU</a>
+            <a href="#" class="btn btn-sm">Меню полностью</a>
         </div>
     </div>
 </div>

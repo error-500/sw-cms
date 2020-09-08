@@ -14,7 +14,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'tech_name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'active')->textInput() ?>
+    <?= $form->field($model, 'active')->dropDownlist([
+        0 => 'Выключено',
+        1 => 'Активно'
+    ]) ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
@@ -29,8 +32,6 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'seo_description')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'seo_keys')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'created')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
