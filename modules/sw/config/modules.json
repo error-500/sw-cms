@@ -1,0 +1,25 @@
+{   
+    "modules": {
+        "blog": {
+            "class": "app\\modules\\sw\\modules\\blog\\Module"
+        },
+        "constant": {
+            "class": "app\\modules\\sw\\modules\\constant\\Module"
+        },
+        "gallery": {
+            "class": "app\\modules\\sw\\modules\\gallery\\Module"
+        },
+        "page": {
+            "class": "app\\modules\\sw\\modules\\page\\Module"
+        },
+        "slider": {
+            "class": "app\\modules\\sw\\modules\\slider\\Module"
+        },
+        "product": {
+            "class": "app\\modules\\sw\\modules\\product\\Module"
+        },
+        "lang": {
+            "class": "app\\modules\\sw\\modules\\lang\\Module"
+        }
+    }
+}

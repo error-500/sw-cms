@@ -1,0 +1,34 @@
+{  
+    "language": "en",
+    "aliases": {
+        "@sw": "@app/modules/sw"
+    },
+    "modules": {
+        "sw": {
+            "class": "app\\modules\\sw\\Module"
+        }
+    },
+    "components": {
+        "sw": {
+            "class": "app\\modules\\sw\\Sw"
+        },
+        "user": {
+            "identityClass": "app\\modules\\sw\\models\\User",
+            "loginUrl": [
+                "/sw/auth/login"
+            ],
+            "enableAutoLogin": true
+        },
+        "i18n": {
+            "translations": {
+                "app*": {
+                    "class": "yii\\i18n\\PhpMessageSource",
+                    "fileMap": {
+                        "app": "app.php",
+                        "app/error": "error.php"
+                    }
+                }
+            }
+        }
+    }
+}
