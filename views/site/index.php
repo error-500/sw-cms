@@ -1,8 +1,8 @@
 <div class="section-bg-video grunge-border">
     <div class="bg-overlay transparent-dark"></div>
     <div class="videobox">
-        <video autoplay loop muted poster="/theme/images/video-1-poster.jpg">
-            <source src="/theme/images/video-1.mp4" type="video/mp4">
+        <video autoplay loop muted poster="/theme/main/images/video-1-poster.jpg">
+            <source src="/theme/main/images/video-1.mp4" type="video/mp4">
         </video>
     </div>
     <div class="container content overlay-content white text-center" data-anima="fade-top" data-timeline="asc" data-time="1000">
@@ -39,8 +39,8 @@
             </div>
             <div class="col-md-6 col-sm-12 text-center-sm" data-anima="fade-right">
                 <hr class="space m visible-sm" />
-                <a class="img-box lightbox shadow-1" href="/theme/images/gallery/large-1.jpg" data-lightbox-anima="show-scale">
-                    <img src="/theme/images/gallery/large-1.jpg" alt="">
+                <a class="img-box lightbox shadow-1" href="/theme/main/images/gallery/large-1.jpg" data-lightbox-anima="show-scale">
+                    <img src="/theme/main/images/gallery/large-1.jpg" alt="">
                 </a>
             </div>
         </div>
@@ -51,7 +51,7 @@
             <div class="col-md-3">
                 <div class="img-box adv-img adv-img-full-content">
                     <div class="img-box">
-                        <img src="/theme/images/gallery/long-1.jpg" alt="" />
+                        <img src="/theme/main/images/gallery/long-1.jpg" alt="" />
                     </div>
                     <a href="#" class="caption-bg img-box">
                         <div class="caption">
@@ -66,7 +66,7 @@
             <div class="col-md-3">
                 <div class="img-box adv-img adv-img-full-content">
                     <div class="img-box">
-                        <img src="/theme/images/gallery/long-2.jpg" alt="" />
+                        <img src="/theme/main/images/gallery/long-2.jpg" alt="" />
                     </div>
                     <a href="#" class="caption-bg img-box">
                         <div class="caption">
@@ -81,7 +81,7 @@
             <div class="col-md-3">
                 <div class="img-box adv-img adv-img-full-content">
                     <div class="img-box">
-                        <img src="/theme/images/gallery/long-3.jpg" alt="" />
+                        <img src="/theme/main/images/gallery/long-3.jpg" alt="" />
                     </div>
                     <a href="#" class="caption-bg img-box">
                         <div class="caption">
@@ -96,7 +96,7 @@
             <div class="col-md-3">
                 <div class="img-box adv-img adv-img-full-content">
                     <div class="img-box">
-                        <img src="/theme/images/gallery/long-4.jpg" alt="" />
+                        <img src="/theme/main/images/gallery/long-4.jpg" alt="" />
                     </div>
                     <a href="#" class="caption-bg img-box">
                         <div class="caption">
@@ -261,7 +261,7 @@
         </div>
     </div>
 </div>
-<div class="section-bg-image parallax-window white" data-natural-height="850" data-natural-width="1920" data-parallax="scroll" data-image-src="/theme/images/bg-3.jpg">
+<div class="section-bg-image parallax-window white" data-natural-height="850" data-natural-width="1920" data-parallax="scroll" data-image-src="/theme/main/images/bg-3.jpg">
     <div class="container content">
         <div class="row">
             <div class="col-md-8 col-center">
@@ -269,7 +269,7 @@
                     <ul class="slides">
                         <li>
                             <div class="advs-box advs-box-top-icon niche-box-testimonails">
-                                <i class="fa text-xl circle onlycover" style="background-image:url('/theme/images/users/user-1.jpg')"></i>
+                                <i class="fa text-xl circle onlycover" style="background-image:url('/theme/main/images/users/user-1.jpg')"></i>
                                 <p>
                                     Lorem ipsum dolor sitamet, consectetur adipisicing elito, sed do eiusmod tempor incididunt
                                     ut labore et dolore magna aliqua. Ut enim ad minim veniamqrem aperiam.
@@ -279,7 +279,7 @@
                         </li>
                         <li>
                             <div class="advs-box advs-box-top-icon niche-box-testimonails">
-                                <i class="fa text-xl circle onlycover" style="background-image:url('/theme/images/users/user-2.jpg')"></i>
+                                <i class="fa text-xl circle onlycover" style="background-image:url('/theme/main/images/users/user-2.jpg')"></i>
                                 <p>
                                     Lorem ipsum dolor sitamet, consectetur adipisicing elito, sed do eiusmod tempor incididunt
                                     ut labore et dolore magna aliqua. Ut enim ad minim veniamqrem aperiam.
@@ -289,7 +289,7 @@
                         </li>
                         <li>
                             <div class="advs-box advs-box-top-icon niche-box-testimonails">
-                                <i class="fa text-xl circle onlycover" style="background-image:url('/theme/images/users/user-3.jpg')"></i>
+                                <i class="fa text-xl circle onlycover" style="background-image:url('/theme/main/images/users/user-3.jpg')"></i>
                                 <p>
                                     Lorem ipsum dolor sitamet, consectetur adipisicing elito, sed do eiusmod tempor incididunt
                                     ut labore et dolore magna aliqua. Ut enim ad minim veniamqrem aperiam.
@@ -316,7 +316,7 @@
             <div class="col-md-4 anima">
                 <div class="advs-box advs-box-top-icon-img">
                     <a class="img-box" href="#">
-                        <span><img src="/theme/images/gallery/image-44.jpg" alt=""></span>
+                        <span><img src="/theme/main/images/gallery/image-44.jpg" alt=""></span>
                     </a>
                     <div class="advs-box-content">
                         <h3><a href="#">Rice with wild boar liver and cutted cheese from Texas</a></h3>
@@ -330,7 +330,7 @@
             <div class="col-md-4 anima">
                 <div class="advs-box advs-box-top-icon-img">
                     <a class="img-box" href="#">
-                        <span><img src="/theme/images/gallery/image-45.jpg" alt=""></span>
+                        <span><img src="/theme/main/images/gallery/image-45.jpg" alt=""></span>
                     </a>
                     <div class="advs-box-content">
                         <h3><a href="#">Montana Speck from Dolomiti mountains with cheese</a></h3>
@@ -344,7 +344,7 @@
             <div class="col-md-4 anima">
                 <div class="advs-box advs-box-top-icon-img">
                     <a class="img-box" href="#">
-                        <span><img src="/theme/images/gallery/image-46.jpg" alt=""></span>
+                        <span><img src="/theme/main/images/gallery/image-46.jpg" alt=""></span>
                     </a>
                     <div class="advs-box-content">
                         <h3><a href="#">Wild mountain mushroom skewerss with pork and salads</a></h3>
@@ -361,7 +361,7 @@
             <div class="col-md-4 anima">
                 <div class="advs-box advs-box-top-icon-img">
                     <a class="img-box" href="#">
-                        <span><img src="/theme/images/gallery/image-11.jpg" alt=""></span>
+                        <span><img src="/theme/main/images/gallery/image-11.jpg" alt=""></span>
                     </a>
                     <div class="advs-box-content">
                         <h3><a href="#">Donut with red cranberries of the italian dolomites</a></h3>
@@ -375,7 +375,7 @@
             <div class="col-md-4 anima">
                 <div class="advs-box advs-box-top-icon-img">
                     <a class="img-box" href="#">
-                        <span><img src="/theme/images/gallery/image-47.jpg" alt=""></span>
+                        <span><img src="/theme/main/images/gallery/image-47.jpg" alt=""></span>
                     </a>
                     <div class="advs-box-content">
                         <h3><a href="#">Montana Cheese Burger with home made macon and onion</a></h3>
@@ -389,7 +389,7 @@
             <div class="col-md-4 anima">
                 <div class="advs-box advs-box-top-icon-img">
                     <a class="img-box" href="#">
-                        <span><img src="/theme/images/gallery/image-48.jpg" alt=""></span>
+                        <span><img src="/theme/main/images/gallery/image-48.jpg" alt=""></span>
                     </a>
                     <div class="advs-box-content">
                         <h3><a href="#">Wild mountain mushroom skewerss with pork and salads</a></h3>
@@ -407,7 +407,7 @@
     <div class="container content">
         <div class="row">
             <div class="col-md-6">
-                <img src="/theme/images/chefs-2.png" alt="" />
+                <img src="/theme/main/images/chefs-2.png" alt="" />
             </div>
             <div class="col-md-6">
                 <div class="content">
@@ -433,7 +433,7 @@
         <div class="row">
             <div class="col-md-1 text-center-sm">
                 <hr class="space xs hidden-sm" />
-                <img src="/theme/images/clock.gif" alt="" />
+                <img src="/theme/main/images/clock.gif" alt="" />
             </div>
             <div class="col-md-2 col-sm-12 text-center-sm">
                 <hr class="space xs hidden-sm" />

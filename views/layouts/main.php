@@ -19,7 +19,7 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="<?= Html::encode($this->title) ?>">
     
-    <link rel="icon" href="/theme/images/favicon.png">
+    <link rel="icon" href="/theme/main/images/favicon.png">
 
     <title><?= Html::encode($this->title) ?></title>
 

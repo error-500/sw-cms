@@ -6,8 +6,8 @@ use yii\web\AssetBundle;
 
 class AppAsset extends AssetBundle
 {
-    public $basePath = '@webroot/theme';
-    public $baseUrl = '@web/theme';
+    public $basePath = '@webroot/theme/main';
+    public $baseUrl = '@web/theme/main';
 
     public $css = [
         'scripts/bootstrap/css/bootstrap.css',
@@ -25,8 +25,8 @@ class AppAsset extends AssetBundle
     ];
 
     public $js = [
-        // 'scripts/jquery.min.js',
-        // 'scripts/bootstrap/js/bootstrap.min.js',
+        'scripts/jquery.min.js',
+        'scripts/bootstrap/js/bootstrap.min.js',
         'scripts/imagesloaded.min.js',
         'scripts/parallax.min.js',
         'scripts/flexslider/jquery.flexslider-min.js',
@@ -43,7 +43,7 @@ class AppAsset extends AssetBundle
     ];
 
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
+        // 'yii\web\YiiAsset',
+        // 'yii\bootstrap\BootstrapAsset',
     ];
 }

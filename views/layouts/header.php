@@ -12,9 +12,9 @@ use yii\helpers\Url;
                         <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand" href="<?= Url::to('/') ?>">
-                        <img class="logo-default scroll-hide" src="/theme/images/logo.png" alt="logo" />
-                        <img class="logo-default scroll-show" src="/theme/images/logo-2.png" alt="logo" />
-                        <img class="logo-retina" src="/theme/images/logo-retina.png" alt="logo" />
+                        <img class="logo-default scroll-hide" src="/theme/main/images/logo.png" alt="logo" />
+                        <img class="logo-default scroll-show" src="/theme/main/images/logo-2.png" alt="logo" />
+                        <img class="logo-retina" src="/theme/main/images/logo-retina.png" alt="logo" />
                     </a>
                 </div>
                 <div class="collapse navbar-collapse">
@@ -27,7 +27,7 @@ use yii\helpers\Url;
                             <div class="shop-menu">
                                 <ul class="shop-cart">
                                     <li class="cart-item">
-                                        <img src="/theme/images/gallery/pizza-1.jpg" alt="">
+                                        <img src="/theme/main/images/gallery/pizza-1.jpg" alt="">
                                         <div class="cart-content">
                                             <h5>Wood Airplain</h5>
                                             <span class="cart-quantity">
@@ -55,9 +55,9 @@ use yii\helpers\Url;
                         </div>
                         <ul class="nav navbar-nav lan-menu">
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><img src="/theme/images/en.png" alt="" />En<span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><img src="/theme/main/images/en.png" alt="" />En<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#"><img src="/theme/images/it.png" alt="" />IT</a></li>
+                                    <li><a href="#"><img src="/theme/main/images/it.png" alt="" />IT</a></li>
                                 </ul>
                             </li>
                         </ul>

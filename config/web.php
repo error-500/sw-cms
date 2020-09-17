@@ -23,10 +23,6 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        'user' => [
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
-        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -74,4 +70,5 @@ if (YII_ENV_DEV) {
     ];
 }
 
-return $config;
+// return $config;
+return array_merge_recursive($config, require(__DIR__ . '/../modules/sw/config/web.php'));

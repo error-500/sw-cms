@@ -5,7 +5,7 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-6 footer-center">
                     <hr class="space s" />
-                    <img width="180" src="/theme/images/logo-2.png" alt="" />
+                    <img width="180" src="/theme/main/images/logo-2.png" alt="" />
                     <hr class="space m" />
                     <p>
                         We don't care if we're doing haute cuisine or burgers and pizza.<br />We just do it right. Always.
