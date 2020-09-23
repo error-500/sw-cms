@@ -48,4 +48,13 @@ return array (
       '@yii/faker' => $vendorDir . '/yiisoft/yii2-faker',
     ),
   ),
+  'swods/fileloader' => 
+  array (
+    'name' => 'swods/fileloader',
+    'version' => '1.0.2.0',
+    'alias' => 
+    array (
+      '@swods/fileloader' => $vendorDir . '/swods/fileloader',
+    ),
+  ),
 );

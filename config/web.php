@@ -47,6 +47,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'menu/<menu:[\w_\-]+>' => 'menu/menu',
             ],
         ],
     ],

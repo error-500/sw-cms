@@ -66,7 +66,7 @@
         "version_normalized": "3.4.1.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/twbs/bootstrap.git",
+            "url": "git@github.com:twbs/bootstrap.git",
             "reference": "68b0d231a13201eb14acd3dc84e51543d16e5f7e"
         },
         "dist": {
@@ -1064,6 +1064,63 @@
         ]
     },
     {
+        "name": "gumlet/php-image-resize",
+        "version": "2.0.0",
+        "version_normalized": "2.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/gumlet/php-image-resize.git",
+            "reference": "de6dc92d8ddf65e508b088202e5de6f3fb0621a2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/gumlet/php-image-resize/zipball/de6dc92d8ddf65e508b088202e5de6f3fb0621a2",
+            "reference": "de6dc92d8ddf65e508b088202e5de6f3fb0621a2",
+            "shasum": ""
+        },
+        "require": {
+            "ext-fileinfo": "*",
+            "ext-gd": "*",
+            "php": ">=5.5.0"
+        },
+        "require-dev": {
+            "apigen/apigen": "^4.1",
+            "ext-exif": "*",
+            "ext-gd": "*",
+            "php-coveralls/php-coveralls": "^2.1",
+            "phpunit/phpunit": "^4.8"
+        },
+        "suggest": {
+            "ext-exif": "Auto-rotate jpeg files"
+        },
+        "time": "2020-07-04T21:04:16+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Gumlet\\": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Aditya Patadia",
+                "homepage": "http://aditya.patadia.org/"
+            }
+        ],
+        "description": "PHP class to re-size and scale images",
+        "homepage": "https://github.com/gumlet/php-image-resize",
+        "keywords": [
+            "image",
+            "php",
+            "resize",
+            "scale"
+        ]
+    },
+    {
         "name": "guzzlehttp/psr7",
         "version": "1.6.1",
         "version_normalized": "1.6.1.0",
@@ -1925,7 +1982,8 @@
         "homepage": "https://github.com/sebastianbergmann/php-token-stream/",
         "keywords": [
             "tokenizer"
-        ]
+        ],
+        "abandoned": true
     },
     {
         "name": "phpunit/phpunit",
@@ -2916,6 +2974,97 @@
             "email",
             "mail",
             "mailer"
+        ]
+    },
+    {
+        "name": "swods/fileloader",
+        "version": "1.0.2",
+        "version_normalized": "1.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swods/sw-fileloader.git",
+            "reference": "5a320f210d50b836dfe0440095997813b593bb4b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/swods/sw-fileloader/zipball/5a320f210d50b836dfe0440095997813b593bb4b",
+            "reference": "5a320f210d50b836dfe0440095997813b593bb4b",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.6.0",
+            "swods/randstring": "*",
+            "yiisoft/yii2": ">=2.0.4"
+        },
+        "time": "2018-01-28T15:09:43+00:00",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "swods\\fileloader\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "proprietary"
+        ],
+        "authors": [
+            {
+                "name": "SSU (SwoDs)",
+                "email": "etc@swods.ru"
+            }
+        ],
+        "description": "File loader",
+        "keywords": [
+            "file loader",
+            "fileloader",
+            "swods",
+            "yii2"
+        ]
+    },
+    {
+        "name": "swods/randstring",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swods/sw-randstring.git",
+            "reference": "80130ffbc7338c25aa84ad743820436dff6b1eec"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/swods/sw-randstring/zipball/80130ffbc7338c25aa84ad743820436dff6b1eec",
+            "reference": "80130ffbc7338c25aa84ad743820436dff6b1eec",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.6.0"
+        },
+        "time": "2018-01-28T15:10:28+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "swods\\randstring\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "proprietary"
+        ],
+        "authors": [
+            {
+                "name": "SSU (SwoDs)",
+                "email": "etc@swods.ru"
+            }
+        ],
+        "description": "Generate random string",
+        "keywords": [
+            "random password",
+            "random sting",
+            "random sting generator",
+            "swods",
+            "yii2"
         ]
     },
     {

@@ -14,6 +14,11 @@ class Module extends \yii\base\Module
         parent::init();
     }
 
+    public function item($method, $params = null)
+    {
+        return call_user_func([__NAMESPACE__.'\models\\Item', $method], $params);
+    }
+
     public static function config()
     {
         return [

@@ -24,23 +24,12 @@
     <div class="container content">
         <div class="row">
             <div class="col-md-6 col-sm-12 text-center-sm">
-                <div class="title-base text-left text-center-sm">
-                    <hr />
-                    <h2>О нас</h2>
-                    <p>Qartuli: грузинский ресторан в прямом смысле слова! </p>
-                </div>
-                <p>
-                    В переводе с грузинского языка слово «картули» означает «грузинский».
-                    Но картули – это еще и традиционный свадебный танец, который пара исполняет в сопровождении инструментального ансамбля. Изящный танец-соревнование, где женщина подобна белому лебедю, а мужчина – горному орлу.  
-                    Назвав так новый ресторан, мы хотим подчеркнуть атмосферу грузинского праздника и подлинного гостеприимства, которую наша команда создаёт ежедневно для дорогих гостей
-                </p>
-                <hr class="space s" />
-                <a href="#" class="btn btn-border btn-sm anima anima-fade-bottom">Читать далее</a>
+                <?= $about_section->text ?>
             </div>
             <div class="col-md-6 col-sm-12 text-center-sm" data-anima="fade-right">
                 <hr class="space m visible-sm" />
-                <a class="img-box lightbox shadow-1" href="/theme/main/images/gallery/large-1.jpg" data-lightbox-anima="show-scale">
-                    <img src="/theme/main/images/gallery/large-1.jpg" alt="">
+                <a class="img-box lightbox shadow-1" href="<?= $about_section->imgSrc ?>" data-lightbox-anima="show-scale">
+                    <img src="<?= $about_section->imgSrc ?>" alt="">
                 </a>
             </div>
         </div>
