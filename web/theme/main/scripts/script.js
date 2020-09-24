@@ -493,7 +493,8 @@ function isScrollView(t) {
             var len = $(m).find(".maso-item").length;
             $(menu).find("li a:not(.maso-filter-auto)").each(function () {
                 var current_len = $(m).find("." + $(this).attr("data-filter")).length;
-                if (current_len == len || current_len == 0) {
+                var remove = $(this).data('filter');
+                if (remove != 'maso-item' && (current_len == len || current_len == 0)) {
                     $(this).closest("li").remove();
                 }
             });
