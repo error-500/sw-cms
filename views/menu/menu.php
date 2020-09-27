@@ -1,9 +1,20 @@
-<div class="header-title ken-burn white" data-parallax="scroll" data-bleed="0" data-position="top" data-natural-height="850" data-natural-width="1920" data-image-src="/theme/main/images/bg-23.jpg">
+<?php
+
+$header_img = $menu->imgSrc ?: '/theme/main/images/bg-23.jpg';
+
+if (!empty($page)) {
+    $this->title = $page->title;
+    $this->params['keywords'] = $page->title;
+    $this->params['description'] = $page->description;
+}
+
+?>
+<div class="header-title ken-burn white" data-parallax="scroll" data-bleed="0" data-position="top" data-natural-height="850" data-natural-width="1920" data-image-src="<?= $header_img ?>">
     <div class="container">
         <div class="title-base">
             <hr class="anima" />
-            <h1>Menu grid</h1>
-            <p>Menu and portfolio</p>
+            <h1><?= $menu->name ?></h1>
+            <p><?= $menu->text ?></p>
         </div>
     </div>
 </div>
@@ -16,10 +27,10 @@
                 <h3 id="dishes" class="text-black">First dishes</h3>
                 <div class="maso-list list-sm-6 col-margins">
                     <div class="navbar navbar-inner">
-                        <div class="navbar-toggle"><i class="fa fa-bars"></i><span>MENU</span><i class="fa fa-angle-down"></i></div>
+                        <div class="navbar-toggle"><i class="fa fa-bars"></i><span>Разделы</span><i class="fa fa-angle-down"></i></div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav over inner maso-filters scroll-spy-menu">
-                                <li class="active"><a data-filter="maso-item">All</a></li>
+                                <li class="active"><a data-filter="maso-item">Все</a></li>
                                 <?php foreach ($menu->groups as $sub_menu): ?>
                                     <li><a data-filter="<?= $sub_menu->tech_name ?>"><?= $sub_menu->name ?></a></li>
                                 <?php endforeach ?>

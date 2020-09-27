@@ -1,4 +1,4 @@
-<footer class="footer-base footer-parallax">
+<footer class="footer-base ">
     <div class="content">
         <div class="container">
             <div class="row">

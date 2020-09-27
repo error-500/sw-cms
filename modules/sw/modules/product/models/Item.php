@@ -9,6 +9,8 @@ use swods\fileloader\FileLoader;
 
 class Item extends \yii\db\ActiveRecord
 {
+    use \app\modules\sw\modules\base\traits\ImgSrc;
+    
     public static $folder = '@webroot/uploads/sw/product/item/';
     public $web_folder = '/uploads/sw/product/item/';
     public $img_obj;
@@ -73,11 +75,6 @@ class Item extends \yii\db\ActiveRecord
         $image = new ImageResize($path);
         $image->resizeToLongSide(500);
         $image->save(Yii::getAlias(self::$folder).'thumb_'.$this->img);
-    }
-
-    public function getImgSrc()
-    {
-        return $this->web_folder.$this->img;
     }
 
     public function getImgThumbSrc()

@@ -9,7 +9,8 @@ $main_menu = [
     ['label' => 'Пользователи', 'icon' => 'icon-users2', 'url' => ['/sw/user/index']],
     '<li class="navigation-header"><span>Модули</span> <i class="icon-menu" title="Модули"></i></li>',
     ['label' => 'Константы', 'icon' => 'icon-infinite', 'url' => ['/sw/constant/item/index']],
-    ['label' => 'Страницы и блоки', 'icon' => 'icon-file-text2', 'url' => ['/sw/page/item/index']],
+    ['label' => 'Страницы', 'icon' => 'icon-file-text2', 'url' => ['/sw/page/item/index']],
+    ['label' => 'Блоки', 'icon' => 'icon-stack4', 'url' => ['/sw/block/item/index']],
     ['label' => 'Слайдеры', 'icon' => 'icon-stack', 'items' => [
         ['label' => 'Группы', 'url' => ['/sw/slider/group/index']],
         ['label' => 'Элементы', 'url' => ['/sw/slider/item/index']],

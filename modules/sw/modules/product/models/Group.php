@@ -7,10 +7,11 @@ use swods\fileloader\FileLoader;
 
 class Group extends \yii\db\ActiveRecord
 {
+    use \app\modules\sw\modules\base\traits\ImgSrc;
+
     public static $folder = '@webroot/uploads/sw/product/group/';
     public $web_folder = '/uploads/sw/product/group/';
     public $img_obj;
-
 
     public static function tableName()
     {
@@ -61,11 +62,6 @@ class Group extends \yii\db\ActiveRecord
             'file' => $this->img_obj,
             'dir'  => Yii::getAlias(self::$folder),
         ]);
-    }
-
-    public function getImgSrc()
-    {
-        return $this->web_folder.$this->img;
     }
 
     public function getParent() 

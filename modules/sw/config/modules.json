@@ -12,6 +12,9 @@
         "page": {
             "class": "app\\modules\\sw\\modules\\page\\Module"
         },
+        "block": {
+            "class": "app\\modules\\sw\\modules\\block\\Module"
+        },
         "slider": {
             "class": "app\\modules\\sw\\modules\\slider\\Module"
         },

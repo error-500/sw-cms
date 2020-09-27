@@ -1,35 +1,33 @@
+<?php
+
+if (!empty($page)) {
+    $this->title = $page->title;
+    $this->params['keywords'] = $page->title;
+    $this->params['description'] = $page->description;
+}
+
+?>
 <div class="section-bg-video grunge-border">
     <div class="bg-overlay transparent-dark"></div>
     <div class="videobox">
         <video autoplay loop muted poster="/theme/main/images/video-1-poster.jpg">
-            <source src="/theme/main/images/video-1.mp4" type="video/mp4">
+            <source src="<?= $video->imgSrc ?>" type="video/mp4">
         </video>
     </div>
     <div class="container content overlay-content white text-center" data-anima="fade-top" data-timeline="asc" data-time="1000">
-        <hr class="space" />
-        <hr class="space" />
-        <h5 class="text-uppercase anima">Qartuli: вкусно и душевно!</h5>
-        <h2 class="text-bold text-xxl anima">Лого</h2>
-        <hr class="space xs" />
-        <p class="anima">
-            Грузинская кухня заслуженно входит в число великих кухонь мира
-        </p>
-        <hr class="space s" />
-        <a href="#" class="btn btn-border btn-sm anima anima-fade-bottom">Доставка</a>
-        <hr class="space" />
-        <hr class="space" />
+        <?= $video->text ?>
     </div>
 </div>
 <div class="section-empty">
     <div class="container content">
         <div class="row">
             <div class="col-md-6 col-sm-12 text-center-sm">
-                <?= $about_section->text ?>
+                <?= $about->text ?>
             </div>
             <div class="col-md-6 col-sm-12 text-center-sm" data-anima="fade-right">
                 <hr class="space m visible-sm" />
-                <a class="img-box lightbox shadow-1" href="<?= $about_section->imgSrc ?>" data-lightbox-anima="show-scale">
-                    <img src="<?= $about_section->imgSrc ?>" alt="">
+                <a class="img-box lightbox shadow-1" href="<?= $about->imgSrc ?>" data-lightbox-anima="show-scale">
+                    <img src="<?= $about->imgSrc ?>" alt="">
                 </a>
             </div>
         </div>
@@ -37,66 +35,24 @@
         <hr />
         <hr class="space m" />
         <div class="row">
-            <div class="col-md-3">
-                <div class="img-box adv-img adv-img-full-content">
-                    <div class="img-box">
-                        <img src="/theme/main/images/gallery/long-1.jpg" alt="" />
-                    </div>
-                    <a href="#" class="caption-bg img-box">
-                        <div class="caption">
-                            <div class="inner">
-                                <h2>Eat</h2>
-                                <p class="sub"> An explosion of flavours </p>
-                            </div>
+            <?php $block_size = 12 / count($our_place->items) ?>
+            <?php foreach ($our_place->items as $item): ?>
+                <div class="col-md-<?= $block_size ?>">
+                    <div class="img-box adv-img adv-img-full-content">
+                        <div class="img-box">
+                            <img src="<?= $item->imgSrc ?>" alt="" />
                         </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="img-box adv-img adv-img-full-content">
-                    <div class="img-box">
-                        <img src="/theme/main/images/gallery/long-2.jpg" alt="" />
-                    </div>
-                    <a href="#" class="caption-bg img-box">
-                        <div class="caption">
-                            <div class="inner">
-                                <h2>Drink</h2>
-                                <p class="sub"> An explosion of flavours </p>
+                        <a href="#" class="caption-bg img-box">
+                            <div class="caption">
+                                <div class="inner">
+                                    <h2><?= $item->title ?></h2>
+                                    <p class="sub"> <?= $item->text ?> </p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="img-box adv-img adv-img-full-content">
-                    <div class="img-box">
-                        <img src="/theme/main/images/gallery/long-3.jpg" alt="" />
+                        </a>
                     </div>
-                    <a href="#" class="caption-bg img-box">
-                        <div class="caption">
-                            <div class="inner">
-                                <h2>Location</h2>
-                                <p class="sub"> An explosion of flavours </p>
-                            </div>
-                        </div>
-                    </a>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="img-box adv-img adv-img-full-content">
-                    <div class="img-box">
-                        <img src="/theme/main/images/gallery/long-4.jpg" alt="" />
-                    </div>
-                    <a href="#" class="caption-bg img-box">
-                        <div class="caption">
-                            <div class="inner">
-                                <h2>Events</h2>
-                                <p class="sub"> An explosion of flavours </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            <?php endforeach ?>
         </div>
     </div>
 </div>
@@ -392,7 +348,7 @@
         </div>
     </div>
 </div>
-<div class="section-bg-color no-padding-bottom">
+<div class="section-bg-color">
     <div class="container content">
         <div class="row">
             <div class="col-md-6">
@@ -420,56 +376,7 @@
 <div class="section-empty">
     <div class="container content">
         <div class="row">
-            <div class="col-md-1 text-center-sm">
-                <hr class="space xs hidden-sm" />
-                <img src="/theme/main/images/clock.gif" alt="" />
-            </div>
-            <div class="col-md-2 col-sm-12 text-center-sm">
-                <hr class="space xs hidden-sm" />
-                <div class="title-base text-left text-center-sm">
-                    <hr />
-                    <h2>Hours</h2>
-                    <p>Our open schedules</p>
-                </div>
-            </div>
-            <div class="col-md-9 col-sm-12 text-center-sm">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Day</th>
-                            <th>Monday</th>
-                            <th>Tuesday</th>
-                            <th>Wednesday</th>
-                            <th>Thurdsay</th>
-                            <th>Friday</th>
-                            <th>Saturday</th>
-                            <th>Sunday</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>Lunch</th>
-                            <td>11am - 15pm</td>
-                            <td>11am - 15pm</td>
-                            <td>11am - 15pm</td>
-                            <td>11am - 15pm</td>
-                            <td>11am - 15pm</td>
-                            <td>11am - 15pm</td>
-                            <td>11am - 15pm</td>
-                        </tr>
-                        <tr>
-                            <th>Dinner</th>
-                            <td>Closed</td>
-                            <td>18pm - 23pm</td>
-                            <td>18pm - 23pm</td>
-                            <td>18pm - 23pm</td>
-                            <td>18pm - 23pm</td>
-                            <td>18pm - 23pm</td>
-                            <td>18pm - 23pm</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <?= $work_time->text ?>
         </div>
     </div>
 </div>

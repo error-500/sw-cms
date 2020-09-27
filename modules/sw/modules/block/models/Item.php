@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\sw\modules\page\models;
+namespace app\modules\sw\modules\block\models;
 
 use Yii;
 use swods\fileloader\FileLoader;
@@ -12,20 +12,19 @@ class Item extends \yii\db\ActiveRecord
 {
     use \app\modules\sw\modules\base\traits\ImgSrc;
     
-    public static $folder = '@webroot/uploads/sw/page/';
-    public $web_folder = '/uploads/sw/page/';
+    public static $folder = '@webroot/uploads/sw/block/';
+    public $web_folder = '/uploads/sw/block/';
     public $img_obj;
 
     public static function tableName()
     {
-        return 'sw_page_item';
+        return 'sw_block_item';
     }
 
     public function rules()
     {
         return [
             [['tech_name', 'title'], 'required'],
-            [['description', 'keywords', 'text'], 'string'],
             [['tech_name', 'title'], 'string', 'max' => 200],
             [
                 'tech_name', 
@@ -33,8 +32,9 @@ class Item extends \yii\db\ActiveRecord
                 'pattern' => '/^[a-z_]*$/', 
                 'message' => 'Техничесокое имя должно быть слитно, на английском, в нижнем регистре, допускается знак "_"'
             ],
-            ['img_obj', 'file', 'skipOnEmpty' => true, 'checkExtensionByMimeType' => false, 'extensions' => 'png, jpg', 'maxSize' => 2097152],
+            ['img_obj', 'file', 'skipOnEmpty' => true, 'checkExtensionByMimeType' => false, 'extensions' => 'png, jpg, mp4', 'maxSize' => 10485760],
             [['tech_name'], 'unique'],
+            [['text'], 'string'],
         ];
     }
 
@@ -46,8 +46,6 @@ class Item extends \yii\db\ActiveRecord
             'img' => 'Картинка',
             'img_obj' => 'Картинка',
             'title' => 'Заголовок',
-            'description' => 'Описание',
-            'keywords' => 'Ключевые слова',
             'text' => 'Текст',
             'created' => 'Создано',
             'updated' => 'Обновлено',

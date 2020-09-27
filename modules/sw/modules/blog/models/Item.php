@@ -10,6 +10,8 @@ use swods\fileloader\FileLoader;
  */
 class Item extends \yii\db\ActiveRecord
 {
+    use \app\modules\sw\modules\base\traits\ImgSrc;
+    
     const ACTIVE = 1;
 
     public static $folder = '@webroot/uploads/sw/blog/';
@@ -64,11 +66,6 @@ class Item extends \yii\db\ActiveRecord
             'file' => $this->img_obj,
             'dir'  => Yii::getAlias(self::$folder),
         ]);
-    }
-
-    public function getImgSrc()
-    {
-        return $this->web_folder.$this->img;
     }
 
     public function getGroup()

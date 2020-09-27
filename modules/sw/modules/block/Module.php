@@ -1,22 +1,17 @@
 <?php
 
-namespace app\modules\sw\modules\slider;
+namespace app\modules\sw\modules\block;
 
 use Yii;
 
 class Module extends \yii\base\Module
 {
-    public $controllerNamespace = 'app\modules\sw\modules\slider\controllers';
-    public $defaultRoute = 'group';
+    public $controllerNamespace = 'app\modules\sw\modules\block\controllers';
+    public $defaultRoute = 'item';
 
     public function init()
     {
         parent::init();
-    }
-
-    public function group($method, $params = null)
-    {
-        return call_user_func([__NAMESPACE__.'\models\\Group', $method], $params);
     }
 
     public function item($method, $params = null)

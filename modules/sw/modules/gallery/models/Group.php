@@ -8,6 +8,8 @@ use swods\fileloader\FileLoader;
 
 class Group extends \yii\db\ActiveRecord
 {
+    use \app\modules\sw\modules\base\traits\ImgSrc;
+    
     public static $folder = '@webroot/uploads/sw/gallery/';
     public $web_folder = '/uploads/sw/gallery/';
     public $img_obj;
@@ -70,11 +72,6 @@ class Group extends \yii\db\ActiveRecord
             'file' => $this->img_obj,
             'dir'  => Yii::getAlias(self::$folder),
         ]);
-    }
-
-    public function getImgSrc()
-    {
-        return $this->web_folder.$this->img;
     }
 
     public function getItems()

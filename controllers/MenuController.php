@@ -28,7 +28,8 @@ class MenuController extends \yii\web\Controller
         }
 
         return $this->render('menu', [
-            'menu' => $menu
+            'menu' => $menu,
+            'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'menu']),
         ]);
     }
 }
