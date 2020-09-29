@@ -23,6 +23,10 @@
         },
         "lang": {
             "class": "app\\modules\\sw\\modules\\lang\\Module"
+        },
+        "file_manager": {
+            "class": "app\\modules\\sw\\modules\\file_manager\\Module"
         }
     }
 }
+

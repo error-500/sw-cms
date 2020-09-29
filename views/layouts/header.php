@@ -2,6 +2,9 @@
 
 use yii\helpers\Url;
 
+$main_logo_white = Yii::$app->sw->getModule('file_manager')->item('findOne', ['tech_name' => 'main_logo_white'])->filePath;
+$main_logo_black = Yii::$app->sw->getModule('file_manager')->item('findOne', ['tech_name' => 'main_logo_black'])->filePath;
+
 ?>
 <header class="fixed-top bg-transparent menu-transparent scroll-change wide-area" data-menu-anima="fade-in">
     <div class="navbar navbar-default mega-menu-fullwidth navbar-fixed-top" role="navigation">
@@ -12,8 +15,13 @@ use yii\helpers\Url;
                         <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand" href="<?= Url::to('/') ?>">
-                        <img class="logo-default scroll-hide" src="/theme/main/images/logo.png" alt="logo" />
-                        <img class="logo-default scroll-show" src="/theme/main/images/logo-2.png" alt="logo" />
+                        
+                        <img class="logo-default scroll-hide" src="<?= $main_logo_white ?>" alt="logo" />
+                        <img class="logo-default scroll-show" src="<?= $main_logo_black ?>" alt="logo" />
+
+                        <!-- <img class="logo-default scroll-hide" src="/theme/main/images/logo.png" alt="logo" />
+                        <img class="logo-default scroll-show" src="/theme/main/images/logo-2.png" alt="logo" /> -->
+
                         <img class="logo-retina" src="/theme/main/images/logo-retina.png" alt="logo" />
                     </a>
                 </div>

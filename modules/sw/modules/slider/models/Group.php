@@ -23,6 +23,7 @@ class Group extends \yii\db\ActiveRecord
                 'message' => 'Техничесокое имя должно быть слитно на английском в нижнем регистре, допускается знак "_"'
             ],
             [['tech_name', 'name'], 'string', 'max' => 50],
+            [['text'], 'string'],
             [['tech_name'], 'unique'],
         ];
     }
@@ -33,6 +34,7 @@ class Group extends \yii\db\ActiveRecord
             'id' => 'ID',
             'tech_name' => 'Техническое название',
             'name' => 'Название',
+            'text' => 'Текст',
             'created' => 'Создано',
             'updated' => 'Обновлено',
         ];

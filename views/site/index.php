@@ -34,6 +34,7 @@ if (!empty($page)) {
         <hr class="space m" />
         <hr />
         <hr class="space m" />
+        <?= $our_place->text ?>
         <div class="row">
             <?php $block_size = 12 / count($our_place->items) ?>
             <?php foreach ($our_place->items as $item): ?>
@@ -83,120 +84,36 @@ if (!empty($page)) {
         <div class="row">
             <div class="col-md-6">
                 <div class="list-items">
-                    <div class="list-item">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <h3>Pizza Margherita</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                            </div>
-                            <div class="col-md-3">
-                                <span>15$</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <h3>Onions And Beacom</h3>
-                                <p>Lorem ipsum dolor sit</p>
-                            </div>
-                            <div class="col-md-3">
-                                <span>4.50$</span>
+                    <?php foreach (array_chunk($menu_random, 5)[0] ?? [] as $item): ?>
+                        <div class="list-item">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <h3><?= $item->name ?></h3>
+                                    <p><?= $item->about ?></p>
+                                </div>
+                                <div class="col-md-3">
+                                    <span><?= $item->price ?> ₽</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <h3>Carbonara</h3>
-                                <p>Sunt in culpa qui officia deserunt</p>
-                            </div>
-                            <div class="col-md-3">
-                                <span>10$</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <h3>Hamburger Deluxe</h3>
-                                <p>Excepteur sint occaecat cupidatat non proident</p>
-                            </div>
-                            <div class="col-md-3">
-                                <span>15$</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <h3>Fish And Chips</h3>
-                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse</p>
-                            </div>
-                            <div class="col-md-3">
-                                <span>9.00$</span>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach ?>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="list-items">
-                    <div class="list-item">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <h3>Toast Classic</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                            </div>
-                            <div class="col-md-3">
-                                <span>20$</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <h3>Beef Steak</h3>
-                                <p>Lorem ipsum dolor sit</p>
-                            </div>
-                            <div class="col-md-3">
-                                <span>49$</span>
+                    <?php foreach (array_chunk($menu_random, 5)[1] ?? [] as $item): ?>
+                        <div class="list-item">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <h3><?= $item->name ?></h3>
+                                    <p><?= $item->about ?></p>
+                                </div>
+                                <div class="col-md-3">
+                                    <span><?= $item->price ?> ₽</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <h3>Argentina's meals</h3>
-                                <p>Sunt in culpa qui officia deserunt</p>
-                            </div>
-                            <div class="col-md-3">
-                                <span>10$</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <h3>Rastbeef</h3>
-                                <p>Excepteur sint occaecat cupidatat non proident</p>
-                            </div>
-                            <div class="col-md-3">
-                                <span>15$</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <h3>Tomatoes And Chips</h3>
-                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse</p>
-                            </div>
-                            <div class="col-md-3">
-                                <span>9.00$</span>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach ?>
                 </div>
             </div>
         </div>
