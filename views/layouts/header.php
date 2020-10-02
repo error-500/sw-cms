@@ -2,8 +2,8 @@
 
 use yii\helpers\Url;
 
-$main_logo_white = Yii::$app->sw->getModule('file_manager')->item('findOne', ['tech_name' => 'main_logo_white'])->filePath;
-$main_logo_black = Yii::$app->sw->getModule('file_manager')->item('findOne', ['tech_name' => 'main_logo_black'])->filePath;
+$main_logo_white = Yii::$app->sw->getModule('file_manager')->item('findOne', ['tech_name' => 'main_logo_white'])->filePath ?? null;
+$main_logo_green = Yii::$app->sw->getModule('file_manager')->item('findOne', ['tech_name' => 'main_logo_green'])->filePath ?? null;
 
 ?>
 <header class="fixed-top bg-transparent menu-transparent scroll-change wide-area" data-menu-anima="fade-in">
@@ -17,7 +17,7 @@ $main_logo_black = Yii::$app->sw->getModule('file_manager')->item('findOne', ['t
                     <a class="navbar-brand" href="<?= Url::to('/') ?>">
                         
                         <img class="logo-default scroll-hide" src="<?= $main_logo_white ?>" alt="logo" />
-                        <img class="logo-default scroll-show" src="<?= $main_logo_black ?>" alt="logo" />
+                        <img class="logo-default scroll-show" src="<?= $main_logo_green ?>" alt="logo" />
 
                         <!-- <img class="logo-default scroll-hide" src="/theme/main/images/logo.png" alt="logo" />
                         <img class="logo-default scroll-show" src="/theme/main/images/logo-2.png" alt="logo" /> -->
