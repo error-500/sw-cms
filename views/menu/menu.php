@@ -4,7 +4,7 @@ $header_img = $menu->imgSrc ?: '/theme/main/images/bg-23.jpg';
 
 if (!empty($page)) {
     $this->title = $page->title;
-    $this->params['keywords'] = $page->title;
+    $this->params['keywords'] = $page->keywords;
     $this->params['description'] = $page->description;
 }
 

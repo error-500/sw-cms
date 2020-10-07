@@ -2,7 +2,7 @@
 
 if (!empty($page)) {
     $this->title = $page->title;
-    $this->params['keywords'] = $page->title;
+    $this->params['keywords'] = $page->keywords;
     $this->params['description'] = $page->description;
 }
 

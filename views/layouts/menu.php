@@ -5,7 +5,7 @@ use yii\helpers\Url;
 ?>
 
 <ul class="nav navbar-nav">
-    <li><a href="<?= Url::to('/') ?>">Лента <span class="caret"></span></a></li>
+    <li><a href="<?= Url::to('/news') ?>">Лента <span class="caret"></span></a></li>
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Меню <span class="caret"></span></a>
         <ul class="dropdown-menu multi-level">
@@ -15,7 +15,7 @@ use yii\helpers\Url;
         </ul>
     </li>
 
-    <li><a href="<?= Url::to('/') ?>">Доставка <span class="caret"></span></a></li>
-    <li><a href="<?= Url::to('/') ?>">Бронь <span class="caret"></span></a></li>
-    <li><a href="<?= Url::to('/') ?>">Контакты <span class="caret"></span></a></li>
+    <li><a href="<?= Url::to('/delivery') ?>">Доставка <span class="caret"></span></a></li>
+    <li><a href="<?= Url::to('/reserv') ?>">Бронь <span class="caret"></span></a></li>
+    <li><a href="<?= Url::to('/contacts') ?>">Контакты <span class="caret"></span></a></li>
 </ul>

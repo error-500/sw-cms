@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use Yii;
+use yii\web\NotFoundHttpException;
 
 class SiteController extends \yii\web\Controller
 {
@@ -31,6 +32,19 @@ class SiteController extends \yii\web\Controller
             'chefs_main_block_file' => Yii::$app->sw->getModule('file_manager')->item('findOne', ['tech_name' => 'quote_main_page']),
             'chefs_main_block' => Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'chefs_main_page']),
             'delivery_slider' => Yii::$app->sw->getModule('slider')->group('findOne', ['tech_name' => 'delivery_main_page']),
+        ]);
+    }
+
+    public function actionPage($name)
+    {
+        $page = Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => $name]);
+
+        if (!$page) {
+            throw new NotFoundHttpException('Станица не найдена');
+        }
+
+        return $this->render('page', [
+            'page' => $page,
         ]);
     }
 }
