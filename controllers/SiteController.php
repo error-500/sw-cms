@@ -47,4 +47,15 @@ class SiteController extends \yii\web\Controller
             'page' => $page,
         ]);
     }
+
+    public function actionContacts()
+    {
+        $contacts_block_text = Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'contacts'])->text ?? '';
+        $contacts_block_text = explode('{separate}', $contacts_block_text);
+
+        return $this->render('contacts', [
+            'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'contacts']),
+            'contacts_block_text' => $contacts_block_text,
+        ]);
+    }
 }

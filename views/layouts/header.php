@@ -5,8 +5,10 @@ use yii\helpers\Url;
 $main_logo_white = Yii::$app->sw->getModule('file_manager')->item('findOne', ['tech_name' => 'main_logo_white'])->filePath ?? null;
 $main_logo_green = Yii::$app->sw->getModule('file_manager')->item('findOne', ['tech_name' => 'main_logo_green'])->filePath ?? null;
 
+$header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-transparent scroll-change wide-area';
+
 ?>
-<header class="fixed-top bg-transparent menu-transparent scroll-change wide-area" data-menu-anima="fade-in">
+<header class="<?= $header_class ?>" data-menu-anima="fade-in">
     <div class="navbar navbar-default mega-menu-fullwidth navbar-fixed-top" role="navigation">
         <div class="navbar navbar-main">
             <div class="container">

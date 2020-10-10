@@ -49,6 +49,7 @@ $config = [
             'rules' => [
                 'menu/<menu:[\w_\-]+>' => 'menu/menu',
                 'page/<name:[\w_\-]+>' => 'site/page',
+                'contacts/' => 'site/contacts',
             ],
         ],
     ],
