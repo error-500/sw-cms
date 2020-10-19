@@ -25,7 +25,7 @@ if (!empty($page)) {
     <div class="container content">
         <div class="row">
             <div class="col-md-12">
-                <h3 id="dishes" class="text-black">First dishes</h3>
+                <h3 id="dishes" class="text-black"><?= $menu->name ?></h3>
                 <div class="maso-list list-sm-6 col-margins">
                     <div class="navbar navbar-inner">
                         <div class="navbar-toggle"><i class="fa fa-bars"></i><span>Разделы</span><i class="fa fa-angle-down"></i></div>

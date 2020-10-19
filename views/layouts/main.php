@@ -24,6 +24,8 @@ AppAsset::register($this);
 
     <title><?= Html::encode($this->title) ?></title>
 
+    <?= Yii::$app->sw->getModule('constant')->item('findOne', ['tech_name' => 'custom_header_code'])->value ?? null ?>
+
     <?php $this->registerCsrfMetaTags() ?>
     <?php $this->head() ?>
 </head>

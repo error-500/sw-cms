@@ -6,11 +6,14 @@ if (!empty($page)) {
     $this->params['description'] = $page->description;
 }
 
+$this->params['main_logo_white'] = Yii::$app->sw->getModule('file_manager')->item('findOne', ['tech_name' => 'main_logo_green'])->filePath ?? null;
 $this->params['header_class'] = 'fixed-top scroll-change wide-area'; 
 
 ?>
 <div class="section-map box-middle-container row-18">
-    <div class="google-map" data-coords="40.741895,-73.989308" data-skin="gray" data-zoom="12" data-marker-pos-top="30" data-marker-pos="col-md-6-right" data-marker="http://templates.framework-y.com/gourmet/images/marker-map.png"></div>
+    <div class="google-map">
+        <?= $map_constant->value ?>
+    </div>
     <div class="overlaybox overlaybox-side overlaybox">
         <div class="container content">
             <div class="row">
@@ -77,7 +80,7 @@ $this->params['header_class'] = 'fixed-top scroll-change wide-area';
                 <form action="http://templates.framework-y.com/gourmet/scripts/php/contact-form.php" class="form-box form-ajax" method="post">
                     <div class="row">
                         <div class="col-md-6">
-                            <p>Name</p>
+                            <p>Имя</p>
                             <input id="name" name="name" placeholder="" type="text" class="form-control form-value" required>
                         </div>
                         <div class="col-md-6">
@@ -88,10 +91,10 @@ $this->params['header_class'] = 'fixed-top scroll-change wide-area';
                     <hr class="space xs" />
                     <div class="row">
                         <div class="col-md-12">
-                            <p>Messagge</p>
+                            <p>Сообщение</p>
                             <textarea id="messagge" name="messagge" placeholder="" class="form-control form-value" required></textarea>
                             <hr class="space s" />
-                            <button class="btn-xs btn" type="submit"><i class="im-mail-send"></i>Send messagge</button>
+                            <button class="btn-xs btn" type="submit"><i class="im-mail-send"></i>Отправить сообщение</button>
                         </div>
                     </div>
                     <div class="success-box">

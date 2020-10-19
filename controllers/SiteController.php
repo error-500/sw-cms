@@ -55,6 +55,7 @@ class SiteController extends \yii\web\Controller
 
         return $this->render('contacts', [
             'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'contacts']),
+            'map_constant' => Yii::$app->sw->getModule('constant')->item('findOne', ['tech_name' => 'map']),
             'contacts_block_text' => $contacts_block_text,
         ]);
     }

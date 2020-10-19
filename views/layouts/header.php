@@ -5,6 +5,9 @@ use yii\helpers\Url;
 $main_logo_white = Yii::$app->sw->getModule('file_manager')->item('findOne', ['tech_name' => 'main_logo_white'])->filePath ?? null;
 $main_logo_green = Yii::$app->sw->getModule('file_manager')->item('findOne', ['tech_name' => 'main_logo_green'])->filePath ?? null;
 
+$main_logo_white = $this->params['main_logo_white'] ?? $main_logo_white;
+$main_logo_green = $this->params['main_logo_green'] ?? $main_logo_green;
+
 $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-transparent scroll-change wide-area';
 
 ?>
