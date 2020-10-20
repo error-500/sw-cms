@@ -59,4 +59,12 @@ class SiteController extends \yii\web\Controller
             'contacts_block_text' => $contacts_block_text,
         ]);
     }
+
+    public function actionReservation()
+    {
+        return $this->render('reservation', [
+            'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'reservation']),
+            'reservation_block' => Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'reservation']),
+        ]);
+    }
 }

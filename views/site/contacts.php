@@ -63,49 +63,8 @@ $this->params['header_class'] = 'fixed-top scroll-change wide-area';
 </div>
 <div class="section-empty section-item">
     <div class="container content">
-
         <div class="row">
-            <div class="col-md-8 text-left">
-                <?= $contacts_block_text[1] ?? '' ?> 
-                <!-- <div class="title-base text-left text-left-sm">
-                    <hr />
-                    <h2>Keep in touch</h2>
-                    <p>Get in touch with us</p>
-                </div>
-                <p>
-                    Our helpline is always open to receive any inquiry or feedback. Please feel free to drop us an email
-                    from the form below and we will get back to you as soon as we can. Thank you for undersanding.  Erat voluptatum varius vulputate laboriosam, rhoncus repudiandae, occaecat! Impedi
-                </p> -->
-                <hr class="space s" />
-                <form action="http://templates.framework-y.com/gourmet/scripts/php/contact-form.php" class="form-box form-ajax" method="post">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p>Имя</p>
-                            <input id="name" name="name" placeholder="" type="text" class="form-control form-value" required>
-                        </div>
-                        <div class="col-md-6">
-                            <p>Email</p>
-                            <input id="email" name="email" placeholder="" type="email" class="form-control form-value" required>
-                        </div>
-                    </div>
-                    <hr class="space xs" />
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p>Сообщение</p>
-                            <textarea id="messagge" name="messagge" placeholder="" class="form-control form-value" required></textarea>
-                            <hr class="space s" />
-                            <button class="btn-xs btn" type="submit"><i class="im-mail-send"></i>Отправить сообщение</button>
-                        </div>
-                    </div>
-                    <div class="success-box">
-                        <div class="alert alert-success">Congratulations. Your message has been sent successfully</div>
-                    </div>
-                    <div class="error-box">
-                        <div class="alert alert-warning">Error, please retry. Your message has not been sent</div>
-                    </div>
-                </form>
-            </div>
-            <div class="col-md-4">
+            <div class="col-md-8 col-center text-center">
                 <?= $contacts_block_text[2] ?? '' ?> 
                 <!-- <table class="table table-hover">
                     <thead>
@@ -154,6 +113,48 @@ $this->params['header_class'] = 'fixed-top scroll-change wide-area';
                     </tbody>
                 </table> -->
                 <hr class="space m" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-center text-center">
+                <?= $contacts_block_text[1] ?? '' ?> 
+                <!-- <div class="title-base text-left text-left-sm">
+                    <hr />
+                    <h2>Keep in touch</h2>
+                    <p>Get in touch with us</p>
+                </div>
+                <p>
+                    Our helpline is always open to receive any inquiry or feedback. Please feel free to drop us an email
+                    from the form below and we will get back to you as soon as we can. Thank you for undersanding.  Erat voluptatum varius vulputate laboriosam, rhoncus repudiandae, occaecat! Impedi
+                </p> -->
+                <hr class="space s" />
+                <form action="http://templates.framework-y.com/gourmet/scripts/php/contact-form.php" class="form-box form-ajax" method="post">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>Имя</p>
+                            <input id="name" name="name" placeholder="" type="text" class="form-control form-value" required>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Email</p>
+                            <input id="email" name="email" placeholder="" type="email" class="form-control form-value" required>
+                        </div>
+                    </div>
+                    <hr class="space xs" />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Сообщение</p>
+                            <textarea id="messagge" name="messagge" placeholder="" class="form-control form-value" required></textarea>
+                            <hr class="space s" />
+                            <button class="btn-xs btn" type="submit"><i class="im-mail-send"></i>Отправить сообщение</button>
+                        </div>
+                    </div>
+                    <div class="success-box">
+                        <div class="alert alert-success">Congratulations. Your message has been sent successfully</div>
+                    </div>
+                    <div class="error-box">
+                        <div class="alert alert-warning">Error, please retry. Your message has not been sent</div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

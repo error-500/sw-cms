@@ -22,6 +22,7 @@ class AppAsset extends AssetBundle
         'scripts/flexslider/flexslider.css',
         'scripts/social.stream.css',
         'scripts/magnific-popup.css',
+        '../../css/custom.css'
     ];
 
     public $js = [
@@ -39,6 +40,7 @@ class AppAsset extends AssetBundle
         'scripts/php/contact-form.js',
         'scripts/jquery.progress-counter.js',
         'scripts/jquery.slimscroll.min.js',
+        '../../js/custom.js'
     ];
 
     public $depends = [

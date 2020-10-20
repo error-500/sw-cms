@@ -46,7 +46,7 @@ CONTENT BOXES
 
 .advs-box .img-box img, .base-box .img-box img {
     width: 100%;
-    z-index: 1;
+    z-index: -1;
 }
 
 

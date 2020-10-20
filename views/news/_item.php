@@ -15,10 +15,10 @@ use yii\helpers\Url;
             </div>
             <div class="block-title">
                 <h2><a href="blog-single-1.html"><?= $model->title ?></a></h2>
-<!--                 <div class="tag-row">
-                    <span><i class="fa fa-bookmark"></i> <a href="#">Business</a></span>
-                    <span><i class="fa fa-pencil"></i><a>Admin</a></span>
-                </div> -->
+                <div class="tag-row">
+                    <span><i class="fa fa-bookmark"></i> <a href="#"><?= $model->group->name ?></a></span>
+                    <!-- <span><i class="fa fa-pencil"></i><a>Admin</a></span> -->
+                </div>
             </div>
         </div>
         <a class="img-box" href="blog-single-1.html">

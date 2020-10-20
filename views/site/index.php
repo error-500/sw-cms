@@ -146,18 +146,25 @@ if (!empty($page)) {
         <hr class="space m" />
          
         <div class="row" data-anima="fade-bottom" data-timeline="asc" data-timeline-time="200" data-ti>
-            <?php foreach ($delivery_slider->items as $delivery): ?>
-                <div class="col-md-4 anima" style="margin-bottom: 20px">
-                    <div class="advs-box advs-box-top-icon-img">
-                        <a class="img-box" href="#">
-                            <span><img src="<?= $delivery->imgSrc ?>" alt=""></span>
-                        </a>
-                        <div class="advs-box-content">
-                            <?= $delivery->text ?>
-                        </div>
+            <div class="col-md-12">
+                <?php $delivery_slider_chunks = array_chunk($delivery_slider->items, 3) ?>
+                <?php foreach ($delivery_slider_chunks as $delivery_slider_chunk): ?>
+                    <div class="row">
+                        <?php foreach ($delivery_slider_chunk as $item): ?>
+                            <div class="col-md-4 anima" style="margin-bottom: 20px">
+                                <div class="advs-box advs-box-top-icon-img advs-box-delivery">
+                                    <a class="img-box" href="#">
+                                        <span><img src="<?= $item->imgSrc ?>" alt=""></span>
+                                    </a>
+                                    <div class="advs-box-content">
+                                        <?= $item->text ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach ?>
                     </div>
-                </div>
-            <?php endforeach ?>
+                <?php endforeach ?>
+            </div>
         </div>
     </div>
 </div>

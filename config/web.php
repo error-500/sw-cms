@@ -50,6 +50,8 @@ $config = [
                 'menu/<menu:[\w_\-]+>' => 'menu/menu',
                 'page/<name:[\w_\-]+>' => 'site/page',
                 'contacts/' => 'site/contacts',
+                'reservation/' => 'site/reservation',
+                'news/' => '/news/list',
             ],
         ],
     ],

@@ -16,6 +16,6 @@ use yii\helpers\Url;
     </li>
 
     <li><a href="<?= Url::to('/delivery') ?>">Доставка <span class="caret"></span></a></li>
-    <li><a href="<?= Url::to('/reserv') ?>">Бронь <span class="caret"></span></a></li>
+    <li><a href="<?= Url::to('/reservation') ?>">Бронь <span class="caret"></span></a></li>
     <li><a href="<?= Url::to('/contacts') ?>">Контакты <span class="caret"></span></a></li>
 </ul>

@@ -10,25 +10,35 @@ class NewsController extends \yii\web\Controller
 {
     public $defaultAction = 'list';
 
-    public function actionList()
+    public function actionList($category = null)
     {
-        $query = Yii::$app->sw->getModule('blog')->item('find')->alias('i')->joinWith([
-            'group' => function($query) {
-                $query->alias('g')->where(['g.tech_name' => 'news']);
-            }
-        ])->where(['i.active' => 1])->orderBy('pos ASC');
+        $query = Yii::$app->sw->getModule('blog')
+            ->item('find')
+            ->alias('i')
+            ->joinWith([
+                'group' => function($query) use ($category) {
+                    $query->alias('g')->andFilterWhere(['g.tech_name' => $category]);
+                }
+            ])
+            ->where(['i.active' => 1])
+            ->orderBy('pos ASC');
 
         $newsProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => [
-                'pageSize' => 5,
+                'pageSize' => 1,
             ],
         ]);
+
+        // $page = Yii::$app->request->get('per-page') ?: 0;
+        // $per_page = Yii::$app->request->get('per-page') ?: 0;
+        // $offset = $page * $per_page;
 
         return $this->render('list', [
             'newsProvider' => $newsProvider,
             'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'news']),
-            // 'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'menu']),
+            'groups' => Yii::$app->sw->getModule('blog')->group('find')->all(),
+            'random_posts' => Yii::$app->sw->getModule('blog')->item('find')->orderBy('rand()')->limit('5')->all(),
         ]);
     }
 
@@ -47,6 +57,8 @@ class NewsController extends \yii\web\Controller
         return $this->render('single', [
             'item' => $item,
             'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'news']),
+            'groups' => Yii::$app->sw->getModule('blog')->group('find')->all(),
+            'random_posts' => Yii::$app->sw->getModule('blog')->item('find')->orderBy('rand()')->limit('5')->all(),
         ]);
     }
 }
