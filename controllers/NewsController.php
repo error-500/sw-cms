@@ -26,7 +26,7 @@ class NewsController extends \yii\web\Controller
         $newsProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => [
-                'pageSize' => 1,
+                'pageSize' => 5,
             ],
         ]);
 

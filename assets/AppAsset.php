@@ -22,7 +22,8 @@ class AppAsset extends AssetBundle
         'scripts/flexslider/flexslider.css',
         'scripts/social.stream.css',
         'scripts/magnific-popup.css',
-        '../../css/custom.css'
+        '../../css/custom.css',
+        // '../../css/icomoon.css',
     ];
 
     public $js = [
@@ -41,7 +42,8 @@ class AppAsset extends AssetBundle
         'scripts/jquery.progress-counter.js',
         'scripts/jquery.slimscroll.min.js',
         '../../js/custom.js',
-        'https://kit.fontawesome.com/d758724557.js',
+        // 'https://kit.fontawesome.com/d758724557.js',
+        // 'https://unpkg.com/ionicons@5.2.3/dist/ionicons.js',
     ];
 
     public $depends = [

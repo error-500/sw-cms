@@ -7,9 +7,7 @@
 }
 
 .shop-menu-cnt .cart-count {
-	right: 0px;
-	margin-top: -15px;
-	opacity: 0.90;
+	margin-top: -13px;
 }
 
 .shop-menu-cnt {
@@ -25,5 +23,13 @@
 }
 
 .shop-cart {
-	overflow-y: scroll;
+	overflow-y: auto;
+}
+
+.shop-cart .cart-item {
+	height: auto;
+}
+
+.add-to-cart {
+	cursor: pointer;
 }

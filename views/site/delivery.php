@@ -57,11 +57,11 @@ if (!empty($page)) {
                                                 <h3><?= $item->name ?></h3>
                                                 <span class="extra-content bg-green price"><?= $item->price ?> ₽</span>
                                                 <p><?= $item->consist ?></p>
-                                                <p class="sub"><?= $item->volume ?></p>
+                                                <p class="sub"><?= $item->volume ?><i class="fa-plus"></i></p>
+                                                <hr class="space m" />
+                                                <span class="add-to-cart" data-id="<?= $item->id ?>"><i class="im-add text-xl"></i></span>
                                             </div>
-                                            <a href="#" class="btn btn-border btn-xs add-to-cart" data-id="<?= $item->id ?>"><i class="fas fa-plus"></i></a>
                                         </div>
-                                        <hr class="space m" />
                                     </div>
                                 <?php endforeach ?>
                             <?php endforeach ?>

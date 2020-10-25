@@ -4,7 +4,7 @@ use yii\helpers\Url;
 
 ?>
 <?php if ($cart && $full): ?>
-    <i class="fas fa-shopping-bag text-green"><span class="cart-count bg-green-select"><?= array_sum(array_column($cart['items'], 'count')) ?></span></i>
+    <i class="fa fa-shopping-cart"><span class="cart-count bg-green-select"><?= array_sum(array_column($cart['items'], 'count')) ?></span></i>
     <div class="shop-menu">
         <ul class="shop-cart">
             <?php foreach ($cart['items'] as $id => $item): ?>
@@ -13,7 +13,7 @@ use yii\helpers\Url;
                     <div class="cart-content">
                         <h5><?= $item['obj']->name ?></h5>
                         <span class="cart-quantity">
-                            <?= $item['count'] ?> x <?= $item['obj']->price ?> ₽
+                            <?= $item['count'] ?> x <?= number_format($item['obj']->price) ?> ₽
                         </span>
                     </div>
                 </li>

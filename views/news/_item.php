@@ -14,14 +14,14 @@ use yii\helpers\Url;
                 <!-- <a class="block-comment" href="#">2 <i class="fa fa-comment-o"></i></a> -->
             </div>
             <div class="block-title">
-                <h2><a href="blog-single-1.html"><?= $model->title ?></a></h2>
+                <h2><a href="<?= Url::to(['/news/single', 'id' => $model->id]) ?>"><?= $model->title ?></a></h2>
                 <div class="tag-row">
                     <span><i class="fa fa-bookmark"></i> <a href="#"><?= $model->group->name ?></a></span>
                     <!-- <span><i class="fa fa-pencil"></i><a>Admin</a></span> -->
                 </div>
             </div>
         </div>
-        <a class="img-box" href="blog-single-1.html">
+        <a class="img-box" href="<?= Url::to(['/news/single', 'id' => $model->id]) ?>">
             <img src="<?= $model->imgSrc ?? '/theme/main/images/gallery/large-1.jpg' ?>" alt="">
         </a>
         <p class="excerpt">

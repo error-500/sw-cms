@@ -14,19 +14,19 @@ $('.add-to-cart').on('click', function() {
             id: $(this).data('id')
         },
         beforeSend: function() {
-            icon.toggleClass('fa-plus fa-spinner fa-pulse');
+            icon.toggleClass('im-add im-arrow-refresh');
         },
         success: function(data) {
             $('.shop-menu-cnt').html(data['full']);
             $('.cart-li-mobile').html(data['mobile']);
-            icon.toggleClass('fa-check fa-spinner fa-pulse');
+            icon.toggleClass('im-arrow-refresh im-yes');
 
             setTimeout(function() {
-                icon.toggleClass('fa-check fa-plus');
+                icon.toggleClass('im-yes im-add');
             }, 1500);
         },
         error: function(data) {
-            icon.toggleClass('fa-times fa-spinner fa-pulse');
+            icon.toggleClass('im-arrow-refresh im-close');
         }
     })
 });

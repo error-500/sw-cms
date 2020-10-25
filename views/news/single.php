@@ -59,7 +59,10 @@ if (!empty($page)) {
                     <p class="list-group-item active">Случаные публикации</p>
                     <?php foreach ($random_posts as $random_post): ?>
                         <div class="list-group-item">
-                            <div class="tag-row icon-row"><span><i class="fa fa-calendar"></i><?= date('d.m.Y', strtotime($random_post->created)) ?></span></div>
+                            <div class="tag-row icon-row">
+                                <span><i class="fa fa-calendar"></i><?= date('d.m.Y', strtotime($random_post->created)) ?></span>
+                                <span><i class="fa fa-bookmark"></i><?= $random_post->group->name ?></span>
+                            </div>
                             <a href="<?= Url::to(['/news/single', 'id' => $random_post->id]) ?>">
                                 <h5><?= $random_post->title ?></h5>
                             </a>
