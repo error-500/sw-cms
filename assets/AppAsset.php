@@ -40,7 +40,8 @@ class AppAsset extends AssetBundle
         'scripts/php/contact-form.js',
         'scripts/jquery.progress-counter.js',
         'scripts/jquery.slimscroll.min.js',
-        '../../js/custom.js'
+        '../../js/custom.js',
+        'https://kit.fontawesome.com/d758724557.js',
     ];
 
     public $depends = [

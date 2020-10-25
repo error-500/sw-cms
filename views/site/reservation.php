@@ -20,13 +20,11 @@ if (!empty($page)) {
         </div>
     </div>
 </div> -->
-
-<div class="header-title ken-burn-center white" data-parallax="scroll" data-position="top" data-natural-height="850" data-natural-width="1920" data-image-src="<?= $header_img ?>">
+<div class="header-title ken-burn white" data-parallax="scroll" data-bleed="0" data-position="top" data-image-src="<?= $header_img ?>">
     <div class="container">
         <div class="title-base">
             <hr class="anima" />
-            <h1>Reservation two</h1>
-            <p>Book a table now and check informations about our company and our philosophy</p>
+            <?= $page->text ?? '' ?>
         </div>
     </div>
 </div>

@@ -5,3 +5,25 @@
 .extra-content {
 	cursor: pointer;
 }
+
+.shop-menu-cnt .cart-count {
+	right: 0px;
+	margin-top: -15px;
+	opacity: 0.90;
+}
+
+.shop-menu-cnt {
+	/*color: gray !important;*/
+}
+
+.bg-green {
+    background-color: #91a56d !important;
+}
+
+.text-green {
+    color: #91a56d !important;
+}
+
+.shop-cart {
+	overflow-y: scroll;
+}

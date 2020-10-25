@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Url;
+use app\widgets\cart\Cart;
 
 $main_logo_white = Yii::$app->sw->getModule('file_manager')->item('findOne', ['tech_name' => 'main_logo_white'])->filePath ?? null;
 $main_logo_green = Yii::$app->sw->getModule('file_manager')->item('findOne', ['tech_name' => 'main_logo_green'])->filePath ?? null;
@@ -36,7 +37,8 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
 
                     <div class="nav navbar-nav navbar-right">
                         <div class="shop-menu-cnt">
-                            <i class="fa fa-shopping-cart"><span class="cart-count">1</span></i>
+                            <?= Cart::widget() ?>
+                            <!-- <i class="fas fa-shopping-bag text-green"><span class="cart-count bg-green-select">1</span></i>
                             <div class="shop-menu">
                                 <ul class="shop-cart">
                                     <li class="cart-item">
@@ -56,7 +58,7 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
                                     <a href="#" class="btn btn-xs cart-view">View Cart</a>
                                     <a href="#" class="btn btn-xs cart-checkout">Checkout</a>
                                 </p>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="search-box-menu">
                             <div class="search-box scrolldown">

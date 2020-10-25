@@ -51,6 +51,8 @@ $config = [
                 'page/<name:[\w_\-]+>' => 'site/page',
                 'contacts/' => 'site/contacts',
                 'reservation/' => 'site/reservation',
+                'delivery/' => 'site/delivery',
+                'delivery/<menu:[\w_\-]+>' => 'site/delivery',
                 'news/' => '/news/list',
             ],
         ],

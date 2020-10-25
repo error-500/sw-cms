@@ -67,4 +67,40 @@ class SiteController extends \yii\web\Controller
             'reservation_block' => Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'reservation']),
         ]);
     }
+
+    public function actionDelivery($menu = null)
+    {
+        if ($menu) {
+            $group = Yii::$app->sw->getModule('product')->group('find')
+                ->where([
+                    'it.is_delivery' => 1,
+                    'sw_product_group.tech_name' => $menu,
+                ])
+                ->joinWith([
+                    'groups g2' => function($query) {
+                        $query->joinWith([
+                            'items it' => function($query) {
+                                $query->orderBy('it.pos ASC');
+                            }, 
+                        ])->indexBy('tech_name');
+                    }
+                ])
+                ->one();
+
+            if (!$group) {
+                throw new NotFoundHttpException('Меню не найдено');
+            }
+        } else {
+            $random_items = Yii::$app->sw->getModule('product')->item('find')
+                ->where(['is_delivery' => 1])
+                ->orderBy('rand()')
+                ->limit(9)
+                ->all();
+        }
+
+        return $this->render('delivery', [
+            'group' => $group ?? null,
+            'random_items' => $random_items ?? null,
+        ]);
+    }
 }

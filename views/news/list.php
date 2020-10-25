@@ -3,7 +3,7 @@
 use yii\widgets\ListView;
 use yii\helpers\Url;
 
-$header_img = $page->imgSrc ?: '/theme/main/images/bg-23.jpg';
+$header_img = $page->imgSrc ?? '/theme/main/images/bg-23.jpg';
 
 if (!empty($page)) {
     $this->title = $page->title;
