@@ -4146,7 +4146,7 @@ LIST GRID & MASO
 ============================== 
 */
 .grid-box.row {
-    margin: -5px;
+    /*margin: -5px;*/
     width: 100%;
     width: calc(100% + 10px);
 }
