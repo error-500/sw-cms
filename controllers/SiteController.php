@@ -104,6 +104,7 @@ class SiteController extends \yii\web\Controller
 
         return $this->render('delivery', [
             'menu' => $menu,
+            'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'delivery']),
             'show_menu_items' => $show_menu_items,
             'sub_group_name' => $sub_group,
         ]);
