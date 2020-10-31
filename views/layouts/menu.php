@@ -30,15 +30,7 @@ $delivery = Yii::$app->sw->getModule('product')->group('find')
         </ul>
     </li>
 
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Доставка <span class="caret"></span></a>
-        <ul class="dropdown-menu multi-level">
-            <?php foreach ($delivery as $menu): ?>
-                <li><a href="<?= Url::to(["/delivery/{$menu->tech_name}"]) ?>"><?= $menu->name ?></a></li>
-            <?php endforeach ?>
-        </ul>
-    </li>
-
+    <li><a href="<?= Url::to('/delivery') ?>">Доставка <span class="caret"></span></a></li>
     <li><a href="<?= Url::to('/reservation') ?>">Бронь <span class="caret"></span></a></li>
     <li><a href="<?= Url::to('/contacts') ?>">Контакты <span class="caret"></span></a></li>
 </ul>

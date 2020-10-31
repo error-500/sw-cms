@@ -33,3 +33,19 @@
 .add-to-cart {
 	cursor: pointer;
 }
+
+.delivery-parent {
+    cursor: pointer;
+}
+
+.delivery-parent:hover {
+    color: #9b2d30; 
+}
+
+.delivery-parent.active {
+    color: #9b2d30; 
+}
+
+.img-box:before {
+	background: none;
+}

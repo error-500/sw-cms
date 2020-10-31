@@ -81,3 +81,8 @@ if (!empty($page)) {
         <?= $reservation_block->text ?>
     </div>
 </div>
+<div class="section-map box-middle-container row-18">
+    <div class="google-map">
+        <?= $map_constant->value ?>
+    </div>
+</div>

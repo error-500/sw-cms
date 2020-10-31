@@ -152,7 +152,7 @@ if (!empty($page)) {
                     <div class="row">
                         <?php foreach ($delivery_slider_chunk as $item): ?>
                             <div class="col-md-4 anima" style="margin-bottom: 20px">
-                                <div class="advs-box advs-box-top-icon-img advs-box-delivery">
+                                <div class="advs-box advs-box-top-icon-img">
                                     <a class="img-box" href="#">
                                         <span><img src="<?= $item->imgSrc ?>" alt=""></span>
                                     </a>
@@ -180,5 +180,10 @@ if (!empty($page)) {
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<div class="section-map box-middle-container row-18">
+    <div class="google-map">
+        <?= $map_constant->value ?>
     </div>
 </div>

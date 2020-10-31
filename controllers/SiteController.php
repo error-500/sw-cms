@@ -32,6 +32,7 @@ class SiteController extends \yii\web\Controller
             'chefs_main_block_file' => Yii::$app->sw->getModule('file_manager')->item('findOne', ['tech_name' => 'quote_main_page']),
             'chefs_main_block' => Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'chefs_main_page']),
             'delivery_slider' => Yii::$app->sw->getModule('slider')->group('findOne', ['tech_name' => 'delivery_main_page']),
+            'map_constant' => Yii::$app->sw->getModule('constant')->item('findOne', ['tech_name' => 'map']),
         ]);
     }
 
@@ -65,10 +66,50 @@ class SiteController extends \yii\web\Controller
         return $this->render('reservation', [
             'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'reservation']),
             'reservation_block' => Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'reservation']),
+            'map_constant' => Yii::$app->sw->getModule('constant')->item('findOne', ['tech_name' => 'map']),
         ]);
     }
 
-    public function actionDelivery($menu = null)
+    public function actionDelivery($sub_group = null)
+    {
+        $menu = Yii::$app->sw->getModule('product')->group('find')
+            ->where(['it.is_delivery' => 1])
+            ->joinWith([
+                'groups g2' => function($query) {
+                    $query->where(['it.is_delivery' => 1])->joinWith([
+                        'items it' => function($query) {
+                            $query->orderBy('pos ASC');
+                        }, 
+                        'parent p2'
+                    ])->indexBy('tech_name');
+                }
+            ])
+            ->all();
+
+        $show_menu = Yii::$app->sw->getModule('product')->item('find')->where(['is_delivery' => 1]);
+
+        if ($sub_group) {
+            $show_menu->andWhere([
+                'tech_name' => $sub_group,
+            ])->joinWith(['group'])->orderBy('pos ASC');
+        } else {
+            $show_menu->orderBy('rand()')->limit(9);
+        }
+
+        $show_menu_items = $show_menu->all();
+
+        if (!$show_menu_items) {
+            throw new NotFoundHttpException('Меню не найдено');
+        }
+
+        return $this->render('delivery', [
+            'menu' => $menu,
+            'show_menu_items' => $show_menu_items,
+            'sub_group_name' => $sub_group,
+        ]);
+    }
+
+    public function actionDelivery2($menu = null)
     {
         if ($menu) {
             $group = Yii::$app->sw->getModule('product')->group('find')

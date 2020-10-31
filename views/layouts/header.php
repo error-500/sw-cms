@@ -36,6 +36,9 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
                     <?= $this->render('menu') ?>
 
                     <div class="nav navbar-nav navbar-right">
+                        <ul class="nav navbar-nav">
+                            <?= Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'header_icons'])->text ?? '' ?>
+                        </ul>
                         <div class="shop-menu-cnt">
                             <?= Cart::widget() ?>
                             <!-- <i class="fas fa-shopping-bag text-green"><span class="cart-count bg-green-select">1</span></i>
@@ -60,20 +63,15 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
                                 </p>
                             </div> -->
                         </div>
-                        <div class="search-box-menu">
-                            <div class="search-box scrolldown">
-                                <input type="text" class="form-control" placeholder="Search for...">
-                            </div>
-                            <button type="button" class="btn btn-default btn-search">
-                                <span class="fa fa-search"></span>
-                            </button>
-                        </div>
+
                         <ul class="nav navbar-nav lan-menu">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><img src="/theme/main/images/en.png" alt="" />En<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#"><img src="/theme/main/images/it.png" alt="" />IT</a></li>
-                                </ul>
+                            <!-- <li class="dropdown"> -->
+                            <li>
+                                <a href="#" role="button"><img src="/theme/main/images/en.png" alt="" />En<span class="caret"></span></a>
+                                <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><img src="/theme/main/images/en.png" alt="" />En<span class="caret"></span></a> -->
+                                <!-- <ul class="dropdown-menu">
+                                    <li><a href="#"><img src="/theme/main/images/en.png" alt="" />IT</a></li>
+                                </ul> -->
                             </li>
                         </ul>
                     </div>

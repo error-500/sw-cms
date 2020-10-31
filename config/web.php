@@ -52,7 +52,7 @@ $config = [
                 'contacts/' => 'site/contacts',
                 'reservation/' => 'site/reservation',
                 'delivery/' => 'site/delivery',
-                'delivery/<menu:[\w_\-]+>' => 'site/delivery',
+                'delivery/<sub_group:[\w_\-]+>' => 'site/delivery',
                 'news/' => '/news/list',
             ],
         ],

@@ -28,10 +28,11 @@ class AppAsset extends AssetBundle
 
     public $js = [
         'scripts/jquery.min.js',
+        'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js',
         'scripts/script.js',
         'scripts/parallax.min.js',
         'scripts/flexslider/jquery.flexslider-min.js',
-        'scripts/bootstrap/js/bootstrap.min.js',
+        // 'scripts/bootstrap/js/bootstrap.min.js',
         'scripts/imagesloaded.min.js',
         'scripts/isotope.min.js',
         'scripts/jquery.twbsPagination.min.js',

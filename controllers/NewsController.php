@@ -37,7 +37,7 @@ class NewsController extends \yii\web\Controller
         return $this->render('list', [
             'newsProvider' => $newsProvider,
             'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'news']),
-            'groups' => Yii::$app->sw->getModule('blog')->group('find')->all(),
+            'groups' => Yii::$app->sw->getModule('blog')->group('find')->orderBy('pos ASC')->all(),
             'random_posts' => Yii::$app->sw->getModule('blog')->item('find')->orderBy('rand()')->limit('5')->all(),
         ]);
     }
