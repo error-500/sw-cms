@@ -2279,8 +2279,8 @@ div .accordion-list > div:last-child {
 }
 
 .adv-img-full-content:hover > .img-box:not(.caption-bg), .advs-box-top-icon-img:hover:after, .advs-box-blog:hover .col-md-4 .img-box {
-    transform: scale(1.0808);
-    box-shadow: 0 18px 55px 0 rgba(0, 0, 0, 0.36);
+    /*transform: scale(1.0808);*/
+    /*box-shadow: 0 18px 55px 0 rgba(0, 0, 0, 0.36);*/
 }
 
 .adv-img-full-content:hover h2:after {
@@ -2312,7 +2312,7 @@ div .accordion-list > div:last-child {
 }
 
 .advs-box-top-icon-img:not(.niche-box-post):hover .img-box {
-    transform: scale(1.0808) translateY(-7px);
+    /*transform: scale(1.0808) translateY(-7px);*/
 }
 
 .advs-box-blog:hover .col-md-4 .img-box {

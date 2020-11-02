@@ -49,3 +49,8 @@
 .img-box:before {
 	background: none;
 }
+
+.no-transform:after {
+    transform: none !important;
+    box-shadow: none;
+}
