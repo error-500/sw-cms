@@ -14,7 +14,7 @@ $('.add-to-cart').on('click', function() {
             id: $(this).data('id')
         },
         beforeSend: function() {
-            icon.toggleClass('im-add im-arrow-refresh');
+            icon.toggleClass('im-add-cart im-arrow-refresh');
         },
         success: function(data) {
             $('.shop-menu-cnt').html(data['full']);
@@ -22,7 +22,7 @@ $('.add-to-cart').on('click', function() {
             icon.toggleClass('im-arrow-refresh im-yes');
 
             setTimeout(function() {
-                icon.toggleClass('im-yes im-add');
+                icon.toggleClass('im-yes im-add-cart');
             }, 1500);
         },
         error: function(data) {

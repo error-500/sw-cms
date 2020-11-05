@@ -2,9 +2,9 @@
 
 use yii\helpers\Html;
 
-$this->title = 'Добвить константу';
+$this->title = 'Добавить константу';
 $this->params['block'] = 'Система';
-$this->params['title'] = 'Добвить константу';
+$this->params['title'] = 'Добавить константу';
 
 ?>
 

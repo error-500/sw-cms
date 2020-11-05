@@ -72,12 +72,12 @@ if (!empty($page)) {
                                             <span><img src="<?= $item->imgThumbSrc ?>" alt=""></span>
                                         </a>
                                         <div class="advs-box-content">
-                                            <h4><?= $item->price ?> ₽</h4>
+                                            <!-- <h4><?= $item->price ?> ₽</h4> -->
                                             <h3><?= $item->name ?></h3>
-                                            <!-- <span class="extra-content bg-green price"><?= $item->price ?> ₽</span> -->
+                                            <span class="extra-content bg-green price add-to-cart" data-id="<?= $item->id ?>">Добавить <i class="fa im-add-cart"></i> </span>
                                             <p><?= $item->consist ?></p>
                                             <p class="sub"><?= $item->volume ?></p>
-                                            <a href="#" class="btn btn-xs add-to-cart" data-id="<?= $item->id ?>">Добавить</a>
+                                            <h3><?= $item->price ?> ₽</h3>
                                         </div>
                                     </div>
                                     <hr class="space m" />

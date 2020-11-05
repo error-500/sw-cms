@@ -54,3 +54,7 @@
     transform: none !important;
     box-shadow: none;
 }
+
+.parallax-mirror img {
+    opacity: 0.5;
+}

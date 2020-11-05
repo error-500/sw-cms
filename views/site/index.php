@@ -43,7 +43,7 @@ if (!empty($page)) {
                         <div class="img-box">
                             <img src="<?= $item->imgSrc ?>" alt="" />
                         </div>
-                        <a href="#" class="caption-bg img-box">
+                        <a href="<?= $item->href ?: '#' ?>" class="caption-bg img-box">
                             <div class="caption">
                                 <div class="inner">
                                     <h2><?= $item->title ?></h2>
