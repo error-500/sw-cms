@@ -21,6 +21,12 @@ class SiteController extends \yii\web\Controller
         $menu_random_block_text = Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'menu_random_main_page'])->text ?? '';
         $menu_random_block_text = explode('{separate}', $menu_random_block_text);
 
+        $random_delivery_menu = Yii::$app->sw->getModule('product')->item('find')
+            ->where(['is_delivery' => 1])
+            ->orderBy('rand()')
+            ->limit(6)
+            ->all();
+
         return $this->render('index', [
             'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'main']),
             'video_block' => Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'video_main_page']),
@@ -33,6 +39,7 @@ class SiteController extends \yii\web\Controller
             'chefs_main_block' => Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'chefs_main_page']),
             'delivery_slider' => Yii::$app->sw->getModule('slider')->group('findOne', ['tech_name' => 'delivery_main_page']),
             'map_constant' => Yii::$app->sw->getModule('constant')->item('findOne', ['tech_name' => 'map']),
+            'random_delivery_menu' => $random_delivery_menu,
         ]);
     }
 

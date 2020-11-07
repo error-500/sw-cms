@@ -31,9 +31,10 @@ if (!empty($page)) {
                 </a>
             </div>
         </div>
-        <hr class="space m" />
-        <hr />
-        <hr class="space m" />
+    </div>
+</div>
+<div class="section-bg-color">
+    <div class="container content">
         <?= $our_place_slider->text ?>
         <div class="row">
             <?php $block_size = 12 / count($our_place_slider->items) ?>
@@ -144,26 +145,35 @@ if (!empty($page)) {
             <?= $delivery_slider->text ?>
         </div>
         <hr class="space m" />
+
+        
          
         <div class="row" data-anima="fade-bottom" data-timeline="asc" data-timeline-time="200" data-ti>
             <div class="col-md-12">
-                <?php $delivery_slider_chunks = array_chunk($delivery_slider->items, 3) ?>
-                <?php foreach ($delivery_slider_chunks as $delivery_slider_chunk): ?>
-                    <div class="row">
-                        <?php foreach ($delivery_slider_chunk as $item): ?>
-                            <div class="col-md-4 anima" style="margin-bottom: 20px">
-                                <div class="advs-box advs-box-top-icon-img">
-                                    <a class="img-box" href="#">
-                                        <span><img src="<?= $item->imgSrc ?>" alt=""></span>
-                                    </a>
-                                    <div class="advs-box-content">
-                                        <?= $item->text ?>
+                <div class="grid-list">
+                    <?php foreach (array_chunk($random_delivery_menu, 3) as $chunk_item): ?>
+                        <div class="grid-box row">
+                            <?php foreach ($chunk_item as $item): ?>
+                                <div class="grid-item col-md-4">
+                                    <div class="advs-box advs-box-top-icon-img advs-box-delivery">
+                                        <a class="img-box" href="#">
+                                            <span><img src="<?= $item->imgThumbSrc ?>" alt=""></span>
+                                        </a>
+                                        <div class="advs-box-content">
+                                            <!-- <h4><?= $item->price ?> ₽</h4> -->
+                                            <h3><?= $item->name ?></h3>
+                                            <span class="extra-content bg-green price add-to-cart" data-id="<?= $item->id ?>">Добавить <i class="fa im-add-cart"></i> </span>
+                                            <p><?= $item->consist ?></p>
+                                            <p class="sub"><?= $item->volume ?></p>
+                                            <h3><?= $item->price ?> ₽</h3>
+                                        </div>
                                     </div>
+                                    <hr class="space m" />
                                 </div>
-                            </div>
-                        <?php endforeach ?>
-                    </div>
-                <?php endforeach ?>
+                            <?php endforeach ?>
+                        </div>
+                    <?php endforeach ?>
+                </div>
             </div>
         </div>
     </div>
