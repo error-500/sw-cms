@@ -18,7 +18,7 @@ if (!empty($page)) {
         <div class="title-base">
             <hr class="anima" />
             <h1><?= $item->title ?></h1>
-            <p><?= date('d.m.Y', strtotime($item->created)) ?></p>
+            <!-- <p><?= date('d.m.Y', strtotime($item->created)) ?></p> -->
         </div>
     </div>
 </div>
