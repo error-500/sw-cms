@@ -36,9 +36,6 @@ if (!empty($page)) {
                             <a data-social="share-twitter" class="btn btn-default">
                                 <i class="fa fa-twitter"></i>
                             </a>
-                            <a data-social="share-google" class="btn btn-default">
-                                <i class="fa fa-google-plus"></i>
-                            </a>
                         </div>
                     </div>
                     <div class="col-md-6 text-right">
