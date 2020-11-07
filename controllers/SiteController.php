@@ -27,6 +27,9 @@ class SiteController extends \yii\web\Controller
             ->limit(6)
             ->all();
 
+        $contacts_block_text = Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'contacts'])->text ?? '';
+        $contacts_block_text = explode('{separate}', $contacts_block_text);
+
         return $this->render('index', [
             'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'main']),
             'video_block' => Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'video_main_page']),
@@ -40,6 +43,7 @@ class SiteController extends \yii\web\Controller
             'delivery_slider' => Yii::$app->sw->getModule('slider')->group('findOne', ['tech_name' => 'delivery_main_page']),
             'map_constant' => Yii::$app->sw->getModule('constant')->item('findOne', ['tech_name' => 'map']),
             'random_delivery_menu' => $random_delivery_menu,
+            'contacts_block_text' => $contacts_block_text,
         ]);
     }
 

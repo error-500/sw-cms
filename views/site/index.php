@@ -146,7 +146,7 @@ if (!empty($page)) {
         </div>
         <hr class="space m" />
 
-        
+
          
         <div class="row" data-anima="fade-bottom" data-timeline="asc" data-timeline-time="200" data-ti>
             <div class="col-md-12">
@@ -195,5 +195,17 @@ if (!empty($page)) {
 <div class="section-map box-middle-container row-18">
     <div class="google-map">
         <?= $map_constant->value ?>
+    </div>
+    <div class="overlaybox overlaybox-side overlaybox">
+        <div class="container content">
+            <div class="row">
+                <div class="col-md-6 overlaybox-inner box-middle" data-anima="fade-left">
+                    <div class="row">
+                        <?= $contacts_block_text[0] ?? '' ?> 
+                    </div>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+        </div>
     </div>
 </div>
