@@ -96,7 +96,7 @@
     if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
       if (this.imageSrc && this.iosFix && !this.$element.is('img')) {
         this.$element.css({
-          backgroundImage: 'url(' + this.imageSrc + ')',
+          backgroundImage: 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(' + this.imageSrc + ')',
           backgroundSize: 'cover',
           backgroundPosition: this.position
         });
@@ -107,7 +107,7 @@
     if (navigator.userAgent.match(/(Android)/)) {
       if (this.imageSrc && this.androidFix && !this.$element.is('img')) {
         this.$element.css({
-          backgroundImage: 'url(' + this.imageSrc + ')',
+          backgroundImage: 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(' + this.imageSrc + ')',
           backgroundSize: 'cover',
           backgroundPosition: this.position
         });

@@ -43,8 +43,12 @@ $this->params['title'] = 'Элементы';
                             'class' => 'yii\grid\ActionColumn',
                             'contentOptions' => ['style' => 'white-space:nowrap;'],
                             'header' => 'Действия',
-                            'template' => '{update} {delete}',
+                            'template' => '{lang} | {update} {delete}',
                             'buttons' => [
+                                'lang' => function ($url, $model) {
+                                    $return = Html::a('<i class="icon-earth"></i>', ['/sw/page/item/update', 'id' => $model->id]);
+                                    return $return;
+                                },
                                 'update' => function ($url, $model) {
                                     return Html::a('<i class="icon-pencil"></i>', ['/sw/page/item/update', 'id' => $model->id]);
                                 },
@@ -59,8 +63,12 @@ $this->params['title'] = 'Элементы';
                         ],
                     ],
                 ]); ?>
+
+
             </div>
         </div>
     </div>
 </div>
+
+
 
