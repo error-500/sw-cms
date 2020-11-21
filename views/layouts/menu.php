@@ -21,7 +21,7 @@ $delivery = Yii::$app->sw->getModule('product')->group('find')
 <ul class="nav navbar-nav">
     <li><a href="<?= Url::to('/news') ?>">Лента <span class="caret"></span></a></li>
     
-    <?php foreach (Yii::$app->sw->getModule('product')->group('find')->where(['parent_id' => null])->orderBy('pos ASC')->all() as $main_product): ?>
+    <?php foreach (Yii::$app->sw->getModule('product')->group('find')->alias('mg')->where(['mg.parent_id' => null])->joinWith('groups gs')->orderBy('gs.pos ASC')->all() as $main_product): ?>
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><?= $main_product->name ?> <span class="caret"></span></a>
             <ul class="dropdown-menu multi-level">
