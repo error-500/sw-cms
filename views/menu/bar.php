@@ -37,7 +37,7 @@ if (!empty($page)) {
                                     <div class="row">
                                         <div class="col-md-9">
                                             <h3><?= $item->name ?></h3>
-                                            <p><?= $item->consist ?> <?= !empty($item->volume) ? "Объем: {$item->volume}" : '' ?></p>
+                                            <p><?= $item->consist ?> <?= !empty($item->volume) ? "<br>{$item->volume}" : '' ?></p>
                                         </div>
                                         <div class="col-md-3">
                                             <span><?= $item->price ?>₽</span>
