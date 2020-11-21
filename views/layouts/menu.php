@@ -2,18 +2,15 @@
 
 use yii\helpers\Url;
 
-$delivery = Yii::$app->sw->getModule('product')->group('find')
-    ->where(['it.is_delivery' => 1])
+$menu = Yii::$app->sw->getModule('product')->group('find')
+    ->alias('mg')
+    ->where(['mg.parent_id' => null])
     ->joinWith([
-        'groups g2' => function($query) {
-            $query->joinWith([
-                'items it' => function($query) {
-                    $query->orderBy('pos ASC');
-                }, 
-                'parent p2'
-            ])->indexBy('tech_name');
+        'groups gs' => function($query) {
+            $query->orderBy('gs.pos ASC');
         }
     ])
+    ->orderBy('mg.pos ASC')
     ->all();
 
 ?>
@@ -21,7 +18,7 @@ $delivery = Yii::$app->sw->getModule('product')->group('find')
 <ul class="nav navbar-nav">
     <li><a href="<?= Url::to('/news') ?>">Лента <span class="caret"></span></a></li>
     
-    <?php foreach (Yii::$app->sw->getModule('product')->group('find')->alias('mg')->where(['mg.parent_id' => null])->joinWith('groups gs')->orderBy('gs.pos ASC')->all() as $main_product): ?>
+    <?php foreach ($menu as $main_product): ?>
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><?= $main_product->name ?> <span class="caret"></span></a>
             <ul class="dropdown-menu multi-level">
