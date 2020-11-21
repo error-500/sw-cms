@@ -1,5 +1,7 @@
 <?php
 
+use yii\helpers\Url;
+
 if (!empty($page)) {
     $this->title = $page->title;
     $this->params['keywords'] = $page->keywords;
@@ -145,9 +147,6 @@ if (!empty($page)) {
             <?= $delivery_slider->text ?>
         </div>
         <hr class="space m" />
-
-
-         
         <div class="row" data-anima="fade-bottom" data-timeline="asc" data-timeline-time="200" data-ti>
             <div class="col-md-12">
                 <div class="grid-list">
@@ -175,6 +174,9 @@ if (!empty($page)) {
                     <?php endforeach ?>
                 </div>
             </div>
+        </div>
+        <div class="text-center">
+            <a href="<?= Url::to('/delivery') ?>" class="btn btn-sm">В магазин</a>
         </div>
     </div>
 </div>
