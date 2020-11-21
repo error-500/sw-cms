@@ -24,7 +24,11 @@ class SiteController extends \yii\web\Controller
         $random_delivery_menu = Yii::$app->sw->getModule('product')->item('find')
             ->joinWith([
                 'group' => function($query) {
-                    $query->joinWith('parent pt')->where(['pt.tech_name' => 'food']);
+                    $query->joinWith([
+                        'parent sub' => function($query) {
+                            $query->joinWith('parent parent')->where(['parent.tech_name' => 'food']);
+                        }
+                    ]);
                 }
             ])
             ->where(['is_delivery' => 1])
@@ -48,7 +52,11 @@ class SiteController extends \yii\web\Controller
         $menu_random = Yii::$app->sw->getModule('product')->item('find')
             ->joinWith([
                 'group' => function($query) {
-                    $query->joinWith('parent pt')->where(['pt.tech_name' => 'food']);
+                    $query->joinWith([
+                        'parent sub' => function($query) {
+                            $query->joinWith('parent parent')->where(['parent.tech_name' => 'food']);
+                        }
+                    ]);
                 }
             ])
             ->limit(10)
