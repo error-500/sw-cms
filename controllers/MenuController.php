@@ -27,7 +27,9 @@ class MenuController extends \yii\web\Controller
             throw new NotFoundHttpException('Меню не найдено');
         }
 
-        return $this->render('menu', [
+        $view = $menu->parent->tech_name == 'bar' ? 'bar' : 'menu';
+
+        return $this->render($view, [
             'menu' => $menu,
             'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'menu']),
         ]);
