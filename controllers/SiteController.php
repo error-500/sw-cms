@@ -22,6 +22,11 @@ class SiteController extends \yii\web\Controller
         $menu_random_block_text = explode('{separate}', $menu_random_block_text);
 
         $random_delivery_menu = Yii::$app->sw->getModule('product')->item('find')
+            ->joinWith([
+                'group' => function($query) {
+                    $query->joinWith('parent pt')->where(['pt.tech_name' => 'food']);
+                }
+            ])
             ->where(['is_delivery' => 1])
             ->orderBy('rand()')
             ->limit(6)
@@ -30,13 +35,34 @@ class SiteController extends \yii\web\Controller
         $contacts_block_text = Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'contacts'])->text ?? '';
         $contacts_block_text = explode('{separate}', $contacts_block_text);
 
+        $menu_random = Yii::$app->sw->getModule('product')->item('find')
+            ->joinWith([
+                'group' => function($query) {
+                    $query->joinWith('parent pt')->where(['pt.tech_name' => 'food']);
+                }
+            ])
+            ->limit(10)
+            ->orderBy('RAND()')
+            ->all();
+
+        $menu_random = Yii::$app->sw->getModule('product')->item('find')
+            ->joinWith([
+                'group' => function($query) {
+                    $query->joinWith('parent pt')->where(['pt.tech_name' => 'food']);
+                }
+            ])
+            ->limit(10)
+            ->orderBy('RAND()')
+            ->all();
+
+
         return $this->render('index', [
             'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'main']),
             'video_block' => Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'video_main_page']),
             'about_block' => Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'about_main_page']),
             'our_place_slider' => Yii::$app->sw->getModule('slider')->group('findOne', ['tech_name' => 'our_place_main_page']),
             'menu_random_block_text' => $menu_random_block_text,
-            'menu_random' => Yii::$app->sw->getModule('product')->item('find')->limit(10)->orderBy('RAND()')->all(),
+            'menu_random' => $menu_random,
             'quotes_slider' => Yii::$app->sw->getModule('slider')->group('findOne', ['tech_name' => 'quotes_main_page']),
             'chefs_main_block_file' => Yii::$app->sw->getModule('file_manager')->item('findOne', ['tech_name' => 'quote_main_page']),
             'chefs_main_block' => Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'chefs_main_page']),
