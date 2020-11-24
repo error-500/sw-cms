@@ -4,6 +4,8 @@ namespace app\controllers;
 
 use Yii;
 use yii\web\NotFoundHttpException;
+use yii\data\ArrayDataProvider;
+use app\models\Cart;
 
 class SiteController extends \yii\web\Controller
 {
@@ -155,39 +157,43 @@ class SiteController extends \yii\web\Controller
         ]);
     }
 
-    public function actionDelivery2($menu = null)
+    public function actionCheckout()
     {
-        if ($menu) {
-            $group = Yii::$app->sw->getModule('product')->group('find')
-                ->where([
-                    'it.is_delivery' => 1,
-                    'sw_product_group.tech_name' => $menu,
-                ])
-                ->joinWith([
-                    'groups g2' => function($query) {
-                        $query->joinWith([
-                            'items it' => function($query) {
-                                $query->orderBy('it.pos ASC');
-                            }, 
-                        ])->indexBy('tech_name');
-                    }
-                ])
-                ->one();
+        $checkout = new Cart;
 
-            if (!$group) {
-                throw new NotFoundHttpException('Меню не найдено');
-            }
-        } else {
-            $random_items = Yii::$app->sw->getModule('product')->item('find')
-                ->where(['is_delivery' => 1])
-                ->orderBy('rand()')
-                ->limit(9)
-                ->all();
+        if ($checkout->load(Yii::$app->request->post()) && $checkout->send()) {
+            Yii::$app->session->setFlash('contactFormSubmitted');
+            Yii::$app->session->set('cart', []);
+            return $this->redirect(['/delivery']);
         }
 
-        return $this->render('delivery', [
-            'group' => $group ?? null,
-            'random_items' => $random_items ?? null,
+        return $this->render('checkout', [
+            'checkout' => $checkout,
+            'cart' => Cart::getCart(),
+            'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'reservation']),
+        ]);
+    }
+
+    public function actionCart()
+    {
+        $cart_as_grid = Cart::getCartAsGrid();
+
+        if (empty($cart_as_grid)) {
+            return $this->redirect(['/delivery']);
+        }
+
+        $cart_provider = new ArrayDataProvider([
+            'allModels' => $cart_as_grid,
+            'sort' => [
+                // 'attributes' => ['Наименование', 'Цена', 'Количество', 'Сумма'],
+            ],
+            'pagination' => false
+        ]);
+            
+        return $this->render('cart', [
+            'cart_provider' => $cart_provider,
+            'cart' => Cart::getCart(),
+            'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'reservation']),
         ]);
     }
 }

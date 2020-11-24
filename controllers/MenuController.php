@@ -23,6 +23,7 @@ class MenuController extends \yii\web\Controller
             ])
             ->one();
 
+
         if (!$menu) {
             throw new NotFoundHttpException('Меню не найдено');
         }

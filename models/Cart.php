@@ -25,7 +25,7 @@ class Cart extends Model
             [['name', 'phone', 'address', 'floor', 'house', 'flat'], 'required'],
             [['phone', 'flat', 'floor'], 'integer'],
             [['comment', 'housing'], 'string'],
-            ['name', 'customValidate'],
+            // ['name', 'customValidate'],
         ];
     }
 
@@ -55,7 +55,7 @@ class Cart extends Model
     {
         if ($this->validate()) {
 
-            Mail::prepare('delivery', [
+            $res = Mail::prepare('delivery', [
                 'name' => $this->name,
                 'email' => $this->email,
                 'phone' => $this->phone,
@@ -68,6 +68,8 @@ class Cart extends Model
                 'cart' => self::getCart(),
             ], 'Форма доставки')->send();
 
+
+            var_dump($res); die;
             return true;
         }
         return false;

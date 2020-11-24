@@ -6687,8 +6687,8 @@ MOBILE - COMPONENTS
     }
 
     table.table, table.table tbody, table.table thead, table.table tr, table.table td, table.table tr, table.table th {
-        display: block;
-        width: 100%;
+        /*display: block;*/
+        /*width: 100%;*/
         border-bottom-width: 1px !important;
     }
 

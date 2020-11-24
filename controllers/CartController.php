@@ -20,7 +20,7 @@ class CartController extends \yii\web\Controller
         }
 
         if ($refresh) {
-            $this->redirect('/cart');
+            $this->redirect('/site/cart');
         }
 
         Yii::$app->response->format = Response::FORMAT_JSON;
@@ -40,7 +40,7 @@ class CartController extends \yii\web\Controller
         }
 
         if ($refresh) {
-            $this->redirect('/cart');
+            $this->redirect('/site/cart');
         }
 
         return CartWidget::widget();

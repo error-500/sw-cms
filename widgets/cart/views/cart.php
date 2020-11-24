@@ -24,7 +24,7 @@ use yii\helpers\Url;
         </p>
         <p class="cart-buttons">
             <!-- <a href="#" class="btn btn-xs cart-view">Корзина</a> -->
-            <a href="<?= Url::to(['/cart']) ?>" class="btn btn-xs cart-checkout">Корзина</a>
+            <a href="<?= Url::to(['/site/cart']) ?>" class="btn btn-xs cart-checkout">Корзина</a>
         </p>
         <hr class="space xs" />
     </div>
