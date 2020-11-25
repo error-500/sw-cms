@@ -68,9 +68,10 @@ class Cart extends Model
                 'cart' => self::getCart(),
             ], 'Форма доставки')->send();
 
+
+            var_dump($res); die;
             return true;
         }
-        
         return false;
     }
 
