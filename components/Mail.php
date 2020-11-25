@@ -9,6 +9,7 @@ use PHPMailer\PHPMailer\SMTP;
 class Mail 
 {
     public $to;
+    public $from;
     public $from_name = 'Qartuli';
     public $title = 'Тестовое письмо';
     public $body = 'Тестовое письмо';
@@ -38,8 +39,6 @@ class Mail
         $password = Yii::$app->sw->getModule('constant')->item('findOne', ['tech_name' => 'smtp_password'])->value ?? 'MIKEk8123';
 
         $this->from = $username;
-
-        var_dump($username, $password);
 
         $this->mail->isSMTP();
         $this->mail->SMTPDebug = SMTP::DEBUG_SERVER;
