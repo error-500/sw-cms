@@ -9,8 +9,6 @@ use PHPMailer\PHPMailer\SMTP;
 class Mail 
 {
     public $to;
-    // public $from = 'qartulirest@yandex.ru';
-    public $from = 'info@mikek8.ru';
     public $from_name = 'Qartuli';
     public $title = 'Тестовое письмо';
     public $body = 'Тестовое письмо';
@@ -36,16 +34,19 @@ class Mail
 
     public function send() 
     {
+        $username = Yii::$app->sw->getModule('constant')->item('findOne', ['tech_name' => 'smtp_username'])->value ?? 'info@mikek8.ru';
+        $password = Yii::$app->sw->getModule('constant')->item('findOne', ['tech_name' => 'smtp_password'])->value ?? 'MIKEk8123';
+
+        $this->from = $username;
+
+        var_dump($username, $password);
+
         $this->mail->isSMTP();
         $this->mail->SMTPDebug = SMTP::DEBUG_SERVER;
         $this->mail->Host = 'smtp.yandex.ru';
-        // $this->mail->Username = 'qartulirest@yandex.ru';
-        // $this->mail->Password = 'Qartuli13245768djSX';
-        $this->mail->Username = 'info@mikek8.ru';
-        $this->mail->Password = 'MIKEk8123';
-        // $this->mail->Port = 587;
+        $this->mail->Username = $username;
+        $this->mail->Password = $password;
         $this->mail->SMTPAuth = true;
-        // $this->mail->SMTPAutoTLS = false;
         $this->mail->CharSet = 'UTF-8';
         $this->mail->isHTML(true);
         $this->mail->setFrom($this->from, $this->from_name);
