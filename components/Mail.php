@@ -21,7 +21,7 @@ class Mail
 
     public static function prepare($view, $params = [], $title = 'Форма связи')
     {
-        $emails_to = Yii::$app->sw->getModule('constant')->item('findOne', ['tech_name' => 'delivery_emails']) ?: 'etc@swods.ru';
+        $emails_to = Yii::$app->sw->getModule('constant')->item('findOne', ['tech_name' => 'delivery_emails'])->value ?? 'etc@swods.ru';
         $emails_to = explode(',', $emails_to);
         $emails_to = array_map('trim', $emails_to);
 
