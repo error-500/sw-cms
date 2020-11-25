@@ -41,7 +41,7 @@ class Mail
         $this->from = $username;
 
         $this->mail->isSMTP();
-        $this->mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        // $this->mail->SMTPDebug = SMTP::DEBUG_SERVER;
         $this->mail->Host = 'smtp.yandex.ru';
         $this->mail->Username = $username;
         $this->mail->Password = $password;
