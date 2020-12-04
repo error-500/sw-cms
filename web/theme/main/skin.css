@@ -464,7 +464,7 @@ body .picker__day {
     }
 
 .list-items .list-item.list-item-img {
-    border-bottom: none;
+    /*border-bottom: none;*/
 }
 
 .list-item-img:after {
@@ -1178,8 +1178,8 @@ div .countdown > div:last-child:after {
     }
 
     .list-items .list-item:last-child {
-        margin-bottom: 0;
-        padding-bottom: 0;
+        /*margin-bottom: 0;
+        padding-bottom: 0;*/
     }
 
 

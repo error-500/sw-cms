@@ -17,7 +17,11 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
         <div class="navbar navbar-main">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle">
+                    <div class="navbar-toggle">
+                        <?= Cart::widget(['full' => false]) ?>
+                    </div>
+
+                    <button type="button" class="navbar-toggle mobile-menu">
                         <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand" href="<?= Url::to('/') ?>">

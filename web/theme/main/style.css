@@ -3359,7 +3359,7 @@ LISTS
     }
 
     .list-items .list-item:last-child {
-        border-bottom: none;
+        /*border-bottom: none;*/
     }
 
     .list-items .list-item:hover {
@@ -4292,7 +4292,7 @@ LIST GRID & MASO
 }
 
 .maso-item > * {
-    opacity: 0;
+    /*opacity: 0;*/
 }
 
 .maso-mask .maso-item > a, .maso-custom .maso-item > * {

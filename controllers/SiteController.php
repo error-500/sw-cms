@@ -65,7 +65,6 @@ class SiteController extends \yii\web\Controller
             ->orderBy('RAND()')
             ->all();
 
-
         return $this->render('index', [
             'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'main']),
             'video_block' => Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'video_main_page']),

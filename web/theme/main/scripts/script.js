@@ -804,7 +804,7 @@ function isScrollView(t) {
         });
 
         //MENU - MOBILE
-        $(".navbar-toggle").toggleClick(function () {
+        $(".mobile-menu").toggleClick(function () {
             $(this).closest('.navbar').find('.navbar-collapse').expandItem();
         }, function () {
             $(this).closest('.navbar').find('.navbar-collapse').collapseItem();

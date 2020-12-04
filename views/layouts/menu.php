@@ -23,7 +23,9 @@ $menu = Yii::$app->sw->getModule('product')->group('find')
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><?= $main_product->name ?> <span class="caret"></span></a>
             <ul class="dropdown-menu multi-level">
                 <?php foreach ($main_product->groups as $group): ?>
-                    <li><a href="<?= Url::to(["/menu/{$group->tech_name}"]) ?>"><?= $group->name ?></a></li>
+                    <?php if (!empty($group->groups)) : ?>
+                        <li><a href="<?= Url::to(["/menu/{$group->tech_name}"]) ?>"><?= $group->name ?></a></li>
+                    <?php endif; ?>
                 <?php endforeach ?>
             </ul>
         </li>
