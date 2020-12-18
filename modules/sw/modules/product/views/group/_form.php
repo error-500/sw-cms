@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\{Html, ArrayHelper};
-use yii\bootstrap\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 
 use app\modules\sw\modules\product\models\Group;
 
@@ -26,7 +26,7 @@ $this->registerJs('
         <?php $form = ActiveForm::begin(); ?>
             <div class="panel panel-flat">
                 <div class="panel-body">
-                    
+
                     <?= $form->errorSummary($model) ?>
 
                     <div class="row">

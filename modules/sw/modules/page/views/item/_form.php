@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
-use yii\bootstrap\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 
 $button_text = sprintf('%s <i class="icon-arrow-right14 position-right"></i>', $model->isNewRecord ? 'Сохранить' : 'Обновить');
 
@@ -31,7 +31,7 @@ $this->registerJs('
                     </div> -->
 
                     <!-- <hr> -->
-                    
+
                     <?= $form->errorSummary($model) ?>
 
                     <div class="row">

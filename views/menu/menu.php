@@ -10,7 +10,11 @@ if (!empty($page)) {
 
 ?>
 <!-- <div class="header-title ken-burn white" data-parallax="scroll" data-bleed="0" data-position="top" data-natural-height="850" data-natural-width="1920" data-image-src="<?= $header_img ?>"> -->
-<div class="header-title ken-burn white" data-parallax="scroll" data-bleed="0" data-position="top" data-image-src="<?= $header_img ?>">
+<div class="header-title ken-burn white"
+     data-parallax="scroll"
+     data-bleed="0"
+     data-position="top"
+     data-image-src="<?= $header_img ?>">
     <div class="container">
         <div class="title-base">
             <hr class="anima" />
@@ -27,34 +31,41 @@ if (!empty($page)) {
                 <!-- <h3 id="dishes" class="text-black"></h3> -->
                 <div class="maso-list list-sm-6 col-margins">
                     <div class="navbar navbar-inner">
-                        <div class="navbar-toggle"><i class="fa fa-bars"></i><span>Разделы</span><i class="fa fa-angle-down"></i></div>
+                        <div class="navbar-toggle"><i class="fa fa-bars"></i><span>Разделы</span><i
+                               class="fa fa-angle-down"></i></div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav over inner maso-filters scroll-spy-menu">
                                 <li class="active"><a data-filter="maso-item">Все</a></li>
                                 <?php foreach ($groups as $sub_group): ?>
-                                    <li><a data-filter="<?= $sub_group->tech_name ?>"><?= $sub_group->name ?></a></li>
+                                <li><a data-filter="<?= $sub_group->tech_name ?>"><?= $sub_group->name ?></a></li>
                                 <?php endforeach ?>
                                 <!-- <li><a class="maso-order" data-sort="asc"><i class="fa fa-arrow-down"></i></a></li> -->
                             </ul>
                         </div>
                     </div>
-                    <div class="maso-box row" data-lightbox-anima="fade-top">
-                        <div class="list-items">
+                    <div class="maso-box row"
+                         data-lightbox-anima="fade-top">
+                        <div class="list-items row">
                             <?php foreach ($items as $item): ?>
-                                <div class=" col-md-6 maso-item <?= $item->group->tech_name ?>">
-                                    <div class="list-item list-item-img">
-                                        <div class="row">
-                                            <div class="col-md-9">
-                                                <i class="onlycover  icon" style="background-image:url(<?= $item->imgSrc ?>)"></i>
-                                                <h3><?= $item->name ?></h3>
-                                                <p><?= !empty($item->consist) ? "{$item->consist}<br>" : '' ?> <?= !empty($item->volume) ? "{$item->volume}" : '' ?></p>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <span><?= $item->price ?>₽</span>
-                                            </div>
+                            <div class=" col-md-6 maso-item <?= $item->group->tech_name ?>">
+                                <div class="list-item row">
+                                    <div class="list-item-img">
+                                        <div class="col-md-3">
+                                            <i class="onlycover  icon"
+                                               style="background-image:url(<?= $item->imgSrc ?>)"></i>
+                                        </div>
+                                        <div class="col-md-7 p-1">
+
+                                            <h3><?= $item->name ?></h3>
+                                            <p><?= !empty($item->consist) ? "{$item->consist}<br>" : '' ?>
+                                                <?= !empty($item->volume) ? "{$item->volume}" : '' ?></p>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <span><?= $item->price ?>₽</span>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             <?php endforeach ?>
                         </div>
                     </div>
