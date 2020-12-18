@@ -38,7 +38,7 @@ class AppAsset extends AssetBundle
         'scripts/isotope.min.js',
         'scripts/jquery.twbsPagination.min.js',
         'scripts/jquery.tab-accordion.js',
-        'scripts/smooth.scroll.min.js',
+        //'scripts/smooth.scroll.min.js',
         'scripts/social.stream.min.js',
         'scripts/php/contact-form.js',
         'scripts/jquery.progress-counter.js',

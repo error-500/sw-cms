@@ -203,7 +203,7 @@ if (!empty($page)) {
         </div>
         <div class="text-center">
             <a href="<?= Url::to('/delivery') ?>"
-               class="btn btn-sm">В магазин</a>
+               class="btn btn-border btn-sm anima anima-fade-bottom">В магазин</a>
         </div>
     </div>
 </div>

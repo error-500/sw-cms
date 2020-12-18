@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 
 use app\assets\AppAsset;
+use yii\web\View;
 
 AppAsset::register($this);
 
@@ -49,7 +50,45 @@ AppAsset::register($this);
     <i class="scroll-top scroll-top-mobile show fa fa-sort-asc"></i>
 
     <?= $this->render('footer') ?>
-
+    <div id="modal-18"
+         class="modal fade"
+         tabindex="-1"
+         role="dialog"
+         aria-hidden="true"
+         data-bs-backdrop="static">
+        <div class="modal-dialog"
+             role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h2 class="text-danger">18+</h2>
+                    <p> Добро пожаловать.
+                        Для доступа необходимо подтвердить совершеннолетний возраст.
+                    </p>
+                    <h5>Подробнее</h5>
+                    <p class="text-size-mini">
+                        Сайт содержит информацию для лиц совершеннолетнего возраста.
+                        Сведения, размещенные на сайте, не являются рекламой, носят исключительно
+                        информационный характер, и предназначены только для личного использования.
+                    </p>
+                    <button class="btn btn-primary"
+                            data-bs-dismiss="modal"
+                            type="button">Мне исполнилось 18 лет</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php /*
+        $this->registerJs(
+            '
+            //$.noConflict( true );
+            myModal = new bootstrap.Modal(document.getElementById("modal-18"), {});
+            myModal.show();
+            ',
+            View::POS_END,
+            'modal-18'
+        );
+        */
+    ?>
     <?php $this->endBody() ?>
 </body>
 
