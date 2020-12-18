@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\{Html, ArrayHelper};
-use yii\bootstrap\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 
 $button_text = sprintf('%s <i class="icon-arrow-right14 position-right"></i>', $model->isNewRecord ? 'Сохранить' : 'Обновить');
 
@@ -12,7 +12,7 @@ $button_text = sprintf('%s <i class="icon-arrow-right14 position-right"></i>', $
         <?php $form = ActiveForm::begin(); ?>
             <div class="panel panel-flat">
                 <div class="panel-body">
-                    
+
                     <?= $form->errorSummary($model) ?>
 
                     <div class="row">
