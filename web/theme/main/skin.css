@@ -783,7 +783,7 @@ body .picker__day {
 
 .list-item-img .icon {
     /*position: absolute;*/
-    width: 10em;
+    width: 100%;
     /*left: 14px;*/
     height: 10em;
     /*top: 50%;
@@ -814,12 +814,22 @@ body .picker__day {
 */
 
 @media (max-width:993px) {
-    .list-item-img .icon {
+    /*.list-item-img .icon {
         display: none;
     }
     .list-item-img:after {
         margin-left: 0;
         width: 100%;
+    }*/
+    .list-item-img .icon {
+        /*position: absolute;*/
+        width: 100%;
+        /*left: 14px;*/
+        height: 10em;
+        /*top: 50%;
+        margin-top: -40px;
+        */
+        margin: 0 1em 0 0;
     }
 }
 
