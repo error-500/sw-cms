@@ -47,20 +47,20 @@ if (!empty($page)) {
                          data-lightbox-anima="fade-top">
                         <div class="list-items row">
                             <?php foreach ($items as $item): ?>
-                            <div class=" col-md-6 maso-item <?= $item->group->tech_name ?>">
+                            <div class=" col-md-6 col-xs-12 maso-item <?= $item->group->tech_name ?>">
                                 <div class="list-item row">
                                     <div class="list-item-img">
-                                        <div class="col-md-3">
+                                        <div class="col-md-4 col-sm-5">
                                             <i class="onlycover  icon"
                                                style="background-image:url(<?= $item->imgSrc ?>)"></i>
                                         </div>
-                                        <div class="col-md-7 p-1">
+                                        <div class="col-md-6 col-sm-6">
 
                                             <h3><?= $item->name ?></h3>
                                             <p><?= !empty($item->consist) ? "{$item->consist}<br>" : '' ?>
                                                 <?= !empty($item->volume) ? "{$item->volume}" : '' ?></p>
                                         </div>
-                                        <div class="col-md-2">
+                                        <div class="col-md-1">
                                             <span><?= $item->price ?>₽</span>
                                         </div>
                                     </div>
