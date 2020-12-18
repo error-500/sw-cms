@@ -31,9 +31,12 @@ if (!empty($page)) {
                 <!-- <h3 id="dishes" class="text-black"></h3> -->
                 <div class="maso-list list-sm-6 col-margins">
                     <div class="navbar navbar-inner">
-                        <div class="navbar-toggle"><i class="fa fa-bars"></i><span>Разделы</span><i
+                        <div class="navbar-toggle"
+                             data-toggle="collapse"
+                             data-target="#mobMenu"><i class="fa fa-bars"></i><span>Разделы</span><i
                                class="fa fa-angle-down"></i></div>
-                        <div class="collapse navbar-collapse">
+                        <div class="collapse navbar-collapse"
+                             id="mobMenu">
                             <ul class="nav navbar-nav over inner maso-filters scroll-spy-menu">
                                 <li class="active"><a data-filter="maso-item">Все</a></li>
                                 <?php foreach ($groups as $sub_group): ?>
