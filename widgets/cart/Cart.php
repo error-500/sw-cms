@@ -5,7 +5,7 @@ use Yii;
 
 use app\models\Cart as CartModel;
 
-class Cart extends \yii\bootstrap\Widget
+class Cart extends \yii\bootstrap4\Widget
 {
     public $full = true;
 

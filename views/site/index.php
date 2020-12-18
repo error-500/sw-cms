@@ -12,11 +12,18 @@ if (!empty($page)) {
 <div class="section-bg-video grunge-border">
     <div class="bg-overlay transparent-dark"></div>
     <div class="videobox">
-        <video autoplay loop muted poster="/theme/main/images/video-1-poster.jpg">
-            <source src="<?= $video_block->imgSrc ?>" type="video/mp4">
+        <video autoplay
+               loop
+               muted
+               poster="/theme/main/images/video-1-poster.jpg">
+            <source src="<?= $video_block->imgSrc ?>"
+                    type="video/mp4">
         </video>
     </div>
-    <div class="container content overlay-content white text-center" data-anima="fade-top" data-timeline="asc" data-time="1000">
+    <div class="container content overlay-content white text-center"
+         data-anima="fade-top"
+         data-timeline="asc"
+         data-time="1000">
         <?= $video_block->text ?>
     </div>
 </div>
@@ -26,10 +33,14 @@ if (!empty($page)) {
             <div class="col-md-6 col-sm-12 text-center-sm">
                 <?= $about_block->text ?>
             </div>
-            <div class="col-md-6 col-sm-12 text-center-sm" data-anima="fade-right">
+            <div class="col-md-6 col-sm-12 text-center-sm"
+                 data-anima="fade-right">
                 <hr class="space m visible-sm" />
-                <a class="img-box lightbox shadow-1" href="<?= $about_block->imgSrc ?>" data-lightbox-anima="show-scale">
-                    <img src="<?= $about_block->imgSrc ?>" alt="">
+                <a class="img-box lightbox shadow-1"
+                   href="<?= $about_block->imgSrc ?>"
+                   data-lightbox-anima="show-scale">
+                    <img src="<?= $about_block->imgSrc ?>"
+                         alt="">
                 </a>
             </div>
         </div>
@@ -41,21 +52,23 @@ if (!empty($page)) {
         <div class="row">
             <?php $block_size = 12 / count($our_place_slider->items) ?>
             <?php foreach ($our_place_slider->items as $item): ?>
-                <div class="col-md-<?= $block_size ?>">
-                    <div class="img-box adv-img adv-img-full-content">
-                        <div class="img-box">
-                            <img src="<?= $item->imgSrc ?>" alt="" />
-                        </div>
-                        <a href="<?= $item->href ?: '#' ?>" class="caption-bg img-box">
-                            <div class="caption">
-                                <div class="inner">
-                                    <h2><?= $item->title ?></h2>
-                                    <p class="sub"> <?= $item->text ?> </p>
-                                </div>
-                            </div>
-                        </a>
+            <div class="col-md-<?= $block_size ?>">
+                <div class="img-box adv-img adv-img-full-content">
+                    <div class="img-box">
+                        <img src="<?= $item->imgSrc ?>"
+                             alt="" />
                     </div>
+                    <a href="<?= $item->href ?: '#' ?>"
+                       class="caption-bg img-box">
+                        <div class="caption">
+                            <div class="inner">
+                                <h2><?= $item->title ?></h2>
+                                <p class="sub"> <?= $item->text ?> </p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
+            </div>
             <?php endforeach ?>
         </div>
     </div>
@@ -84,34 +97,34 @@ if (!empty($page)) {
             <div class="col-md-6">
                 <div class="list-items">
                     <?php foreach (array_chunk($menu_random, 5)[0] ?? [] as $item): ?>
-                        <div class="list-item">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <h3><?= $item->name ?></h3>
-                                    <p><?= $item->about ?></p>
-                                </div>
-                                <div class="col-md-3">
-                                    <span><?= $item->price ?> ₽</span>
-                                </div>
+                    <div class="list-item">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <h3><?= $item->name ?></h3>
+                                <p><?= $item->about ?></p>
+                            </div>
+                            <div class="col-md-3">
+                                <span><?= $item->price ?> ₽</span>
                             </div>
                         </div>
+                    </div>
                     <?php endforeach ?>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="list-items">
                     <?php foreach (array_chunk($menu_random, 5)[1] ?? [] as $item): ?>
-                        <div class="list-item">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <h3><?= $item->name ?></h3>
-                                    <p><?= $item->about ?></p>
-                                </div>
-                                <div class="col-md-3">
-                                    <span><?= $item->price ?> ₽</span>
-                                </div>
+                    <div class="list-item">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <h3><?= $item->name ?></h3>
+                                <p><?= $item->about ?></p>
+                            </div>
+                            <div class="col-md-3">
+                                <span><?= $item->price ?> ₽</span>
                             </div>
                         </div>
+                    </div>
                     <?php endforeach ?>
                 </div>
             </div>
@@ -120,19 +133,25 @@ if (!empty($page)) {
         <?= $menu_random_block_text[1] ?? '' ?>
     </div>
 </div>
-<div class="section-bg-image parallax-window white" data-natural-height="850" data-natural-width="1920" data-parallax="scroll" data-image-src="<?= $chefs_main_block_file->filePath ?>">
+<div class="section-bg-image parallax-window white"
+     data-natural-height="850"
+     data-natural-width="1920"
+     data-parallax="scroll"
+     data-image-src="<?= $chefs_main_block_file->filePath ?>">
     <div class="container content">
         <div class="row">
             <div class="col-md-8 col-center">
-                <div class="flexslider slider outer-navs" data-options="controlNav:true,directionNav:true">
+                <div class="flexslider slider outer-navs"
+                     data-options="controlNav:true,directionNav:true">
                     <ul class="slides">
                         <?php foreach ($quotes_slider->items as $quote): ?>
-                            <li>
-                                <div class="advs-box advs-box-top-icon niche-box-testimonails">
-                                    <i class="fa text-xl circle onlycover" style="background-image:url('<?= $quote->imgSrc ?>')"></i>
-                                    <?= $quote->text ?>
-                                </div>
-                            </li>
+                        <li>
+                            <div class="advs-box advs-box-top-icon niche-box-testimonails">
+                                <i class="fa text-xl circle onlycover"
+                                   style="background-image:url('<?= $quote->imgSrc ?>')"></i>
+                                <?= $quote->text ?>
+                            </div>
+                        </li>
                         <?php endforeach ?>
                     </ul>
                 </div>
@@ -147,36 +166,44 @@ if (!empty($page)) {
             <?= $delivery_slider->text ?>
         </div>
         <hr class="space m" />
-        <div class="row" data-anima="fade-bottom" data-timeline="asc" data-timeline-time="200" data-ti>
+        <div class="row"
+             data-anima="fade-bottom"
+             data-timeline="asc"
+             data-timeline-time="200"
+             data-ti>
             <div class="col-md-12">
                 <div class="grid-list">
                     <?php foreach (array_chunk($random_delivery_menu, 3) as $chunk_item): ?>
-                        <div class="grid-box row">
-                            <?php foreach ($chunk_item as $item): ?>
-                                <div class="grid-item col-md-4">
-                                    <div class="advs-box advs-box-top-icon-img advs-box-delivery">
-                                        <a class="img-box" href="#">
-                                            <span><img src="<?= $item->imgThumbSrc ?>" alt=""></span>
-                                        </a>
-                                        <div class="advs-box-content">
-                                            <!-- <h4><?= $item->price ?> ₽</h4> -->
-                                            <h3><?= $item->name ?></h3>
-                                            <span class="extra-content bg-green price add-to-cart" data-id="<?= $item->id ?>">Добавить <i class="fa im-add-cart"></i> </span>
-                                            <p><?= $item->consist ?></p>
-                                            <p class="sub"><?= $item->volume ?></p>
-                                            <h3><?= $item->price ?> ₽</h3>
-                                        </div>
-                                    </div>
-                                    <hr class="space m" />
+                    <div class="grid-box row">
+                        <?php foreach ($chunk_item as $item): ?>
+                        <div class="col-md-4">
+                            <div class="advs-box advs-box-top-icon-img advs-box-delivery">
+                                <a class="img-box"
+                                   href="#">
+                                    <span><img src="<?= $item->imgThumbSrc ?>"
+                                             alt=""></span>
+                                </a>
+                                <div class="advs-box-content">
+                                    <!-- <h4><?= $item->price ?> ₽</h4> -->
+                                    <h3><?= $item->name ?></h3>
+                                    <span class="extra-content bg-green price add-to-cart"
+                                          data-id="<?= $item->id ?>">Добавить <i class="fa im-add-cart"></i> </span>
+                                    <p><?= $item->consist ?></p>
+                                    <p class="sub"><?= $item->volume ?></p>
+                                    <h3><?= $item->price ?> ₽</h3>
                                 </div>
-                            <?php endforeach ?>
+                            </div>
+                            <hr class="space m" />
                         </div>
+                        <?php endforeach ?>
+                    </div>
                     <?php endforeach ?>
                 </div>
             </div>
         </div>
         <div class="text-center">
-            <a href="<?= Url::to('/delivery') ?>" class="btn btn-sm">В магазин</a>
+            <a href="<?= Url::to('/delivery') ?>"
+               class="btn btn-border btn-sm anima anima-fade-bottom">В магазин</a>
         </div>
     </div>
 </div>
@@ -184,7 +211,8 @@ if (!empty($page)) {
     <div class="container content">
         <div class="row">
             <div class="col-md-6">
-                <img src="<?= $chefs_main_block->imgSrc ?>" alt="" />
+                <img src="<?= $chefs_main_block->imgSrc ?>"
+                     alt="" />
             </div>
             <div class="col-md-6">
                 <div class="content">
@@ -201,9 +229,10 @@ if (!empty($page)) {
     <div class="overlaybox overlaybox-side overlaybox">
         <div class="container content">
             <div class="row">
-                <div class="col-md-6 overlaybox-inner box-middle" data-anima="fade-left">
+                <div class="col-md-6 overlaybox-inner box-middle"
+                     data-anima="fade-left">
                     <div class="row">
-                        <?= $contacts_block_text[0] ?? '' ?> 
+                        <?= $contacts_block_text[0] ?? '' ?>
                     </div>
                 </div>
                 <div class="col-md-6"></div>

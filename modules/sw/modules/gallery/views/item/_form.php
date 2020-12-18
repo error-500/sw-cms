@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
-use yii\bootstrap\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 
 use app\modules\sw\models\InfoBlockGroup;
 
@@ -27,7 +27,7 @@ $this->registerJs('
         <?php $form = ActiveForm::begin(); ?>
             <div class="panel panel-flat">
                 <div class="panel-body">
-                    
+
                     <?= $form->errorSummary($model) ?>
 
                     <div class="row">
