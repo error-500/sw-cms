@@ -12,7 +12,7 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <!--[if lt IE 10]> <html  lang="en" class="iex"> <![endif]-->
 <!--[if (gt IE 10)|!(IE)]><!-->
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<? /*= Yii::$app->language */?>ru">
 <!--<![endif]-->
 
 <head>

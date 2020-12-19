@@ -781,6 +781,14 @@ body .picker__day {
     margin: 0 1em;
 }
 
+.list-item-img h3,
+.list-item-img p {
+    word-break: break-all;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+}
+
 .list-item-img .icon {
     /*position: absolute;*/
     width: 100%;

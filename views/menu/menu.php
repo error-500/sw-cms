@@ -53,18 +53,18 @@ if (!empty($page)) {
                             <div class=" col-md-6 col-xs-12 maso-item <?= $item->group->tech_name ?>">
                                 <div class="list-item row">
                                     <div class="list-item-img">
-                                        <div class="col-md-5 col-sm-12 col-xs-12">
-                                            <i class="onlycover  icon"
+                                        <div class="col-md-5 col-xs-6">
+                                            <i class="onlycover icon"
                                                style="background-image:url(<?= $item->imgSrc ?>)"></i>
                                         </div>
-                                        <div class="col-md-6 col-sm-8 col-xs-12">
+                                        <div class="col-md-5 col-xs-6">
 
-                                            <h3><?= $item->name ?></h3>
+                                            <h3><?= trim($item->name) ?></h3>
                                             <p><?= !empty($item->consist) ? "{$item->consist}<br>" : '' ?>
                                                 <?= !empty($item->volume) ? "{$item->volume}" : '' ?></p>
                                         </div>
-                                        <div class="col-md-1 col-sm-2 col-xs-12">
-                                            <span class="text-sm-right text-xs-center"><?= $item->price ?>₽</span>
+                                        <div class="col-md-2 col-xs-12">
+                                            <span class="text-md-left text-xs-center"><?= $item->price ?>₽</span>
                                         </div>
                                     </div>
                                 </div>
