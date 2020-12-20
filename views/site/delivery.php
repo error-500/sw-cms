@@ -29,7 +29,7 @@ if (!empty($page)) {
 <div class="section-empty section-item">
     <div class="container content">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-2 col-xs-12">
                 <aside id="menu"
                        class="sidebar mi-menu">
                     <nav class="sidebar-nav">
@@ -67,7 +67,7 @@ if (!empty($page)) {
                     </nav>
                 </aside>
             </div>
-            <div class="col-md-10">
+            <div class="col-md-10 col-xs-12">
                 <div class="grid-list">
                     <?php foreach (array_chunk($show_menu_items, 3) as $chunk_item): ?>
                     <div class="grid-box row">

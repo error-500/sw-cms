@@ -54,7 +54,7 @@ if (!empty($page)) {
                                 <div class="list-item row">
                                     <div class="list-item-img">
                                         <div class="col-md-5 col-xs-6">
-                                            <i class="onlycover icon"
+                                            <i class="onlycover icon d-none d-sm-block"
                                                style="background-image:url(<?= $item->imgSrc ?>)"></i>
                                         </div>
                                         <div class="col-md-5 col-xs-6">

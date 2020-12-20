@@ -14,7 +14,11 @@ if (!empty($page)) {
 
 ?>
 
-<div class="header-title ken-burn white" data-parallax="scroll" data-bleed="0" data-position="top" data-image-src="<?= $header_img ?>">
+<div class="header-title ken-burn white"
+     data-parallax="scroll"
+     data-bleed="0"
+     data-position="top"
+     data-image-src="<?= $header_img ?>">
     <div class="container">
         <div class="title-base">
             <hr class="anima" />
@@ -28,15 +32,15 @@ if (!empty($page)) {
         <div class="row">
             <div class="col-md-12">
                 <style type="text/css">
-                    .table > thead:first-child > tr:first-child > th {
-                        border-top-width: 1px !important;
-                    }
+                .table>thead:first-child>tr:first-child>th {
+                    border-top-width: 1px !important;
+                }
                 </style>
-
-                <?= GridView::widget([
+                <div class="table-responsive">
+                    <?= GridView::widget([
                     'dataProvider' => $cart_provider,
                     'options' => [
-                        'class' => 'cart-table table', 
+                        'class' => 'cart-table table',
                         'style' => 'margin-bottom: 0;'
                     ],
                     'layout' => '{items}',
@@ -69,7 +73,7 @@ if (!empty($page)) {
                         ],
                     ],
                 ]) ?>
-
+                </div>
                 <div class="row">
                     <div class="col-md-4">
                         <h4 class="text-left">Итог:</h4>
@@ -87,7 +91,13 @@ if (!empty($page)) {
                                 </tr>
                                 <tr>
                                     <th>Итого</th>
-                                    <td><strong><span class="amount"><?= number_format($cart['total']) ?> ₽</span></strong> </td>
+                                    <td>
+                                        <strong>
+                                            <span class="amount">
+                                                <?= number_format($cart['total']) ?>&nbsp;₽
+                                            </span>
+                                        </strong>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -95,7 +105,9 @@ if (!empty($page)) {
 
                     <div class="col-md-offset-6 col-md-2">
                         <div class="cart-btn">
-                            <a href="<?= Url::to('/site/checkout') ?>" class="btn btn-default btn-block" type="submit">Далее</a>
+                            <a href="<?= Url::to('/site/checkout') ?>"
+                               class="btn btn-default btn-block<?php if($cart['total'] < 1500):?> disabled<?php endif;?>"
+                               type="submit">Далее</a>
                         </div>
                     </div>
                 </div>

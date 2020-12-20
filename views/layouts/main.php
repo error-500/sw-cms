@@ -25,7 +25,8 @@ AppAsset::register($this);
           content="<?= Html::encode($this->params['description'] ?? '') ?>">
     <meta name="keywords"
           content="<?= Html::encode($this->params['keywords'] ?? '') ?>">
-
+    <meta name="yandex-verification"
+          content="4ec76dfad66716e1" />
     <link rel="icon"
           href="/favicon.ico">
 
@@ -50,6 +51,7 @@ AppAsset::register($this);
     <i class="scroll-top scroll-top-mobile show fa fa-sort-asc"></i>
 
     <?= $this->render('footer') ?>
+    <?php /*
     <div id="modal-18"
          class="modal fade"
          tabindex="-1"
@@ -77,12 +79,11 @@ AppAsset::register($this);
             </div>
         </div>
     </div>
-    <?php /*
+    <?php
         $this->registerJs(
-            '
-            //$.noConflict( true );
-            myModal = new bootstrap.Modal(document.getElementById("modal-18"), {});
-            myModal.show();
+            '(function() {
+                jQuery("#modal-18").modal("show");
+                })();
             ',
             View::POS_END,
             'modal-18'
