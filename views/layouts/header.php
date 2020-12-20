@@ -12,40 +12,55 @@ $main_logo_green = $this->params['main_logo_green'] ?? $main_logo_green;
 $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-transparent scroll-change wide-area';
 
 ?>
-<header class="<?= $header_class ?>" data-menu-anima="fade-in">
-    <div class="navbar navbar-default mega-menu-fullwidth navbar-fixed-top" role="navigation">
+<header class="<?= $header_class ?>"
+        data-menu-anima="fade-in">
+    <div class="navbar navbar-default mega-menu-fullwidth navbar-fixed-top"
+         role="navigation">
         <div class="navbar navbar-main">
             <div class="container">
                 <div class="navbar-header">
-                    <div class="navbar-toggle">
+                    <button type="button"
+                            class="navbar-toggle mobile-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <div class="navbar-toggle"
+                         style="border: none !important">
                         <?= Cart::widget(['full' => false]) ?>
                     </div>
 
-                    <button type="button" class="navbar-toggle mobile-menu">
-                        <i class="fa fa-bars"></i>
-                    </button>
-                    <a class="navbar-brand" href="<?= Url::to('/') ?>">
-                        
-                        <img class="logo-default scroll-hide" src="<?= $main_logo_white ?>" alt="logo" />
-                        <img class="logo-default scroll-show" src="<?= $main_logo_green ?>" alt="logo" />
+
+                    <a class="navbar-brand"
+                       href="<?= Url::to('/') ?>">
+
+                        <img class="logo-default scroll-hide"
+                             src="<?= $main_logo_white ?>"
+                             alt="logo" />
+                        <img class="logo-default scroll-show"
+                             src="<?= $main_logo_green ?>"
+                             alt="logo" />
 
                         <!-- <img class="logo-default scroll-hide" src="/theme/main/images/logo.png" alt="logo" />
                         <img class="logo-default scroll-show" src="/theme/main/images/logo-2.png" alt="logo" /> -->
 
-                        <img class="logo-retina" src="/theme/main/images/logo-retina.png" alt="logo" />
+                        <img class="logo-retina"
+                             src="/theme/main/images/logo-retina.png"
+                             alt="logo" />
                     </a>
                 </div>
                 <div class="collapse navbar-collapse">
 
                     <?= $this->render('menu') ?>
 
-                    <div class="nav navbar-nav navbar-right">
-                        <ul class="nav navbar-nav">
-                            <?= Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'header_icons'])->text ?? '' ?>
-                        </ul>
-                        <div class="shop-menu-cnt">
-                            <?= Cart::widget() ?>
-                            <!-- <i class="fas fa-shopping-bag text-green"><span class="cart-count bg-green-select">1</span></i>
+                    <!--div class="nav navbar-nav navbar-right"-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <?= Yii::$app->sw
+                                ->getModule('block')
+                                ->item('findOne', ['tech_name' => 'header_icons'])
+                                ->text ?? '' ?>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <?= Cart::widget() ?>
+                        <!-- <i class="fas fa-shopping-bag text-green"><span class="cart-count bg-green-select">1</span></i>
                             <div class="shop-menu">
                                 <ul class="shop-cart">
                                     <li class="cart-item">
@@ -66,21 +81,32 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
                                     <a href="#" class="btn btn-xs cart-checkout">Checkout</a>
                                 </p>
                             </div> -->
-                        </div>
+                        <!--/div-->
 
-                        <ul class="nav navbar-nav lan-menu">
-                            <!-- <li class="dropdown"> -->
+                        <!--ul class="nav navbar-nav lan-menu">
+                            <li class="dropdown">
                             <li>
-                                <a href="#" role="button"><img src="/theme/main/images/en.png" alt="" />En<span class="caret"></span></a>
-                                <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><img src="/theme/main/images/en.png" alt="" />En<span class="caret"></span></a> -->
-                                <!-- <ul class="dropdown-menu">
-                                    <li><a href="#"><img src="/theme/main/images/en.png" alt="" />IT</a></li>
-                                </ul> -->
+                                <a href="#"
+                                   role="button"><img src="/theme/main/images/en.png"
+                                         alt="" />En<span class="caret"></span></a>
+                                <a href="#"
+                                    class="dropdown-toggle"
+                                    data-toggle="dropdown"
+                                    role="button">
+                                        <img src="/theme/main/images/en.png" alt="" />En
+                                        <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#">
+                                            <img src="/theme/main/images/en.png" alt="" />IT</a>
+                                    </li>
+                                </ul>
                             </li>
-                        </ul>
-                    </div>
+                        </ul-->
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </header>

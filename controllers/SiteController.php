@@ -125,14 +125,17 @@ class SiteController extends \yii\web\Controller
                     $query->where(['it.is_delivery' => 1])->joinWith([
                         'items it' => function($query) {
                             $query->orderBy('pos ASC');
-                        }, 
+                        },
                         'parent p2'
                     ])->indexBy('tech_name');
                 }
             ])
             ->all();
 
-        $show_menu = Yii::$app->sw->getModule('product')->item('find')->where(['is_delivery' => 1]);
+        $show_menu = Yii::$app->sw
+                        ->getModule('product')
+                        ->item('find')
+                        ->where(['is_delivery' => 1]);
 
         if ($sub_group) {
             $show_menu->andWhere([
@@ -169,7 +172,9 @@ class SiteController extends \yii\web\Controller
         return $this->render('checkout', [
             'checkout' => $checkout,
             'cart' => Cart::getCart(),
-            'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'reservation']),
+            'page' => Yii::$app->sw
+                            ->getModule('page')
+                            ->item('findOne', ['tech_name' => 'checkout']),
         ]);
     }
 
@@ -188,11 +193,13 @@ class SiteController extends \yii\web\Controller
             ],
             'pagination' => false
         ]);
-            
+
         return $this->render('cart', [
             'cart_provider' => $cart_provider,
             'cart' => Cart::getCart(),
-            'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'reservation']),
+            'page' => Yii::$app->sw
+                        ->getModule('page')
+                        ->item('findOne', ['tech_name' => 'cart']),
         ]);
     }
 }

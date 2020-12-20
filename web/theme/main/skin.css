@@ -1767,6 +1767,39 @@ header.scroll-css>.navbar {
     border-bottom: 1px solid #d8d8d8;
 }
 
+.cart .dropdown-menu {
+    left: -10vw;
+    min-width: 20vw;
+}
+
+.dropdown-menu .cart-item {
+    display: flex;
+    margin: .3em;
+    flex-flow: row nowrap;
+    justify-content: stretch;
+    margin: .3em
+}
+
+.dropdown-menu .cart-item img {
+    margin: .2em;
+}
+
+.dropdown-menu .cart-item .cart-content {
+    margin: 0 .2em;
+    line-height: 1.3em;
+}
+
+.dropdown-menu .cart-count {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.dropdown-menu .cart-count .cart-total,
+.dropdown-menu .cart-count .cart-buttons {
+    display: block;
+}
+
 .shop-menu-cnt .cart-total {
     border-bottom: 1px solid #d8d8d8;
     font-weight: 400;
