@@ -20,7 +20,9 @@ $('.add-to-cart').on('click', function() {
             $('.shop-menu-cnt').html(data['full']);
             $('.cart-li-mobile').html(data['mobile']);
             icon.toggleClass('im-arrow-refresh im-yes');
-
+            const response = JSON.parse(data);
+            console.log('Response total:', response);
+            document.querySelector('.fa-stack-1x.img-circle').textContent = response.total;
             setTimeout(function() {
                 icon.toggleClass('im-yes im-add-cart');
             }, 1500);

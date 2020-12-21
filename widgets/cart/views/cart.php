@@ -5,9 +5,10 @@ use yii\helpers\Url;
 ?>
 <?php if ($cart && $full): ?>
 <li class="dropdown cart">
-    <a href="#"
-       class="dropdown-toggle"
-       data-toggle="dropdown">
+    <a href="<?= Url::to(['/site/cart']) ?>"
+       class=""
+       data-toggle="
+       dropdown">
         <span class="fa-stack fa-lg">
             <i class="fa fa-shopping-cart fa-stack-2x"></i>
             <b class="fa fa-stack-1x img-circle">
@@ -15,7 +16,7 @@ use yii\helpers\Url;
             </b>
         </span>
     </a>
-    <ul class="dropdown-menu"
+    <!--ul class="dropdown-menu"
         style="background-color: rgba(255,255,255, .8) !important">
         <?php foreach ($cart['items'] as $id => $item): ?>
         <li class="cart-item">
@@ -37,26 +38,23 @@ use yii\helpers\Url;
                 Итого: <span><?= number_format($cart['total']) ?> ₽</span>
             </span>
             <span class="cart-buttons">
-                <!-- <a href="#" class="btn btn-xs cart-view">Корзина</a> -->
                 <a href="<?= Url::to(['/site/cart']) ?>"
                    class="btn btn-success">Корзина</a>
             </span>
-            <!--hr class="space xs" /-->
         </li>
-    </ul>
-</li>
-<?php endif ?>
+    </ul-->
+    </lш>
+    <?php endif ?>
 
-<?php if ($cart && !$full): ?>
-<a href="<?= Url::to(['/site/cart']) ?>"
-   style="padding: 0 !important;"
-   class="css-pointer dropdown-toggle"
-   data-toggle="">
-    <span class="fa-stack fa-lg">
-        <i class="fa fa-shopping-cart fa-stack-2x"></i>
-        <b class="fa fa-stack-1x bg-green-select img-circle">
-            <?= array_sum(array_column($cart['items'], 'count')) ?>
-        </b>
-    </span>
-</a>
-<?php endif ?>
+    <?php if ($cart && !$full): ?>
+    <a href="<?= Url::to(['/site/cart']) ?>"
+       style="padding: 0 !important;"
+       class="css-pointer">
+        <span class="fa-stack fa-lg">
+            <i class="fa fa-shopping-cart fa-stack-2x"></i>
+            <b class="fa fa-stack-1x bg-green-select img-circle">
+                <?= array_sum(array_column($cart['items'], 'count')) ?>
+            </b>
+        </span>
+    </a>
+    <?php endif ?>
