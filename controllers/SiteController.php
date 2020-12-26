@@ -6,6 +6,7 @@ use Yii;
 use yii\web\NotFoundHttpException;
 use yii\data\ArrayDataProvider;
 use app\models\Cart;
+use app\models\ContactForm;
 //use app\models\ContactForm;
 use app\models\ReservatioForm;
 
@@ -100,12 +101,33 @@ class SiteController extends \yii\web\Controller
 
     public function actionContacts()
     {
-        $contacts_block_text = Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'contacts'])->text ?? '';
+        $contactForm = new ContactForm();
+        if (Yii::$app->request->isPost) {
+            $contactForm->load(Yii::$app->request->post(null, []), '');
+            if ($contactForm->send()) {
+                $this->redirect('/contacts');
+            }
+        }
+        $contacts_block_text = Yii::$app->sw
+            ->getModule('block')
+            ->item('findOne', ['tech_name' => 'contacts'])
+            ->text ?? '';
         $contacts_block_text = explode('{separate}', $contacts_block_text);
 
         return $this->render('contacts', [
-            'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'contacts']),
-            'map_constant' => Yii::$app->sw->getModule('constant')->item('findOne', ['tech_name' => 'map']),
+            'contactForm' => $contactForm,
+            'page' => Yii::$app
+                ->sw->getModule('page')
+                ->item(
+                    'findOne',
+                    ['tech_name' => 'contacts']
+            ),
+            'map_constant' => Yii::$app
+                ->sw->getModule('constant')
+                ->item(
+                    'findOne',
+                    ['tech_name' => 'map']
+                ),
             'contacts_block_text' => $contacts_block_text,
         ]);
     }

@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\components\Mail;
 use Yii;
 use yii\base\Model;
 
@@ -13,7 +14,7 @@ class ContactForm extends Model
     public $name;
     public $email;
     public $subject;
-    public $body;
+    public $message;
     public $verifyCode;
 
 
@@ -24,14 +25,21 @@ class ContactForm extends Model
     {
         return [
             // name, email, subject and body are required
-            [['name', 'email', 'subject', 'body'], 'required'],
+            [['name', 'email', 'message'], 'required'],
             // email has to be a valid email address
             ['email', 'email'],
             // verifyCode needs to be entered correctly
-            ['verifyCode', 'captcha'],
+            //['verifyCode', 'captcha'],
         ];
     }
-
+    public function fields()
+    {
+        return [
+            'name',
+            'email',
+            'message',
+        ];
+    }
     /**
      * @return array customized attribute labels
      */
@@ -60,6 +68,21 @@ class ContactForm extends Model
 
             return true;
         }
+        return false;
+    }
+
+    public function send()
+    {
+         if ($this->validate()) {
+
+            $res = Mail::prepare(
+                'contact',
+                $this->toArray(),
+                'Обратная связь от '.$this->name
+            )->send();
+            return true;
+        }
+
         return false;
     }
 }
