@@ -6,9 +6,12 @@ use Yii;
 use yii\web\NotFoundHttpException;
 use yii\data\ArrayDataProvider;
 use app\models\Cart;
+//use app\models\ContactForm;
+use app\models\ReservatioForm;
 
 class SiteController extends \yii\web\Controller
 {
+
     public function actions()
     {
         return [
@@ -109,7 +112,17 @@ class SiteController extends \yii\web\Controller
 
     public function actionReservation()
     {
+        $form = new ReservatioForm();
+        if (Yii::$app->request->isPost) {
+
+            $form->load(Yii::$app->request->post(null, []), '');
+            if ( $form->reserv()) {
+                $this->redirect('/');
+            }
+        }
+
         return $this->render('reservation', [
+            'form' => $form,
             'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'reservation']),
             'reservation_block' => Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'reservation']),
             'map_constant' => Yii::$app->sw->getModule('constant')->item('findOne', ['tech_name' => 'map']),
