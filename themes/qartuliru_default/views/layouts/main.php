@@ -3,9 +3,12 @@
 use yii\helpers\Html;
 
 use app\assets\AppAsset;
+use app\themes\qartuliru_default\assets\YandexMetricAsset;
+use app\modules\sw\assets\CdnYandex;
 use yii\web\View;
 
 AppAsset::register($this);
+YandexMetricAsset::register($this);
 
 ?>
 <?php $this->beginPage() ?>
@@ -32,7 +35,14 @@ AppAsset::register($this);
 
     <title><?= Html::encode($this->title) ?></title>
 
-    <?= Yii::$app->sw->getModule('constant')->item('findOne', ['tech_name' => 'custom_header_code'])->value ?? null ?>
+    <?php /* echo Yii::$app->sw
+                    ->getModule('constant')
+                    ->item(
+                        'findOne',
+                        ['tech_name' => 'custom_header_code']
+                    )->value ?? null;
+        */
+    ?>
 
     <?php $this->registerCsrfMetaTags() ?>
     <?php $this->head() ?>

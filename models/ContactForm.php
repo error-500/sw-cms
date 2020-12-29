@@ -3,6 +3,8 @@
 namespace app\models;
 
 use app\components\Mail;
+use himiklab\yii2\recaptcha\ReCaptchaValidator2;
+use himiklab\yii2\recaptcha\ReCaptchaValidator3;
 use Yii;
 use yii\base\Model;
 
@@ -15,7 +17,7 @@ class ContactForm extends Model
     public $email;
     public $subject;
     public $message;
-    public $verifyCode;
+    public $reCaptcha;
 
 
     /**
@@ -30,6 +32,12 @@ class ContactForm extends Model
             ['email', 'email'],
             // verifyCode needs to be entered correctly
             //['verifyCode', 'captcha'],
+            [
+                ['reCaptcha'],
+                ReCaptchaValidator2::class,
+                'secret' => Yii::$app->reCaptcha->siteKeyV2, // unnecessary if reСaptcha is already configured
+                'uncheckedMessage' => 'Please confirm that you are not a bot.',
+            ],
         ];
     }
     public function fields()

@@ -1,5 +1,9 @@
 <?php
 
+use himiklab\yii2\recaptcha\ReCaptcha;
+use himiklab\yii2\recaptcha\ReCaptcha2;
+use himiklab\yii2\recaptcha\ReCaptcha3;
+
 if (!empty($page)) {
     $this->title = $page->title;
     $this->params['keywords'] = $page->keywords;
@@ -155,6 +159,7 @@ $this->params['header_class'] = 'fixed-top scroll-change wide-area';
                                    class="form-control form-value"
                                    required>
                         </div>
+
                     </div>
                     <hr class="space xs" />
                     <div class="row">
@@ -167,6 +172,16 @@ $this->params['header_class'] = 'fixed-top scroll-change wide-area';
                                       class="form-control form-value"
                                       required></textarea>
                             <hr class="space s" />
+
+                        </div>
+                        <div class="col-md-12">
+                            <?php /*echo ReCaptcha2::widget([
+                                'name' => 'reCaptcha',
+                                'siteKey' => Yii::$app->reCaptcha->siteKeyV2, // unnecessary is reCaptcha component was set up
+                                'widgetOptions' => ['class' => 'col-sm-offset-3'],
+                            ]);  */?>
+                        </div>
+                        <div class="col-md-12">
                             <button class="btn-xs btn"
                                     type="submit"><i class="im-mail-send"></i>Отправить сообщение</button>
                         </div>

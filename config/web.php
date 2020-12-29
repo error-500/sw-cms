@@ -24,6 +24,19 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'view' => [
+            'theme' => [
+                'basePath' => '@app/themes/qartuliru_default',
+                // 'baseUrl'  => '@web/themes/vue-app',
+                'pathMap'  => [
+                    '@app/assets'      => '@app/themes/qartuliru_default',
+                    '@app/views'       => ['@app/views','@app/themes/qartuliru_default/views'],
+                    '@app/widgets'     => '@app/themes/qartuliru_default/widgets',
+                    '@app/modules'     => '@app/themes/qartuliru_default/modules',
+                    // '@app/modules/post/widgets/views' => '@app/themes/crystald/widgets',
+                ],
+            ],
+        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -69,6 +82,14 @@ $config = [
                 'delivery/<sub_group:[\w_\-]+>' => 'site/delivery',
                 'news/' => '/news/list',
             ],
+        ],
+
+        'reCaptcha' => [
+            'class' => 'himiklab\yii2\recaptcha\ReCaptchaConfig',
+            'siteKeyV2' => '6LfjwBYaAAAAAF3iqvMVIbgkZVd-m8q1zursW1mq',
+            'secretV2' => '6LfjwBYaAAAAAFc__DHN60euJEVw8g1SKeZdpgWL',
+            'siteKeyV3' => '6LdnkxUaAAAAADg0Yqc8gjnfTxQZEf9nhbrQfEg8',
+            'secretV3' => '6LdnkxUaAAAAAIdfj8kUr0wzhAyf57LsAOKk21Q1',
         ],
     ],
     'params' => $params,
