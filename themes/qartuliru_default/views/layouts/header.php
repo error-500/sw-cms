@@ -14,99 +14,51 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
 ?>
 <header class="<?= $header_class ?>"
         data-menu-anima="fade-in">
-    <div class="navbar navbar-default mega-menu-fullwidth navbar-fixed-top"
+    <!--div class="navbar navbar-default mega-menu-fullwidth navbar-fixed-top"
+         role="navigation"-->
+    <nav class="navbar navbar-expand-lg navbar-default"
          role="navigation">
-        <div class="navbar navbar-main">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button"
-                            class="navbar-toggle mobile-menu">
-                        <i class="fa fa-bars"></i>
-                    </button>
-                    <div class="navbar-toggle"
-                         style="border: none !important">
-                        <?= Cart::widget(['full' => false]) ?>
-                    </div>
+        <a class="navbar-brand flex-grow-1 flex-lg-grow-0 m-3"
+           href="<?= Url::to('/') ?>">
 
+            <img class="logo-default scroll-hide"
+                 src="<?= $main_logo_white ?>"
+                 alt="logo" />
+            <img class="logo-default scroll-show"
+                 src="<?= $main_logo_green ?>"
+                 alt="logo" />
 
-                    <a class="navbar-brand"
-                       href="<?= Url::to('/') ?>">
+            <!-- <img class="logo-default scroll-hide" src="/theme/main/images/logo.png" alt="logo" />
+            <img class="logo-default scroll-show" src="/theme/main/images/logo-2.png" alt="logo" /> -->
 
-                        <img class="logo-default scroll-hide"
-                             src="<?= $main_logo_white ?>"
-                             alt="logo" />
-                        <img class="logo-default scroll-show"
-                             src="<?= $main_logo_green ?>"
-                             alt="logo" />
+            <img class="logo-retina"
+                 src="/theme/main/images/logo-retina.png"
+                 alt="logo" />
+        </a>
 
-                        <!-- <img class="logo-default scroll-hide" src="/theme/main/images/logo.png" alt="logo" />
-                        <img class="logo-default scroll-show" src="/theme/main/images/logo-2.png" alt="logo" /> -->
-
-                        <img class="logo-retina"
-                             src="/theme/main/images/logo-retina.png"
-                             alt="logo" />
-                    </a>
-                </div>
-                <div class="collapse navbar-collapse">
-
-                    <?= $this->render('menu') ?>
-
-                    <!--div class="nav navbar-nav navbar-right"-->
-                    <ul class="nav navbar-nav navbar-right">
-                        <?= Yii::$app->sw
-                                ->getModule('block')
-                                ->item('findOne', ['tech_name' => 'header_icons'])
-                                ->text ?? '' ?>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <?= Cart::widget() ?>
-                        <!-- <i class="fas fa-shopping-bag text-green"><span class="cart-count bg-green-select">1</span></i>
-                            <div class="shop-menu">
-                                <ul class="shop-cart">
-                                    <li class="cart-item">
-                                        <img src="/theme/main/images/gallery/pizza-1.jpg" alt="">
-                                        <div class="cart-content">
-                                            <h5>Wood Airplain</h5>
-                                            <span class="cart-quantity">
-                                                1 x 299.00$
-                                            </span>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <p class="cart-total">
-                                    Subtotal: <span>$299.00</span>
-                                </p>
-                                <p class="cart-buttons">
-                                    <a href="#" class="btn btn-xs cart-view">View Cart</a>
-                                    <a href="#" class="btn btn-xs cart-checkout">Checkout</a>
-                                </p>
-                            </div> -->
-                        <!--/div-->
-
-                        <!--ul class="nav navbar-nav lan-menu">
-                            <li class="dropdown">
-                            <li>
-                                <a href="#"
-                                   role="button"><img src="/theme/main/images/en.png"
-                                         alt="" />En<span class="caret"></span></a>
-                                <a href="#"
-                                    class="dropdown-toggle"
-                                    data-toggle="dropdown"
-                                    role="button">
-                                        <img src="/theme/main/images/en.png" alt="" />En
-                                        <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="#">
-                                            <img src="/theme/main/images/en.png" alt="" />IT</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul-->
-                </div>
-            </div>
+        <div class="navbar-toggler"
+             style="border: none !important">
+            <?php echo Cart::widget(['full' => false]); ?>
         </div>
-    </div>
-    </div>
+        <button type="button"
+                class="navbar-toggler"
+                data-toggle="collapse"
+                data-target="#main-menu">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse"
+             id="main-menu">
+            <?= $this->render('menu') ?>
+            <ul class="navbar-nav navbar-right d-none d-lg-block">
+                <?= Cart::widget() ?>
+            </ul>
+            <ul class="navbar-nav navbar-right mr-3">
+                <?= Yii::$app->sw
+                        ->getModule('block')
+                        ->item('findOne', ['tech_name' => 'header_icons'])
+                        ->text ?? '' ?>
+            </ul>
+
+        </div>
+    </nav>
 </header>

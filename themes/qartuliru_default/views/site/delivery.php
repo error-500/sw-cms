@@ -29,7 +29,7 @@ if (!empty($page)) {
 <div class="section-empty section-item">
     <div class="container content">
         <div class="row">
-            <div class="col-md-2 col-xs-12">
+            <div class="col-lg-2 col-xs-12">
                 <aside id="menu"
                        class="sidebar mi-menu">
                     <nav class="sidebar-nav">
@@ -47,11 +47,13 @@ if (!empty($page)) {
                                 <?= Html::tag('a', $base_menu->name, [
                                         'data-toggle' => 'collapse',
                                         'class' => $is_active ? 'active' : '',
-                                        'data-target' => "#{$base_menu->tech_name}",
+                                        'data-target' => "#menu-{$base_menu->tech_name}",
+                                        'aria-expanded' => $is_active ? "true" : "false",
+                                        'aria-controls' => "menu-{$base_menu->tech_name}"
                                     ]) ?>
 
-                                <div class="panel"
-                                     style="display: <?= $is_active ? 'block' : 'none' ?>">
+                                <div class="collapse"
+                                     id="menu-<?php echo $base_menu->tech_name; ?>">
                                     <ul>
                                         <?php foreach ($base_menu->groups as $sub_group): ?>
                                         <li>
@@ -67,7 +69,7 @@ if (!empty($page)) {
                     </nav>
                 </aside>
             </div>
-            <div class="col-md-10 col-xs-12">
+            <div class="col-lg-10 col-xs-12">
                 <div class="grid-list">
                     <?php foreach (array_chunk($show_menu_items, 3) as $chunk_item): ?>
                     <div class="grid-box row">

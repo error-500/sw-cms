@@ -1,5 +1,7 @@
 <?php
 
+use yii\web\View;
+
 $header_img = $group->imgSrc ?: '/theme/main/images/bg-23.jpg';
 
 if (!empty($page)) {
@@ -23,98 +25,106 @@ if (!empty($page)) {
         </div>
     </div>
 </div>
-
-<div class="section-bg-image">
-    <div class="container content">
-        <div class="row">
-            <div class="col-md-12">
-                <!-- <h3 id="dishes" class="text-black"></h3> -->
-                <div class="maso-list list-sm-6 col-margins">
-                    <div class="navbar navbar-inner">
-                        <div class="navbar-toggle"
-                             data-toggle="collapse"
-                             data-target="#mobMenu"><i class="fa fa-bars"></i><span>Разделы</span><i
-                               class="fa fa-angle-down"></i></div>
-                        <div class="collapse navbar-collapse"
-                             id="mobMenu">
-                            <ul class="nav navbar-nav over inner maso-filters scroll-spy-menu">
-                                <li class="active"><a data-filter="maso-item">Все</a></li>
-                                <?php foreach ($groups as $sub_group): ?>
-                                <li><a data-filter="<?= $sub_group->tech_name ?>"><?= $sub_group->name ?></a></li>
-                                <?php endforeach ?>
-                                <!-- <li><a class="maso-order" data-sort="asc"><i class="fa fa-arrow-down"></i></a></li> -->
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="maso-box row"
-                         data-lightbox-anima="fade-top">
-                        <div class="list-items row">
-                            <?php foreach ($items as $item): ?>
-                            <div class=" col-md-6 col-xs-12 maso-item <?= $item->group->tech_name ?>">
-                                <div class="list-item row">
-                                    <div class="list-item-img">
-                                        <div class="col-md-5 col-xs-6">
-                                            <i class="onlycover icon d-none d-sm-block"
-                                               style="background-image:url(<?= $item->imgSrc ?>)"></i>
-                                        </div>
-                                        <div class="col-md-5 col-xs-6">
-
-                                            <h3><?= trim($item->name) ?></h3>
-                                            <p><?= !empty($item->consist) ? "{$item->consist}<br>" : '' ?>
-                                                <?= !empty($item->volume) ? "{$item->volume}" : '' ?></p>
-                                        </div>
-                                        <div class="col-md-2 col-xs-12">
-                                            <span class="text-md-left text-xs-center"><?= $item->price ?>₽</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php endforeach ?>
-                        </div>
-                    </div>
-                </div>
-                <hr class="space" />
-            </div>
-            <!-- <div class="col-md-3">
-                <div class="fixed-area" data-bottom="150">
-                    <aside id="menu" class="sidebar mi-menu">
-                        <nav class="sidebar-nav">
-                            <ul class="side-menu">
-                                <li class="active">
-                                    <a href="#dishes">
-                                        <i class="im-cauldron"></i>
-                                        First dishes
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#main">
-                                        <i class="im-chef-hat2"></i>
-                                        Main courses
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#appetizers">
-                                        <i class="im-cheese"></i>
-                                        Appetizers
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#desserts">
-                                        <i class="im-cupcake"></i>
-                                        Desserts
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#drinks">
-                                        <i class="im-beer"></i>
-                                        Drinks
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </aside>
-                </div>
-            </div> -->
+<div class="container mt-5">
+    <nav class="nav mb-5 d-none d-md-flex justify-content-start text-uppercase main-menu-categories">
+        <a class="nav-link active"
+           data-toggle="custom-collapse"
+           data-target=".card-collapse"
+           data-parent="#items-list"
+           data-filter="maso-item">Все</a>
+        <?php foreach ($groups as $sub_group): ?>
+        <a class="nav-link"
+           data-filter="<?php echo $sub_group->tech_name; ?>"
+           data-target=".<?php echo $sub_group->tech_name; ?>"
+           data-toggle="custom-collapse"
+           data-parent="#items-list">
+            <?php echo $sub_group->name; ?>
+        </a>
+        <?php endforeach ?>
+    </nav>
+    <div class="navbar navbar-inner d-md-none">
+        <div class="navbar-toggle"
+             data-toggle="collapse"
+             data-target="#mobMenu"><i class="fa fa-bars"></i><span>Разделы</span><i class="fa fa-angle-down"></i></div>
+        <div class="collapse navbar-collapse"
+             id="mobMenu">
+            <ul class="navbar-nav">
+                <li class="active">
+                    <a data-toggle="custom-collapse"
+                       data-target=".card-collapse"
+                       data-parent="#items-list"
+                       data-filter="maso-item">Все</a>
+                </li>
+                <?php foreach ($groups as $sub_group): ?>
+                <li>
+                    <a data-filter="<?php echo $sub_group->tech_name; ?>"
+                       data-target=".<?php echo $sub_group->tech_name; ?>"
+                       data-toggle="custom-collapse"
+                       data-parent="#items-list">
+                        <?php echo $sub_group->name; ?>
+                    </a>
+                </li>
+                <?php endforeach ?>
+                <!-- <li><a class="maso-order" data-sort="asc"><i class="fa fa-arrow-down"></i></a></li> -->
+            </ul>
         </div>
     </div>
+    <div class="row"
+         id="items-list">
+        <?php foreach ($items as $item): ?>
+        <div class="col-xs-12 col-md-6 card-collapse <?php echo $item->group->tech_name; ?>"
+             aria-labelledby="a_<?php echo $item->group->tech_name; ?>">
+            <div class="card m-2">
+                <div class="row align-items-center no-gutters">
+                    <div class="col-xs-12 col-md-5">
+                        <img src="<?php echo $item->imgSrc ?>"
+                             class="card-img m-3" />
+                    </div>
+                    <div class="col-xs-12 col-md-7">
+                        <div class="card-body ml-3">
+                            <h5 class="card-title"><?php echo trim($item->name); ?></h5>
+                            <p class="card-text">
+                                <?php echo !empty($item->consist)
+                                        ? "{$item->consist}<br>" : '';
+                                    ?>
+                                <?php echo !empty($item->volume)
+                                        ? "{$item->volume}" : ''; ?>
+                            </p>
+                            <p class="card-text text-black text-right">
+                                <?php echo $item->price; ?>₽
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php endforeach ?>
+    </div>
 </div>
+<?php $this->registerJs(
+    '
+        document.querySelectorAll(".card-collapse").forEach((el)=>{
+            jQuery(el).collapse("show");
+        });
+        document.querySelectorAll("[data-toggle=\"custom-collapse\"]").forEach((btn) => {
+            jQuery(btn).on("click", (event) => {
+                if(jQuery(btn).data("target") !== ".card-collapse") {
+                    document.querySelectorAll(`${jQuery(btn).data("parent")} .card-collapse:not(${jQuery(btn).data("target")})`)
+                        .forEach((el) => {
+                            jQuery(el).collapse("hide");
+                        });
+                    document.querySelectorAll(`${jQuery(btn).data("parent")} ${jQuery(btn).data("target")}`)
+                        .forEach((el) => {
+                            jQuery(el).collapse("show");
+                        });
+                } else {
+                    document.querySelectorAll(`${jQuery(btn).data("parent")} .card-collapse`)
+                        .forEach((el) => {
+                            jQuery(el).collapse("show");
+                        });
+                }
+            });
+        });
+    ',
+    View::POS_READY
+);

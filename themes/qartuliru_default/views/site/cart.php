@@ -75,9 +75,9 @@ if (!empty($page)) {
                 ]) ?>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <h4 class="text-left">Итог:</h4>
-                        <table class="table table-bordered col-md-6">
+                        <table class="table table-bordered">
                             <tbody>
                                 <tr>
                                     <th>Блюд на сумму</th>
@@ -103,10 +103,10 @@ if (!empty($page)) {
                         </table>
                     </div>
 
-                    <div class="col-md-offset-6 col-md-2">
-                        <div class="cart-btn">
+                    <div class="col-md-6">
+                        <div class="">
                             <a href="<?= Url::to('/site/checkout') ?>"
-                               class="btn btn-default btn-block<?php if($cart['total'] < 1500):?> disabled<?php endif;?>"
+                               class="btn-checkout btn btn-default btn-block<?php if($cart['total'] < 1500):?> disabled<?php endif;?>"
                                type="submit">Далее</a>
                         </div>
                     </div>

@@ -15,23 +15,36 @@ $menu = Yii::$app->sw->getModule('product')->group('find')
 
 ?>
 
-<ul class="nav navbar-nav">
-    <li><a href="<?= Url::to('/news') ?>">Лента <span class="caret"></span></a></li>
-    
-    <?php foreach ($menu as $main_product): ?>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><?= $main_product->name ?> <span class="caret"></span></a>
-            <ul class="dropdown-menu multi-level">
-                <?php foreach ($main_product->groups as $group): ?>
-                    <?php if (!empty($group->groups)) : ?>
-                        <li><a href="<?= Url::to(["/menu/{$group->tech_name}"]) ?>"><?= $group->name ?></a></li>
-                    <?php endif; ?>
-                <?php endforeach ?>
-            </ul>
-        </li>
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item"><a class="nav-link"
+           href="<?= Url::to('/news') ?>">Лента <span class="caret"></span></a></li>
+
+    <?php foreach ($menu as $mIdx => $main_product): ?>
+    <li class="nav-item dropdown">
+        <a href="#"
+           class="nav-link dropdown-toggle"
+           data-toggle="dropdown"
+           role="button"
+           area-haspopup="true"
+           id="main-menu-dropdown-<?php echo $mIdx; ?>"><?= $main_product->name ?></a>
+        <div class="dropdown-menu multi-level"
+             aria-labelledby="main-menu-dropdown-<?php echo $mIdx; ?>">
+            <?php foreach ($main_product->groups as $group): ?>
+            <?php if (!empty($group->groups)) : ?>
+            <a class="dropdown-item"
+               href="<?= Url::to(["/menu/{$group->tech_name}"]) ?>">
+                <?= $group->name ?>
+            </a>
+            <?php endif; ?>
+            <?php endforeach ?>
+        </div>
+    </li>
     <?php endforeach ?>
 
-    <li><a href="<?= Url::to('/delivery') ?>">Доставка <span class="caret"></span></a></li>
-    <li><a href="<?= Url::to('/reservation') ?>">Бронь <span class="caret"></span></a></li>
-    <li><a href="<?= Url::to('/contacts') ?>">Контакты <span class="caret"></span></a></li>
+    <li class="nav-item"><a class="nav-link"
+           href="<?= Url::to('/delivery') ?>">Доставка</a></li>
+    <li class="nav-item"><a class="nav-link"
+           href="<?= Url::to('/reservation') ?>">Бронь</a></li>
+    <li class="nav-item"><a class="nav-link"
+           href="<?= Url::to('/contacts') ?>">Контакты</a></li>
 </ul>

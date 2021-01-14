@@ -17,7 +17,11 @@ $min_delivery_price = Yii::$app->sw->getModule('constant')->item('findOne', ['te
 
 ?>
 
-<div class="header-title ken-burn white" data-parallax="scroll" data-bleed="0" data-position="top" data-image-src="<?= $header_img ?>">
+<div class="header-title ken-burn white"
+     data-parallax="scroll"
+     data-bleed="0"
+     data-position="top"
+     data-image-src="<?= $header_img ?>">
     <div class="container">
         <div class="title-base">
             <hr class="anima" />
@@ -46,74 +50,76 @@ $min_delivery_price = Yii::$app->sw->getModule('constant')->item('findOne', ['te
                         </tr>
                         <tr>
                             <th>Итого</th>
-                            <td><strong><span class="amount">₽ <?= number_format($cart['total']) ?></span></strong> </td>
+                            <td><strong><span class="amount">₽ <?= number_format($cart['total']) ?></span></strong>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
                 <br>
 
                 <?php if (0): ?>
-                    <h2 class="text-center">Доставка работает с 12:00 до 22:00</h2>
-                    <h3 class="text-center">Приносим свои извинения</h3>
+                <h2 class="text-center">Доставка работает с 12:00 до 22:00</h2>
+                <h3 class="text-center">Приносим свои извинения</h3>
                 <?php elseif ($cart['total'] < $min_delivery_price) : ?>
-                    <h2 class="text-center">Минимальная сумма заказа <?= $min_delivery_price ?>₽</h2>
-                    <h3 class="text-center">Благодарим за понимание</h3>
-                    <div class="text-center">
-                        <div class="text-center top-space-lg">
-                            <?= Html::a('Вернуться в корзину', ['/page/cart'], ['class' => 'btn btn-default btn-lg']) ?>
-                        </div>
+                <h2 class="text-center">Минимальная сумма заказа <?= $min_delivery_price ?>₽</h2>
+                <h3 class="text-center">Благодарим за понимание</h3>
+                <div class="text-center">
+                    <div class="text-center top-space-lg">
+                        <?= Html::a('Вернуться в корзину', ['/page/cart'], ['class' => 'btn btn-default btn-lg']) ?>
                     </div>
+                </div>
                 <?php else: ?>
-                    <h4 class="text-center">Данные для доставки</h4>
+                <h4 class="text-center">Данные для доставки</h4>
 
-                    <?php $form = ActiveForm::begin([
+                <?php $form = ActiveForm::begin([
                         // 'options' => ['class' => 'contact-form'],
                     ]); ?>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <?= $form->field($checkout, 'name')->label(false)->textInput(['placeholder' => 'Имя']) ?>
-                            </div>
-                            <div class="col-md-6">
-                                <?= $form->field($checkout, 'email')->label(false)->textInput(['placeholder' => 'email']) ?>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <?= $form->field($checkout, 'phone')->label(false)->textInput(['placeholder' => 'Телефон']) ?>
-                            </div>
-                            <div class="col-md-8">
-                                <?= $form->field($checkout, 'address')->label(false)->textInput(['placeholder' => 'Улица']) ?>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <?= $form->field($checkout, 'house')->label(false)->textInput(['placeholder' => 'Дом']) ?>
-                            </div>
-                            <div class="col-md-3">
-                                <?= $form->field($checkout, 'housing')->label(false)->textInput(['placeholder' => 'Подъезд']) ?>
-                            </div>
-                            <div class="col-md-3">
-                                <?= $form->field($checkout, 'floor')->label(false)->textInput(['placeholder' => 'Этаж']) ?>
-                            </div>
-                            <div class="col-md-3">
-                                <?= $form->field($checkout, 'flat')->label(false)->textInput(['placeholder' => 'Квартира']) ?>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <?= $form->field($checkout, 'comment')->label(false)->textArea(['placeholder' => 'Комментарий к заказу']) ?>
-                            </div>
-                        </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <?= $form->field($checkout, 'name')->label(false)->textInput(['placeholder' => 'Имя']) ?>
+                    </div>
+                    <div class="col-md-6">
+                        <?= $form->field($checkout, 'email')->label(false)->textInput(['placeholder' => 'email']) ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <?= $form->field($checkout, 'phone')->label(false)->textInput(['placeholder' => 'Телефон']) ?>
+                    </div>
+                    <div class="col-md-8">
+                        <?= $form->field($checkout, 'address')->label(false)->textInput(['placeholder' => 'Улица']) ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <?= $form->field($checkout, 'house')->label(false)->textInput(['placeholder' => 'Дом']) ?>
+                    </div>
+                    <div class="col-md-3">
+                        <?= $form->field($checkout, 'housing')->label(false)->textInput(['placeholder' => 'Подъезд']) ?>
+                    </div>
+                    <div class="col-md-3">
+                        <?= $form->field($checkout, 'floor')->label(false)->textInput(['placeholder' => 'Этаж']) ?>
+                    </div>
+                    <div class="col-md-3">
+                        <?= $form->field($checkout, 'flat')->label(false)->textInput(['placeholder' => 'Квартира']) ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <?= $form->field($checkout, 'comment')->label(false)->textArea(['placeholder' => 'Комментарий к заказу']) ?>
+                    </div>
+                </div>
 
-                        <div class="text-center">
-                            <span >Нажимая на кнопку "Заказать" вы даете согласие на обработку ваших персональных данных, данные будут использованны исключительно для доставки вашего заказа</span>
+                <div class="text-center">
+                    <span>Нажимая на кнопку "Заказать" вы даете согласие на обработку ваших персональных данных, данные
+                        будут использованны исключительно для доставки вашего заказа</span>
 
-                            <hr class="space xs" />
-                            <div class="text-center">
-                                <?= Html::submitButton('Заказать', ['class' => 'circle-button btn-sm btn']) ?>
-                            </div>
-                        </div>
-                    <?php ActiveForm::end(); ?>
+                    <hr class="space xs" />
+                    <div class="text-center">
+                        <?= Html::submitButton('Заказать', ['class' => 'circle-button btn-sm btn btn-order']) ?>
+                    </div>
+                </div>
+                <?php ActiveForm::end(); ?>
                 <?php endif ?>
 
                 <!-- <form action="" method="post" data-email="federicos@pixor.it">

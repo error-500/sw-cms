@@ -2,20 +2,23 @@
 
 use yii\helpers\Html;
 
-use app\assets\AppAsset;
-use app\themes\qartuliru_default\assets\YandexMetricAsset;
-use app\modules\sw\assets\CdnYandex;
+//use app\assets\AppAsset;
+//use app\themes\qartuliru_default\assets\YandexMetricAsset;
+//use app\modules\sw\assets\CdnYandex;
+use app\themes\qartuliru_default\assets\ThemeAssets;
 use yii\web\View;
 
-AppAsset::register($this);
-YandexMetricAsset::register($this);
+//use yii\web\View;
+
+ThemeAssets::register($this);
+//YandexMetricAsset::register($this);
 
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <!--[if lt IE 10]> <html  lang="en" class="iex"> <![endif]-->
 <!--[if (gt IE 10)|!(IE)]><!-->
-<html lang="<? /*= Yii::$app->language */?>ru">
+<html lang="<?php /*echo Yii::$app->language */?>ru">
 <!--<![endif]-->
 
 <head>
@@ -61,7 +64,7 @@ YandexMetricAsset::register($this);
     <i class="scroll-top scroll-top-mobile show fa fa-sort-asc"></i>
 
     <?= $this->render('footer') ?>
-    <?php /*
+    <?php /* */?>
     <div id="modal-18"
          class="modal fade"
          tabindex="-1"
@@ -82,8 +85,8 @@ YandexMetricAsset::register($this);
                         Сведения, размещенные на сайте, не являются рекламой, носят исключительно
                         информационный характер, и предназначены только для личного использования.
                     </p>
-                    <button class="btn btn-primary"
-                            data-bs-dismiss="modal"
+                    <button class="btn btn-gray"
+                            data-dismiss="modal"
                             type="button">Мне исполнилось 18 лет</button>
                 </div>
             </div>
@@ -92,13 +95,19 @@ YandexMetricAsset::register($this);
     <?php
         $this->registerJs(
             '(function() {
-                jQuery("#modal-18").modal("show");
-                })();
+                const stor = window.localStorage;
+                if (!stor.getItem("mi18")) {
+                    jQuery("#modal-18").modal("show");
+                }
+                jQuery("#modal-18 .btn-gray").on("click", (event) => {
+                    stor.setItem("mi18",  true);
+                });
+            })();
             ',
             View::POS_END,
             'modal-18'
         );
-        */
+
     ?>
     <?php $this->endBody() ?>
 </body>

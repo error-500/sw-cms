@@ -1,5 +1,7 @@
 <?php
 
+use yii\web\View;
+
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
@@ -18,6 +20,16 @@ $config = [
         ],
     ],
     'components' => [
+        'assetManager' => [
+            'linkAssets' => strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? false : true,
+            'bundles' => [
+                'yii\web\JqueryAsset' => [
+                    'jsOptions' => [
+                        'position' => View::POS_HEAD,
+                    ],
+                ],
+            ],
+        ],
         'request' => [
             'cookieValidationKey' => md5('G934jhf8uakw#$'),
         ],

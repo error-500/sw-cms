@@ -10,8 +10,8 @@ class YandexMetricAsset extends AssetBundle
     public $sourcePath = __DIR__;
     public $js = [
         [
-            'src/ym-goals.js',
-            'position' => View::POS_READY
+            'js/ym-goals.js',
+            'position' => View::POS_END
         ]
     ];
     public $depends = [

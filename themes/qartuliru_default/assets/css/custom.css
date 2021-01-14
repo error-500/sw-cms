@@ -1,0 +1,64 @@
+.bg-green-select {
+    background-color: #4a5830 !important;
+}
+
+.extra-content {
+    cursor: pointer;
+}
+
+.shop-menu-cnt .cart-count {
+    margin-top: -13px;
+}
+
+.shop-menu-cnt {
+    /*color: gray !important;*/
+}
+
+.bg-green {
+    background-color: #91a56d !important;
+}
+
+.text-green {
+    color: #91a56d !important;
+}
+
+.shop-cart {
+    overflow-y: auto;
+}
+
+.shop-cart .cart-item {
+    height: auto;
+}
+
+.add-to-cart {
+    cursor: pointer;
+}
+
+.delivery-parent {
+    cursor: pointer;
+}
+
+.delivery-parent:hover {
+    color: #9b2d30;
+}
+
+.delivery-parent.active {
+    color: #9b2d30;
+}
+
+.img-box:before {
+    background: none;
+}
+
+.no-transform:after {
+    transform: none !important;
+    box-shadow: none;
+}
+
+.ken-burn img {
+    opacity: 0.5;
+}
+
+nav.main-menu-categories>.nav-link {
+    padding: 0.01rem 1rem !important;
+}
