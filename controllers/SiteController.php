@@ -6,9 +6,13 @@ use Yii;
 use yii\web\NotFoundHttpException;
 use yii\data\ArrayDataProvider;
 use app\models\Cart;
+use app\models\ContactForm;
+//use app\models\ContactForm;
+use app\models\ReservatioForm;
 
 class SiteController extends \yii\web\Controller
 {
+
     public function actions()
     {
         return [
@@ -97,19 +101,50 @@ class SiteController extends \yii\web\Controller
 
     public function actionContacts()
     {
-        $contacts_block_text = Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'contacts'])->text ?? '';
+        $contactForm = new ContactForm();
+        if (Yii::$app->request->isPost) {
+            $contactForm->load(Yii::$app->request->post(null, []), '');
+            if ($contactForm->send()) {
+                $this->redirect('/contacts');
+            }
+        }
+        $contacts_block_text = Yii::$app->sw
+            ->getModule('block')
+            ->item('findOne', ['tech_name' => 'contacts'])
+            ->text ?? '';
         $contacts_block_text = explode('{separate}', $contacts_block_text);
 
         return $this->render('contacts', [
-            'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'contacts']),
-            'map_constant' => Yii::$app->sw->getModule('constant')->item('findOne', ['tech_name' => 'map']),
+            'contactForm' => $contactForm,
+            'page' => Yii::$app
+                ->sw->getModule('page')
+                ->item(
+                    'findOne',
+                    ['tech_name' => 'contacts']
+            ),
+            'map_constant' => Yii::$app
+                ->sw->getModule('constant')
+                ->item(
+                    'findOne',
+                    ['tech_name' => 'map']
+                ),
             'contacts_block_text' => $contacts_block_text,
         ]);
     }
 
     public function actionReservation()
     {
+        $form = new ReservatioForm();
+        if (Yii::$app->request->isPost) {
+
+            $form->load(Yii::$app->request->post(null, []), '');
+            if ( $form->reserv()) {
+                $this->redirect('/');
+            }
+        }
+
         return $this->render('reservation', [
+            'form' => $form,
             'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'reservation']),
             'reservation_block' => Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'reservation']),
             'map_constant' => Yii::$app->sw->getModule('constant')->item('findOne', ['tech_name' => 'map']),
@@ -125,14 +160,17 @@ class SiteController extends \yii\web\Controller
                     $query->where(['it.is_delivery' => 1])->joinWith([
                         'items it' => function($query) {
                             $query->orderBy('pos ASC');
-                        }, 
+                        },
                         'parent p2'
                     ])->indexBy('tech_name');
                 }
             ])
             ->all();
 
-        $show_menu = Yii::$app->sw->getModule('product')->item('find')->where(['is_delivery' => 1]);
+        $show_menu = Yii::$app->sw
+                        ->getModule('product')
+                        ->item('find')
+                        ->where(['is_delivery' => 1]);
 
         if ($sub_group) {
             $show_menu->andWhere([
@@ -169,7 +207,9 @@ class SiteController extends \yii\web\Controller
         return $this->render('checkout', [
             'checkout' => $checkout,
             'cart' => Cart::getCart(),
-            'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'reservation']),
+            'page' => Yii::$app->sw
+                            ->getModule('page')
+                            ->item('findOne', ['tech_name' => 'checkout']),
         ]);
     }
 
@@ -188,11 +228,13 @@ class SiteController extends \yii\web\Controller
             ],
             'pagination' => false
         ]);
-            
+
         return $this->render('cart', [
             'cart_provider' => $cart_provider,
             'cart' => Cart::getCart(),
-            'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'reservation']),
+            'page' => Yii::$app->sw
+                        ->getModule('page')
+                        ->item('findOne', ['tech_name' => 'cart']),
         ]);
     }
 }
