@@ -9,6 +9,16 @@ header .dropdown-toggle::after {
     border: none !important;
 }
 
+header .navbar-brand {
+    padding-left: 10px;
+    padding-right: 15px;
+    padding-top: 10px;
+}
+
+header .navbar-brand img {
+    max-height: 87%;
+}
+
 .block-title h2 a:hover {
     outline: 0;
     color: #525252;
@@ -106,4 +116,13 @@ nav.main-menu-categories>.nav-link {
     font-family: 'Merriweather', serif !important;
     font-size: 14px !important;
     line-height: 18px;
+}
+
+@media (max-width: 992px) {
+    header .navbar-brand img {
+        max-height: 30px !important;
+    }
+    header .navbar-brand {
+        height: 30px !important
+    }
 }
