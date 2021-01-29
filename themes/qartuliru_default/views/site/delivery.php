@@ -102,3 +102,8 @@ if (!empty($page)) {
         </div>
     </div>
 </div>
+<?php $this->registerCss('
+    a:hover {
+        text-decoration: none;
+    }
+');

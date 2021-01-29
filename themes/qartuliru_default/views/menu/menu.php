@@ -130,3 +130,8 @@ if (!empty($page)) {
     ',
     View::POS_READY
 );
+$this->registerCss('
+    a:hover {
+        color: inherit;
+    }
+');
