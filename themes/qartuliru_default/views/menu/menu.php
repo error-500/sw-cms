@@ -25,7 +25,7 @@ if (!empty($page)) {
         </div>
     </div>
 </div>
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
     <nav class="nav mb-5 d-none d-md-flex justify-content-start text-uppercase main-menu-categories">
         <a class="nav-link active"
            data-toggle="custom-collapse"
@@ -42,7 +42,7 @@ if (!empty($page)) {
         </a>
         <?php endforeach ?>
     </nav>
-    <div class="navbar navbar-inner d-md-none">
+    <div class="navbar navbar-inner d-md-none main-menu-mobile">
         <div class="navbar-toggle"
              data-toggle="collapse"
              data-target="#mobMenu"><i class="fa fa-bars"></i><span>Разделы</span><i class="fa fa-angle-down"></i></div>
@@ -69,19 +69,19 @@ if (!empty($page)) {
             </ul>
         </div>
     </div>
-    <div class="row"
+    <div class="row justify-content-between mb-5"
          id="items-list">
         <?php foreach ($items as $item): ?>
         <div class="col-xs-12 col-md-6 card-collapse <?php echo $item->group->tech_name; ?>"
              aria-labelledby="a_<?php echo $item->group->tech_name; ?>">
-            <div class="card m-2">
-                <div class="row align-items-center no-gutters">
+            <div class="card border-0">
+                <div class="row align-items-start no-gutters">
                     <div class="col-xs-12 col-md-5">
                         <img src="<?php echo $item->imgSrc ?>"
-                             class="card-img m-3" />
+                             class="card-img rounded-0" />
                     </div>
                     <div class="col-xs-12 col-md-7">
-                        <div class="card-body ml-3">
+                        <div class="card-body p-0 ml-3">
                             <h5 class="card-title"><?php echo trim($item->name); ?></h5>
                             <p class="card-text">
                                 <?php echo !empty($item->consist)
@@ -97,12 +97,14 @@ if (!empty($page)) {
                     </div>
                 </div>
             </div>
+            <hr class="mt-2 mb-2 border-bottom border-radius-0 border-bottom-black" />
         </div>
         <?php endforeach ?>
     </div>
 </div>
 <?php $this->registerJs(
     '
+        jQuery(document).off(".main-menu-categories")
         document.querySelectorAll(".card-collapse").forEach((el)=>{
             jQuery(el).collapse("show");
         });

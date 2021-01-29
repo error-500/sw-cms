@@ -12,9 +12,36 @@ use yii\web\View;
 
 ThemeAssets::register($this);
 //YandexMetricAsset::register($this);
+$this->registerCss("
+    body, p {
+        font-family: 'Merriweather', serif !important;
+        font-size: 14px !important;
+        /*color: #603617 !important;*/
+    }
 
-?>
-<?php $this->beginPage() ?>
+
+    /*настройка курсивного заголвка*/
+    .title-base p {
+        font-family: 'Marck Script', serif !important;
+        font-size: 20px !important;
+        font-style: unset !important;
+        /*color: #bd7945 !important;*/
+    }
+
+    /*настройка кнопки*/
+    .btn.btn-border {
+        /*color: #97aa53 !important;*/
+    }
+
+    /*настройка заголовков*/
+    .title-base h2 {
+        /*color: #647a29 !important;*/
+        font-family: 'Montserrat', sans-serif !important;
+    }
+");
+
+$this->beginPage() ?>
+
 <!DOCTYPE html>
 <!--[if lt IE 10]> <html  lang="en" class="iex"> <![endif]-->
 <!--[if (gt IE 10)|!(IE)]><!-->
@@ -93,6 +120,7 @@ ThemeAssets::register($this);
         </div>
     </div>
     <?php
+    /*
         $this->registerJs(
             '(function() {
                 const stor = window.localStorage;
@@ -107,7 +135,7 @@ ThemeAssets::register($this);
             View::POS_END,
             'modal-18'
         );
-
+    */
     ?>
     <?php $this->endBody() ?>
 </body>

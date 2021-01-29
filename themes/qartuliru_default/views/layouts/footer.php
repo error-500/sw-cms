@@ -1,5 +1,5 @@
-<footer class="footer-base ">
+<footer class="footer-base bg-white">
     <div class="content">
-        <?=  str_replace('{year}', date('Y'), Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'footer'])->text ?? '') ?>
+        <?php echo  str_replace('{year}', date('Y'), Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'footer'])->text ?? '') ?>
     </div>
 </footer>

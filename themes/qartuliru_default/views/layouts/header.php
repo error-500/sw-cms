@@ -18,7 +18,7 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
          role="navigation"-->
     <nav class="navbar navbar-expand-lg navbar-default"
          role="navigation">
-        <a class="navbar-brand flex-grow-1 flex-lg-grow-0 m-3"
+        <a class="navbar-brand flex-grow-1 flex-lg-grow-0 ml-1"
            href="<?= Url::to('/') ?>">
 
             <img class="logo-default scroll-hide"
@@ -41,7 +41,7 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
             <?php echo Cart::widget(['full' => false]); ?>
         </div>
         <button type="button"
-                class="navbar-toggler"
+                class="navbar-toggler border-0"
                 data-toggle="collapse"
                 data-target="#main-menu">
             <i class="fa fa-bars"></i>

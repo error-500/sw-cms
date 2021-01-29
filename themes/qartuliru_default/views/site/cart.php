@@ -74,6 +74,28 @@ if (!empty($page)) {
                     ],
                 ]) ?>
                 </div>
+                <?php
+                    $dateNow = new DateTime('now', new DateTimeZone('Europe/Moscow'));
+                    $dateStart = new DateTime($dateNow->format('Y-m-d 12:00'), new DateTimeZone('Europe/Moscow'));
+                    $dateEnd = new DateTime($dateNow->format('Y-m-d 22:30'), new DateTimeZone('Europe/Moscow'));
+                    /*echo '<pre>'.$dateNow->format('d.m.Y H:i:s')
+                    .' '.$dateStart->format('d.m.Y H:i:s')
+                    .' '.$dateEnd->format('d.m.Y H:i:s').'</pre>';*/
+                ?>
+                <?php if($dateNow < $dateStart || $dateNow > $dateEnd): ?>
+                <div class="d-flex flex-row justify-content-center">
+                    <div class="w-50">
+                        <div class="alert alert-warning">
+                            <h5>Внимание</h5>
+                            <p class="text-dark">
+                                Доставка заказов осуществляется ежедневно с 12:30 до 23:00.
+                                Вы можете овормить заказ на доставку сейчас и мы свяжемся с Вами
+                                в рабочее время.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <?php endif; ?>
                 <div class="row">
                     <div class="col-md-6">
                         <h4 class="text-left">Итог:</h4>
@@ -104,6 +126,13 @@ if (!empty($page)) {
                     </div>
 
                     <div class="col-md-6">
+                        <?php /* echo '<pre>'.var_export($cart, true).'</pre>'; */?>
+                        <?php if(!empty($cart['total']) && $cart['total'] < 1500 ): ?>
+                        <div class="alert alert-warning alert-dismissable">
+                            <?php echo /*Yii::t('app',*/  'Минимальная сумма заказа 1500'/*)*/;?>₽<br />
+                            <?php echo /*Yii::t('app',*/ 'Благодарим за понимание'/*)*/;?>
+                        </div>
+                        <?php endif; ?>
                         <div class="">
                             <a href="<?= Url::to('/site/checkout') ?>"
                                class="btn-checkout btn btn-default btn-block<?php if($cart['total'] < 1500):?> disabled<?php endif;?>"

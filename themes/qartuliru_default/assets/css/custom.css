@@ -1,3 +1,14 @@
+header.scroll-change .navbar-nav>li>a {
+    padding: 20px 18px 20px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: none;
+}
+
+header .dropdown-toggle::after {
+    border: none !important;
+}
+
 .bg-green-select {
     background-color: #4a5830 !important;
 }
@@ -24,6 +35,10 @@
 
 .shop-cart {
     overflow-y: auto;
+}
+
+.btn-cart:hover {
+    text-decoration: none;
 }
 
 .shop-cart .cart-item {
@@ -61,4 +76,28 @@
 
 nav.main-menu-categories>.nav-link {
     padding: 0.01rem 1rem !important;
+}
+
+.dropdown-menu {
+    border-radius: 0;
+}
+
+#items-list .card-collapse {
+    cursor: pointer;
+}
+
+#items-list .card-collapse:hover hr.border-bottom {
+    border-bottom-style: solid;
+    border-bottom: 2px;
+    border-bottom-color: #484848 !important;
+}
+
+#items-list .card-collapse:hover .card {
+    padding-left: 1em;
+}
+
+#items-list .card .card-body .card-text {
+    font-family: 'Merriweather', serif !important;
+    font-size: 14px !important;
+    line-height: 18px;
 }

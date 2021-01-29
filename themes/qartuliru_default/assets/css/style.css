@@ -948,10 +948,18 @@ div.full-width-menu .inner .dropdown-submenu>a:after {
 .sidebar-nav ul a:hover,
 .panel-item>span:hover,
 .sidebar-nav .panel-item>span:hover,
+header:not(.bg-transparent)>nav.navbar {
+    background-color: #fff;
+}
+
 .bg-transparent li.active {
     color: #171717;
     background: rgba(199, 199, 199, 0.08);
     border-radius: 2px;
+}
+
+.bg-transparent .navbar .nav-item .nav-link {
+    color: rgba(255, 255, 255, .7);
 }
 
 .bg-transparent li.active,
@@ -3436,7 +3444,6 @@ VERTICAL AND PROPORZIONAL ROW
 [class*="row-"] .flexslider,
 [class*="row-"] .flexslider div,
 [class*="row-"] .flexslider .slides,
-[class*="row-"] .row,
 [class*="row-"] li .img-box,
 .proporzional-row .hc_content_box_cnt,
 .proporzional-row>.row>div>.row>div>.advs-box,
@@ -5335,7 +5342,11 @@ SECTIONS
 }
 
 .section-bg-video .videobox {
-    height: 130%;
+    height: 162vh;
+}
+
+.videobox video {
+    object-fit: cover;
 }
 
 .section-bg-video .bg-overlay {
@@ -5548,7 +5559,7 @@ SECTIONS
 }
 
 .section-map {
-    margin-top: 5rem;
+    /*margin-top: 5rem;*/
     position: relative;
     overflow: hidden;
 }
@@ -5590,8 +5601,11 @@ SECTIONS
 }
 
 .overlaybox-side,
-.overlaybox-side .content,
-.overlaybox-side .row {
+.overlaybox-side .content
+/*,
+.overlaybox-side .row*/
+
+{
     height: 1px;
     padding: 0 !important;
 }

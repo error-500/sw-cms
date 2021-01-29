@@ -6,8 +6,8 @@ $('.advs-box-delivery').hover(function() {
 });
 
 $('.add-to-cart').on('click', function() {
-    icon = $(this).find('i');
-
+    const icon = $(this).find('i');
+    const cartBtn = document.querySelectorAll(".cart.invisible, .btn-cart.invisible");
     $.ajax({
         url: '/cart/add',
         data: {
@@ -20,9 +20,14 @@ $('.add-to-cart').on('click', function() {
             $('.shop-menu-cnt').html(data['full']);
             $('.cart-li-mobile').html(data['mobile']);
             icon.toggleClass('im-arrow-refresh im-yes');
+            cartBtn.forEach((btn) => {
+                $(btn).removeClass('invisible');
+            });
             const response = JSON.parse(data);
             console.log('Response total:', response);
-            document.querySelector('.fa-stack-1x.img-circle').textContent = response.total;
+            if (response.total) {
+                $('.fa.fa-stack-1x.img-circle').text(response.total);
+            }
             setTimeout(function() {
                 icon.toggleClass('im-yes im-add-cart');
             }, 1500);

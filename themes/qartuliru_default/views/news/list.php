@@ -45,15 +45,15 @@ if (!empty($page)) {
                 </div>
             </div>
             <div class="col-md-3 col-sm-12 widget">
-                <div class="list-group list-blog">
-                    <p class="list-group-item">Категории</p>
+                <div class="list-group list-blog list-group-flush">
+                    <h5 class="list-group-header">Категории</h5>
                     <?php foreach ($groups as $group): ?>
                     <a href="<?= Url::to(['/news', 'category' => $group->tech_name]) ?>"
                        class="list-group-item"><?= $group->name ?></a>
                     <?php endforeach ?>
                 </div>
-                <div class="list-group list-blog">
-                    <p class="list-group-item">Случаные публикации</p>
+                <div class="list-group list-blog list-group-flush">
+                    <h5 class="list-group-header">Случаные публикации</h5>
                     <?php foreach ($random_posts as $random_post): ?>
                     <div class="list-group-item">
                         <div class="tag-row icon-row">

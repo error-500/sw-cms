@@ -34,9 +34,9 @@ class ContactForm extends Model
             //['verifyCode', 'captcha'],
             [
                 ['reCaptcha'],
-                ReCaptchaValidator2::class,
-                'secret' => Yii::$app->reCaptcha->siteKeyV2, // unnecessary if reСaptcha is already configured
-                'uncheckedMessage' => 'Please confirm that you are not a bot.',
+                ReCaptchaValidator3::class,
+                'secret' => Yii::$app->reCaptcha->secretV3, // unnecessary if reСaptcha is already configured
+                //'uncheckedMessage' => 'Please confirm that you are not a bot.',
             ],
         ];
     }

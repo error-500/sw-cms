@@ -21,7 +21,7 @@ class ThemeAssets extends AssetBundle
         'css/contact-form.css',
         'css/skin.css',
         'js/iconsmind/line-icons.min.css',
-        //'scripts/flexslider/flexslider.css',
+        'js/flexslider/flexslider.css',
         'css/social.stream.css',
         //'scripts/magnific-popup.css',
         'css/custom.css',
@@ -34,6 +34,12 @@ class ThemeAssets extends AssetBundle
         ],
         [
             'js/source/parallax.js',
+            'type' => 'text/javascript',
+            'rel' => 'preload',
+            'as' => 'script',
+        ],
+         [
+            'js/flexslider/jquery.flexslider-min.js',
             'type' => 'text/javascript',
             'rel' => 'preload',
             'as' => 'script',
@@ -107,6 +113,11 @@ class ThemeAssets extends AssetBundle
             'position' => View::POS_END,
             'type' => 'text/javascript'
         ],
+        [
+            'js/flexslider/jquery.flexslider-min.js',
+            'position' => View::POS_END,
+            'type' => 'text/javascript'
+        ],
         // 'scripts/parallax.min.js',
         //'js/flexslider/jquery.flexslider-min.js',
         // 'scripts/bootstrap/js/bootstrap.min.js',
@@ -162,6 +173,7 @@ class ThemeAssets extends AssetBundle
     ];
 
     public $depends = [
+        ThemeGoogleFontsAssets::class,
         BootstrapAsset::class,
         BootstrapPluginAsset::class,
         YandexMetricAsset::class,

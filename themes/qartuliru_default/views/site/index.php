@@ -99,11 +99,11 @@ if (!empty($page)) {
                     <?php foreach (array_chunk($menu_random, 5)[0] ?? [] as $item): ?>
                     <div class="list-item">
                         <div class="row">
-                            <div class="col-md-9">
+                            <div class="col-9">
                                 <h3><?= $item->name ?></h3>
                                 <p><?= $item->about ?></p>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-3">
                                 <span><?= $item->price ?> ₽</span>
                             </div>
                         </div>
@@ -116,11 +116,11 @@ if (!empty($page)) {
                     <?php foreach (array_chunk($menu_random, 5)[1] ?? [] as $item): ?>
                     <div class="list-item">
                         <div class="row">
-                            <div class="col-md-9">
+                            <div class="col-8">
                                 <h3><?= $item->name ?></h3>
                                 <p><?= $item->about ?></p>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-4">
                                 <span><?= $item->price ?> ₽</span>
                             </div>
                         </div>
@@ -166,7 +166,7 @@ if (!empty($page)) {
             <?= $delivery_slider->text ?>
         </div>
         <hr class="space m" />
-        <div class="row"
+        <div class="row mb-3"
              data-anima="fade-bottom"
              data-timeline="asc"
              data-timeline-time="200"

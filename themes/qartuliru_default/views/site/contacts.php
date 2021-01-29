@@ -175,11 +175,11 @@ $this->params['header_class'] = 'fixed-top scroll-change wide-area';
 
                         </div>
                         <div class="col-md-12">
-                            <?php /*echo ReCaptcha2::widget([
+                            <?php echo ReCaptcha3::widget([
                                 'name' => 'reCaptcha',
-                                'siteKey' => Yii::$app->reCaptcha->siteKeyV2, // unnecessary is reCaptcha component was set up
-                                'widgetOptions' => ['class' => 'col-sm-offset-3'],
-                            ]);  */?>
+                                'siteKey' => Yii::$app->reCaptcha->siteKeyV3, // unnecessary is reCaptcha component was set up
+                                //'widgetOptions' => ['class' => 'col-sm-offset-3'],
+                            ]);  ?>
                         </div>
                         <div class="col-md-12">
                             <button class="btn-xs btn"
