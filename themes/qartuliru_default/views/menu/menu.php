@@ -114,10 +114,12 @@ if (!empty($page)) {
                     document.querySelectorAll(`${jQuery(btn).data("parent")} .card-collapse:not(${jQuery(btn).data("target")})`)
                         .forEach((el) => {
                             jQuery(el).collapse("hide");
+                            jQuery(el).removeClass("active");
                         });
                     document.querySelectorAll(`${jQuery(btn).data("parent")} ${jQuery(btn).data("target")}`)
                         .forEach((el) => {
                             jQuery(el).collapse("show");
+                            jQuery(el).addClass("active");
                         });
                 } else {
                     document.querySelectorAll(`${jQuery(btn).data("parent")} .card-collapse`)
