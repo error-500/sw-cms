@@ -74,7 +74,7 @@ if (!empty($page)) {
         <?php foreach ($items as $item): ?>
         <div class="col-xs-12 col-md-6 card-collapse <?php echo $item->group->tech_name; ?>"
              aria-labelledby="a_<?php echo $item->group->tech_name; ?>">
-            <div class="card border-0">
+            <div class="card menu-card border-0">
                 <div class="row align-items-start no-gutters">
                     <div class="col-xs-12 col-md-5">
                         <img src="<?php echo $item->imgSrc ?>"
@@ -82,7 +82,7 @@ if (!empty($page)) {
                     </div>
                     <div class="col-xs-12 col-md-7">
                         <div class="card-body p-0 ml-3">
-                            <h5 class="card-title"><?php echo trim($item->name); ?></h5>
+                            <h3 class="card-title menu-card-title"><?php echo trim($item->name); ?></h3>
                             <p class="card-text">
                                 <?php echo !empty($item->consist)
                                         ? "{$item->consist}<br>" : '';
@@ -90,7 +90,7 @@ if (!empty($page)) {
                                 <?php echo !empty($item->volume)
                                         ? "{$item->volume}" : ''; ?>
                             </p>
-                            <p class="card-text text-black text-right">
+                            <p class="card-text text-right">
                                 <?php echo $item->price; ?>₽
                             </p>
                         </div>
@@ -114,10 +114,12 @@ if (!empty($page)) {
                     document.querySelectorAll(`${jQuery(btn).data("parent")} .card-collapse:not(${jQuery(btn).data("target")})`)
                         .forEach((el) => {
                             jQuery(el).collapse("hide");
+                            jQuery(el).removeClass("active");
                         });
                     document.querySelectorAll(`${jQuery(btn).data("parent")} ${jQuery(btn).data("target")}`)
                         .forEach((el) => {
                             jQuery(el).collapse("show");
+                            jQuery(el).addClass("active");
                         });
                 } else {
                     document.querySelectorAll(`${jQuery(btn).data("parent")} .card-collapse`)
@@ -130,3 +132,8 @@ if (!empty($page)) {
     ',
     View::POS_READY
 );
+$this->registerCss('
+    a:hover {
+        color: inherit;
+    }
+');

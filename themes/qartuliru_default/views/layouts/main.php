@@ -90,7 +90,7 @@ $this->beginPage() ?>
     </div>
     <i class="scroll-top scroll-top-mobile show fa fa-sort-asc"></i>
 
-    <?= $this->render('footer') ?>
+    <?php echo $this->render('footer') ?>
     <?php /* */?>
     <div id="modal-18"
          class="modal fade"

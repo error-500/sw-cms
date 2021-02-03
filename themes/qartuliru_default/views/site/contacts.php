@@ -14,8 +14,8 @@ $this->params['main_logo_white'] = Yii::$app->sw->getModule('file_manager')->ite
 $this->params['header_class'] = 'fixed-top scroll-change wide-area';
 
 ?>
-<div class="section-map box-middle-container row-18">
-    <div class="google-map">
+<div class="section-map box-middle-container row-18 mt-5 mb-0">
+    <div class="google-map mt-5">
         <?= $map_constant->value ?>
     </div>
     <div class="overlaybox overlaybox-side overlaybox">

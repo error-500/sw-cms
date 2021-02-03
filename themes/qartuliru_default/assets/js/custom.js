@@ -37,3 +37,9 @@ $('.add-to-cart').on('click', function() {
         }
     })
 });
+const toggleCloseLinks = document.querySelectorAll('[data-toggle="collapse-close"');
+toggleCloseLinks.forEach((lnk) => {
+    $(lnk).on('click', () => {
+        $(lnk.data('target')).removeClass('show');
+    });
+});

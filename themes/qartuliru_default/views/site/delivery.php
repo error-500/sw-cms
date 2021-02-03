@@ -58,7 +58,14 @@ if (!empty($page)) {
                                         <?php foreach ($base_menu->groups as $sub_group): ?>
                                         <li>
                                             <?php $name = $sub_group->tech_name != $sub_group_name ? $sub_group->name : Html::tag('b', $sub_group->name) ?>
-                                            <?= Html::a($name, ["/delivery/{$sub_group->tech_name}"]) ?>
+                                            <?= Html::a(
+                                                $name,
+                                                ["/delivery/{$sub_group->tech_name}"],
+                                                [
+                                                    'data-toggle' => 'collapse-close',
+                                                    'data-target' => '#menu-main',
+                                                    'aria-expanded' => 'true'
+                                                ]) ?>
                                         </li>
                                         <?php endforeach ?>
                                     </ul>
@@ -102,3 +109,8 @@ if (!empty($page)) {
         </div>
     </div>
 </div>
+<?php $this->registerCss('
+    a:hover {
+        text-decoration: none;
+    }
+');

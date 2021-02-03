@@ -70,61 +70,6 @@ if (!empty($page)) {
                     </div>
                     <?php endforeach ?>
                 </div>
-                <!--                 <div class="list-group latest-post-list list-blog">
-                    <p class="list-group-item active">Latest posts</p>
-                    <div class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a class="img-box circle">
-                                    <img src="../images/gallery/square-4.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="col-md-8">
-                                <a href="#">
-                                    <h5>Return to the future day</h5>
-                                </a>
-                                <div class="tag-row icon-row"><span><i class="fa fa-calendar"></i>02.06.2018</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a class="img-box circle">
-                                    <img src="../images/gallery/square-1.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="col-md-8">
-                                <a href="#">
-                                    <h5>We can do</h5>
-                                </a>
-                                <div class="tag-row icon-row"><span><i class="fa fa-calendar"></i>02.06.2018</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a class="img-box circle">
-                                    <img src="../images/gallery/square-2.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="col-md-8">
-                                <a href="#">
-                                    <h5>Hacking team 24</h5>
-                                </a>
-                                <div class="tag-row icon-row"><span><i class="fa fa-calendar"></i>02.06.2018</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="list-group list-blog">
-                    <p class="list-group-item active">Tags</p>
-                    <div class="tagbox">
-                        <span>Hello!</span><span>Big deal</span><span>A new happy time</span><span>Food</span><span>Cheese</span><span>Food</span>
-                        <div class="clear"></div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
