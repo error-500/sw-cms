@@ -118,6 +118,22 @@ nav.main-menu-categories>.nav-link {
     line-height: 18px;
 }
 
+h3.card-title.menu-card-title {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: none;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    color: #484848;
+}
+
+.menu-card .card-text.text-right {
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 25px;
+    color: #2e2e2e;
+}
+
 @media (max-width: 992px) {
     header .navbar-brand img {
         max-height: 30px !important;
