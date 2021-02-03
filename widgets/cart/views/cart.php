@@ -3,36 +3,61 @@
 use yii\helpers\Url;
 
 ?>
-<?php if ($cart && $full): ?>
-    <i class="fa fa-shopping-cart"><span class="cart-count bg-green-select"><?= array_sum(array_column($cart['items'], 'count')) ?></span></i>
-    <div class="shop-menu">
-        <ul class="shop-cart">
-            <?php foreach ($cart['items'] as $id => $item): ?>
-                <li class="cart-item">
-                    <img src="<?= $item['obj']->imgThumbSrc ?>" alt="<?= $item['obj']->name ?>">
-                    <div class="cart-content">
-                        <h5><?= $item['obj']->name ?></h5>
-                        <span class="cart-quantity">
-                            <?= $item['count'] ?> x <?= number_format($item['obj']->price) ?> ₽
-                        </span>
-                    </div>
-                </li>
-            <?php endforeach ?>
-        </ul>
-        <p class="cart-total">
-            Итого: <span><?= number_format($cart['total']) ?> ₽</span>
-        </p>
-        <p class="cart-buttons">
-            <!-- <a href="#" class="btn btn-xs cart-view">Корзина</a> -->
-            <a href="<?= Url::to(['/site/cart']) ?>" class="btn btn-xs cart-checkout">Корзина</a>
-        </p>
-        <hr class="space xs" />
-    </div>
+<?php if ($full): ?>
+<li class="dropdown cart <?php if(!$cart): ?>invisible<?php endif; ?>">
+    <a href="<?= Url::to(['/site/cart']) ?>"
+       class="btn-cart"
+       data-toggle="dropdown">
+        <span class="fa-stack fa-lg">
+            <i class="fa fa-shopping-cart fa-stack-2x"></i>
+            <b class="fa fa-stack-1x img-circle">
+                <?php if(!empty($cart['items'])): echo array_sum(array_column($cart['items'], 'count')); endif; ?>
+                <?php /*echo var_export($cart, true); */?>
+            </b>
+        </span>
+    </a>
+    <?php if(!empty($cart['items'])): ?>
+    <!--ul class="dropdown-menu"
+        style="background-color: rgba(255,255,255, .8) !important">
+        <?php foreach ($cart['items'] as $id => $item): ?>
+        <li class="cart-item">
+            <img src="<?= $item['obj']->imgThumbSrc ?>"
+                 alt="<?= $item['obj']->name ?>">
+            <span class="cart-content">
+                <q><?= $item['obj']->name ?></q>
+                <b class="cart-quantity">
+                    <?= $item['count'] ?> x <?= number_format($item['obj']->price) ?> ₽
+                </b>
+            </span>
+        </li>
+        <?php endforeach ?>
+
+        <li role="separator"
+            class="divider"></li>
+        <li class="cart-checkout">
+
+            <span class="cart-total">
+                Итого: <span><?= number_format($cart['total']) ?> ₽</span>
+            </span>
+            <span class="cart-buttons">
+                <a href="<?= Url::to(['/site/cart']) ?>"
+                   class="btn btn-success">Корзина</a>
+            </span>
+        </li>
+    </ul-->
+    <?php endif; ?>
+</li>
 <?php endif ?>
 
-<?php if ($cart && !$full): ?>
-    <a style="padding: 0 !important;" href="<?= Url::to(['/page/cart']) ?>" class="css-pointer dropdown-toggle">
-        <i class="fa fa-shopping-cart fsc pull-left"></i>
-        <span class="cart-number"><?= array_sum(array_column($cart['items'], 'count')) ?></span>
-    </a>
+<?php if (!$full): ?>
+<a href="<?php echo Url::to(['/site/cart']); ?>"
+   style="padding: 0 !important;"
+   class="css-pointer btn-cart <?php if (!$cart): ?>invisible<?php endif; ?>">
+    <span class="fa-stack fa-lg">
+        <i class="fa fa-shopping-cart fa-stack-2x"></i>
+        <b class="fa fa-stack-1x img-circle">
+            <?php if(!empty($cart['items'])): echo array_sum(array_column($cart['items'], 'count')); endif; ?>
+        </b>
+    </span>
+</a>
 <?php endif ?>

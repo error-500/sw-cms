@@ -1,0 +1,144 @@
+header.scroll-change .navbar-nav>li>a {
+    padding: 20px 18px 20px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: none;
+}
+
+header .dropdown-toggle::after {
+    border: none !important;
+}
+
+header .navbar-brand {
+    padding-left: 10px;
+    padding-right: 15px;
+    padding-top: 10px;
+}
+
+header .navbar-brand img {
+    max-height: 87%;
+}
+
+.block-title h2 a:hover {
+    outline: 0;
+    color: #525252;
+    text-decoration: none;
+}
+
+.bg-green-select {
+    background-color: #4a5830 !important;
+}
+
+.extra-content {
+    cursor: pointer;
+}
+
+.shop-menu-cnt .cart-count {
+    margin-top: -13px;
+}
+
+.shop-menu-cnt {
+    /*color: gray !important;*/
+}
+
+.bg-green {
+    background-color: #91a56d !important;
+}
+
+.text-green {
+    color: #91a56d !important;
+}
+
+.shop-cart {
+    overflow-y: auto;
+}
+
+.btn-cart:hover {
+    text-decoration: none;
+}
+
+.shop-cart .cart-item {
+    height: auto;
+}
+
+.add-to-cart {
+    cursor: pointer;
+}
+
+.delivery-parent {
+    cursor: pointer;
+}
+
+.delivery-parent:hover {
+    color: #9b2d30;
+}
+
+.delivery-parent.active {
+    color: #9b2d30;
+}
+
+.img-box:before {
+    background: none;
+}
+
+.no-transform:after {
+    transform: none !important;
+    box-shadow: none;
+}
+
+.ken-burn img {
+    opacity: 0.5;
+}
+
+nav.main-menu-categories>.nav-link {
+    padding: 0.01rem 1rem !important;
+}
+
+.dropdown-menu {
+    border-radius: 0;
+}
+
+#items-list .card-collapse {
+    cursor: pointer;
+}
+
+#items-list .card-collapse:hover hr.border-bottom {
+    border-bottom-style: solid;
+    border-bottom: 2px;
+    border-bottom-color: #484848 !important;
+}
+
+#items-list .card-collapse:hover .card {
+    padding-left: 1em;
+}
+
+#items-list .card .card-body .card-text {
+    font-family: 'Merriweather', serif !important;
+    font-size: 14px !important;
+    line-height: 18px;
+}
+
+h3.card-title.menu-card-title {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: none;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    color: #484848;
+}
+
+.menu-card .card-text.text-right {
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 25px;
+    color: #2e2e2e;
+}
+
+@media (max-width: 992px) {
+    header .navbar-brand img {
+        max-height: 30px !important;
+    }
+    header .navbar-brand {
+        height: 30px !important
+    }
+}

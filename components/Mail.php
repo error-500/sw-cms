@@ -6,7 +6,7 @@ use Yii;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
-class Mail 
+class Mail
 {
     public $to;
     public $from;
@@ -21,7 +21,15 @@ class Mail
 
     public static function prepare($view, $params = [], $title = 'Форма связи')
     {
-        $emails_to = Yii::$app->sw->getModule('constant')->item('findOne', ['tech_name' => 'delivery_emails'])->value ?? 'etc@swods.ru';
+        $emails_to = Yii::$app
+        ->sw->getModule('constant')
+        ->item(
+            'findOne',
+            [
+                'tech_name' => 'delivery_emails'
+            ]
+        )->value ?? 'etc@swods.ru';
+
         $emails_to = explode(',', $emails_to);
         $emails_to = array_map('trim', $emails_to);
 
@@ -33,7 +41,7 @@ class Mail
         return $mail;
     }
 
-    public function send() 
+    public function send()
     {
         $username = Yii::$app->sw->getModule('constant')->item('findOne', ['tech_name' => 'smtp_username'])->value ?? 'info@mikek8.ru';
         $password = Yii::$app->sw->getModule('constant')->item('findOne', ['tech_name' => 'smtp_password'])->value ?? 'MIKEk8123';
@@ -55,7 +63,7 @@ class Mail
         return $this->sendByEmail();
     }
 
-    public function sendByEmail() 
+    public function sendByEmail()
     {
         $result = [];
 

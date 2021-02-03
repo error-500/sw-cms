@@ -1,5 +1,7 @@
 <?php
 
+use yii\web\View;
+
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
@@ -7,6 +9,7 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    //'language' => 'en',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -17,11 +20,34 @@ $config = [
         ],
     ],
     'components' => [
+        'assetManager' => [
+            'linkAssets' => strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? false : true,
+            'bundles' => [
+                'yii\web\JqueryAsset' => [
+                    'jsOptions' => [
+                        'position' => View::POS_HEAD,
+                    ],
+                ],
+            ],
+        ],
         'request' => [
             'cookieValidationKey' => md5('G934jhf8uakw#$'),
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
+        ],
+        'view' => [
+            'theme' => [
+                'basePath' => '@app/themes/qartuliru_default',
+                // 'baseUrl'  => '@web/themes/vue-app',
+                'pathMap'  => [
+                    '@app/assets'      => '@app/themes/qartuliru_default',
+                    '@app/views'       => ['@app/views','@app/themes/qartuliru_default/views'],
+                    '@app/widgets'     => '@app/themes/qartuliru_default/widgets',
+                    '@app/modules'     => '@app/themes/qartuliru_default/modules',
+                    // '@app/modules/post/widgets/views' => '@app/themes/crystald/widgets',
+                ],
+            ],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -32,6 +58,19 @@ $config = [
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
             'useFileTransport' => true,
+        ],
+        'i18n' => [
+        'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    //'basePath' => '@app/messages',
+                    //'sourceLanguage' => 'en-US',
+                    'fileMap' => [
+                        'app'       => 'app.php',
+                        'app/error' => 'error.php',
+                    ],
+                ],
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -55,6 +94,14 @@ $config = [
                 'delivery/<sub_group:[\w_\-]+>' => 'site/delivery',
                 'news/' => '/news/list',
             ],
+        ],
+
+        'reCaptcha' => [
+            'class' => 'himiklab\yii2\recaptcha\ReCaptchaConfig',
+            'siteKeyV2' => '6LfjwBYaAAAAAF3iqvMVIbgkZVd-m8q1zursW1mq',
+            'secretV2' => '6LfjwBYaAAAAAFc__DHN60euJEVw8g1SKeZdpgWL',
+            'siteKeyV3' => '6LdnkxUaAAAAADg0Yqc8gjnfTxQZEf9nhbrQfEg8',
+            'secretV3' => '6LdnkxUaAAAAAIdfj8kUr0wzhAyf57LsAOKk21Q1',
         ],
     ],
     'params' => $params,
