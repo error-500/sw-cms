@@ -222,8 +222,8 @@ if (!empty($page)) {
         </div>
     </div>
 </div>
-<div class="section-map box-middle-container row-18">
-    <div class="google-map">
+<div class="section-map box-middle-container">
+    <div class="google-map p-5">
         <?= $map_constant->value ?>
     </div>
     <div class="overlaybox overlaybox-side overlaybox">
