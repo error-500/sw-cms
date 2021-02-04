@@ -223,12 +223,12 @@ if (!empty($page)) {
     </div>
 </div>
 <div class="section-map box-middle-container">
-    <div class="google-map p-5">
+    <div class="google-map">
         <?= $map_constant->value ?>
     </div>
     <div class="overlaybox overlaybox-side overlaybox">
         <div class="container content">
-            <div class="row">
+            <div class="row mt-5">
                 <div class="col-md-6 overlaybox-inner box-middle"
                      data-anima="fade-left">
                     <div class="row">
