@@ -6,6 +6,8 @@ use yii\helpers\Html;
 //use app\themes\qartuliru_default\assets\YandexMetricAsset;
 //use app\modules\sw\assets\CdnYandex;
 use app\themes\qartuliru_default\assets\ThemeAssets;
+use app\widgets\fbpixel\FbPixelWidget;
+use app\widgets\ymetric\YMetricWidget;
 use yii\web\View;
 
 //use yii\web\View;
@@ -138,6 +140,8 @@ $this->beginPage() ?>
     */
     ?>
     <?php $this->endBody() ?>
+    <?php echo YMetricWidget::widget(); ?>
+    <?php echo FbPixelWidget::widget(); ?>
 </body>
 
 </html>
