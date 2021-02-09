@@ -134,6 +134,46 @@ h3.card-title.menu-card-title {
     color: #2e2e2e;
 }
 
+
+/* xs - extra small */
+
+.w-xs-25 {
+    width: 25% !important;
+}
+
+.w-xs-50 {
+    width: 50% !important;
+}
+
+.w-xs-75 {
+    width: 75% !important;
+}
+
+.w-xs-100 {
+    width: 100% !important;
+}
+
+
+/* sm - small */
+
+@media (min-width: 576px) {
+    .w-sm-25 {
+        width: 25% !important;
+    }
+    .w-sm-50 {
+        width: 50% !important;
+    }
+    .w-sm-75 {
+        width: 75% !important;
+    }
+    .w-sm-100 {
+        width: 100% !important;
+    }
+}
+
+
+/* lg - Large */
+
 @media (max-width: 992px) {
     header .navbar-brand img {
         max-height: 30px !important;
