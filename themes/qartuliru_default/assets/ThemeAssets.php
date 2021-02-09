@@ -3,7 +3,9 @@
 namespace app\themes\qartuliru_default\assets;
 
 use app\assets\GoogleTagAsset;
+use app\assets\YMapAsset;
 use app\assets\YMetricAsset;
+use app\components\VueApp\assets\BootstrapVueAsset;
 use yii\bootstrap4\BootstrapAsset;
 use yii\bootstrap4\BootstrapPluginAsset;
 use yii\web\AssetBundle;
@@ -179,7 +181,9 @@ class ThemeAssets extends AssetBundle
         BootstrapAsset::class,
         BootstrapPluginAsset::class,
         YMetricAsset::class,
+        YMapAsset::class,
         GoogleTagAsset::class,
         JqueryAsset::class,
+        BootstrapVueAsset::class,
     ];
 }

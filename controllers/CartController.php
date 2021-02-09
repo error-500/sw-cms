@@ -32,7 +32,12 @@ class CartController extends \yii\web\Controller
             $this->redirect('/site/cart');
         } else {
             if (Yii::$app->request->isAjax) {
-                return Json::encode(['total' => CartModel::getCount()]);
+                return Json::encode(
+                    [
+                        'total' => CartModel::getCount(),
+                        'cart' => (new CartModel())->toArray(),
+                    ]
+                );
             }
         }
 
@@ -46,7 +51,12 @@ class CartController extends \yii\web\Controller
 
     public function actionRemove($id, $refresh = false)
     {
-        $item = Yii::$app->sw->getModule('product')->item('findOne', ['id' => $id, 'is_delivery' => 1]);
+        $item = Yii::$app->sw
+            ->getModule('product')
+            ->item(
+                'findOne',
+                ['id' => $id, 'is_delivery' => 1]
+            );
 
         if ($item) {
             CartModel::removeItem($item);
