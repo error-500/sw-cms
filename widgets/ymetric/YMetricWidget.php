@@ -14,11 +14,10 @@ class YMetricWidget extends Widget
         ->item(
             'findOne',
             ['tech_name' => 'yandex_counter_id']
-        )
-        ->value;
+        );
         if (!empty($ymId)) {
             return Html::beginTag('noscript')
-                .Html::img('https://mc.yandex.ru/watch/'.$ymId, ['style' => 'position:absolute; left:-9999px;'])
+                .Html::img('https://mc.yandex.ru/watch/'.$ymId->value, ['style' => 'position:absolute; left:-9999px;'])
                 .Html::endTag('noscript');
         }
     }
