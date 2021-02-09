@@ -16,7 +16,11 @@ $this->params['header_class'] = 'fixed-top scroll-change wide-area';
 ?>
 <div class="section-map box-middle-container row-18 mt-5 mb-0">
     <div class="google-map mt-5">
-        <?= $map_constant->value ?>
+        <yandex-map v-bind="ymapProps"
+                    style="height: 500px">
+            <ymap-marker marker-id="q1"
+                         :coords="[55.77434759323901,37.57892985354571,]"></ymap-marker>
+        </yandex-map>
     </div>
     <div class="overlaybox overlaybox-side overlaybox">
         <div class="container content">

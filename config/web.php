@@ -6,10 +6,12 @@ $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
-    'id' => 'basic',
+    'id' => 'sw-cms-site',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
-    //'language' => 'en',
+    'bootstrap' => [
+        'log'
+    ],
+    //'language' => 'ru-RU',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -30,6 +32,41 @@ $config = [
                 ],
             ],
         ],
+        'i18n'         => [
+            'translations' => [
+                'app*' => [
+                    'sourceLanguage' => 'ru-RU',
+                    'class'          => 'yii\i18n\PhpMessageSource',
+                    'basePath'       => '@app/messages',
+                    'fileMap'        => [
+                        'app'       => 'messages.php',
+                        'app/error' => 'errors.php',
+                    ],
+                ],
+            ],
+        ],
+        'formatter'    => [
+            'dateFormat'        => 'dd.MM.yyyy',
+            'decimalSeparator'  => ',',
+            'thousandSeparator' => ' ',
+            'currencyCode'      => 'EUR',
+            'timeZone'          => 'UTC',
+            'locale'            => 'ru-RU',
+        ],
+        'vueApp' => [
+            'class' =>'app\components\VueApp\VueObject',
+            'data' => [
+                'ymapProps' => [
+                    'settings' => [
+                        'apiKey' => "'85485089-7da9-41be-a978-c2846d2f2d5d'",
+                        'lang' => "'ru_RU'",
+                        'coordorder' => "'latlong'",
+                    ],
+                    'coords' => [55.77434759323901,37.57892985354571,],
+                    'zoom' => 17,
+                ]
+            ],
+        ],
         'request' => [
             'cookieValidationKey' => md5('G934jhf8uakw#$'),
         ],
@@ -43,7 +80,7 @@ $config = [
                 'pathMap'  => [
                     '@app/assets'      => '@app/themes/qartuliru_default',
                     '@app/views'       => ['@app/views','@app/themes/qartuliru_default/views'],
-                    '@app/widgets'     => '@app/themes/qartuliru_default/widgets',
+                    '@app/widgets'     => ['@app/widgets','@app/themes/qartuliru_default/widgets'],
                     '@app/modules'     => '@app/themes/qartuliru_default/modules',
                     // '@app/modules/post/widgets/views' => '@app/themes/crystald/widgets',
                 ],
@@ -58,19 +95,6 @@ $config = [
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
             'useFileTransport' => true,
-        ],
-        'i18n' => [
-        'translations' => [
-                'app*' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
-                    //'basePath' => '@app/messages',
-                    //'sourceLanguage' => 'en-US',
-                    'fileMap' => [
-                        'app'       => 'app.php',
-                        'app/error' => 'error.php',
-                    ],
-                ],
-            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
