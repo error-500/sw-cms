@@ -18,8 +18,7 @@ class YMetricAsset extends AssetBundle
         ->item(
             'findOne',
             ['tech_name' => 'yandex_counter_id']
-        )
-        ->value;
+        );
         if (!empty($ymId)) {
             $view->registerJs(
                 '
@@ -27,7 +26,7 @@ class YMetricAsset extends AssetBundle
                     m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
                     (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-                    ym('.$ymId.', "init", {
+                    ym('.$ymId->value.', "init", {
                             clickmap:true,
                             trackLinks:true,
                             accurateTrackBounce:true,

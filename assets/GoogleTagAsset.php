@@ -19,11 +19,11 @@ class GoogleTagAsset extends AssetBundle
         ->item(
             'findOne',
             ['tech_name' => 'google_tag_id']
-        )
-        ->value;
+        );
+
         if (!empty($gId)) {
             $view->registerJsFile(
-                'https://www.googletagmanager.com/gtag/js?id='.$gId,
+                'https://www.googletagmanager.com/gtag/js?id='.$gId->value,
                 [
                     'async' => true,
                     'position' => View::POS_HEAD,
@@ -34,7 +34,7 @@ class GoogleTagAsset extends AssetBundle
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
 
-                gtag('config', '$gId');",
+                gtag('config', '{$gId->value}');",
                 View::POS_END
             );
         }
