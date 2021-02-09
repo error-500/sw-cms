@@ -50,9 +50,10 @@ Yii::$app->vueApp->methods = [
 ];
 ?>
 <b-sidebar id="cart-sidebar"
-           title="<?php echo 'Содержимое корзины'; ?>"
+           title="<?php echo 'Корзина'; ?>"
            right
            backdrop
+           sidebar-class="w-xs-100 w-sm-50"
            shadow>
     <template #footer="{ hide }">
         <div class="d-flex flex-row align-items-center">
@@ -63,18 +64,48 @@ Yii::$app->vueApp->methods = [
         </div>
     </template>
     <template #default>
-        <div>
-            <b-list-group>
-                <b-list-group-item v-for="(item, idx) in cart.items">
-                    <h5 v-html="item.name"></h5>
-                    <p v-html="item.description"></p>
-                    <p class="d-inline-flex justify-content-end">
-                        <span class="ml-1 text-nowrap">Кол-во:&nbsp;<b v-html="item.count"></b></span>
-                        <span class="ml-1 text-nowrap">Цена:&nbsp;<b v-html="item.price"></b></span>
-                        <span class="ml-1 text-nowrap">Стоимоть:&nbsp;<b v-html="item.summary"></b></span>
-                    </p>
-                </b-list-group-item>
-            </b-list-group>
-        </div>
+        <b-media v-for="(item, idx) in cart.items"
+                 no-body>
+            <b-media-aside vertical-align="center"
+                           class="justify-content-around m-1">
+                <b-img :src="item.thumb"
+                       thumbnail
+                       lazy
+                       width="128"></b-img>
+            </b-media-aside>
+            <b-media-body>
+                <b-row cols="2"
+                       no-gutters>
+                    <b-col cols="10">
+                        <h5 v-html="item.name"></h5>
+                        <p v-html="item.description"></p>
+                        <p class="d-inline-flex">
+                            <span class="ml-1 text-nowrap">Кол-во:&nbsp;<b v-html="item.count"></b></span>
+                            <span class="ml-1 text-nowrap">Цена:&nbsp;<b v-html="item.price"></b></span>
+                            <span class="ml-1 text-nowrap">Стоимоть:&nbsp;<b v-html="item.summary"></b></span>
+                        </p>
+                    </b-col>
+                    <b-col cols="2">
+                        <b-button-group size="sm">
+                            <b-button variant="default"
+                                      class="bg-transparent">
+                                <b-icon icon="cart-dash"
+                                        variant="dark"></b-icon>
+                            </b-button>
+                            <b-button variant="default"
+                                      class="bg-transparent">
+                                <b-icon icon="cart-plus"
+                                        variant="dark"></b-icon>
+                            </b-button>
+                            <b-button variant="default"
+                                      class="bg-transparent">
+                                <b-icon icon="trash"
+                                        variant="dark"></b-icon>
+                            </b-button>
+                        </b-button-group>
+                    </b-col>
+                </b-row>
+            </b-media-body>
+        </b-media>
     </template>
 </b-sidebar>

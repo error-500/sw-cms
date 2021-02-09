@@ -37,8 +37,9 @@ class Cart extends Model
                 if ($cart = self::getCart()) {
                     foreach ($cart['items'] as $id => $item) {
                         $itemsList[$id] = [
+                        'thumb' => $item['obj']->imgThumbSrc,
                         'name' => $item['obj']->name,
-                        'description' => $item['obj']->about,
+                        'description' => $item['obj']->consist,
                         'price' => "{$item['obj']->price} ₽",
                         'count' => $item['count'],
                         'summary' => ($item['obj']->price * $item['count']). " ₽",
