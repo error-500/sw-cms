@@ -37,6 +37,7 @@ class Cart extends Model
                 if ($cart = self::getCart()) {
                     foreach ($cart['items'] as $id => $item) {
                         $itemsList[$id] = [
+                        'id' => $id,
                         'thumb' => $item['obj']->imgThumbSrc,
                         'name' => $item['obj']->name,
                         'description' => $item['obj']->consist,
@@ -151,7 +152,7 @@ class Cart extends Model
         Yii::$app->session->set('cart', $cart);
     }
 
-    public static function removeItem($item)
+    public static function removeItem($item, $all=false)
     {
         $cart = self::getCart();
 
@@ -159,7 +160,7 @@ class Cart extends Model
             $cart['items'][$item->id]['obj'] = $item;
             $cart['items'][$item->id]['count']--;
 
-            if ($cart['items'][$item->id]['count'] <= 0) {
+            if ($all || $cart['items'][$item->id]['count'] <= 0) {
                 unset($cart['items'][$item->id]);
             }
 
@@ -173,19 +174,6 @@ class Cart extends Model
         Yii::$app->session->set('cart', $cart);
     }
 
-    public static function getTotal()
-    {
-        $cart = self::getCart();
-
-        if (empty($cart['items'])) {
-            $cart['items'][$item->id]['obj'] = $item;
-            $cart['items'][$item->id]['count'] = 1;
-
-            $cart['total'] = empty($cart['total']) ? $item->price : $cart['total'] + $item->price;
-        }
-
-        Yii::$app->session->set('cart', $cart);
-    }
 
     public static function getCount()
     {
@@ -196,5 +184,9 @@ class Cart extends Model
         }
 
         return array_sum(array_column($cart['items'], 'count'));
+    }
+    public static function clearCart()
+    {
+        Yii::$app->session->set('cart', []);
     }
 }

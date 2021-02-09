@@ -61,11 +61,32 @@ class CartController extends \yii\web\Controller
         if ($item) {
             CartModel::removeItem($item);
         }
-
+        if (Yii::$app->request->isAjax) {
+            return Json::encode(
+                [
+                    'total' => CartModel::getCount(),
+                    'cart' => (new CartModel())->toArray(),
+                ]
+            );
+        }
         if ($refresh) {
             $this->redirect('/site/cart');
         }
 
         return CartWidget::widget();
+    }
+    public function actionClear($id = null)
+    {
+        if(!empty($id) && $item = Yii::$app->sw
+            ->getModule('product')
+            ->item(
+                'findOne',
+                ['id' => $id, 'is_delivery' => 1]
+            ))
+        {
+            CartModel::removeItem($item);
+        } else {
+            CartModel::clearCart();
+        }
     }
 }

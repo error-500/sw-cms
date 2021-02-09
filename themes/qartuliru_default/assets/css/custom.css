@@ -118,6 +118,7 @@ nav.main-menu-categories>.nav-link {
     line-height: 18px;
 }
 
+.b-sidebar-body .media-body h5,
 h3.card-title.menu-card-title {
     font-family: 'Montserrat', sans-serif;
     text-transform: none;
