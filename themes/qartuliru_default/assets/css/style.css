@@ -1267,9 +1267,12 @@ header.menu-transparent.scroll-css .subline-bar {
     background-color: #F9F9F9 !important;
 }
 
+
+/*
 header.menu-transparent {
     height: 0 !important;
 }
+*/
 
 .subline-bar ul {
     margin: 0;
@@ -6569,7 +6572,7 @@ button.navbar-toggle {
         text-align: center;
     }
     header.menu-transparent {
-        position: absolute;
+        position: fixed;
         right: 0;
         left: 0;
         top: 0;

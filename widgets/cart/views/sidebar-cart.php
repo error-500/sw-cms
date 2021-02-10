@@ -49,7 +49,7 @@ Yii::$app->vueApp->methods = [
                 console.log("Response total:", response);
                 this.$set(this.$data, "cart", response.cart);
                 if (response.total) {
-                    jQuery(".fa.fa-stack-1x.img-circle").text(response.total);
+                    jQuery(".cart-total").text(response.total);
                 }
                 setTimeout(function () {
                     icon.toggleClass("im-yes im-add-cart");
