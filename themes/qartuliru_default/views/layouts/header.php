@@ -16,7 +16,7 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
         data-menu-anima="fade-in">
     <!--div class="navbar navbar-default mega-menu-fullwidth navbar-fixed-top"
          role="navigation"-->
-    <nav class="navbar navbar-expand-lg navbar-default"
+    <nav class="navbar navbar-expand-lg navbar-default navbar-fixed-top"
          role="navigation">
         <a class="navbar-brand flex-grow-1 flex-lg-grow-0 ml-1"
            href="<?= Url::to('/') ?>">
@@ -57,13 +57,30 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
                     <a href="tel:+74957237373"
                        class="nav-link"
                        @click="$emit('fone-call', $event)">
-                        <i class="text-nowrap text-decoration-none"> +7(495)723-73-73</i>
+                        <i class="text-nowrap text-decoration-none"
+                           style="font-style:normal"> +7(495)723-73-73</i>
                     </a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a href="https://wa.me/74957237373"
+                       class="nav-link"
+                       target="_blank"
                        @click="$emit('whatsap-click', $event)">
                         <i class="fa fa-2x fa-whatsapp"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a target="_blank"
+                       href="https://www.facebook.com/qartuli.msc"
+                       class="nav-link">
+                        <i class="fa fa-facebook text-m"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a target="_blank"
+                       class="nav-link"
+                       href="https://www.instagram.com/qartuli.ru/">
+                        <i class="fa fa-instagram text-m"></i>
                     </a>
                 </li>
                 <?php echo Yii::$app->sw
