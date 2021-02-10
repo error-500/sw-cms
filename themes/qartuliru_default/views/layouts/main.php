@@ -6,6 +6,9 @@ use yii\helpers\Html;
 //use app\themes\qartuliru_default\assets\YandexMetricAsset;
 //use app\modules\sw\assets\CdnYandex;
 use app\themes\qartuliru_default\assets\ThemeAssets;
+use app\widgets\cart\Cart;
+use app\widgets\fbpixel\FbPixelWidget;
+use app\widgets\ymetric\YMetricWidget;
 use yii\web\View;
 
 //use yii\web\View;
@@ -82,15 +85,13 @@ $this->beginPage() ?>
     <?php $this->beginBody() ?>
 
     <div id="preloader"></div>
-    <div>
-        <?= $this->render('header') ?>
-
-        <?= $content ?>
-
+    <div id="vue-app">
+        <?php echo $this->render('header'); ?>
+        <?php echo $content ?>
+        <?php echo $this->render('footer'); ?>
+        <?php echo Cart::widget(['template' => 'sidebar-cart']); ?>
     </div>
     <i class="scroll-top scroll-top-mobile show fa fa-sort-asc"></i>
-
-    <?php echo $this->render('footer') ?>
     <?php /* */?>
     <div id="modal-18"
          class="modal fade"
@@ -138,6 +139,8 @@ $this->beginPage() ?>
     */
     ?>
     <?php $this->endBody() ?>
+    <?php echo YMetricWidget::widget(); ?>
+    <?php echo FbPixelWidget::widget(); ?>
 </body>
 
 </html>

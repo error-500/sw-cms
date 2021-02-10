@@ -50,10 +50,10 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
              id="main-menu">
             <?= $this->render('menu') ?>
             <ul class="navbar-nav navbar-right d-none d-lg-block">
-                <?= Cart::widget() ?>
+                <?php echo Cart::widget(); ?>
             </ul>
             <ul class="navbar-nav navbar-right mr-3">
-                <?= Yii::$app->sw
+                <?php echo Yii::$app->sw
                         ->getModule('block')
                         ->item('findOne', ['tech_name' => 'header_icons'])
                         ->text ?? '' ?>

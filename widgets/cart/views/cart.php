@@ -5,12 +5,15 @@ use yii\helpers\Url;
 ?>
 <?php if ($full): ?>
 <li class="dropdown cart <?php if(!$cart): ?>invisible<?php endif; ?>">
-    <a href="<?= Url::to(['/site/cart']) ?>"
-       class="btn-cart"
-       data-toggle="dropdown">
+    <?php /*<a href="<?= Url::to(['/site/cart']) ?>"
+    class="btn-cart"
+    data-toggle="dropdown">
+    */?>
+    <a v-b-toggle.cart-sidebar>
         <span class="fa-stack fa-lg">
             <i class="fa fa-shopping-cart fa-stack-2x"></i>
-            <b class="fa fa-stack-1x img-circle">
+            <b class="fa fa-stack-1x img-circle"
+               ref="cartcount">
                 <?php if(!empty($cart['items'])): echo array_sum(array_column($cart['items'], 'count')); endif; ?>
                 <?php /*echo var_export($cart, true); */?>
             </b>
@@ -50,12 +53,14 @@ use yii\helpers\Url;
 <?php endif ?>
 
 <?php if (!$full): ?>
-<a href="<?php echo Url::to(['/site/cart']); ?>"
+<?php /*<a href="<?php echo Url::to(['/site/cart']); ?>"*/ ?>
+<a v-b-toggle.cart-sidebar
    style="padding: 0 !important;"
    class="css-pointer btn-cart <?php if (!$cart): ?>invisible<?php endif; ?>">
     <span class="fa-stack fa-lg">
         <i class="fa fa-shopping-cart fa-stack-2x"></i>
-        <b class="fa fa-stack-1x img-circle">
+        <b class="fa fa-stack-1x img-circle"
+           ref="cartmobcount">
             <?php if(!empty($cart['items'])): echo array_sum(array_column($cart['items'], 'count')); endif; ?>
         </b>
     </span>
