@@ -86,15 +86,17 @@ Yii::$app->vueApp->methods = [
                  class="m-2 align-items-center"
                  vertical-align="center">
             <b-media-aside vertical-align="center"
-                           class="justify-content-around">
+                           class="w-25 justify-content-end">
                 <b-img :src="item.thumb"
                        lazy
-                       width="192"></b-img>
+                       fluid></b-img>
             </b-media-aside>
-            <b-media-body>
+            <b-media-body class="flex-grow-2">
                 <b-row cols="2"
-                       no-gutters>
-                    <b-col cols="10">
+                       no-gutters
+                       class="flex-wrap justify-content-between">
+                    <b-col cols="12"
+                           cols-sm="8">
                         <h5 v-html="item.name"></h5>
                         <b-button-group size="sm">
                             <b-button variant="default"
@@ -114,8 +116,9 @@ Yii::$app->vueApp->methods = [
 
                         </b-button-group>
                     </b-col>
-                    <b-col cols="2">
-                        <h4 class="text-nowrap">
+                    <b-col cols="12"
+                           cols-sm="4">
+                        <h4 class="text-nowrap text-right">
                             <span class="ml-1 text-nowrap">&nbsp;<b v-html="item.summary"></b></span>
                             <b-link variant="default"
                                     class="bg-transparent border-0"
@@ -124,7 +127,8 @@ Yii::$app->vueApp->methods = [
                                         variant="dark"></b-icon>
                             </b-link>
                         </h4>
-                        <p v-if="item.count > 1">
+                        <p v-if="item.count > 1"
+                           class="text-right">
                             <span class="ml-1 text-nowrap">
                                 <b v-html="item.count"></b>&nbsp;Х&nbsp;<b v-html="item.price"></b>
                             </span>
