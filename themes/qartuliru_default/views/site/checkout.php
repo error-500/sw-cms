@@ -40,7 +40,9 @@ $min_delivery_price = Yii::$app->sw->getModule('constant')->item('findOne', ['te
                     <tbody>
                         <tr>
                             <th>Блюд на сумму</th>
-                            <td><span class="amount">₽ <?= number_format($cart['total']) ?></span></td>
+                            <td><span class="amount">₽
+                                    <?php echo !empty($cart['total']) ? number_format($cart['total']) : '0'; ?></span>
+                            </td>
                         </tr>
                         <tr>
                             <th>Доставка</th>
@@ -50,7 +52,8 @@ $min_delivery_price = Yii::$app->sw->getModule('constant')->item('findOne', ['te
                         </tr>
                         <tr>
                             <th>Итого</th>
-                            <td><strong><span class="amount">₽ <?= number_format($cart['total']) ?></span></strong>
+                            <td><strong><span class="amount">₽
+                                        <?php echo !empty($cart['total']) ? number_format($cart['total']) : '0'; ?></span></strong>
                             </td>
                         </tr>
                     </tbody>
@@ -60,7 +63,7 @@ $min_delivery_price = Yii::$app->sw->getModule('constant')->item('findOne', ['te
                 <?php if (0): ?>
                 <h2 class="text-center">Доставка работает с 12:00 до 22:00</h2>
                 <h3 class="text-center">Приносим свои извинения</h3>
-                <?php elseif ($cart['total'] < $min_delivery_price) : ?>
+                <?php elseif (!empty($cart['total']) && $cart['total'] < $min_delivery_price) : ?>
                 <h2 class="text-center">Минимальная сумма заказа <?= $min_delivery_price ?>₽</h2>
                 <h3 class="text-center">Благодарим за понимание</h3>
                 <div class="text-center">

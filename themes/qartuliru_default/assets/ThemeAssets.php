@@ -28,6 +28,7 @@ class ThemeAssets extends AssetBundle
         'js/flexslider/flexslider.css',
         'css/social.stream.css',
         //'scripts/magnific-popup.css',
+        'css/font-awesome.min.css',
         'css/custom.css',
         // '../../css/icomoon.css',
         [
