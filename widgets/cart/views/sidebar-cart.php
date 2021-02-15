@@ -109,11 +109,11 @@ Yii::$app->vueApp->computed = [
                  class="m-2 align-items-center"
                  vertical-align="center">
             <b-media-aside vertical-align="center"
-                           class="w-25 justify-content-end">
+                           class="w-25 justify-content-end align-items-start">
                 <b-img :src="item.thumb"
                        fluid
                        lazy
-                       style="height: calc(width * (4/3))"></b-img>
+                       class="w-100 align-self-center"></b-img>
             </b-media-aside>
             <b-media-body class="flex-grow-2">
                 <b-row cols="2"
