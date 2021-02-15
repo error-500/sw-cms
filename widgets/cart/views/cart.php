@@ -9,7 +9,8 @@ use yii\helpers\Url;
         <span class="fa-stack fa-lg">
             <b class="fa fa-shopping-bag fa-stack-2x mr-5"></b>
             <b class="fa fa-circle fa-stack-2x text-success ml-4"></b>
-            <b class="text-bold cart-total fa fa-stack-1x fa-inverse ml-4">
+            <b class="text-bold cart-total fa fa-stack-1x fa-inverse ml-4"
+               v-html="cartCount">
                 <?php if(!empty($cart['items'])): echo array_sum(array_column($cart['items'], 'count')); else: echo '0'; endif; ?>
             </b>
         </span>
@@ -24,7 +25,8 @@ use yii\helpers\Url;
     <span class="fa-stack fa-sm">
         <b class="fa fa-shopping-bag fa-stack-2x mr-5"></b>
         <b class="fa fa-circle fa-stack-2x text-success ml-4"></b>
-        <b class="text-bold cart-total fa fa-stack-1x fa-inverse ml-4">
+        <b class="text-bold cart-total fa fa-stack-1x fa-inverse ml-4"
+           v-html="cartCount">
             <?php if(!empty($cart['items'])): echo array_sum(array_column($cart['items'], 'count')); else: echo '0'; endif; ?>
         </b>
     </span>

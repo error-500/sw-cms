@@ -34,16 +34,21 @@ class Cart extends Model
         return [
             'items' => function() {
                 $itemsList = [];
+                $itemIds = [];
                 if ($cart = self::getCart()) {
                     foreach ($cart['items'] as $id => $item) {
-                        $itemsList[$id] = [
-                        'id' => $id,
-                        'thumb' => $item['obj']->imgThumbSrc,
-                        'name' => $item['obj']->name,
-                        'description' => $item['obj']->consist,
-                        'price' => "{$item['obj']->price} ₽",
-                        'count' => $item['count'],
-                        'summary' => ($item['obj']->price * $item['count']). " ₽",
+                        if (in_array($id, $itemIds)) {
+                            continue;
+                        }
+                        array_push($itemIds, $id);
+                        $itemsList[] = [
+                            'id' => $id,
+                            'thumb' => $item['obj']->imgThumbSrc,
+                            'name' => $item['obj']->name,
+                            'description' => $item['obj']->consist,
+                            'price' => "{$item['obj']->price} ₽",
+                            'count' => $item['count'],
+                            'summary' => ($item['obj']->price * $item['count']). " ₽",
                         ];
                     }
                 }
