@@ -78,6 +78,9 @@ Yii::$app->vueApp->methods = [
 Yii::$app->vueApp->computed = [
     'cartCount' => 'function(){
         const cart = this.cart.items.slice().map(item => item.count);
+        if(!cart.length) {
+            return 0;
+        }
         return cart.reduce((item1, item2) => {return item1 + item2;});
     }'
 ]
@@ -108,7 +111,9 @@ Yii::$app->vueApp->computed = [
             <b-media-aside vertical-align="center"
                            class="w-25 justify-content-end">
                 <b-img :src="item.thumb"
-                       lazy></b-img>
+                       fluid
+                       lazy
+                       style="height: calc(width * (4/3))"></b-img>
             </b-media-aside>
             <b-media-body class="flex-grow-2">
                 <b-row cols="2"

@@ -36,7 +36,7 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
                  src="/theme/main/images/logo-retina.png"
                  alt="logo" />
         </a>
-        <ul class="d-flex bg-transparent text-dark flex-row d-sm-none mt-3"
+        <ul class="d-flex bg-transparent text-dark flex-row d-md-none mt-3"
             style="list-style: none;">
             <li class="nav-item">
                 <a href="tel:+74957237373"
@@ -58,6 +58,13 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
                    href="https://www.facebook.com/qartuli.msc"
                    class="nav-link p-1">
                     <i class="fa fa-facebook text-m"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a target="_blank"
+                   class="nav-link p-1"
+                   href="https://www.instagram.com/qartuli.ru/">
+                    <i class="fa fa-instagram text-m"></i>
                 </a>
             </li>
         </ul>
@@ -82,7 +89,7 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
                     <a href="tel:+74957237373"
                        class="nav-link"
                        @click="$emit('fone-call', $event)">
-                        <i class="fa fa-2x fa-phone-square"></i>
+                        <i class="fa fa-2x fa-phone-square text-m"></i>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -90,21 +97,21 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
                        class="nav-link"
                        target="_blank"
                        @click="$emit('whatsap-click', $event)">
-                        <i class="fa fa-2x fa-whatsapp"></i>
+                        <i class="fa fa-2x fa-whatsapp text-m"></i>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a target="_blank"
                        href="https://www.facebook.com/qartuli.msc"
                        class="nav-link">
-                        <i class="fa fa-facebook text-m"></i>
+                        <i class="fa fa-2x fa-facebook text-m"></i>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a target="_blank"
                        class="nav-link"
                        href="https://www.instagram.com/qartuli.ru/">
-                        <i class="fa fa-instagram text-m"></i>
+                        <i class="fa fa-2x fa-instagram text-m"></i>
                     </a>
                 </li>
                 <?php echo Yii::$app->sw
