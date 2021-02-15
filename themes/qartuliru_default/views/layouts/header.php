@@ -17,8 +17,9 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
     <!--div class="navbar navbar-default mega-menu-fullwidth navbar-fixed-top"
          role="navigation"-->
     <nav class="navbar navbar-expand-lg navbar-default navbar-fixed-top"
-         role="navigation">
-        <a class="navbar-brand flex-grow-1 flex-lg-grow-0 ml-1"
+         role="navigation"
+         style="min-height: 4em;">
+        <a class="navbar-brand flex-grow-1 flex-lg-grow-0 ml-1 pt-0"
            href="<?= Url::to('/') ?>">
 
             <img class="logo-default scroll-hide"
@@ -35,7 +36,31 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
                  src="/theme/main/images/logo-retina.png"
                  alt="logo" />
         </a>
-
+        <ul class="d-flex bg-transparent text-dark flex-row d-sm-none mt-3"
+            style="list-style: none;">
+            <li class="nav-item">
+                <a href="tel:+74957237373"
+                   class="nav-link p-1"
+                   @click="$emit('fone-call', $event)">
+                    <i class="fa fa-phone-square text-m"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="https://wa.me/74957237373"
+                   class="nav-link p-1"
+                   target="_blank"
+                   @click="$emit('whatsap-click', $event)">
+                    <i class="fa fa-whatsapp text-m"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a target="_blank"
+                   href="https://www.facebook.com/qartuli.msc"
+                   class="nav-link p-1">
+                    <i class="fa fa-facebook text-m"></i>
+                </a>
+            </li>
+        </ul>
         <div class="navbar-toggler"
              style="border: none !important">
             <?php echo Cart::widget(['full' => false]); ?>
@@ -52,13 +77,12 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
             <ul class="navbar-nav navbar-right d-none d-lg-block">
                 <?php echo Cart::widget(); ?>
             </ul>
-            <ul class="navbar-nav navbar-right mr-3">
+            <ul class="navbar-nav navbar-right mr-3 d-none d-sm-flex">
                 <li class="nav-item">
                     <a href="tel:+74957237373"
                        class="nav-link"
                        @click="$emit('fone-call', $event)">
-                        <i class="text-nowrap text-decoration-none"
-                           style="font-style:normal"> +7(495)723-73-73</i>
+                        <i class="fa fa-2x fa-phone-square"></i>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -87,7 +111,6 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
                         ->getModule('block')
                         ->item('findOne', ['tech_name' => 'header_icons'])
                         ->text ?? '' ?>
-
             </ul>
 
         </div>
