@@ -48,9 +48,9 @@ Yii::$app->vueApp->methods = [
                 const response = JSON.parse(data);
                 console.log("Response total:", response);
                 this.$set(this.$data, "cart", response.cart);
-                if (response.total) {
+                /*if (response.total) {
                     jQuery(".cart-total").text(response.total);
-                }
+                }*/
                 setTimeout(function () {
                     icon.toggleClass("im-yes im-add-cart");
                 }, 1500);
@@ -59,8 +59,28 @@ Yii::$app->vueApp->methods = [
                 icon.toggleClass("im-arrow-refresh im-close");
             }
         });
-    }'
+    }',
+    'clearItem' => 'function(itemId, event){
+        jQuery.ajax({
+            url:"/cart/remove",
+            data: {
+                id: itemId,
+                all: 1,
+            },
+            success: (data) => {
+                const response = JSON.parse(data);
+                console.log("Response total:", response);
+                this.$set(this.$data, "cart", response.cart);
+            }
+        });
+    }',
 ];
+Yii::$app->vueApp->computed = [
+    'cartCount' => 'function(){
+        const cart = this.cart.items.slice().map(item => item.count);
+        return cart.reduce((item1, item2) => {return item1 + item2;});
+    }'
+]
 ?>
 <b-sidebar id="cart-sidebar"
            title="<?php echo 'Корзина'; ?>"
@@ -88,8 +108,7 @@ Yii::$app->vueApp->methods = [
             <b-media-aside vertical-align="center"
                            class="w-25 justify-content-end">
                 <b-img :src="item.thumb"
-                       lazy
-                       fluid></b-img>
+                       lazy></b-img>
             </b-media-aside>
             <b-media-body class="flex-grow-2">
                 <b-row cols="2"
@@ -118,11 +137,12 @@ Yii::$app->vueApp->methods = [
                     </b-col>
                     <b-col cols="12"
                            cols-sm="4">
-                        <h4 class="text-nowrap text-right">
+                        <h4 class="text-nowrap text-right"
+                            style="font-size: 15px">
                             <span class="ml-1 text-nowrap">&nbsp;<b v-html="item.summary"></b></span>
                             <b-link variant="default"
-                                    class="bg-transparent border-0"
-                                    style="font-size:x-small">
+                                    @click="clearItem(item.id, $event)"
+                                    class="bg-transparent border-0">
                                 <b-icon icon="bag-x"
                                         variant="dark"></b-icon>
                             </b-link>
