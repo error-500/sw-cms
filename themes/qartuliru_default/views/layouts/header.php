@@ -19,7 +19,7 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
     <nav class="navbar navbar-expand-lg navbar-default navbar-fixed-top"
          role="navigation"
          style="min-height: 4em;">
-        <a class="navbar-brand flex-grow-1 flex-lg-grow-0 ml-1 pt-0"
+        <a class="navbar-brand flex-grow-1 flex-lg-grow-0 ml-1 pt-0 pt-sm-1"
            href="<?= Url::to('/') ?>">
 
             <img class="logo-default scroll-hide"
@@ -36,38 +36,6 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
                  src="/theme/main/images/logo-retina.png"
                  alt="logo" />
         </a>
-        <ul class="d-flex bg-transparent text-dark flex-row d-md-none mt-3"
-            style="list-style: none;">
-            <li class="nav-item">
-                <a href="tel:+74957237373"
-                   class="nav-link p-1"
-                   @click="$emit('fone-call', $event)">
-                    <i class="fa fa-phone-square text-m"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="https://wa.me/74957237373"
-                   class="nav-link p-1"
-                   target="_blank"
-                   @click="$emit('whatsap-click', $event)">
-                    <i class="fa fa-whatsapp text-m"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a target="_blank"
-                   href="https://www.facebook.com/qartuli.msc"
-                   class="nav-link p-1">
-                    <i class="fa fa-facebook text-m"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a target="_blank"
-                   class="nav-link p-1"
-                   href="https://www.instagram.com/qartuli.ru/">
-                    <i class="fa fa-instagram text-m"></i>
-                </a>
-            </li>
-        </ul>
         <div class="navbar-toggler"
              style="border: none !important">
             <?php echo Cart::widget(['full' => false]); ?>
@@ -78,17 +46,17 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
                 data-target="#main-menu">
             <i class="fa fa-bars"></i>
         </button>
-        <div class="collapse navbar-collapse"
+        <div class="collapse navbar-collapse mt-xs-1 mt-sm-auto"
              id="main-menu">
             <?= $this->render('menu') ?>
             <ul class="navbar-nav navbar-right d-none d-lg-block">
                 <?php echo Cart::widget(); ?>
             </ul>
-            <ul class="navbar-nav navbar-right mr-3 d-none d-sm-flex">
+            <ul class="navbar-nav navbar-right mr-3">
                 <li class="nav-item">
                     <a href="tel:+74957237373"
                        class="nav-link"
-                       @click="$emit('fone-call', $event)">
+                       @click="$emit('phone-call', $event)">
                         <i class="fa fa-2x fa-phone-square text-m"></i>
                     </a>
                 </li>
