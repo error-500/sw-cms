@@ -16,12 +16,11 @@ class FbPixelWidget extends Widget
         ->item(
             'findOne',
             ['tech_name' => 'fb_pixel_id']
-        )
-        ->value;
+        );
         if (!empty($fbId)) {
             return Html::beginTag('noscript')
                 .Html::img(
-                    "https://www.facebook.com/tr?id=$fbId&ev=PageView&noscript=1",
+                    "https://www.facebook.com/tr?id={$fbId->value}&ev=PageView&noscript=1",
                     [
                         'height' => 1,
                         'width'  => 1,

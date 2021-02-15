@@ -19,11 +19,10 @@ class FbPixelAsset extends AssetBundle
         ->item(
             'findOne',
             ['tech_name' => 'fb_pixel_id']
-        )
-        ->value;
+        );
         if (!empty($fbId)) {
             $view->registerJsFile(
-                'https://www.googletagmanager.com/gtag/js?id='.$fbId,
+                'https://www.googletagmanager.com/gtag/js?id='.$fbId->value,
                 [
                     'async' => true,
                     'position' => View::POS_HEAD,
@@ -38,7 +37,7 @@ class FbPixelAsset extends AssetBundle
                 t.src=v;s=b.getElementsByTagName(e)[0];
                 s.parentNode.insertBefore(t,s)}(window, document,'script',
                 'https://connect.facebook.net/en_US/fbevents.js');
-                fbq('init', '$fbId');
+                fbq('init', '{$fbId->value}');
                 fbq('track', 'PageView');",
                 View::POS_END
             );

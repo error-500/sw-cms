@@ -92,7 +92,10 @@ if (!empty($page)) {
                                     <!-- <h4><?= $item->price ?> ₽</h4> -->
                                     <h3><?= $item->name ?></h3>
                                     <span class="extra-content bg-green price add-to-cart"
-                                          data-id="<?= $item->id ?>">Добавить <i class="fa im-add-cart"></i> </span>
+                                          @click="addToCart(<?php echo $item->id; ?>, $event)"
+                                          data-id="<?= $item->id ?>">
+                                        Добавить <i class="fa im-add-cart"></i>
+                                    </span>
                                     <p><?= $item->consist ?></p>
                                     <p class="sub"><?= $item->volume ?></p>
                                     <h3><?= $item->price ?> ₽</h3>

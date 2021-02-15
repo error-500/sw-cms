@@ -73,22 +73,7 @@ if (!empty($page)) {
         </div>
     </div>
 </div>
-<!-- <div class="section-bg-color overflow-visible">
-    <div class="container content">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="title-base text-left">
-                    <hr />
-                    <h2>Book a table</h2>
-                    <p>A table only for you</p>
-                </div>
-            </div>
-            <div class="col-md-9">
-                <script type='text/javascript' src='http://www.opentable.com/widget/reservation/loader?rid=347401&domain=com&type=standard&theme=wide&lang=en&overlay=false&iframe=false'></script>
-            </div>
-        </div>
-    </div>
-</div> -->
+
 <div class="section-empty">
     <div class="container content">
         <?= $menu_random_block_text[0] ?? '' ?>
@@ -184,13 +169,15 @@ if (!empty($page)) {
                                              alt=""></span>
                                 </a>
                                 <div class="advs-box-content">
-                                    <!-- <h4><?= $item->price ?> ₽</h4> -->
-                                    <h3><?= $item->name ?></h3>
+                                    <!-- <h4><?php echo $item->price; ?> ₽</h4> -->
+                                    <h3><?php echo $item->name; ?></h3>
                                     <span class="extra-content bg-green price add-to-cart"
-                                          data-id="<?= $item->id ?>">Добавить <i class="fa im-add-cart"></i> </span>
+                                          @click="addToCart(<?php echo $item->id; ?>, $event)"
+                                          data-id="<?php echo $item->id; ?>">Добавить <i class="fa im-add-cart"></i>
+                                    </span>
                                     <p><?= $item->consist ?></p>
-                                    <p class="sub"><?= $item->volume ?></p>
-                                    <h3><?= $item->price ?> ₽</h3>
+                                    <p class="sub"><?php echo $item->volume; ?></p>
+                                    <h3><?php echo $item->price; ?> ₽</h3>
                                 </div>
                             </div>
                             <hr class="space m" />
@@ -224,7 +211,11 @@ if (!empty($page)) {
 </div>
 <div class="section-map box-middle-container">
     <div class="google-map">
-        <?= $map_constant->value ?>
+        <yandex-map v-bind="ymapProps"
+                    style="height: 500px">
+            <ymap-marker marker-id="q1"
+                         :coords="[55.77434759323901,37.57892985354571,]"></ymap-marker>
+        </yandex-map>
     </div>
     <div class="overlaybox overlaybox-side overlaybox">
         <div class="container content">
