@@ -96,7 +96,7 @@ Yii::$app->vueApp->computed = [
             <h4 class="text-center">
                 Итого: {{ cart.total }}₽
             </h4>
-            <b-button href="/site/cart"
+            <b-button href="/site/checkout"
                       size="small"
                       class="w-75"
                       variant="outline-dark">Оформить заказ</b-button>
