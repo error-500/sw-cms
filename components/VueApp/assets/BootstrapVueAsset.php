@@ -19,41 +19,42 @@ class BootstrapVueAsset extends AssetBundle
             '//unpkg.com/vue@latest/dist/vue.js',
             'position' => View::POS_END,
         ],
-        [
+        /*[
             '//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js',
             'position' => View::POS_END,
         ],
         [
             '//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.js',
             'position' => View::POS_END,
-        ]
+        ],*/
+
     ];
 
     public $css = [
-        [
+         [
             '//unpkg.com/vue@latest/dist/vue.js',
             'position' => View::POS_HEAD,
             'rel' => 'preload',
             'as' => 'script',
         ],
-        [
+        /*[
             '//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js',
             'position' => View::POS_HEAD,
             'rel' => 'preload',
             'as' => 'script',
         ],
-        /*[
+       [
             '//unpkg.com/bootstrap/dist/css/bootstrap.min.css',
             'position' => View::POS_HEAD,
             'rel' => 'stylesheet',
             'type' => 'text/css',
-        ],*/
+        ],
         [
             '//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css',
             'position' => View::POS_HEAD,
             'rel' => 'stylesheet',
             'type' => 'text/css',
-        ]
+        ]*/
     ];
     public function registerAssetFiles($view)
     {
@@ -88,7 +89,7 @@ class BootstrapVueAsset extends AssetBundle
                 '$.holdReady(false);',
             ];
             $view->registerJs(
-                "$.holdReady(true);".
+                "$.holdReady(true);\n".
                 Yii::$app->vueApp,
                 View::POS_END,
                 'vue-app-init'
@@ -99,6 +100,6 @@ class BootstrapVueAsset extends AssetBundle
 
     }
     public $depends = [
-        BootstrapAsset::class,
+        //BootstrapAsset::class,
     ];
 }

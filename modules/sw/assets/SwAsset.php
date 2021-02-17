@@ -2,26 +2,28 @@
 
 namespace app\modules\sw\assets;
 
+use app\components\VueApp\assets\BootstrapVueAsset;
+use yii\bootstrap4\BootstrapAsset;
 use yii\web\AssetBundle;
 
 class SwAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
-    
+
     public $css = [
         'https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900',
         'theme/sw/global_assets/css/icons/icomoon/styles.css',
-        'theme/sw/assets/css/bootstrap.min.css',
+        //'theme/sw/assets/css/bootstrap.min.css',
         'theme/sw/assets/css/core.min.css',
         'theme/sw/assets/css/components.css',
         'theme/sw/assets/css/colors.min.css',
     ];
-    
+
     public $js = [
         // 'theme/sw/global_assets/js/core/libraries/jquery.min.js',
         'theme/sw/global_assets/js/plugins/loaders/pace.min.js',
-        'theme/sw/global_assets/js/core/libraries/bootstrap.min.js',
+        //'theme/sw/global_assets/js/core/libraries/bootstrap.min.js',
         'theme/sw/global_assets/js/plugins/loaders/blockui.min.js',
         'theme/sw/global_assets/js/plugins/editors/ace/ace.js',
         'theme/sw/global_assets/js/plugins/visualization/d3/d3.min.js',
@@ -38,5 +40,7 @@ class SwAsset extends AssetBundle
 
     public $depends = [
         'yii\web\YiiAsset',
+        BootstrapAsset::class,
+        BootstrapVueAsset::class,
     ];
 }

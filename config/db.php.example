@@ -5,4 +5,5 @@ return [
     'username' => 'qartuli',
     'password' => 'qartuli',
     'charset' => 'utf8',
+    'tablePrefix' => 'sw_',
 ];
