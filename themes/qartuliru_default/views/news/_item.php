@@ -21,13 +21,22 @@ use yii\helpers\Url;
                 </div>
             </div>
         </div>
-        <a class="img-box" href="<?= Url::to(['/news/single', 'id' => $model->id]) ?>">
-            <img src="<?= $model->imgSrc ?? '/theme/main/images/gallery/large-1.jpg' ?>" alt="">
+
+        <a class="img-box"
+           href="<?= Url::to(['/news/single', 'id' => $model->id]) ?>">
+            <?php if(count($model->galleries)): ?>
+            <img src="<?php echo $model->galleries[0]->imgSrc; ?>"
+                 alt="<?php echo $model->galleries[0]->name; ?>" />
+            <?php else: ?>
+            <img src="<?= $model->imgSrc ?? '/theme/main/images/gallery/large-1.jpg' ?>"
+                 alt="">
+            <?php endif; ?>
         </a>
         <p class="excerpt">
             <?= $model->preview_text ?>
         </p>
-        <a class="btn btn-xs" href="<?= Url::to(['/news/single', 'id' => $model->id]) ?>">Читать далее </a>
+        <a class="btn btn-xs"
+           href="<?= Url::to(['/news/single', 'id' => $model->id]) ?>">Читать далее </a>
         <hr class="space" />
     </div>
 </div>

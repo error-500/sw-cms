@@ -21,7 +21,7 @@ use swods\fileloader\FileLoader;
 class Item extends \yii\db\ActiveRecord
 {
     use \app\modules\sw\modules\base\traits\ImgSrc;
-    
+
     public static $folder = '@webroot/uploads/sw/gallery/';
     public $web_folder = '/uploads/sw/gallery/';
     public $img_obj;
@@ -62,7 +62,21 @@ class Item extends \yii\db\ActiveRecord
             'created' => 'Создано',
         ];
     }
-
+    public function fields()
+    {
+        return [
+            'id',
+            'groupId' => 'group_id',
+            'title' => function() {
+                return $this->group->name;
+            },
+            'imageSrc' => function(){
+                return $this->getImgSrc();
+            },
+            'description' => 'alt',
+            'created',
+        ];
+    }
     public function uploadFile()
     {
         if (!is_object($this->img_obj)) {
@@ -84,7 +98,7 @@ class Item extends \yii\db\ActiveRecord
         if (!file_exists($path)) {
             return;
         }
-        
+
         $image = new ImageResize($path);
         $image->resizeToLongSide(500);
         $image->save(Yii::getAlias(self::$folder).'thumb_'.$this->name);
@@ -104,6 +118,10 @@ class Item extends \yii\db\ActiveRecord
      */
     public function getGroup()
     {
-        return $this->hasOne(Group::className(), ['id' => 'group_id']);
+        return $this->hasOne(Group::class, ['id' => 'group_id']);
+    }
+    public function getImg()
+    {
+        return $this->name;
     }
 }
