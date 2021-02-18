@@ -2,6 +2,7 @@
 
 namespace app\modules\sw\modules\blog\models;
 
+use app\modules\sw\modules\gallery\models\Group as Gallery;
 use Yii;
 use swods\fileloader\FileLoader;
 
@@ -11,16 +12,17 @@ use swods\fileloader\FileLoader;
 class Item extends \yii\db\ActiveRecord
 {
     use \app\modules\sw\modules\base\traits\ImgSrc;
-    
+
     const ACTIVE = 1;
 
     public static $folder = '@webroot/uploads/sw/blog/';
     public $web_folder = '/uploads/sw/blog/';
     public $img_obj;
+    public $gallery_id;
 
     public static function tableName()
     {
-        return 'sw_blog_item';
+        return '{{%blog_item}}';
     }
 
     public function rules()
@@ -29,11 +31,11 @@ class Item extends \yii\db\ActiveRecord
             [['group_id', 'title', 'preview_text'], 'required'],
             [['group_id', 'pos', 'active'], 'integer'],
             [['text', 'preview_text'], 'string'],
-            [['created', 'updated'], 'safe'],
+            [['created', 'updated', 'gallery_id'], 'safe'],
             [['href'], 'string', 'max' => 50],
             [['alt', 'title'], 'string', 'max' => 200],
             ['img_obj', 'file', 'skipOnEmpty' => true, 'checkExtensionByMimeType' => false, 'extensions' => 'png, jpg', 'maxSize' => 2097152],
-            [['group_id'], 'exist', 'skipOnError' => true, 'targetClass' => Group::className(), 'targetAttribute' => ['group_id' => 'id']],
+            [['group_id'], 'exist', 'skipOnError' => true, 'targetClass' => Group::class, 'targetAttribute' => ['group_id' => 'id']],
         ];
     }
 
@@ -41,6 +43,7 @@ class Item extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'gallery_id' => 'Галлерея',
             'group_id' => 'Группа',
             'pos' => 'Позиция',
             'active' => 'Активен',
@@ -70,6 +73,12 @@ class Item extends \yii\db\ActiveRecord
 
     public function getGroup()
     {
-        return $this->hasOne(Group::className(), ['id' => 'group_id']);
+        return $this->hasOne(Group::class, ['id' => 'group_id']);
+    }
+
+    public function getGalleries()
+    {
+        return $this->hasMany(Gallery::class, ['id' => 'gallery_id'])
+            ->viaTable('{{%blog_gallery_link}}', ['blog_id' => 'id']);
     }
 }

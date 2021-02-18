@@ -6,9 +6,10 @@ use Yii;
 
 class Group extends \yii\db\ActiveRecord
 {
+
     public static function tableName()
     {
-        return 'sw_blog_group';
+        return '{{%blog_group}}';
     }
 
     public function rules()
@@ -17,9 +18,9 @@ class Group extends \yii\db\ActiveRecord
             [['tech_name', 'name'], 'required'],
             [['created', 'updated'], 'safe'],
             [
-                'tech_name', 
-                'match', 
-                'pattern' => '/^[a-z_]*$/', 
+                'tech_name',
+                'match',
+                'pattern' => '/^[a-z_]*$/',
                 'message' => 'Техничесокое имя должно быть слитно на английском в нижнем регистре, допускается знак "_"'
             ],
             [['tech_name', 'name'], 'string', 'max' => 50],
@@ -38,7 +39,7 @@ class Group extends \yii\db\ActiveRecord
         ];
     }
 
-    public static function get($tech_name, $attr) 
+    public static function get($tech_name, $attr)
     {
         $self = self::find()->where(['tech_name' => $tech_name])->joinWith('items')->one();
 

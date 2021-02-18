@@ -3,13 +3,12 @@
 namespace app\modules\sw\modules\gallery\models;
 
 use Yii;
-
+use app\modules\sw\modules\blog\models\Item as BlogItem;
 use swods\fileloader\FileLoader;
-
 class Group extends \yii\db\ActiveRecord
 {
     use \app\modules\sw\modules\base\traits\ImgSrc;
-    
+
     public static $folder = '@webroot/uploads/sw/gallery/';
     public $web_folder = '/uploads/sw/gallery/';
     public $img_obj;
@@ -25,9 +24,9 @@ class Group extends \yii\db\ActiveRecord
         return [
             [['tech_name', 'name'], 'required'],
             [
-                'tech_name', 
-                'match', 
-                'pattern' => '/^[a-z_]*$/', 
+                'tech_name',
+                'match',
+                'pattern' => '/^[a-z_]*$/',
                 'message' => 'Техничесокое имя должно быть слитно на английском в нижнем регистре, допускается знак "_"'
             ],
             [['created', 'updated', 'images'], 'safe'],
@@ -37,6 +36,26 @@ class Group extends \yii\db\ActiveRecord
         ];
     }
 
+    public function fields()
+    {
+        return [
+            'id',
+            'tech_name',
+            'thumb' => function(){
+                return $this->getImgSrc();
+            },
+            'name',
+            'created',
+            'updated',
+            'images' => function () {
+                $images = [];
+                foreach( $this->items as $img) {
+                    array_push($images, $img->toArray());
+                }
+                return $images;
+            }
+        ];
+    }
     public function attributeLabels()
     {
         return [
@@ -76,6 +95,11 @@ class Group extends \yii\db\ActiveRecord
 
     public function getItems()
     {
-        return $this->hasMany(Item::className(), ['group_id' => 'id']);
+        return $this->hasMany(Item::class, ['group_id' => 'id']);
+    }
+    public function getBlogs()
+    {
+        return $this->hasMany(BlogItem::class, ['id' => 'gallery_id'])
+            ->viaTable('{{%blog_gallery_link}}', ['blog_id' => 'id']);
     }
 }

@@ -6,6 +6,7 @@ use app\assets\GoogleTagAsset;
 use app\assets\YMapAsset;
 use app\assets\YMetricAsset;
 use app\components\VueApp\assets\BootstrapVueAsset;
+use app\themes\qartuliru_default\assets\SwQartuliAsset;
 use yii\bootstrap4\BootstrapAsset;
 use yii\bootstrap4\BootstrapPluginAsset;
 use yii\web\AssetBundle;
@@ -179,12 +180,13 @@ class ThemeAssets extends AssetBundle
 
     public $depends = [
         ThemeGoogleFontsAssets::class,
-        BootstrapAsset::class,
+        //BootstrapAsset::class,
         BootstrapPluginAsset::class,
         YMetricAsset::class,
         YMapAsset::class,
         GoogleTagAsset::class,
         JqueryAsset::class,
         BootstrapVueAsset::class,
+        SwQartuliAsset::class,
     ];
 }

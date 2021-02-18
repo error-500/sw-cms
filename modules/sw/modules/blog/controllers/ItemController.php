@@ -8,6 +8,7 @@ use yii\web\UploadedFile;
 
 use app\modules\sw\modules\blog\models\Item;
 use app\modules\sw\modules\blog\models\ItemSearch;
+use app\modules\sw\modules\gallery\models\Group;
 
 class ItemController extends _BaseController
 {
@@ -34,11 +35,15 @@ class ItemController extends _BaseController
         $model = new Item();
 
         if ($model->load(Yii::$app->request->post())) {
-            
+
             $model->img_obj = UploadedFile::getInstance($model, 'img_obj');
             $model->uploadFile();
 
             if ($model->save()) {
+                if ($model->gallery_id
+                    && $gallery = Group::findOne($model->gallery_id)) {
+                    $model->link('galleries', $gallery);
+                }
                 return $this->redirect(['index']);
             }
         }
@@ -53,11 +58,15 @@ class ItemController extends _BaseController
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
-            
+
             $model->img_obj = UploadedFile::getInstance($model, 'img_obj');
             $model->uploadFile();
 
             if ($model->save()) {
+                if ($model->gallery_id
+                    && $gallery = Group::findOne($model->gallery_id)) {
+                    $model->link('galleries', $gallery);
+                }
                 return $this->redirect(['index']);
             }
         }

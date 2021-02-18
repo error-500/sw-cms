@@ -1,5 +1,6 @@
 <?php
 
+use yii\helpers\Json;
 use yii\widgets\ListView;
 use yii\helpers\Url;
 
@@ -31,6 +32,14 @@ if (!empty($page)) {
         <div class="row">
             <div class="col-md-9 col-sm-12">
                 <?= $item->text ?>
+                <?php if(count($item->galleries)): ?>
+                <?php foreach($item->galleries as $idx => $gallery): ?>
+                <?php Yii::$app->vueApp->data = [
+                            'gallery'.$idx => Json::encode($gallery->toArray()),
+                        ]; ?>
+                <sw-image-gallery v-bind="<?php echo 'gallery'.$idx; ?>"></sw-image-gallery>
+                <?php endforeach; ?>
+                <?php endif; ?>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="btn-group btn-group-icons"
