@@ -7,6 +7,7 @@
                     v-for="(image, idx) in images"
                     :key="`img-gallery-${_uid}-${idx}`"
                     v-bind="image"
+                    :no-labels="noLabels"
                     class="clickable"
                     @set-active-image="activeImage = $event"></sw-image-gallery-item>
             </slot>
@@ -54,6 +55,10 @@ export default {
         })
         return invalid
       }
+    },
+    noLabels: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
