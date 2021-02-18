@@ -47,7 +47,7 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
             </button>
         </div>
 
-        <div class="collapse navbar-collapse mt-xs-1 mt-sm-auto"
+        <div class="collapse navbar-collapse mt-xs-1"
              id="main-menu">
             <?= $this->render('menu') ?>
             <ul class="navbar-nav navbar-right d-none d-lg-block">

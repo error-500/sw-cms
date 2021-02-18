@@ -37,7 +37,8 @@ if (!empty($page)) {
                 <?php Yii::$app->vueApp->data = [
                             'gallery'.$idx => Json::encode($gallery->toArray()),
                         ]; ?>
-                <sw-image-gallery v-bind="<?php echo 'gallery'.$idx; ?>"></sw-image-gallery>
+                <sw-image-gallery v-bind="<?php echo 'gallery'.$idx; ?>"
+                                  no-labels></sw-image-gallery>
                 <?php endforeach; ?>
                 <?php endif; ?>
                 <div class="row">
