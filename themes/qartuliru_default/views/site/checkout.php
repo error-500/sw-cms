@@ -29,7 +29,16 @@ $min_delivery_price = Yii::$app->sw->getModule('constant')->item('findOne', ['te
         </div>
     </div>
 </div>
-
+<div class="container d-flex flex-row justify-content-center">
+    <div class="card text-white bg-danger m-2 w-50">
+        <div class="card-body">
+            <h5 class="card-title text-white"> Внимание !!!</h5>
+            <p class="card-text text-white">
+                Сегодня 02.03.2021 по техническим причинам мы не принимаем заказы на доставку. Извините
+            </p>
+        </div>
+    </div>
+</div>
 <div class="section-empty">
     <div class="container content">
         <div class="row">
@@ -114,7 +123,8 @@ $min_delivery_price = Yii::$app->sw->getModule('constant')->item('findOne', ['te
                 </div>
 
                 <div class="text-center">
-                    <span>Нажимая на кнопку "Заказать" вы даете согласие на обработку ваших персональных данных, данные
+                    <span>Нажимая на кнопку "Заказать" вы даете согласие на обработку ваших персональных данных,
+                        данные
                         будут использованны исключительно для доставки вашего заказа</span>
 
                     <hr class="space xs" />
