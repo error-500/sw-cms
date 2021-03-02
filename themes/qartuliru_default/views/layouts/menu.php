@@ -17,7 +17,7 @@ $menu = Yii::$app->sw->getModule('product')->group('find')
 
 <ul class="navbar-nav flex-grow-1">
     <li class="nav-item"><a class="nav-link"
-           href="<?= Url::to('/news') ?>">Лента <span class="caret"></span></a></li>
+           href="<?php echo Url::to('/news'); ?>"><?php echo Yii::t('app', 'Лента'); ?> <span class="caret"></span></a></li>
 
     <?php foreach ($menu as $mIdx => $main_product): ?>
     <li class="nav-item dropdown">
@@ -26,25 +26,25 @@ $menu = Yii::$app->sw->getModule('product')->group('find')
            data-toggle="dropdown"
            role="button"
            area-haspopup="true"
-           id="main-menu-dropdown-<?php echo $mIdx; ?>"><?= $main_product->name ?></a>
+           id="main-menu-dropdown-<?php echo $mIdx; ?>"><?php echo $main_product->name; ?></a>
         <div class="dropdown-menu multi-level"
              aria-labelledby="main-menu-dropdown-<?php echo $mIdx; ?>">
             <?php foreach ($main_product->groups as $group): ?>
             <?php if (!empty($group->groups)) : ?>
             <a class="dropdown-item"
-               href="<?= Url::to(["/menu/{$group->tech_name}"]) ?>">
-                <?= $group->name ?>
+               href="<?php echo Url::to(["/menu/{$group->tech_name}"]); ?>">
+                <?php echo $group->name; ?>
             </a>
             <?php endif; ?>
-            <?php endforeach ?>
+            <?php endforeach; ?>
         </div>
     </li>
-    <?php endforeach ?>
+    <?php endforeach; ?>
 
     <li class="nav-item"><a class="nav-link"
-           href="<?= Url::to('/delivery') ?>">Доставка</a></li>
+           href="<?php echo Url::to('/delivery'); ?>"><?php echo Yii::t('app', 'Доставка'); ?></a></li>
     <li class="nav-item"><a class="nav-link"
-           href="<?= Url::to('/reservation') ?>">Бронь</a></li>
+           href="<?php echo Url::to('/reservation'); ?>"><?php echo Yii::t('app', 'Бронь'); ?></a></li>
     <li class="nav-item"><a class="nav-link"
-           href="<?= Url::to('/contacts') ?>">Контакты</a></li>
+           href="<?php echo Url::to('/contacts'); ?>"><?php echo Yii::t('app', 'Контакты'); ?></a></li>
 </ul>

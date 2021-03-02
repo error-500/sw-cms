@@ -25,7 +25,6 @@ class UserController extends _BaseController
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
-
             $model->updatePassword();
 
             if ($model->save()) {

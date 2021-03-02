@@ -8,18 +8,20 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\base\InvalidConfigException;
 
-class SwNav extends \yii\base\Widget {
-
+class SwNav extends \yii\base\Widget
+{
     public $items;
     public $options = [];
     protected $_route;
 
-    public function run() {
+    public function run()
+    {
         $this->_route = explode('?', Yii::$app->request->getUrl())[0];
         return $this->renderItems();
     }
 
-    protected function renderItems() {
+    protected function renderItems()
+    {
         $items = [];
         foreach ($this->items as $i => $item) {
             if (isset($item['visible']) && !$item['visible']) {
@@ -56,7 +58,6 @@ class SwNav extends \yii\base\Widget {
         $active = $this->isActive($url);
 
         if (!empty($items)) {
-
             if (!is_array($items)) {
                 throw new InvalidConfigException("The 'items' option must be array.");
             }
@@ -76,7 +77,6 @@ class SwNav extends \yii\base\Widget {
     protected function renderDropdown($items, $parentItem, &$active)
     {
         foreach ($items as $item) {
-            
             if (is_string($item)) {
                 $li_pack[] = $item;
                 continue;
@@ -109,11 +109,11 @@ class SwNav extends \yii\base\Widget {
         return Html::tag('ul', implode("\n", $li_pack), $options);
     }
 
-    protected function isActive($url) 
+    protected function isActive($url)
     {
         if (is_array($url) && isset($url[0]) && $url[0] == $this->_route) {
             return true;
-        } 
+        }
         return false;
     }
 }

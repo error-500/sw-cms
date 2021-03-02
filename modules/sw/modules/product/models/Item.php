@@ -30,12 +30,12 @@ class Item extends \yii\db\ActiveRecord
             [['img', 'volume'], 'string', 'max' => 50],
             ['img_obj', 'file', 'skipOnEmpty' => true, 'checkExtensionByMimeType' => false, 'extensions' => 'png, jpg', 'maxSize' => 2097152],
             [['group_id'], 'exist', 'skipOnError' => true, 'targetClass' => Group::className(), 'targetAttribute' => ['group_id' => 'id']],
-        ]; 
+        ];
     }
 
     public function attributeLabels()
     {
-        return [ 
+        return [
             'id' => 'ID',
             'group_id' => 'Группа',
             'name' => 'Название',
@@ -47,7 +47,7 @@ class Item extends \yii\db\ActiveRecord
             'about' => 'Описание',
             'volume' => 'Объем',
             'pos' => 'Позиция',
-        ]; 
+        ];
     }
 
     public function uploadFile()
@@ -86,8 +86,8 @@ class Item extends \yii\db\ActiveRecord
         return $this->web_folder.'thumb_'.$this->img;
     }
 
-    public function getGroup() 
-    { 
+    public function getGroup()
+    {
         return $this->hasOne(Group::className(), ['id' => 'group_id']);
-    } 
+    }
 }

@@ -23,9 +23,9 @@ class Group extends \yii\db\ActiveRecord
         return [
             [['parent_id', 'pos'], 'integer'],
             [
-                'tech_name', 
-                'match', 
-                'pattern' => '/^[a-z_]*$/', 
+                'tech_name',
+                'match',
+                'pattern' => '/^[a-z_]*$/',
                 'message' => 'Техничесокое имя должно быть слитно, на английском, в нижнем регистре, допускается знак "_"'
             ],
             [['text'], 'string'],
@@ -34,12 +34,12 @@ class Group extends \yii\db\ActiveRecord
             [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => Group::className(), 'targetAttribute' => ['parent_id' => 'id']],
             ['img_obj', 'file', 'skipOnEmpty' => true, 'checkExtensionByMimeType' => false, 'extensions' => 'png, jpg', 'maxSize' => 2097152],
             [['tech_name'], 'unique'],
-        ]; 
+        ];
     }
 
     public function attributeLabels()
     {
-        return [ 
+        return [
             'id' => 'ID',
             'tech_name' => 'Техническое название',
             'parent_id' => 'Родительская группа',
@@ -49,7 +49,7 @@ class Group extends \yii\db\ActiveRecord
             'is_delivery' => 'На доставке',
             'img_obj' => 'Картинка',
             'text' => 'Текст',
-        ]; 
+        ];
     }
 
     public function uploadFile()
@@ -64,18 +64,18 @@ class Group extends \yii\db\ActiveRecord
         ]);
     }
 
-    public function getParent() 
-    { 
+    public function getParent()
+    {
         return $this->hasOne(Group::className(), ['id' => 'parent_id']);
-    } 
+    }
 
-    public function getGroups() 
-    { 
+    public function getGroups()
+    {
         return $this->hasMany(Group::className(), ['parent_id' => 'id']);
-    } 
+    }
 
-    public function getItems() 
-    { 
+    public function getItems()
+    {
         return $this->hasMany(Item::className(), ['group_id' => 'id']);
     }
 }

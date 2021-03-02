@@ -7,16 +7,28 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'sw-cms-site',
+    'language' => 'ru-RU',//'en-US',
+    'sourceLanguage' => 'ru-RU',//'en-US',
     'basePath' => dirname(__DIR__),
     'bootstrap' => [
         'log'
     ],
-    //'language' => 'ru-RU',
+    'controllerNamespace' => 'app\modules\main\controllers',
+    /*
+    'controllerMap' => [
+
+    ],
+    */
+    'defaultRoute' => 'default/index',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
     'modules' => [
+        'en' => [
+            'class' => 'app\modules\main\Module',
+            'controllerNamespace' => 'app\modules\main\controllers',
+        ],
         'admin' => [
             'class' => 'app\modules\admin\Module',
         ],
@@ -32,24 +44,12 @@ $config = [
                 ],
             ],
         ],
-        'i18n'         => [
-            'translations' => [
-                'app*' => [
-                    'sourceLanguage' => 'ru-RU',
-                    'class'          => 'yii\i18n\PhpMessageSource',
-                    'basePath'       => '@app/messages',
-                    'fileMap'        => [
-                        'app'       => 'messages.php',
-                        'app/error' => 'errors.php',
-                    ],
-                ],
-            ],
-        ],
+        'i18n'         => require_once __DIR__.'/i18n.conf.php',
         'formatter'    => [
             'dateFormat'        => 'dd.MM.yyyy',
             'decimalSeparator'  => ',',
             'thousandSeparator' => ' ',
-            'currencyCode'      => 'EUR',
+            'currencyCode'      => 'RUB',
             'timeZone'          => 'UTC',
             'locale'            => 'ru-RU',
         ],
@@ -76,13 +76,11 @@ $config = [
         'view' => [
             'theme' => [
                 'basePath' => '@app/themes/qartuliru_default',
-                // 'baseUrl'  => '@web/themes/vue-app',
                 'pathMap'  => [
                     '@app/assets'      => '@app/themes/qartuliru_default',
-                    '@app/views'       => ['@app/views','@app/themes/qartuliru_default/views'],
+                    '@app/views'       => '@app/themes/qartuliru_default/views',
                     '@app/widgets'     => ['@app/widgets','@app/themes/qartuliru_default/widgets'],
                     '@app/modules'     => '@app/themes/qartuliru_default/modules',
-                    // '@app/modules/post/widgets/views' => '@app/themes/crystald/widgets',
                 ],
             ],
         ],
@@ -144,7 +142,7 @@ if (YII_ENV_DEV) {
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
+        'allowedIPs' => ['127.0.0.1', '::1', '192.168.57.1'],
     ];
 }
 

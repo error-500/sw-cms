@@ -9,7 +9,6 @@ use Yii;
  */
 class Item extends \yii\db\ActiveRecord
 {
-
     public static function tableName()
     {
         return 'sw_constant_item';
@@ -22,9 +21,9 @@ class Item extends \yii\db\ActiveRecord
             [['value'], 'string'],
             [['name', 'tech_name'], 'string', 'max' => 50],
             [
-                'tech_name', 
-                'match', 
-                'pattern' => '/^[a-z_]*$/', 
+                'tech_name',
+                'match',
+                'pattern' => '/^[a-z_]*$/',
                 'message' => 'Техничесокое имя должно быть слитно, на английском, в нижнем регистре, допускается знак "_"'
             ],
             [['tech_name'], 'unique'],
@@ -43,7 +42,7 @@ class Item extends \yii\db\ActiveRecord
         ];
     }
 
-    public static function get($tech_name, $attr) 
+    public static function get($tech_name, $attr)
     {
         $self = self::findOne(['tech_name' => $tech_name]);
 

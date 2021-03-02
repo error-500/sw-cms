@@ -124,7 +124,7 @@ class VueObject extends Component
                 } //end switch
             } //end foreach
 
-            Yii::trace("Vue export to string object:" . \var_export($output, true));
+            Yii::info("Vue export to string object:" . \var_export($output, true));
             $result = $begin . implode(",\n", $output) . $end;
             return $result;
         } //end try
@@ -167,7 +167,7 @@ class VueObject extends Component
         $keysList = array_keys($options);
         if (!in_array($name, $keysList)) {
             throw new RuntimeException(
-                Yii::t('app', 'Try set undefined Vue property {0}', [$name])
+                /*Yii::t('app',*/ 'Try set undefined Vue property '.$name /*{0}', [$name])*/
             );
         }
 
@@ -178,7 +178,7 @@ class VueObject extends Component
                     && !ArrayHelper::isAssociative($value))
             ) {
                 throw new RuntimeException(
-                    Yii::t('app', 'Value for "{0}" must bee associative array - input was: {1}', [$name, \var_export($value, true)])
+                    /*Yii::t('app',*/ 'Value for "{0}" must bee associative array - input was: {1}'/*, [$name, \var_export($value, true)])*/
                 );
             }
 
@@ -189,7 +189,7 @@ class VueObject extends Component
         if (is_string($this->$name) || \array_key_exists($name, ['created', 'updeted', 'mounted'])) {
             if (!is_string($value)) {
                 throw new RuntimeException(
-                    Yii::t('app', 'Value "{0}" must be string', [$name])
+                    /*Yii::t('app',*/ 'Value "{0}" must be string'/*, [$name])*/
                 );
             }
 
@@ -236,7 +236,7 @@ class VueObject extends Component
             return $this;
         }
 
-        throw new RuntimeException(Yii::t('app', 'Vue props must be Array or String'));
+    throw new RuntimeException(/*Yii::t('app',*/ 'Vue props must be Array or String'/*)*/);
     } //end setProps()
 
 

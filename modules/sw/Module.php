@@ -18,4 +18,3 @@ class Module extends \yii\base\Module
         Yii::configure($this, $modules);
     }
 }
-

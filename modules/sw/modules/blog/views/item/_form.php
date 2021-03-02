@@ -74,7 +74,7 @@ $this->registerJsFile('theme/sw/plugin/ckeditor/options.js', $options);
                     <div class="col-xs-12">
                         <h4>Подключенные галлереи</h4>
                         <div class="card-columns">
-                            <?php foreach($model->galleries as $gallery): ?>
+                            <?php foreach ($model->galleries as $gallery): ?>
                             <div class="card">
                                 <img class="card-img"
                                      src="<?php echo $gallery->imgSrc; ?>"

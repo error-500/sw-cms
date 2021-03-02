@@ -29,7 +29,6 @@ class GroupController extends _BaseController
         $model = new Group();
 
         if ($model->load(Yii::$app->request->post())) {
-            
             $model->img_obj = UploadedFile::getInstance($model, 'img_obj');
             $model->uploadFile();
 
@@ -48,7 +47,6 @@ class GroupController extends _BaseController
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
-            
             $model->img_obj = UploadedFile::getInstance($model, 'img_obj');
             $model->uploadFile();
 

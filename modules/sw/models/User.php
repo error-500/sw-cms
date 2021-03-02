@@ -30,7 +30,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         ];
     }
 
-    public function updatePassword() 
+    public function updatePassword()
     {
         if (!empty($this->password)) {
             $this->password = password_hash($this->password, PASSWORD_DEFAULT);
@@ -60,8 +60,14 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     }
 
     // Usless
-    public function getAuthKey() {}
-    public function validateAuthKey($authKey) {}
-    public static function findIdentityByAccessToken($token, $type = null) {}
+    public function getAuthKey()
+    {
+    }
+    public function validateAuthKey($authKey)
+    {
+    }
+    public static function findIdentityByAccessToken($token, $type = null)
+    {
+    }
     // usless
 }

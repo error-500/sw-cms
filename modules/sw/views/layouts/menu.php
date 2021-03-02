@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 use app\modules\sw\widgets\swnav\SwNav;
 

@@ -24,7 +24,7 @@ class CdnYandex extends AssetBundle
                 'findOne',
                 ['tech_name' => 'yandex_counter_id']
             )->value ?? null;
-        if(!empty($yandexId)) {
+        if (!empty($yandexId)) {
             $view->registerJs(
                 "
                 (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};

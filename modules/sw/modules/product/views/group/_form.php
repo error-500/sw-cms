@@ -1,6 +1,7 @@
 <?php
 
-use yii\helpers\{Html, ArrayHelper};
+use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 use yii\bootstrap4\ActiveForm;
 
 use app\modules\sw\modules\product\models\Group;
@@ -41,12 +42,12 @@ $this->registerJs('
 
                     <div class="row">
                         <div class="col-md-5">
-                            <?= $form->field($model, 'parent_id')->dropDownList(ArrayHelper::map(Group::find()->all(), 'id', function($data) {
-                                if (empty($data->parent->name)) {
-                                    return $data['name'];
-                                }
-                                return sprintf('%s (Родительская группа - %s)', $data['name'], $data->parent->name);
-                            }), [
+                            <?= $form->field($model, 'parent_id')->dropDownList(ArrayHelper::map(Group::find()->all(), 'id', function ($data) {
+    if (empty($data->parent->name)) {
+        return $data['name'];
+    }
+    return sprintf('%s (Родительская группа - %s)', $data['name'], $data->parent->name);
+}), [
                                 'prompt' => 'Выберите'
                             ]) ?>
                         </div>

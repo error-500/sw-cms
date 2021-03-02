@@ -27,7 +27,7 @@ $this->title = 'Элементы';
                 ],
                 [
                     'attribute' => 'group_id',
-                    'filter' => ArrayHelper::map(Group::find()->all(), 'id', function($data) {
+                    'filter' => ArrayHelper::map(Group::find()->all(), 'id', function ($data) {
                         if (empty($data->parent->name)) {
                             return $data['name'];
                         }
@@ -45,7 +45,7 @@ $this->title = 'Элементы';
                     'header' => 'Картинка',
                     'filter' => false,
                     'format' => 'raw',
-                    'value' => function($data) {
+                    'value' => function ($data) {
                         if (!$data->imgSrc) {
                             return '<span class="text-warning">Нет</span>';
                         }

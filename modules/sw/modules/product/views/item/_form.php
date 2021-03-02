@@ -32,12 +32,12 @@ $this->registerJs('
 
                     <div class="row">
                         <div class="col-md-4">
-                            <?= $form->field($model, 'group_id')->dropDownList(ArrayHelper::map(Group::find()->all(), 'id', function($data) {
-                                if (empty($data->parent->name)) {
-                                    return $data['name'];
-                                }
-                                return sprintf('%s (Родительская группа - %s)', $data['name'], $data->parent->name);
-                            }), [
+                            <?= $form->field($model, 'group_id')->dropDownList(ArrayHelper::map(Group::find()->all(), 'id', function ($data) {
+    if (empty($data->parent->name)) {
+        return $data['name'];
+    }
+    return sprintf('%s (Родительская группа - %s)', $data['name'], $data->parent->name);
+}), [
                                 'prompt' => 'Выберите'
                             ]) ?>
                         </div>

@@ -5,6 +5,7 @@ namespace app\modules\sw\modules\gallery\models;
 use Yii;
 use app\modules\sw\modules\blog\models\Item as BlogItem;
 use swods\fileloader\FileLoader;
+
 class Group extends \yii\db\ActiveRecord
 {
     use \app\modules\sw\modules\base\traits\ImgSrc;
@@ -41,7 +42,7 @@ class Group extends \yii\db\ActiveRecord
         return [
             'id',
             'tech_name',
-            'thumb' => function(){
+            'thumb' => function () {
                 return $this->getImgSrc();
             },
             'name',
@@ -49,7 +50,7 @@ class Group extends \yii\db\ActiveRecord
             'updated',
             'images' => function () {
                 $images = [];
-                foreach( $this->items as $img) {
+                foreach ($this->items as $img) {
                     array_push($images, $img->toArray());
                 }
                 return $images;

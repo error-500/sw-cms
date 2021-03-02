@@ -34,14 +34,14 @@ $this->title = 'Группы';
                 ],
                 [
                     'attribute' => 'parent_id',
-                    'filter' => ArrayHelper::map(Group::find()->all(), 'id', function($data) {
+                    'filter' => ArrayHelper::map(Group::find()->all(), 'id', function ($data) {
                         if (empty($data->parent->name)) {
                             return $data['name'];
                         }
                         return sprintf('%s (Родительская группа - %s)', $data['name'], $data->parent->name);
                     }),
                     'format' => 'raw',
-                    'value' => function($data) {
+                    'value' => function ($data) {
                         return $data->parent->name ?? '<span class="text-warning">Нет</span>';
                     }
                 ],
@@ -50,7 +50,7 @@ $this->title = 'Группы';
                     'header' => 'Картинка',
                     'filter' => false,
                     'format' => 'raw',
-                    'value' => function($data) {
+                    'value' => function ($data) {
                         if (!$data->imgSrc) {
                             return '<span class="text-warning">Нет</span>';
                         }

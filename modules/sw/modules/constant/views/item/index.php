@@ -33,7 +33,7 @@ $this->params['title'] = 'Константы';
                 [
                     'attribute' => 'value',
                     'format' => 'raw',
-                    'value' => function($item) {
+                    'value' => function ($item) {
                         return mb_strlen($item->value) > 60 ? '<span class="text-warning">Значение слишком большое, нажмите</span> <i class="icon-pencil"></i>' : $item->value;
                     }
                 ],

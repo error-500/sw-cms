@@ -84,6 +84,8 @@ class SiteController extends \yii\web\Controller
             'random_delivery_menu' => $random_delivery_menu,
             'contacts_block_text' => $contacts_block_text,
         ]);
+
+        //var_dump(Yii::$app);
     }
 
     public function actionPage($name)

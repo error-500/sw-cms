@@ -1,5 +1,6 @@
 <?php
 
+use Yii;
 use yii\helpers\Html;
 
 //use app\assets\AppAsset;
@@ -9,9 +10,6 @@ use app\themes\qartuliru_default\assets\ThemeAssets;
 use app\widgets\cart\Cart;
 use app\widgets\fbpixel\FbPixelWidget;
 use app\widgets\ymetric\YMetricWidget;
-use yii\web\View;
-
-//use yii\web\View;
 
 ThemeAssets::register($this);
 //YandexMetricAsset::register($this);
@@ -46,27 +44,27 @@ $this->registerCss("
 $this->beginPage() ?>
 
 <!DOCTYPE html>
-<!--[if lt IE 10]> <html  lang="en" class="iex"> <![endif]-->
+<!--[if lt IE 10]> <html  lang="<?php //echo Yii::$app->language; ?>en" class="iex"> <![endif]-->
 <!--[if (gt IE 10)|!(IE)]><!-->
-<html lang="<?php /*echo Yii::$app->language */?>ru">
+<html lang="<?php //echo Yii::$app->language; ?>en">
 <!--<![endif]-->
 
 <head>
-    <meta charset="<?= Yii::$app->charset ?>">
+    <meta charset="<?php echo Yii::$app->charset; ?>">
     <meta http-equiv="X-UA-Compatible"
           content="IE=edge">
     <meta name="viewport"
           content="width=device-width, initial-scale=1">
     <meta name="description"
-          content="<?= Html::encode($this->params['description'] ?? '') ?>">
+          content="<?php echo Html::encode($this->params['description'] ?? ''); ?>">
     <meta name="keywords"
-          content="<?= Html::encode($this->params['keywords'] ?? '') ?>">
+          content="<?php echo Html::encode($this->params['keywords'] ?? ''); ?>">
     <meta name="yandex-verification"
           content="4ec76dfad66716e1" />
     <link rel="icon"
           href="/favicon.ico">
 
-    <title><?= Html::encode($this->title) ?></title>
+    <title><?php echo Html::encode($this->title); ?></title>
 
     <?php /* echo Yii::$app->sw
                     ->getModule('constant')
@@ -104,18 +102,18 @@ $this->beginPage() ?>
             <div class="modal-content">
                 <div class="modal-body">
                     <h2 class="text-danger">18+</h2>
-                    <p> Добро пожаловать.
-                        Для доступа необходимо подтвердить совершеннолетний возраст.
+                    <p> <?php echo Yii::t('app', 'Добро пожаловать.'); ?>
+                        <?php echo Yii::t('app', 'Для доступа необходимо подтвердить совершеннолетний возраст.'); ?>
                     </p>
-                    <h5>Подробнее</h5>
+                    <h5><?php echo Yii::t('app', 'Подробнее'); ?></h5>
                     <p class="text-size-mini">
-                        Сайт содержит информацию для лиц совершеннолетнего возраста.
-                        Сведения, размещенные на сайте, не являются рекламой, носят исключительно
-                        информационный характер, и предназначены только для личного использования.
+                        <?php echo Yii::t('app', 'Сайт содержит информацию для лиц совершеннолетнего возраста.'); ?>
+                        <?php echo Yii::t('app', 'Сведения, размещенные на сайте, не являются рекламой, носят исключительно'); ?>
+                        <?php echo Yii::t('app', 'информационный характер, и предназначены только для личного использования.'); ?>
                     </p>
                     <button class="btn btn-gray"
                             data-dismiss="modal"
-                            type="button">Мне исполнилось 18 лет</button>
+                            type="button"><?php echo Yii::t('app', 'Мне исполнилось 18 лет'); ?></button>
                 </div>
             </div>
         </div>

@@ -6,7 +6,6 @@ use Yii;
 
 class Group extends \yii\db\ActiveRecord
 {
-
     public static function tableName()
     {
         return '{{%blog_group}}';
