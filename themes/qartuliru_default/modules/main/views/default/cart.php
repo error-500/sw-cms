@@ -34,7 +34,7 @@ if (!empty($page)) {
                 <style type="text/css">
                 .table>thead:first-child>tr:first-child>th {
                     border-top-width: 1px !important;
-                }
+                }implode('-', $moduleId)
                 </style>
                 <div class="table-responsive">
                     <?= GridView::widget([

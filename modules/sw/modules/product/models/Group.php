@@ -15,7 +15,7 @@ class Group extends \yii\db\ActiveRecord
 
     public static function tableName()
     {
-        return 'sw_product_group';
+        return '{{%product_group}}';
     }
 
     public function rules()

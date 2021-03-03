@@ -86,7 +86,7 @@ Yii::$app->vueApp->computed = [
 ]
 ?>
 <b-sidebar id="cart-sidebar"
-           title="<?php echo 'Корзина'; ?>"
+           title="<?php echo Yii::t('app', 'Корзина'); ?>"
            right
            backdrop
            sidebar-class="w-xs-100 w-sm-50"
@@ -94,12 +94,12 @@ Yii::$app->vueApp->computed = [
     <template #footer="{ hide }">
         <div class="d-flex flex-column align-items-center mb-3">
             <h4 class="text-center">
-                Итого: {{ cart.total }}₽
+                <?php echo Yii::t('app', 'Итого'); ?>: {{ cart.total }}₽
             </h4>
-            <b-button href="/site/checkout"
+            <b-button href="/checkout"
                       size="small"
                       class="w-75"
-                      variant="outline-dark">Оформить заказ</b-button>
+                      variant="outline-dark"><?php echo Yii::t('app', 'Оформить заказ'); ?></b-button>
         </div>
     </template>
     <template #default>

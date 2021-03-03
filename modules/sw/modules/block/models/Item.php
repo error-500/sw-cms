@@ -11,14 +11,14 @@ use swods\fileloader\FileLoader;
 class Item extends \yii\db\ActiveRecord
 {
     use \app\modules\sw\modules\base\traits\ImgSrc;
-    
+
     public static $folder = '@webroot/uploads/sw/block/';
     public $web_folder = '/uploads/sw/block/';
     public $img_obj;
 
     public static function tableName()
     {
-        return 'sw_block_item';
+        return '{{%block_item}}';
     }
 
     public function rules()

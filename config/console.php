@@ -37,6 +37,7 @@ $config = [
             ],
         ],
         'db' => $db,
+        'en-db' => include __DIR__.'/en-db.php',
     ],
     'params' => $params,
     /*

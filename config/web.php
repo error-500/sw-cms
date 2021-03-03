@@ -25,7 +25,7 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'modules' => [
-        'en' => [
+        'en-US' => [
             'class' => 'app\modules\main\Module',
             'controllerNamespace' => 'app\modules\main\controllers',
         ],
@@ -78,8 +78,15 @@ $config = [
                 'basePath' => '@app/themes/qartuliru_default',
                 'pathMap'  => [
                     '@app/assets'      => '@app/themes/qartuliru_default',
-                    '@app/views'       => '@app/themes/qartuliru_default/views',
-                    '@app/widgets'     => ['@app/widgets','@app/themes/qartuliru_default/widgets'],
+                    '@app/views'       => [
+                        '@app/themes/qartuliru_default/views',
+                        '@app/themes/qartuliru_default/modules/main/views',
+                    ],
+                    '@app/widgets'     => [
+                        '@app/widgets',
+                        '@app/themes/qartuliru_default/widgets',
+                        '@app/themes/qartuliru_default/modules/main/widgets',
+                    ],
                     '@app/modules'     => '@app/themes/qartuliru_default/modules',
                 ],
             ],

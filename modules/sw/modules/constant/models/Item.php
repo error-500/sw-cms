@@ -11,7 +11,7 @@ class Item extends \yii\db\ActiveRecord
 {
     public static function tableName()
     {
-        return 'sw_constant_item';
+        return '{{%constant_item}}';
     }
 
     public function rules()
