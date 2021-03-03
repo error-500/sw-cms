@@ -29,7 +29,7 @@ $min_delivery_price = Yii::$app->sw->getModule('constant')->item('findOne', ['te
         </div>
     </div>
 </div>
-<div class="container d-flex flex-row justify-content-center">
+<!--div class="container d-flex flex-row justify-content-center">
     <div class="card text-white bg-danger m-2 w-50">
         <div class="card-body">
             <h5 class="card-title text-white"> Внимание !!!</h5>
@@ -38,7 +38,7 @@ $min_delivery_price = Yii::$app->sw->getModule('constant')->item('findOne', ['te
             </p>
         </div>
     </div>
-</div>
+</div-->
 <div class="section-empty">
     <div class="container content">
         <div class="row">
