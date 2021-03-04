@@ -200,12 +200,12 @@ if (!empty($page)) {
     <div class="container content">
         <div class="row">
             <div class="col-md-6">
-                <img src="<?= $chefs_main_block->imgSrc ?>"
+                <img src="<?php echo  !empty($chefs_main_block) ? $chefs_main_block->imgSrc : '#'; ?>"
                      alt="" />
             </div>
             <div class="col-md-6">
                 <div class="content">
-                    <?= $chefs_main_block->text ?>
+                    <?php echo !empty($chefs_main_block) ? $chefs_main_block->text: ''; ?>
                 </div>
             </div>
         </div>
