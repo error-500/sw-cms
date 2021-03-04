@@ -12,7 +12,8 @@ $this->title = 'Группы';
 
 <div class="panel panel-flat">
     <div class="panel-body">
-        <?= Html::a('<b><i class="icon-plus-circle2"></i></b> Добавить', ['/sw/product/group/create'], ['class' => 'btn bg-teal-400 btn-labeled']) ?>
+        <?= Html::a('<b><i class="icon-plus-circle2"></i></b> Добавить',
+        ['/'.Yii::$app->controller->uniqueId.'/create'], ['class' => 'btn bg-teal-400 btn-labeled']) ?>
         <br><br>
         <div class="alert alert-info alert-styled-left">
             <span class="text-semibold">Инфо:</span> Если группа используется ее невозможно удалить
@@ -66,10 +67,13 @@ $this->title = 'Группы';
                     'template' => '{update} {delete}',
                     'buttons' => [
                         'update' => function ($url, $data) {
-                            return Html::a('<i class="icon-pencil"></i>', ['/sw/product/group/update', 'id' => $data->id]);
+                            return Html::a(
+                                '<i class="icon-pencil"></i>', [
+                                    '/'.Yii::$app->controller->uniqueId.'/update', 'id' => $data->id]);
                         },
                         'delete' => function ($url, $data) {
-                            return Html::a('<i class="icon-trash"></i>', ['/sw/product/group/delete', 'id' => $data->id], [
+                            return Html::a('<i class="icon-trash"></i>', [
+                                '/'.Yii::$app->controller->uniqueId.'/delete', 'id' => $data->id], [
                                 'data' => [
                                     'confirm' => 'Вы уверены что хотите удалить запись? Действие нельзя отменить!',
                                 ]
@@ -81,4 +85,3 @@ $this->title = 'Группы';
         ]); ?>
     </div>
 </div>
-
