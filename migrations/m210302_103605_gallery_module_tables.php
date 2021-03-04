@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Class m210303_103605_gallery_module_tables
  */
-class m210303_103605_gallery_module_tables extends Migration
+class m210302_103605_gallery_module_tables extends Migration
 {
     /**
      * {@inheritdoc}
@@ -17,6 +17,7 @@ class m210303_103605_gallery_module_tables extends Migration
             // http://stackoverflow.com/questions/766809/whats-the-difference-between-utf8-general-ci-and-utf8-unicode-ci
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
+        $prefix = $this->db->tablePrefix;
         $this->createTable(
             '{{%gallery_group}}',
             [
@@ -76,7 +77,7 @@ class m210303_103605_gallery_module_tables extends Migration
             $tableOptions
         );
         $this->addForeignKey(
-            '{{%gallery_item_ibfk_1}}',
+            "{$prefix}gallery_item_ibfk_1}}",
             '{{%gallery_item}}',
             ['group_id'],
             '{{%gallery_group}}',

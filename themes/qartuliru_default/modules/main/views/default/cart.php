@@ -31,11 +31,6 @@ if (!empty($page)) {
     <div class="container content">
         <div class="row">
             <div class="col-md-12">
-                <style type="text/css">
-                .table>thead:first-child>tr:first-child>th {
-                    border-top-width: 1px !important;
-                }implode('-', $moduleId)
-                </style>
                 <div class="table-responsive">
                     <?= GridView::widget([
                     'dataProvider' => $cart_provider,

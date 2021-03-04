@@ -1,5 +1,8 @@
-{   
+{
     "modules": {
+        "en-US": {
+            "class": "app\\modules\\sw\\Module"
+        },
         "blog": {
             "class": "app\\modules\\sw\\modules\\blog\\Module"
         },
@@ -29,4 +32,3 @@
         }
     }
 }
-

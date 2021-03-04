@@ -17,6 +17,7 @@ class m210302_134747_blog_module_tables extends Migration
             // http://stackoverflow.com/questions/766809/whats-the-difference-between-utf8-general-ci-and-utf8-unicode-ci
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
+        $prefix = $this->db->tablePrefix;
         $this->createTable(
             '{{%blog_group}}',
             [
@@ -92,7 +93,7 @@ class m210302_134747_blog_module_tables extends Migration
             $tableOptions
         );
         $this->addForeignKey(
-            '{{FK_%image_blog_%image_blog_group}}',
+            "FK_{$prefix}image_blog_{$prefix}image_blog_group",
             '{{%blog_item}}',
             ['group_id'],
             '{{%blog_group}}',
@@ -111,7 +112,7 @@ class m210302_134747_blog_module_tables extends Migration
             $tableOptions
         );
         $this->addPrimaryKey(
-            '{{%gallery_group_pk}}',
+            "{$prefix}gallery_group_pk",
             '{{%blog_gallery_link}}',
             [
                 'blog_id',
@@ -119,19 +120,19 @@ class m210302_134747_blog_module_tables extends Migration
             ]
         );
         $this->addForeignKey(
-            '{{%gallery_blog_id_fk}}',
+            "{$prefix}gallery_blog_id_fk",
             '{{%blog_gallery_link}}',
             ['blog_id'],
-            '{{%blog_item}}'
+            '{{%blog_item}}',
             ['id'],
             'CASCADE',
             'CASCADE'
         );
         $this->addForeignKey(
-            '{{%gallery_groups_id_fk}}',
+            "{$prefix}gallery_groups_id_fk",
             '{{%blog_gallery_link}}',
             ['gallery_id'],
-            'sw_gallery_group'
+            'sw_gallery_group',
             ['id'],
             'CASCADE',
             'CASCADE'
@@ -144,12 +145,13 @@ class m210302_134747_blog_module_tables extends Migration
      */
     public function safeDown()
     {
+        $prefix=$this->db->tablePrefix;
         $this->dropForeignKey(
-            '{{%gallery_groups_id_fk}}',
+            "{$prefix}gallery_groups_id_fk",
             '{{%blog_gallery_link}}'
         );
         $this->dropForeignKey(
-            '{{%gallery_blog_id_fk}}',
+            "{$prefix}gallery_blog_id_fk",
             '{{%blog_gallery_link}}'
         );
         $this->dropTable(

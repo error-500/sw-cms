@@ -29,14 +29,14 @@ $config = [
             'class' => 'app\modules\main\Module',
             'controllerNamespace' => 'app\modules\main\controllers',
         ],
-        /*'sw' => [
+        'admin' => [
             'class' => 'app\modules\sw\Module',
             'modules' => [
                 'en-US' => [
                     'class' => 'app\modules\sw\Module'
                 ]
             ]
-        ],*/
+        ],
     ],
     'components' => [
         'assetManager' => [

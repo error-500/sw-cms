@@ -17,6 +17,7 @@ class m210303_112453_products_module_tables extends Migration
             // http://stackoverflow.com/questions/766809/whats-the-difference-between-utf8-general-ci-and-utf8-unicode-ci
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
+        $prefix = $this->db->tablePrefix;
         $this->createTable(
             '{{%product_group}}',
             [
@@ -53,7 +54,7 @@ class m210303_112453_products_module_tables extends Migration
             $tableOptions
         );
         $this->addForeignKey(
-            '{{%product_group_ibfk_1}}',
+            "{$prefix}product_group_ibfk_1",
             '{{%product_group}}',
             ['parent_id'],
             '{{%product_group}}',
@@ -108,7 +109,7 @@ class m210303_112453_products_module_tables extends Migration
             $tableOptions
         );
         $this->addForeignKey(
-            '{{%product_item_ibfk_1}}',
+            "{$prefix}product_item_ibfk_1",
             '{{%product_item}}',
             ['group_id'],
             '{{%product_group}}',
@@ -123,12 +124,13 @@ class m210303_112453_products_module_tables extends Migration
      */
     public function safeDown()
     {
+        $prefix = $this->db->tablePrefix;
         $this->dropForeignKey(
-            '{{%product_item_ibfk_1}}',
+            "{$prefix}product_item_ibfk_1",
             '{{%product_item}}'
         );
         $this->dropForeignKey(
-            '{{%product_group_ibfk_1}}',
+            "{$prefix}product_group_ibfk_1",
             '{{%product_group}}'
         );
         $this->dropTable('{{%product_group}}');
