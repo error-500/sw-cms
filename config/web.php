@@ -14,11 +14,13 @@ $config = [
         'log'
     ],
     'controllerNamespace' => 'app\modules\main\controllers',
-    /*
-    'controllerMap' => [
 
+    'controllerMap' => [
+        'site' => [
+            'class' => 'app\modules\main\controllers\default',
+        ]
     ],
-    */
+
     'defaultRoute' => 'default/index',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
@@ -28,6 +30,7 @@ $config = [
         'en-US' => [
             'class' => 'app\modules\main\Module',
             'controllerNamespace' => 'app\modules\main\controllers',
+            'initLanguage' => 'en-US',
         ],
         /*'sw' => [
             'class' => 'app\modules\sw\Module',

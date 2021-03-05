@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Url;
-
+$prefix = '/'.Yii::$app->controller->uniqueId;
 $menu = Yii::$app->sw->getModule('product')->group('find')
     ->alias('mg')
     ->where(['mg.parent_id' => null])
@@ -17,7 +17,8 @@ $menu = Yii::$app->sw->getModule('product')->group('find')
 
 <ul class="navbar-nav flex-grow-1">
     <li class="nav-item"><a class="nav-link"
-           href="<?php echo Url::to('/news'); ?>"><?php echo Yii::t('app', 'Лента'); ?> <span class="caret"></span></a></li>
+           href="<?php echo Url::to('/news'); ?>"><?php echo Yii::t('app', 'Лента'); ?> <span class="caret"></span></a>
+    </li>
 
     <?php foreach ($menu as $mIdx => $main_product): ?>
     <li class="nav-item dropdown">
@@ -46,5 +47,6 @@ $menu = Yii::$app->sw->getModule('product')->group('find')
     <li class="nav-item"><a class="nav-link"
            href="<?php echo Url::to('/reservation'); ?>"><?php echo Yii::t('app', 'Бронь'); ?></a></li>
     <li class="nav-item"><a class="nav-link"
-           href="<?php echo Url::to('/contacts'); ?>"><?php echo Yii::t('app', 'Контакты'); ?></a></li>
+           href="<?php echo Url::to($prefix.'/contacts'); ?>"><?php echo Yii::t('app', 'Контакты'); ?></a>
+    </li>
 </ul>

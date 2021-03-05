@@ -14,17 +14,19 @@ class Module extends \yii\base\Module
      * {@inheritdoc}
      */
     public $controllerNamespace = 'app\modules\main\controllers';
-
+    public $initLanguage = null;
     /**
      * {@inheritdoc}
      */
     public function init()
     {
-        $moduleId = explode('-',$this->id);
-        Yii::$app->language = \count($moduleId) > 1 ? $this->id : 'ru-RU';
-        Yii::$app->db->tablePrefix = \count($moduleId) > 1 ? $moduleId[0].'_' : Yii::$app->db->tablePrefix;
         parent::init();
-
+        if (!empty($this->initLanguage)) {
+            $moduleId = explode('-', $this->initLanguage);
+            Yii::$app->language = $this->initLanguage;
+            Yii::$app->db->tablePrefix = \count($moduleId) > 1 ? $moduleId[0].'_' : Yii::$app->db->tablePrefix;
+            Yii::configure(Yii::$app, ['language' => $this->initLanguage]);
+        }
         // custom initialization code goes here
     }
 }

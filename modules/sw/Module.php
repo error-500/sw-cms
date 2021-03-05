@@ -21,6 +21,5 @@ class Module extends \yii\base\Module
         Yii::$app->db->tablePrefix = \count($moduleId) > 1 ? $moduleId[0].'_' : Yii::$app->db->tablePrefix;
 
 
-
     }
 }
