@@ -32,7 +32,10 @@ class VueObject extends Component
         'mounted',
         'created',
     ];
-
+    public function init()
+    {
+        $this->data['csrfToken'] = '"'.Yii::$app->request->csrfToken.'"';
+    }
     public static function ArrayToJsString($array)
     {
         $jsLines = [];
