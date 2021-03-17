@@ -10,10 +10,22 @@ use app\modules\sw\modules\gallery\models\Group as Gallery;
 $button_text = sprintf('%s <i class="icon-arrow-right14 position-right"></i>', $model->isNewRecord ? 'Сохранить' : 'Обновить');
 
 $options = ['depends' => ['app\modules\sw\assets\SwAsset']];
-$this->registerJsFile('/theme/sw/global_assets/js/plugins/editors/summernote/summernote.min.js', $options);
-$this->registerJsFile('/theme/sw/global_assets/js/plugins/forms/styling/uniform.min.js', $options);
-$this->registerJsFile('/theme/sw/global_assets/js/demo_pages/editor_summernote.js', $options);
-$this->registerJsFile('theme/sw/plugin/ckeditor/options.js', $options);
+$this->registerJsFile(
+    '/theme/sw/global_assets/js/plugins/editors/summernote/summernote.min.js',
+    $options
+);
+$this->registerJsFile(
+    '/theme/sw/global_assets/js/plugins/forms/styling/uniform.min.js',
+    $options
+);
+$this->registerJsFile(
+    '/theme/sw/global_assets/js/demo_pages/editor_summernote.js',
+    $options
+);
+$this->registerJsFile(
+    'theme/sw/plugin/ckeditor/options.js',
+    $options
+);
 
 ?>
 

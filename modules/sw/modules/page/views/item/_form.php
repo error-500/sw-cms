@@ -16,6 +16,12 @@ $this->registerJs('
         html_editor.getSession().on(\'change\', function(){
           textarea.val(html_editor.getSession().getValue());
         });
+        html_editor.commands.addCommand({
+            name: "addComponent",
+            exec: function(editor){
+                editor.insert("<sw-reserv-form></sw-reserv-form>");
+            }
+        })
 ', \yii\web\View::POS_END);
 
 ?>
@@ -23,55 +29,55 @@ $this->registerJs('
 <div class="row">
     <div class="col-md-12">
         <?php $form = ActiveForm::begin(); ?>
-            <div class="panel panel-flat">
-                <div class="panel-body">
+        <div class="panel panel-flat">
+            <div class="panel-body">
 
-                    <!-- <div class="alert alert-info alert-styled-left">
+                <!-- <div class="alert alert-info alert-styled-left">
                         <span class="text-semibold">Инфо:</span> для вставки в текст файлов из файлового менеджера используйте <b>{file:техническое_название}</b>
                     </div> -->
 
-                    <!-- <hr> -->
+                <!-- <hr> -->
 
-                    <?= $form->errorSummary($model) ?>
+                <?= $form->errorSummary($model) ?>
 
-                    <div class="row">
-                        <div class="col-md-4">
-                            <?= $form->field($model, 'title')->textInput() ?>
-                        </div>
-
-                        <div class="col-md-4">
-                            <?= $form->field($model, 'tech_name')->textInput() ?>
-                        </div>
-
-                        <div class="col-md-4">
-                            <?= $form->field($model, 'img_obj')->fileInput(['class' => 'file-styled']) ?>
-                        </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <?= $form->field($model, 'title')->textInput() ?>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <?= $form->field($model, 'keywords')->textInput() ?>
-                        </div>
-
-                        <div class="col-md-6">
-                            <?= $form->field($model, 'description')->textInput() ?>
-                        </div>
+                    <div class="col-md-4">
+                        <?= $form->field($model, 'tech_name')->textInput() ?>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <?= $form->field($model, 'text', [
+                    <div class="col-md-4">
+                        <?= $form->field($model, 'img_obj')->fileInput(['class' => 'file-styled']) ?>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <?= $form->field($model, 'keywords')->textInput() ?>
+                    </div>
+
+                    <div class="col-md-6">
+                        <?= $form->field($model, 'description')->textInput() ?>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <?= $form->field($model, 'text', [
                                 'inputTemplate' => '<div id="html_editor"></div> {input}'
                             ])->textarea() ?>
-                        </div>
                     </div>
-
-                    <div class="text-right">
-                        <?= Html::submitButton($button_text, ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-                    </div>
-
                 </div>
+
+                <div class="text-right">
+                    <?= Html::submitButton($button_text, ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+                </div>
+
             </div>
+        </div>
         <?php ActiveForm::end(); ?>
     </div>
 </div>
