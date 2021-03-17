@@ -45,6 +45,11 @@ $menu = Yii::$app->sw->getModule('product')->group('find')
            href="<?= Url::to('/delivery') ?>">Доставка</a></li>
     <li class="nav-item"><a class="nav-link"
            href="<?= Url::to('/reservation') ?>">Бронь</a></li>
+    <li class="nav-item">
+        <a class="nav-link"
+           href="<?php echo Url::to('/page/banquets'); ?>">Банкеты</a>
+    </li>
+    </li>
     <li class="nav-item"><a class="nav-link"
            href="<?= Url::to('/contacts') ?>">Контакты</a></li>
 </ul>
