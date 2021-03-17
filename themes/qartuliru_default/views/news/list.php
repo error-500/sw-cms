@@ -53,7 +53,7 @@ if (!empty($page)) {
                     <?php endforeach ?>
                 </div>
                 <div class="list-group list-blog list-group-flush">
-                    <h5 class="list-group-header">Случаные публикации</h5>
+                    <h5 class="list-group-header">Случайные публикации</h5>
                     <?php foreach ($random_posts as $random_post): ?>
                     <div class="list-group-item">
                         <div class="tag-row icon-row">
