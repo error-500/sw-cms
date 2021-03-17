@@ -36,7 +36,7 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
                  src="/theme/main/images/logo-retina.png"
                  alt="logo" />
         </a>
-        <div class="navbar-toggler d-inline-flex flex-row justify-content-between align-content-center"
+        <div class="navbar-toggler d-inline-flex-xs flex-row justify-content-between align-content-center"
              style="border: none !important; min-width: 50%">
             <a href="tel:+74957237373"
                class="my-auto mx-2"
