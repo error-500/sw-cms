@@ -14,14 +14,14 @@ class GoogleTagAsset extends AssetBundle
     {
         parent::registerAssetFiles($view);
 
-        $gId = Yii::$app
+        $gTags = Yii::$app
         ->sw->getModule('constant')
-        ->item(
-            'findOne',
-            ['tech_name' => 'google_tag_id']
-        );
+        ->item('find')
+        ->andWhere(
+            ['like', 'tech_name', 'google_tag']
+        )->all();
 
-        if (!empty($gId)) {
+        foreach($gTags as $gId):
             $view->registerJsFile(
                 'https://www.googletagmanager.com/gtag/js?id='.$gId->value,
                 [
@@ -37,6 +37,6 @@ class GoogleTagAsset extends AssetBundle
                 gtag('config', '{$gId->value}');",
                 View::POS_END
             );
-        }
+        endforeach;
     }
 }
