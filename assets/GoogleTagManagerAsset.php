@@ -6,7 +6,7 @@ use Yii;
 use yii\web\AssetBundle;
 use yii\web\View;
 
-class GoogleTagAsset extends AssetBundle
+class GoogleTagManagerAsset extends AssetBundle
 {
     public $sourcePath = null;
 
@@ -18,12 +18,12 @@ class GoogleTagAsset extends AssetBundle
         ->sw->getModule('constant')
         ->item(
             'findOne',
-            ['tech_name' => 'google_tag_id']
+            ['tech_name' => 'google_tag_manager']
         );
 
         if (!empty($gId)) {
             $view->registerJsFile(
-                'https://www.googletagmanager.com/gtag/js?id='.$gId->value,
+                'https://www.googletagmanager.com/gtm.js?id='.$gId->value,
                 [
                     'async' => true,
                     'position' => View::POS_HEAD,
@@ -31,11 +31,14 @@ class GoogleTagAsset extends AssetBundle
             );
             $view->registerJs(
                 "window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
 
-                gtag('config', '{$gId->value}');",
-                View::POS_END
+                dataLayer.push(
+                    {
+                        'gtm.start': new Date().getTime(),
+                        event:'gtm.js'
+                    }
+                )",
+                View::POS_BEGIN
             );
         }
     }
