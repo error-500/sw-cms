@@ -22,8 +22,19 @@ $this->registerJs('
 
 ?>
 
-<div class="row">
-    <div class="col-md-12">
+<b-media no-body>
+    <b-media-aside>
+        <b-img <?php if(empty($model->imgSrc)): ?>
+               blank
+               <?php endif; ?>
+               blank-color="rgba(128, 128, 128, .8)"
+               thumbnail
+               width="200"
+               <?php if(!empty($model->imgSrc)): ?>
+               src="<?php echo $model->imgSrc; ?>"
+               <?php endif;?>></b-img>
+    </b-media-aside>
+    <b-media-body>
         <?php $form = ActiveForm::begin(); ?>
         <div class="panel panel-flat">
             <div class="panel-body">
@@ -47,7 +58,8 @@ $this->registerJs('
                     </div>
 
                     <div class="col-md-3">
-                        <?= $form->field($model, 'img_obj')->fileInput(['class' => 'file-styled']) ?>
+                        <?php echo $form->field($model, 'img_obj')
+                                ->fileInput(['class' => 'file-styled form-control']) ?>
                     </div>
                 </div>
 
@@ -92,5 +104,5 @@ $this->registerJs('
             </div>
         </div>
         <?php ActiveForm::end(); ?>
-    </div>
-</div>
+    </b-media-body>
+</b-media>

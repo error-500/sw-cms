@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 
-$this->title = 'Обновить элемент';
+$this->title = Yii::t('app', 'Обновить элемент: {0}', [$model->name]);
 $this->params['block'] = 'Модуль: Инфоблоки';
 $this->params['title'] = Yii::t('app', 'Обновить элемент: {0}', [$model->name]);
 

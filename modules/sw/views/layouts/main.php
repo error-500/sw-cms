@@ -1,7 +1,13 @@
 <?php
 
-\app\modules\sw\assets\SwAsset::register($this);
+use app\modules\sw\assets\SwAsset;
 
+SwAsset::register($this);
+Yii::$app->vueApp->methods = [
+    'historyBack' => 'function(){
+        window.history.back();
+    }'
+]
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -56,8 +62,14 @@
                     <div class="page-header page-header-default">
                         <div class="page-header-content">
                             <div class="page-title">
-                                <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"></span>
-                                    <?= $this->title ?></h4>
+                                <h4>
+                                    <b-link href="#"
+                                            @click="historyBack">
+                                        <i class="icon-arrow-left52 position-left"></i>
+                                    </b-link>
+                                    <span class="text-semibold"></span>
+                                    <?= $this->title ?>
+                                </h4>
                             </div>
 
                             <!-- <div class="heading-elements">

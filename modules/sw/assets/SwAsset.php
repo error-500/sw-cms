@@ -2,6 +2,7 @@
 
 namespace app\modules\sw\assets;
 
+use app\assets\FontAwesome\FontAwesomeAsset;
 use app\components\VueApp\assets\BootstrapVueAsset;
 use app\components\VueApp\assets\VueAsset;
 use yii\web\AssetBundle;
@@ -44,5 +45,6 @@ class SwAsset extends AssetBundle
         //BootstrapAsset::class,
         VueAsset::class,
         BootstrapVueAsset::class,
+        FontAwesomeAsset::class,
     ];
 }
