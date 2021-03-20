@@ -2,9 +2,11 @@
 
 namespace app\modules\sw\assets;
 
+use app\assets\FontAwesome\FontAwesomeAsset;
 use app\components\VueApp\assets\BootstrapVueAsset;
-use yii\bootstrap4\BootstrapAsset;
+use app\components\VueApp\assets\VueAsset;
 use yii\web\AssetBundle;
+use yii\web\YiiAsset;
 
 class SwAsset extends AssetBundle
 {
@@ -39,8 +41,10 @@ class SwAsset extends AssetBundle
     ];
 
     public $depends = [
-        'yii\web\YiiAsset',
-        BootstrapAsset::class,
+        YiiAsset::class,
+        //BootstrapAsset::class,
+        VueAsset::class,
         BootstrapVueAsset::class,
+        FontAwesomeAsset::class,
     ];
 }

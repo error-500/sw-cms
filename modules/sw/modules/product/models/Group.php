@@ -15,7 +15,7 @@ class Group extends \yii\db\ActiveRecord
 
     public static function tableName()
     {
-        return 'sw_product_group';
+        return '{{%product_group}}';
     }
 
     public function rules()
@@ -23,23 +23,26 @@ class Group extends \yii\db\ActiveRecord
         return [
             [['parent_id', 'pos'], 'integer'],
             [
-                'tech_name', 
-                'match', 
-                'pattern' => '/^[a-z_]*$/', 
+                'tech_name',
+                'match',
+                'pattern' => '/^[a-z_]*$/',
                 'message' => 'Техничесокое имя должно быть слитно, на английском, в нижнем регистре, допускается знак "_"'
             ],
             [['text'], 'string'],
             [['tech_name', 'name'], 'required'],
             [['name', 'img'], 'string', 'max' => 50],
-            [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => Group::className(), 'targetAttribute' => ['parent_id' => 'id']],
+            [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => Group::class, 'targetAttribute' => ['parent_id' => 'id']],
             ['img_obj', 'file', 'skipOnEmpty' => true, 'checkExtensionByMimeType' => false, 'extensions' => 'png, jpg', 'maxSize' => 2097152],
             [['tech_name'], 'unique'],
-        ]; 
+            [['active'], 'boolean', 'skipOnEmpty' => true],
+            ['active', 'boolean', 'skipOnEmpty' => true, 'trueValue' => true, 'falseValue' => false],
+            ['active', 'default', 'value' => true],
+        ];
     }
 
     public function attributeLabels()
     {
-        return [ 
+        return [
             'id' => 'ID',
             'tech_name' => 'Техническое название',
             'parent_id' => 'Родительская группа',
@@ -49,7 +52,8 @@ class Group extends \yii\db\ActiveRecord
             'is_delivery' => 'На доставке',
             'img_obj' => 'Картинка',
             'text' => 'Текст',
-        ]; 
+            'active' => 'Доступно для просмотра',
+        ];
     }
 
     public function uploadFile()
@@ -64,18 +68,18 @@ class Group extends \yii\db\ActiveRecord
         ]);
     }
 
-    public function getParent() 
-    { 
-        return $this->hasOne(Group::className(), ['id' => 'parent_id']);
-    } 
+    public function getParent()
+    {
+        return $this->hasOne(Group::class, ['id' => 'parent_id']);
+    }
 
-    public function getGroups() 
-    { 
-        return $this->hasMany(Group::className(), ['parent_id' => 'id']);
-    } 
+    public function getGroups()
+    {
+        return $this->hasMany(Group::class, ['parent_id' => 'id']);
+    }
 
-    public function getItems() 
-    { 
-        return $this->hasMany(Item::className(), ['group_id' => 'id']);
+    public function getItems()
+    {
+        return $this->hasMany(Item::class, ['group_id' => 'id']);
     }
 }

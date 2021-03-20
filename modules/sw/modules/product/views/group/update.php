@@ -2,9 +2,9 @@
 
 use yii\helpers\Html;
 
-$this->title = 'Обновить Группу';
+$this->title = Yii::t('app', 'Обновить группу: {0}', [$model->name]);
 $this->params['block'] = 'Модуль: Товар';
-$this->params['title'] = 'Обновить группу';
+$this->params['title'] = Yii::t('app', 'Обновить группу: {0}', [$model->name]);
 
 ?>
 
@@ -12,7 +12,8 @@ $this->params['title'] = 'Обновить группу';
 
     <?= $this->render('_form', [
         'model' => $model,
+        'dataProvider' => $dataProvider,
+        'searchModel' => $searchModel,
     ]) ?>
 
 </div>
-

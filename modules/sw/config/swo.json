@@ -1,8 +1,4 @@
-{  
-    "language": "en",
-    "aliases": {
-        "@sw": "@app/modules/sw"
-    },
+{
     "modules": {
         "sw": {
             "class": "app\\modules\\sw\\Module"
@@ -18,17 +14,6 @@
                 "/sw/auth/login"
             ],
             "enableAutoLogin": true
-        },
-        "i18n": {
-            "translations": {
-                "app*": {
-                    "class": "yii\\i18n\\PhpMessageSource",
-                    "fileMap": {
-                        "app": "app.php",
-                        "app/error": "error.php"
-                    }
-                }
-            }
         }
     }
 }
