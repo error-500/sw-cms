@@ -12,7 +12,8 @@ $this->params['title'] = 'Обновить группу';
 
     <?= $this->render('_form', [
         'model' => $model,
+        'dataProvider' => $dataProvider,
+        'searchModel' => $searchModel,
     ]) ?>
 
 </div>
-

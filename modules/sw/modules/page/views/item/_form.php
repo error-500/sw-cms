@@ -63,7 +63,16 @@ $this->registerJs('
                         <?= $form->field($model, 'description')->textInput() ?>
                     </div>
                 </div>
-
+                <div class="row">
+                    <div class="col-md-6">
+                        <?php echo $form->field($model, 'menu_name')
+                            ->textInput(); ?>
+                    </div>
+                    <div class="col-md-6">
+                        <?php echo $form->field($model, 'active')
+                                ->checkbox(); ?>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-12">
                         <?= $form->field($model, 'text', [

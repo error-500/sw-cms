@@ -18,21 +18,21 @@ $this->registerJs('
         html_editor.getSession().on(\'change\', function(){
           textarea.val(html_editor.getSession().getValue());
         });
-', \yii\web\View::POS_END);
+', \yii\web\View::POS_BEGIN);
 
 ?>
 
 <div class="row">
     <div class="col-md-12">
         <?php $form = ActiveForm::begin(); ?>
-            <div class="panel panel-flat">
-                <div class="panel-body">
+        <div class="panel panel-flat">
+            <div class="panel-body">
 
-                    <?= $form->errorSummary($model) ?>
+                <?= $form->errorSummary($model) ?>
 
-                    <div class="row">
-                        <div class="col-md-4">
-                            <?= $form->field($model, 'group_id')->dropDownList(ArrayHelper::map(Group::find()->all(), 'id', function($data) {
+                <div class="row">
+                    <div class="col-md-4">
+                        <?= $form->field($model, 'group_id')->dropDownList(ArrayHelper::map(Group::find()->all(), 'id', function($data) {
                                 if (empty($data->parent->name)) {
                                     return $data['name'];
                                 }
@@ -40,53 +40,57 @@ $this->registerJs('
                             }), [
                                 'prompt' => 'Выберите'
                             ]) ?>
-                        </div>
-
-                        <div class="col-md-5">
-                            <?= $form->field($model, 'name')->textInput() ?>
-                        </div>
-
-                        <div class="col-md-3">
-                            <?= $form->field($model, 'img_obj')->fileInput(['class' => 'file-styled']) ?>
-                        </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-2">
-                            <?= $form->field($model, 'pos')->textInput() ?>
-                        </div>
-
-                        <div class="col-md-2">
-                            <?= $form->field($model, 'is_delivery')->dropDownList([1 => 'Да', 0 => 'Нет']) ?>
-                        </div>
-
-                        <div class="col-md-2">
-                            <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
-                        </div>
-
-                        <div class="col-md-2">
-                            <?= $form->field($model, 'volume')->textInput(['maxlength' => true]) ?>
-                        </div>
-
-                        <div class="col-md-4">
-                            <?= $form->field($model, 'consist')->textInput(['maxlength' => true]) ?>
-                        </div>
+                    <div class="col-md-5">
+                        <?= $form->field($model, 'name')->textInput() ?>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <?= $form->field($model, 'about', [
+                    <div class="col-md-3">
+                        <?= $form->field($model, 'img_obj')->fileInput(['class' => 'file-styled']) ?>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <?= $form->field($model, 'pos')->textInput() ?>
+                    </div>
+
+                    <div class="col-md-2">
+                        <?= $form->field($model, 'is_delivery')->dropDownList([1 => 'Да', 0 => 'Нет']) ?>
+                    </div>
+
+                    <div class="col-md-2">
+                        <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
+                    </div>
+
+                    <div class="col-md-2">
+                        <?= $form->field($model, 'volume')->textInput(['maxlength' => true]) ?>
+                    </div>
+
+                    <div class="col-md-4">
+                        <?= $form->field($model, 'consist')->textInput(['maxlength' => true]) ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo $form->field($model, 'active')->checkbox(); ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <?= $form->field($model, 'about', [
                                 'inputTemplate' => '<div id="html_editor"></div> {input}'
                             ])->textarea() ?>
-                        </div>
                     </div>
-
-                    <div class="text-right">
-                        <?= Html::submitButton($button_text, ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-                    </div>
-
                 </div>
+
+                <div class="text-right">
+                    <?= Html::submitButton($button_text, ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+                </div>
+
             </div>
+        </div>
         <?php ActiveForm::end(); ?>
     </div>
 </div>

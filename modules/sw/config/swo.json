@@ -1,8 +1,4 @@
-{  
-    "language": "en",
-    "aliases": {
-        "@sw": "@app/modules/sw"
-    },
+{
     "modules": {
         "sw": {
             "class": "app\\modules\\sw\\Module"
