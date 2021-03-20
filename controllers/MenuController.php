@@ -9,9 +9,11 @@ class MenuController extends \yii\web\Controller
 {
     public function actionMenu($menu)
     {
-        $group = Yii::$app->sw->getModule('product')->group('find')->where([
-            'tech_name' => $menu,
-        ])->one();
+        $group = Yii::$app->sw->getModule('product')
+            ->group('find')
+            ->andWhere(['tech_name' => $menu,])
+            ->andWhere(['active' => true])
+            ->one();
 
         if ($group->parent->tech_name == 'food') {
             return $this->showMenu($menu, $group);
@@ -24,14 +26,18 @@ class MenuController extends \yii\web\Controller
 
     public function showMenu($menu, $group)
     {
-        $items = Yii::$app->sw->getModule('product')->item('find')
-            ->where(['p.tech_name' => $menu])
+        $items = Yii::$app->sw->getModule('product')
+            ->item('find')
+            ->andWhere(['p.tech_name' => $menu])
+            ->andWhere(['p.active' => true])
             ->joinWith([
                 'group' => function($query) {
+                    $query->alias('g')
+                    ->andWhere(['g.active' => true]);
                     $query->joinWith([
                         'parent' => function($query) {
                             $query->alias('p')->orderBy('pos ASC');
-                        }, 
+                        },
                     ]);
                 }
             ])
@@ -41,14 +47,28 @@ class MenuController extends \yii\web\Controller
             throw new NotFoundHttpException('Меню не найдено');
         } else {
             $groups_id = array_column($items, 'group_id');
-            $groups = Yii::$app->sw->getModule('product')->group('find')->where(['id' => $groups_id])->all();
+            $groups = Yii::$app->sw->getModule('product')
+                ->group('find')
+                ->andWhere(['id' => $groups_id])
+                ->andWhere(['active' => true])
+                ->all();
         }
 
         return $this->render('menu', [
             'items' => $items,
             'groups' => $groups,
             'group' => $group,
-            'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'menu']),
+            'page' => Yii::$app->sw->getModule('page')
+                ->item(
+                    'findOne',
+                    [
+                        'and',
+                        [
+                        'tech_name' => 'menu',
+                        'active' => true,
+                        ],
+                    ]
+                ),
         ]);
     }
 
@@ -56,13 +76,14 @@ class MenuController extends \yii\web\Controller
     {
         $group = Yii::$app->sw->getModule('product')->group('find')
             ->alias('g')
-            ->where(['g.tech_name' => $menu])
+            ->andWhere(['g.tech_name' => $menu])
+            ->andWhere(['g.active' => true])
             ->joinWith([
                 'groups' => function($query) {
                     $query->joinWith([
                         'items i' => function($query) {
                             $query->where(['not', ['i.id' => null]])->orderBy('pos ASC');
-                        }, 
+                        },
                     ]);
                 }
             ])
@@ -74,7 +95,17 @@ class MenuController extends \yii\web\Controller
 
         return $this->render('bar', [
             'menu' => $group,
-            'page' => Yii::$app->sw->getModule('page')->item('findOne', ['tech_name' => 'menu']),
+            'page' => Yii::$app->sw->getModule('page')
+            ->item(
+                'findOne',
+                [
+                    'and',
+                    [
+                        'tech_name' => 'menu',
+                        'active' => true,
+                    ]
+                ]
+            ),
         ]);
     }
 }

@@ -58,6 +58,6 @@ class BootstrapVueAsset extends AssetBundle
     ];
 
     public $depends = [
-        //BootstrapAsset::class,
+        VueAsset::class,
     ];
 }
