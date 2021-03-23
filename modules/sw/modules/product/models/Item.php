@@ -10,7 +10,7 @@ use swods\fileloader\FileLoader;
 class Item extends \yii\db\ActiveRecord
 {
     use \app\modules\sw\modules\base\traits\ImgSrc;
-    
+
     public static $folder = '@webroot/uploads/sw/product/item/';
     public $web_folder = '/uploads/sw/product/item/';
     public $img_obj;
@@ -28,14 +28,22 @@ class Item extends \yii\db\ActiveRecord
             [['consist', 'about'], 'string'],
             [['name', 'price'], 'string', 'max' => 100],
             [['img', 'volume'], 'string', 'max' => 50],
-            ['img_obj', 'file', 'skipOnEmpty' => true, 'checkExtensionByMimeType' => false, 'extensions' => 'png, jpg', 'maxSize' => 2097152],
-            [['group_id'], 'exist', 'skipOnError' => true, 'targetClass' => Group::className(), 'targetAttribute' => ['group_id' => 'id']],
-        ]; 
+            ['img_obj',
+                'file',
+                'skipOnEmpty' => true,
+                'checkExtensionByMimeType' => false,
+                'extensions' => 'png, jpg',
+                'maxSize' => 2097152
+            ],
+            [['group_id'], 'exist', 'skipOnError' => true, 'targetClass' => Group::class, 'targetAttribute' => ['group_id' => 'id']],
+            ['active', 'boolean', 'skipOnEmpty' => true, 'trueValue' => true, 'falseValue' => false],
+            ['active', 'default', 'value' => true],
+        ];
     }
 
     public function attributeLabels()
     {
-        return [ 
+        return [
             'id' => 'ID',
             'group_id' => 'Группа',
             'name' => 'Название',
@@ -47,7 +55,8 @@ class Item extends \yii\db\ActiveRecord
             'about' => 'Описание',
             'volume' => 'Объем',
             'pos' => 'Позиция',
-        ]; 
+            'active' => 'Доступно для просмотра'
+        ];
     }
 
     public function uploadFile()
@@ -71,7 +80,7 @@ class Item extends \yii\db\ActiveRecord
         if (!file_exists($path)) {
             return;
         }
-        
+
         $image = new ImageResize($path);
         $image->resizeToLongSide(500);
         $image->save(Yii::getAlias(self::$folder).'thumb_'.$this->img);
@@ -86,8 +95,8 @@ class Item extends \yii\db\ActiveRecord
         return $this->web_folder.'thumb_'.$this->img;
     }
 
-    public function getGroup() 
-    { 
-        return $this->hasOne(Group::className(), ['id' => 'group_id']);
-    } 
+    public function getGroup()
+    {
+        return $this->hasOne(Group::class, ['id' => 'group_id']);
+    }
 }

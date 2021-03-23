@@ -13,8 +13,10 @@ $config = [
     ],
     //'language' => 'ru-RU',
     'aliases' => [
+        '@app'  => dirname(__DIR__),
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
+        '@sw'    => '@app/modules/sw',
     ],
     'modules' => [
         'admin' => [
