@@ -3,6 +3,7 @@
 namespace app\themes\qartuliru_default\assets;
 
 use app\assets\GoogleTagAsset;
+use app\assets\GoogleTagManagerAsset;
 use app\assets\YMapAsset;
 use app\assets\YMetricAsset;
 use app\components\VueApp\assets\BootstrapVueAsset;
@@ -184,8 +185,9 @@ class ThemeAssets extends AssetBundle
         VueAsset::class,
         BootstrapPluginAsset::class,
         YMetricAsset::class,
-        YMapAsset::class,
+        //YMapAsset::class,
         GoogleTagAsset::class,
+        GoogleTagManagerAsset::class,
         JqueryAsset::class,
         BootstrapVueAsset::class,
         SwQartuliAsset::class,

@@ -25,7 +25,7 @@ class SwQartuliAsset extends AssetBundle
         [
             'sw.common.js',
             'type' => 'module',
-            'rel' => 'preload',
+            'rel' => 'modulepreload',
             'as' => 'script',
         ]
     ];
