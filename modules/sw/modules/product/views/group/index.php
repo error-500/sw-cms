@@ -47,6 +47,17 @@ $this->title = 'Группы';
                     }
                 ],
                 [
+                    'attribute' => 'active',
+                    'header' => 'Доступно',
+                    'format' => 'raw',
+                    'value'  => function($data) {
+                        if ($data->active) {
+                            return '<i class="fa fa-2x fa-check-square-o text-success"></i>';
+                        }
+                        return '<i class="fa fa-2x fa-square-o text-danger"></i>';
+                    }
+                ],
+                [
                     'attribute' => 'img',
                     'header' => 'Картинка',
                     'filter' => false,

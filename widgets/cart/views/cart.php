@@ -4,19 +4,18 @@ use yii\helpers\Url;
 
 ?>
 <?php if ($full): ?>
-<li :class="{'btn-cart': true, invisible: !Boolean(cartCount)}"
-    style="margin-top: -.7em;">
-    <a v-b-toggle.cart-sidebar>
-        <span class="fa-stack">
-            <b class="fa fa-shopping-bag fa-stack-2x mr-5"></b>
-            <b class="fa fa-circle fa-stack-2x text-success ml-3"></b>
-            <b class="text-bold cart-total fa fa-stack-1x fa-inverse ml-3"
-               v-html="cartCount">
-                <?php if(!empty($cart['items'])): echo array_sum(array_column($cart['items'], 'count')); else: echo '0'; endif; ?>
-            </b>
-        </span>
-    </a>
-</li>
+
+<a v-b-toggle.cart-sidebar
+   :class="{'btn-cart': true, 'my-auto': true, 'mx-2': true, 'd-none': !Boolean(cartCount)}">
+    <span class="fa-stack fa-sm text-m">
+        <b class="fa fa-shopping-bag fa-stack-2x mr-5"></b>
+        <b class="fa fa-circle fa-stack-2x text-success ml-3"></b>
+        <b class="text-bold cart-total fa fa-stack-1x fa-inverse ml-3"
+           v-html="cartCount">
+            <?php if(!empty($cart['items'])): echo array_sum(array_column($cart['items'], 'count')); else: echo '0'; endif; ?>
+        </b>
+    </span>
+</a>
 <?php endif ?>
 
 <?php if (!$full): ?>

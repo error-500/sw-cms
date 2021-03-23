@@ -10,6 +10,7 @@ use yii\web\ForbiddenHttpException;
 use app\modules\sw\modules\product\models\Item;
 use app\modules\sw\modules\product\models\Group;
 use app\modules\sw\modules\product\models\GroupSearch;
+use app\modules\sw\modules\product\models\ItemSearch;
 
 class GroupController extends _BaseController
 {
@@ -54,9 +55,13 @@ class GroupController extends _BaseController
                 return $this->redirect(['index']);
             }
         }
-
+        $searchModel = new ItemSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->query->andWhere(['group_id' => $model->id]);
         return $this->render('update', [
             'model' => $model,
+            'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
         ]);
     }
 

@@ -3667,7 +3667,7 @@ MOBILE - RESPONSIVE
         height: 40px;
         width: 40px;
         color: #fff;
-        background-color: #000;
+        /*background-color: #000;*/
     }
     .adv-img-full-content:hover>.img-box:not(.caption-bg),
     .advs-box-top-icon-img:hover:after,

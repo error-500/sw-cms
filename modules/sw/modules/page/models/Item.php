@@ -27,6 +27,9 @@ class Item extends \yii\db\ActiveRecord
             [['tech_name', 'title'], 'required'],
             [['description', 'keywords', 'text'], 'string'],
             [['tech_name', 'title'], 'string', 'max' => 200],
+            [['menu_name'], 'string', 'max' => 100, 'skipOnEmpty' => true],
+            ['active', 'boolean', 'skipOnEmpty' => true, 'trueValue' => true, 'falseValue' => false],
+            ['active', 'default', 'value' => true],
             [
                 'tech_name',
                 'match',
@@ -34,7 +37,7 @@ class Item extends \yii\db\ActiveRecord
                 'message' => 'Техничесокое имя должно быть слитно, на английском, в нижнем регистре, допускается знак "_"'
             ],
             ['img_obj', 'file', 'skipOnEmpty' => true, 'checkExtensionByMimeType' => false, 'extensions' => 'png, jpg', 'maxSize' => 2097152],
-            [['tech_name'], 'unique'],
+            [['tech_name', 'menu_name'], 'unique'],
         ];
     }
 
@@ -51,6 +54,8 @@ class Item extends \yii\db\ActiveRecord
             'text' => 'Текст',
             'created' => 'Создано',
             'updated' => 'Обновлено',
+            'active'  => 'Доступно на сайте',
+            'menu_name' => 'Текст пункта меню',
         ];
     }
 

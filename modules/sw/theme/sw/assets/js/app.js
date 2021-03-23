@@ -1,10 +1,10 @@
 /* ------------------------------------------------------------------------------
-*
-*  # Template JS core
-*
-*  Core JS file with default functionality
-*
-* ---------------------------------------------------------------------------- */
+ *
+ *  # Template JS core
+ *
+ *  Core JS file with default functionality
+ *
+ * ---------------------------------------------------------------------------- */
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -21,12 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Calculate min height
     function containerHeight() {
+        /*
         var pageContainerClass = 'page-container',
             bottomNavbarClass = 'navbar-fixed-bottom',
             bottomNavbar = $('.' + bottomNavbarClass).length && $('.' + bottomNavbarClass).outerHeight(),
             availableHeight = $(window).height() - $('.' + pageContainerClass).offset().top - bottomNavbar;
 
         $('.' + pageContainerClass).attr('style', 'min-height:' + availableHeight + 'px');
+        */
     }
 
     // Initialize
@@ -86,18 +88,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // -------------------------
 
     // Prevent dropdown from closing on click
-    $(document).on('click', '.dropdown-content', function (e) {
+    $(document).on('click', '.dropdown-content', function(e) {
         e.stopPropagation();
     });
 
     // Disabled links
-    $('.navbar-nav .disabled a').on('click', function (e) {
+    $('.navbar-nav .disabled a').on('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
     });
 
     // Show tabs inside dropdowns
-    $('.dropdown-content a[data-toggle="tab"]').on('click', function (e) {
+    $('.dropdown-content a[data-toggle="tab"]').on('click', function(e) {
         $(this).tab('show');
     });
 
@@ -115,10 +117,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // -------------------------
 
     // Panels
-    $('.panel [data-action=reload]').click(function (e) {
+    $('.panel [data-action=reload]').click(function(e) {
         e.preventDefault();
         var block = $(this).parent().parent().parent().parent().parent();
-        $(block).block({ 
+        $(block).block({
             message: '<i class="icon-spinner2 spinner"></i>',
             overlayCSS: {
                 backgroundColor: '#fff',
@@ -134,17 +136,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // For demo purposes
-        window.setTimeout(function () {
-           $(block).unblock();
-        }, 2000); 
+        window.setTimeout(function() {
+            $(block).unblock();
+        }, 2000);
     });
 
 
     // Sidebar categories
-    $('.category-title [data-action=reload]').click(function (e) {
+    $('.category-title [data-action=reload]').click(function(e) {
         e.preventDefault();
         var block = $(this).parent().parent().parent().parent();
-        $(block).block({ 
+        $(block).block({
             message: '<i class="icon-spinner2 spinner"></i>',
             overlayCSS: {
                 backgroundColor: '#000',
@@ -161,17 +163,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // For demo purposes
-        window.setTimeout(function () {
-           $(block).unblock();
-        }, 2000); 
-    }); 
+        window.setTimeout(function() {
+            $(block).unblock();
+        }, 2000);
+    });
 
 
     // Light sidebar categories
-    $('.sidebar-default .category-title [data-action=reload]').click(function (e) {
+    $('.sidebar-default .category-title [data-action=reload]').click(function(e) {
         e.preventDefault();
         var block = $(this).parent().parent().parent().parent();
-        $(block).block({ 
+        $(block).block({
             message: '<i class="icon-spinner2 spinner"></i>',
             overlayCSS: {
                 backgroundColor: '#fff',
@@ -187,10 +189,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // For demo purposes
-        window.setTimeout(function () {
-           $(block).unblock();
-        }, 2000); 
-    }); 
+        window.setTimeout(function() {
+            $(block).unblock();
+        }, 2000);
+    });
 
 
 
@@ -210,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // Collapse on click
-    $('.category-title [data-action=collapse]').click(function (e) {
+    $('.category-title [data-action=collapse]').click(function(e) {
         e.preventDefault();
         var $categoryCollapse = $(this).parent().parent().parent().nextAll();
         $(this).parents('.category-title').toggleClass('category-collapsed');
@@ -235,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // Collapse on click
-    $('.panel [data-action=collapse]').click(function (e) {
+    $('.panel [data-action=collapse]').click(function(e) {
         e.preventDefault();
         var $panelCollapse = $(this).parent().parent().parent().parent().nextAll();
         $(this).parents('.panel').toggleClass('panel-collapsed');
@@ -252,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // -------------------------
 
     // Panels
-    $('.panel [data-action=close]').click(function (e) {
+    $('.panel [data-action=close]').click(function(e) {
         e.preventDefault();
         var $panelClose = $(this).parent().parent().parent().parent().parent();
 
@@ -265,7 +267,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // Sidebar categories
-    $('.category-title [data-action=close]').click(function (e) {
+    $('.category-title [data-action=close]').click(function(e) {
         e.preventDefault();
         var $categoryClose = $(this).parent().parent().parent().parent();
 
@@ -301,7 +303,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add active state to all dropdown parent levels
     $('.dropdown-menu:not(.dropdown-content), .dropdown-menu:not(.dropdown-content) .dropdown-submenu').has('li.active').addClass('active').parents('.navbar-nav .dropdown:not(.language-switch), .navbar-nav .dropup:not(.language-switch)').addClass('active');
 
-    
+
 
     // Main navigation tooltips positioning
     // -------------------------
@@ -318,7 +320,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // -------------------------
 
     // Main navigation
-    $('.navigation-main').find('li').has('ul').children('a').on('click', function (e) {
+    $('.navigation-main').find('li').has('ul').children('a').on('click', function(e) {
         e.preventDefault();
 
         // Collapsible
@@ -330,9 +332,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-        
+
     // Alternate navigation
-    $('.navigation-alt').find('li').has('ul').children('a').on('click', function (e) {
+    $('.navigation-alt').find('li').has('ul').children('a').on('click', function(e) {
         e.preventDefault();
 
         // Collapsible
@@ -342,7 +344,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if ($('.navigation-alt').hasClass('navigation-accordion')) {
             $(this).parent('li').not('.disabled').siblings(':has(.has-ul)').removeClass('active').children('ul').slideUp(200);
         }
-    }); 
+    });
 
 
 
@@ -358,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // -------------------------
 
     // Toggle mini sidebar
-    $('.sidebar-main-toggle').on('click', function (e) {
+    $('.sidebar-main-toggle').on('click', function(e) {
         e.preventDefault();
 
         // Toggle min sidebar class
@@ -371,40 +373,40 @@ document.addEventListener('DOMContentLoaded', function() {
     // -------------------------
 
     // Disable click in disabled navigation items
-    $(document).on('click', '.navigation .disabled a', function (e) {
+    $(document).on('click', '.navigation .disabled a', function(e) {
         e.preventDefault();
     });
 
 
     // Adjust page height on sidebar control button click
-    $(document).on('click', '.sidebar-control', function (e) {
+    $(document).on('click', '.sidebar-control', function(e) {
         containerHeight();
     });
 
 
     // Hide main sidebar in Dual Sidebar
-    $(document).on('click', '.sidebar-main-hide', function (e) {
+    $(document).on('click', '.sidebar-main-hide', function(e) {
         e.preventDefault();
         $('body').toggleClass('sidebar-main-hidden');
     });
 
 
     // Toggle second sidebar in Dual Sidebar
-    $(document).on('click', '.sidebar-secondary-hide', function (e) {
+    $(document).on('click', '.sidebar-secondary-hide', function(e) {
         e.preventDefault();
         $('body').toggleClass('sidebar-secondary-hidden');
     });
 
 
     // Hide detached sidebar
-    $(document).on('click', '.sidebar-detached-hide', function (e) {
+    $(document).on('click', '.sidebar-detached-hide', function(e) {
         e.preventDefault();
         $('body').toggleClass('sidebar-detached-hidden');
     });
 
 
     // Hide all sidebars
-    $(document).on('click', '.sidebar-all-hide', function (e) {
+    $(document).on('click', '.sidebar-all-hide', function(e) {
         e.preventDefault();
 
         $('body').toggleClass('sidebar-all-hidden');
@@ -417,7 +419,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //
 
     // Collapse main sidebar if opposite sidebar is visible
-    $(document).on('click', '.sidebar-opposite-toggle', function (e) {
+    $(document).on('click', '.sidebar-opposite-toggle', function(e) {
         e.preventDefault();
 
         // Opposite sidebar visibility
@@ -431,8 +433,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Hide children lists
             $('.navigation-main').children('li').children('ul').css('display', '');
-        }
-        else {
+        } else {
 
             // Make main sidebar default
             $('body').removeClass('sidebar-xs');
@@ -441,19 +442,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // Hide main sidebar if opposite sidebar is shown
-    $(document).on('click', '.sidebar-opposite-main-hide', function (e) {
+    $(document).on('click', '.sidebar-opposite-main-hide', function(e) {
         e.preventDefault();
 
         // Opposite sidebar visibility
         $('body').toggleClass('sidebar-opposite-visible');
-        
+
         // If visible
         if ($('body').hasClass('sidebar-opposite-visible')) {
 
             // Hide main sidebar
             $('body').addClass('sidebar-main-hidden');
-        }
-        else {
+        } else {
 
             // Show main sidebar
             $('body').removeClass('sidebar-main-hidden');
@@ -462,7 +462,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // Hide secondary sidebar if opposite sidebar is shown
-    $(document).on('click', '.sidebar-opposite-secondary-hide', function (e) {
+    $(document).on('click', '.sidebar-opposite-secondary-hide', function(e) {
         e.preventDefault();
 
         // Opposite sidebar visibility
@@ -474,8 +474,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Hide secondary
             $('body').addClass('sidebar-secondary-hidden');
 
-        }
-        else {
+        } else {
 
             // Show secondary
             $('body').removeClass('sidebar-secondary-hidden');
@@ -484,7 +483,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // Hide all sidebars if opposite sidebar is shown
-    $(document).on('click', '.sidebar-opposite-hide', function (e) {
+    $(document).on('click', '.sidebar-opposite-hide', function(e) {
         e.preventDefault();
 
         // Toggle sidebars visibility
@@ -498,8 +497,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Hide children lists
             $('.navigation-main').children('li').children('ul').css('display', '');
-        }
-        else {
+        } else {
 
             // Hide opposite
             $('body').removeClass('sidebar-opposite-visible');
@@ -508,7 +506,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // Keep the width of the main sidebar if opposite sidebar is visible
-    $(document).on('click', '.sidebar-opposite-fix', function (e) {
+    $(document).on('click', '.sidebar-opposite-fix', function(e) {
         e.preventDefault();
 
         // Toggle opposite sidebar visibility
@@ -521,28 +519,28 @@ document.addEventListener('DOMContentLoaded', function() {
     // -------------------------
 
     // Toggle main sidebar
-    $('.sidebar-mobile-main-toggle').on('click', function (e) {
+    $('.sidebar-mobile-main-toggle').on('click', function(e) {
         e.preventDefault();
         $('body').toggleClass('sidebar-mobile-main').removeClass('sidebar-mobile-secondary sidebar-mobile-opposite sidebar-mobile-detached');
     });
 
 
     // Toggle secondary sidebar
-    $('.sidebar-mobile-secondary-toggle').on('click', function (e) {
+    $('.sidebar-mobile-secondary-toggle').on('click', function(e) {
         e.preventDefault();
         $('body').toggleClass('sidebar-mobile-secondary').removeClass('sidebar-mobile-main sidebar-mobile-opposite sidebar-mobile-detached');
     });
 
 
     // Toggle opposite sidebar
-    $('.sidebar-mobile-opposite-toggle').on('click', function (e) {
+    $('.sidebar-mobile-opposite-toggle').on('click', function(e) {
         e.preventDefault();
         $('body').toggleClass('sidebar-mobile-opposite').removeClass('sidebar-mobile-main sidebar-mobile-secondary sidebar-mobile-detached');
     });
 
 
     // Toggle detached sidebar
-    $('.sidebar-mobile-detached-toggle').on('click', function (e) {
+    $('.sidebar-mobile-detached-toggle').on('click', function(e) {
         e.preventDefault();
         $('body').toggleClass('sidebar-mobile-detached').removeClass('sidebar-mobile-main sidebar-mobile-secondary sidebar-mobile-opposite');
     });
@@ -555,8 +553,8 @@ document.addEventListener('DOMContentLoaded', function() {
     $(window).on('resize', function() {
         setTimeout(function() {
             containerHeight();
-            
-            if($(window).width() <= 768) {
+
+            if ($(window).width() <= 768) {
 
                 // Add mini sidebar indicator
                 $('body').addClass('sidebar-xs-indicator');
@@ -573,8 +571,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }).on('mouseleave touchend', function() {
                     $(this).children('.dropdown-menu').removeClass('show');
                 });
-            }
-            else {
+            } else {
 
                 // Remove mini sidebar indicator
                 $('body').removeClass('sidebar-xs-indicator');
@@ -586,12 +583,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 $('body').removeClass('sidebar-mobile-main sidebar-mobile-secondary sidebar-mobile-detached sidebar-mobile-opposite');
 
                 // Revert left detached position
-                if($('body').hasClass('has-detached-left')) {
+                if ($('body').hasClass('has-detached-left')) {
                     $('.sidebar-detached').insertBefore('.container-detached');
                 }
 
                 // Revert right detached position
-                else if($('body').hasClass('has-detached-right')) {
+                else if ($('body').hasClass('has-detached-right')) {
                     $('.sidebar-detached').insertAfter('.container-detached');
                 }
 

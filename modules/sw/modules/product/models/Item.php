@@ -28,8 +28,16 @@ class Item extends \yii\db\ActiveRecord
             [['consist', 'about'], 'string'],
             [['name', 'price'], 'string', 'max' => 100],
             [['img', 'volume'], 'string', 'max' => 50],
-            ['img_obj', 'file', 'skipOnEmpty' => true, 'checkExtensionByMimeType' => false, 'extensions' => 'png, jpg', 'maxSize' => 2097152],
-            [['group_id'], 'exist', 'skipOnError' => true, 'targetClass' => Group::className(), 'targetAttribute' => ['group_id' => 'id']],
+            ['img_obj',
+                'file',
+                'skipOnEmpty' => true,
+                'checkExtensionByMimeType' => false,
+                'extensions' => 'png, jpg',
+                'maxSize' => 2097152
+            ],
+            [['group_id'], 'exist', 'skipOnError' => true, 'targetClass' => Group::class, 'targetAttribute' => ['group_id' => 'id']],
+            ['active', 'boolean', 'skipOnEmpty' => true, 'trueValue' => true, 'falseValue' => false],
+            ['active', 'default', 'value' => true],
         ];
     }
 
@@ -47,6 +55,7 @@ class Item extends \yii\db\ActiveRecord
             'about' => 'Описание',
             'volume' => 'Объем',
             'pos' => 'Позиция',
+            'active' => 'Доступно для просмотра'
         ];
     }
 
@@ -88,6 +97,6 @@ class Item extends \yii\db\ActiveRecord
 
     public function getGroup()
     {
-        return $this->hasOne(Group::className(), ['id' => 'group_id']);
+        return $this->hasOne(Group::class, ['id' => 'group_id']);
     }
 }

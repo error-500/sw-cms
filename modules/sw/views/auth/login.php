@@ -16,26 +16,40 @@ $this->title = 'Вход';
                 ниже</small></h5>
     </div>
 
-    <?= $form->field($model, 'username', [
+    <?php echo $form->field($model, 'username', [
             'template' => '
-                <div class="form-group has-feedback has-feedback-left">
+                <div class="form-group has-feedback">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <i class="icon-user text-muted"></i>
+                            </div>
+                        </div>
                     {input}
-                    <div class="form-control-feedback">
-                        <i class="icon-user text-muted"></i>
                     </div>
-                {hint}{error}
+                    <div class="form-control-feedback">
+                        {error}
+                    </div>
+                    {hint}
                 </div>
             '
         ])->label(false)->textInput(['autofocus' => true, 'placeholder' => 'Логин']) ?>
 
-    <?= $form->field($model, 'password', [
+    <?php echo $form->field($model, 'password', [
             'template' => '
-                <div class="form-group has-feedback has-feedback-left">
-                    {input}
-                    <div class="form-control-feedback">
-                        <i class="icon-lock2 text-muted"></i>
+                <div class="form-group has-feedback">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <i class="icon-lock2 text-muted"></i>
+                            </div>
+                        </div>
+                        {input}
                     </div>
-                {hint}{error}
+                    <div class="form-control-feedback">
+                        {error}
+                    </div>
+                    {hint}
                 </div>
             '
         ])->label(false)->passwordInput(['placeholder' => 'Пароль']) ?>

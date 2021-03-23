@@ -53,7 +53,11 @@ if (!empty($page)) {
                     <?php endforeach ?>
                 </div>
                 <div class="list-group list-blog list-group-flush">
+<<<<<<< HEAD:themes/qartuliru_default/modules/main/views/news/list.php
                     <h5 class="list-group-header"><?php echo Yii::t('app', 'Случаные публикации'); ?></h5>
+=======
+                    <h5 class="list-group-header">Случайные публикации</h5>
+>>>>>>> develop:themes/qartuliru_default/views/news/list.php
                     <?php foreach ($random_posts as $random_post): ?>
                     <div class="list-group-item">
                         <div class="tag-row icon-row">

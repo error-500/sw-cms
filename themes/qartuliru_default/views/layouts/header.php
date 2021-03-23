@@ -46,11 +46,24 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
                  src="/theme/main/images/logo-retina.png"
                  alt="logo" />
         </a>
-        <div class="navbar-toggler"
-             style="border: none !important">
+        <div class="navbar-toggler d-inline-flex-xs flex-row justify-content-between align-content-center"
+             style="border: none !important; min-width: 50%">
+            <a href="tel:+74957237373"
+               class="my-auto mx-2"
+               @click="$emit('phone-call', $event)">
+                <i class="fa fa-2x fa-phone-square text-m"></i>
+            </a>
+            <a href="https://wa.me/74957237373"
+               target="_blank"
+               class="my-auto mx-2"
+               @click="$emit('whatsap-click', $event)">
+                <i class="fa fa-2x fa-whatsapp text-m"></i>
+            </a>
             <?php echo Cart::widget(['full' => false]); ?>
+
+
             <button type="button"
-                    class="navbar-toggler border-0"
+                    class="navbar-toggler border-0 d-inline ml-2"
                     data-toggle="collapse"
                     data-target="#main-menu">
                 <i class="fa fa-bars"></i>

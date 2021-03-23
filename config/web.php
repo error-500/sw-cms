@@ -23,8 +23,10 @@ $config = [
 
     'defaultRoute' => 'default/index',
     'aliases' => [
+        '@app'  => dirname(__DIR__),
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
+        '@sw'    => '@app/modules/sw',
     ],
     'modules' => [
         'en-US' => [
@@ -70,7 +72,7 @@ $config = [
                         'lang' => "'ru_RU'",
                         'coordorder' => "'latlong'",
                     ],
-                    'coords' => [55.77434759323901,37.57892985354571,],
+                    'coords' => [55.77434759100000,37.57800085354571,],
                     'zoom' => 17,
                 ]
             ],

@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 use yii\helpers\Url;
 $prefix = '/'.Yii::$app->controller->uniqueId;
 $menu = Yii::$app->sw->getModule('product')->group('find')
@@ -50,3 +51,8 @@ $menu = Yii::$app->sw->getModule('product')->group('find')
            href="<?php echo Url::to($prefix.'/contacts'); ?>"><?php echo Yii::t('app', 'Контакты'); ?></a>
     </li>
 </ul>
+=======
+use app\widgets\autonavbarnav\AutoNav;
+
+echo AutoNav::widget();
+>>>>>>> develop

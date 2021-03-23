@@ -89,7 +89,7 @@ $this->beginPage() ?>
         <?php echo $this->render('footer'); ?>
         <?php echo Cart::widget(['template' => 'sidebar-cart']); ?>
     </div>
-    <i class="scroll-top scroll-top-mobile show fa fa-sort-asc"></i>
+    <i class="scroll-top scroll-top-mobile rounded-circle text-black show fa fa-sort-asc"></i>
     <?php /* */?>
     <div id="modal-18"
          class="modal fade"
