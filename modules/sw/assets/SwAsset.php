@@ -1,10 +1,11 @@
 <?php
 
-namespace app\modules\sw\assets;
+namespace sw\assets;
 
 use app\assets\FontAwesome\FontAwesomeAsset;
 use app\components\VueApp\assets\BootstrapVueAsset;
 use app\components\VueApp\assets\VueAsset;
+use sw\assets\SwUi\SwUiAsset;
 use yii\web\AssetBundle;
 use yii\web\YiiAsset;
 
@@ -24,27 +25,29 @@ class SwAsset extends AssetBundle
 
     public $js = [
         // 'theme/sw/global_assets/js/core/libraries/jquery.min.js',
-        'theme/sw/global_assets/js/plugins/loaders/pace.min.js',
+        //'theme/sw/global_assets/js/plugins/loaders/pace.min.js',
         //'theme/sw/global_assets/js/core/libraries/bootstrap.min.js',
-        'theme/sw/global_assets/js/plugins/loaders/blockui.min.js',
+        //'theme/sw/global_assets/js/plugins/loaders/blockui.min.js',
         'theme/sw/global_assets/js/plugins/editors/ace/ace.js',
-        'theme/sw/global_assets/js/plugins/visualization/d3/d3.min.js',
-        'theme/sw/global_assets/js/plugins/visualization/d3/d3_tooltip.js',
-        'theme/sw/global_assets/js/plugins/forms/styling/switchery.min.js',
-        'theme/sw/global_assets/js/plugins/forms/selects/bootstrap_multiselect.js',
-        'theme/sw/global_assets/js/plugins/ui/moment/moment.min.js',
-        'theme/sw/global_assets/js/plugins/pickers/daterangepicker.js',
-        'theme/sw/global_assets/js/plugins/forms/styling/uniform.min.js',
-        'theme/sw/global_assets/js/demo_pages/form_inputs.js',
-        'theme/sw/plugin/ckeditor/ckeditor.js',
-        'theme/sw/assets/js/app.js',
+        //'theme/sw/global_assets/js/plugins/visualization/d3/d3.min.js',
+        //'theme/sw/global_assets/js/plugins/visualization/d3/d3_tooltip.js',
+        //'theme/sw/global_assets/js/plugins/forms/styling/switchery.min.js',
+        //'theme/sw/global_assets/js/plugins/forms/selects/bootstrap_multiselect.js',
+        //'theme/sw/global_assets/js/plugins/ui/moment/moment.min.js',
+        //'theme/sw/global_assets/js/plugins/pickers/daterangepicker.js',
+        //'theme/sw/global_assets/js/plugins/forms/styling/uniform.min.js',
+        //'theme/sw/global_assets/js/demo_pages/form_inputs.js',
+        //'theme/sw/plugin/ckeditor/ckeditor.js',
+        //'theme/sw/assets/js/app.js',
     ];
 
     public $depends = [
-        YiiAsset::class,
+        /*YiiAsset::class,
         //BootstrapAsset::class,
         VueAsset::class,
         BootstrapVueAsset::class,
         FontAwesomeAsset::class,
+        */
+        SwUiAsset::class
     ];
 }

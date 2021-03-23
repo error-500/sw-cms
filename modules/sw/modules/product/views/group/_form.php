@@ -7,20 +7,23 @@ use app\modules\sw\modules\product\models\Group;
 use yii\grid\GridView;
 
 $button_text = sprintf('%s <i class="icon-arrow-right14 position-right"></i>', $model->isNewRecord ? 'Сохранить' : 'Обновить');
-
+Yii::$app->vueApp->data = [
+    'html_editor' => "null",
+];
 Yii::$app->vueApp->mounted = [
     '
-    this.$set(this, "html_editor", ace.edit("html_editor"));
-    var textarea = $(\'textarea[name="Item[text]"]\').hide();
-        this.html_editor.setTheme("ace/theme/monokai");
-        this.html_editor.getSession().setMode("ace/mode/html");
-        this.html_editor.setShowPrintMargin(false);
-        this.html_editor.getSession().setValue(textarea.val());
-        this.html_editor.getSession().on(\'change\', function(){
-          textarea.val(html_editor.getSession().getValue());
-        });'
-    ];
-
+    this.$set(this, "html_editor", window.ace.edit("html_editor"));
+    const textarea = document.querySelector(\'textarea[name="Item[text]"]\');
+    textarea.classList.add("d-none");
+    this.html_editor.setTheme("ace/theme/monokai");
+    this.html_editor.getSession().setMode("ace/mode/html");
+    this.html_editor.setShowPrintMargin(false);
+    this.html_editor.getSession().setValue(textarea.value);
+    this.html_editor.getSession().on(\'change\', function(){
+          textarea.value =html_editor.getSession().getValue();
+        });
+    '
+];
 ?>
 
 <b-tabs content-class="mt-3">

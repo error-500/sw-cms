@@ -25,7 +25,7 @@ $this->params['header_class'] = 'fixed-top scroll-change wide-area';
     <div class="overlaybox overlaybox-side overlaybox">
         <div class="container content">
             <div class="row">
-                <div class="col-md-6 overlaybox-inner box-middle"
+                <div class="col-xs-12 col-md-6 overlaybox-inner box-middle"
                      data-anima="fade-left">
                     <div class="row">
                         <?= $contacts_block_text[0] ?? '' ?>
@@ -65,7 +65,6 @@ $this->params['header_class'] = 'fixed-top scroll-change wide-area';
                         </div> -->
                     </div>
                 </div>
-                <div class="col-md-6"></div>
             </div>
         </div>
     </div>
@@ -74,68 +73,12 @@ $this->params['header_class'] = 'fixed-top scroll-change wide-area';
     <div class="container content">
         <div class="row">
             <div class="col-md-8 col-center text-center">
-                <?= $contacts_block_text[2] ?? '' ?>
-                <!-- <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Day</th>
-                            <th>Morning</th>
-                            <th>Afternoom</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>Monday</th>
-                            <td>8am - 12am</td>
-                            <td>15PM - 19PM</td>
-                        </tr>
-                        <tr>
-                            <th>Tuesday</th>
-                            <td>8am - 12am</td>
-                            <td>5pm - 9pm</td>
-                        </tr>
-                        <tr>
-                            <th>Wednesday</th>
-                            <td>8am - 12am</td>
-                            <td>5pm - 9pm</td>
-                        </tr>
-                        <tr>
-                            <th>Thirsday</th>
-                            <td>8am - 12am</td>
-                            <td>5pm - 9pm</td>
-                        </tr>
-                        <tr>
-                            <th>Friday</th>
-                            <td>8am - 12am</td>
-                            <td>5pm - 9pm</td>
-                        </tr>
-                        <tr>
-                            <th>Saturday</th>
-                            <td>8am - 12am</td>
-                            <td>Closed</td>
-                        </tr>
-                        <tr>
-                            <th>Sunday</th>
-                            <td>Closed</td>
-                            <td>Closed</td>
-                        </tr>
-                    </tbody>
-                </table> -->
-                <hr class="space m" />
+                <?php echo $contacts_block_text[2] ?? '' ?>
             </div>
         </div>
         <div class="row">
             <div class="col-md-8 col-center text-center">
-                <?= $contacts_block_text[1] ?? '' ?>
-                <!-- <div class="title-base text-left text-left-sm">
-                    <hr />
-                    <h2>Keep in touch</h2>
-                    <p>Get in touch with us</p>
-                </div>
-                <p>
-                    Our helpline is always open to receive any inquiry or feedback. Please feel free to drop us an email
-                    from the form below and we will get back to you as soon as we can. Thank you for undersanding.  Erat voluptatum varius vulputate laboriosam, rhoncus repudiandae, occaecat! Impedi
-                </p> -->
+                <?php echo $contacts_block_text[1] ?? '' ?>
                 <hr class="space s" />
                 <form class="form-box"
                       method="post">

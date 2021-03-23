@@ -3,21 +3,31 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\bootstrap4\ActiveForm;
+use yii\helpers\Json;
 
 $button_text = sprintf('%s <i class="icon-arrow-right14 position-right"></i>', $model->isNewRecord ? 'Сохранить' : 'Обновить');
 
-$this->registerJs('
-    var html_editor = ace.edit("html_editor");
-    var textarea = $(\'textarea[name="Item[text]"]\').hide();
-        html_editor.setTheme("ace/theme/monokai");
-        html_editor.getSession().setMode("ace/mode/html");
-        html_editor.setShowPrintMargin(false);
-        html_editor.getSession().setValue(textarea.val());
-        html_editor.getSession().on(\'change\', function(){
-          textarea.val(html_editor.getSession().getValue());
+Yii::$app->vueApp->data = [
+    'tinyMceOpts' => Json::encode([
+        'image_list' => '/sw/file_manager/item/index'
+    ]),
+];
+/*
+Yii::$app->vueApp->mounted = [
+    '
+    this.$set(this, "html_editor", window.ace.edit("html_editor"));
+    const textarea = document.querySelector(\'textarea[name="Item[text]"]\');
+    textarea.classList.add("d-none");
+    this.html_editor.setTheme("ace/theme/monokai");
+    this.html_editor.getSession().setMode("ace/mode/html");
+    this.html_editor.setShowPrintMargin(false);
+    this.html_editor.getSession().setValue(textarea.value);
+    this.html_editor.getSession().on(\'change\', function(){
+          textarea.value =html_editor.getSession().getValue();
         });
-', \yii\web\View::POS_END);
-
+    '
+];
+*/
 ?>
 
 <div class="row">
@@ -50,9 +60,15 @@ $this->registerJs('
 
                 <div class="row">
                     <div class="col-md-12">
-                        <?= $form->field($model, 'text', [
+                        <?php /*echo $form->field($model, 'text', [
                                 'inputTemplate' => '<div id="html_editor"></div> {input}'
-                            ])->textarea() ?>
+                            ])->textarea();*/ ?>
+                        <?php echo $form->field($model, 'text')->textarea([
+                            'id' => 'sw-editor',
+                            'class' => 'd-none',
+                        ]); ?>
+                        <sw-editor id="sw-editor"
+                                   :other_options="tinyMceOpts"></sw-editor>
                     </div>
                 </div>
 
