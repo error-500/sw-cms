@@ -1,6 +1,6 @@
 <?php
 
-use app\modules\sw\assets\SwAsset;
+use sw\assets\SwAsset;
 
 SwAsset::register($this);
 Yii::$app->vueApp->methods = [

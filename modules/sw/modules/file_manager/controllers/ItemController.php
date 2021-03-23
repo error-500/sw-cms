@@ -2,6 +2,7 @@
 
 namespace app\modules\sw\modules\file_manager\controllers;
 
+
 use Yii;
 use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;
@@ -15,7 +16,19 @@ class ItemController extends _BaseController
     {
         $searchModel = new ItemSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        if(Yii::$app->request->isAjax) {
+            $dataProvider->setPagination(false);
+            $list = $dataProvider->getModels();
+            return $this->asJson(array_map(function($item){
+                /**
+                 * @var Item $item
+                 */
+                return [
+                    'title' => $item->name,
+                    'value' => $item->getFilePath(),
+                ];
+            }, $list));
+        }
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -34,7 +47,7 @@ class ItemController extends _BaseController
         $model = new Item();
 
         if ($model->load(Yii::$app->request->post())) {
-            
+
             $model->file_obj = UploadedFile::getInstance($model, 'file_obj');
             $model->uploadFile();
 
@@ -53,7 +66,7 @@ class ItemController extends _BaseController
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
-            
+
             $model->file_obj = UploadedFile::getInstance($model, 'file_obj');
             $model->uploadFile();
 
@@ -79,7 +92,7 @@ class ItemController extends _BaseController
         if (($model = Item::findOne($id)) !== null) {
             return $model;
         }
-        
+
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 }
