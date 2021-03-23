@@ -68,6 +68,7 @@ Yii::$app->vueApp->mounted = [
                             'class' => 'd-none',
                         ]); ?>
                         <sw-editor id="sw-editor"
+                                   class="d-none"
                                    :other_options="tinyMceOpts"></sw-editor>
                     </div>
                 </div>

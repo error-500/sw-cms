@@ -5,6 +5,7 @@ use yii\bootstrap4\ActiveForm;
 
 $button_text = sprintf('%s <i class="icon-arrow-right14 position-right"></i>', $model->isNewRecord ? 'Сохранить' : 'Обновить');
 
+/*
 Yii::$app->vueApp->data = [
     'html_editor' => "null",
 ];
@@ -21,7 +22,7 @@ Yii::$app->vueApp->mounted = [
           textarea.value =html_editor.getSession().getValue();
         });
     '
-];
+];*/
 ?>
 
 <div class="row">
@@ -44,10 +45,14 @@ Yii::$app->vueApp->mounted = [
 
                 <div class="row">
                     <div class="col-md-12">
-                        <?= $form->field($model, 'value', [
-                                'inputTemplate' => '<div id="html_editor"></div> {input}'
+                        <?= $form->field($model, 'value',[
+                                'inputOptions' => [
+                                    'id' => 'html_editor',
+                                    'class' => 'd-none'
+                                ]
                             ])->textarea() ?>
                     </div>
+                    <sw-code-editor selector="#html_editor"></sw-code-editor>
                 </div>
 
                 <div class="text-right">

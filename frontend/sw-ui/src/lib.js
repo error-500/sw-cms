@@ -22,6 +22,7 @@ Vue.use(IconsPlugin);
 import tinymce from 'vue-tinymce-editor';
 Vue.component('sw-editor', tinymce);
 
-
+import SwCodeEditor from '@/components/SwCodeEditor.vue';
+Vue.component('sw-code-editor', SwCodeEditor);
 
 Vue.config.productionTip = false;
