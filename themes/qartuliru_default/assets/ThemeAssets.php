@@ -184,7 +184,7 @@ class ThemeAssets extends AssetBundle
         //BootstrapAsset::class,
         BootstrapPluginAsset::class,
         YMetricAsset::class,
-        YMapAsset::class,
+        //YMapAsset::class,
         GoogleTagAsset::class,
         GoogleTagManagerAsset::class,
         JqueryAsset::class,

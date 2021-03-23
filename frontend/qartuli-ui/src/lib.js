@@ -27,3 +27,12 @@ import {
 
 Vue.use(BootstrapVue); // Make BootstrapVue available throughout project
 Vue.use(IconsPlugin); // Optionally install the BootstrapVue icon components plugin
+
+import YmapPlugin from 'vue-yandex-maps';
+const ymSettings = {
+    apiKey: '',
+    lang: 'ru_RU',
+    coordorder: 'latlong',
+    version: '2.1'
+};
+Vue.use(YmapPlugin, ymSettings);
