@@ -185,7 +185,7 @@ class ThemeAssets extends AssetBundle
         VueAsset::class,
         BootstrapPluginAsset::class,
         YMetricAsset::class,
-        YMapAsset::class,
+        //YMapAsset::class,
         GoogleTagAsset::class,
         GoogleTagManagerAsset::class,
         JqueryAsset::class,
