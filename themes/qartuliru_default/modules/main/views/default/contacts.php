@@ -39,21 +39,13 @@ $this->params['header_class'] = 'fixed-top scroll-change wide-area';
     <div class="container content">
         <div class="row">
             <div class="col-md-8 col-center text-center">
-<<<<<<< HEAD:themes/qartuliru_default/modules/main/views/default/contacts.php
                 <?= $contacts_block_text[2] ?? '' ?>
                 <hr class="space m" />
-=======
-                <?php echo $contacts_block_text[2] ?? '' ?>
->>>>>>> develop:themes/qartuliru_default/views/site/contacts.php
             </div>
         </div>
         <div class="row">
             <div class="col-md-8 col-center text-center">
-<<<<<<< HEAD:themes/qartuliru_default/modules/main/views/default/contacts.php
                 <?= $contacts_block_text[1] ?? '' ?>
-=======
-                <?php echo $contacts_block_text[1] ?? '' ?>
->>>>>>> develop:themes/qartuliru_default/views/site/contacts.php
                 <hr class="space s" />
                 <form class="form-box"
                       method="post">

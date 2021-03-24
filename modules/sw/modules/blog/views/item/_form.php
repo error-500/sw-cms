@@ -106,31 +106,6 @@ $this->registerJsFile(
                             </div>
                         </div>
 
-<<<<<<< HEAD
-                <div class="row">
-                    <div class="col-md-12">
-                        <?= $form->field($model, 'text')->textarea(['id' => 'text']) ?>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h4>Подключенные галлереи</h4>
-                        <div class="card-columns">
-                            <?php foreach ($model->galleries as $gallery): ?>
-                            <div class="card">
-                                <img class="card-img"
-                                     src="<?php echo $gallery->imgSrc; ?>"
-                                     alt="">
-                                <div class="card-img-overlay">
-                                    <h4 class="card-title text-light text-bold"><?php echo $gallery->name; ?></h4>
-                                </div>
-                                <div class="card-footer">
-                                    <button class="btn btn-danger"
-                                            type="button">
-                                        <i class="icon-trash"></i>
-                                    </button>
-                                </div>
-=======
                         <div class="row">
                             <div class="col-md-12">
                                 <?php echo $form->field(
@@ -147,7 +122,6 @@ $this->registerJsFile(
                                 <sw-editor id="sw-editor"
                                            class="d-none"
                                            :other_options="tinyMceOpts"></sw-editor>
->>>>>>> develop
                             </div>
                         </div>
                     </b-tab>

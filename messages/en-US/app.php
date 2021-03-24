@@ -48,7 +48,7 @@ return [
     'Заказать' => 'To order',
     'Имя' => 'Name',
     'Итого' => 'Summa',
-    'Категории' => 'Category',
+    'Категории' => 'Categories',
     'Квартира' => 'Flat',
     'Кол-во гостей' => 'Guests number',
     'Количество' => 'Count',

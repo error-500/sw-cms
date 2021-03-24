@@ -7,7 +7,6 @@ use yii\web\NotFoundHttpException;
 use yii\data\ArrayDataProvider;
 use app\models\Cart;
 use app\models\ContactForm;
-//use app\models\ContactForm;
 use app\models\ReservatioForm;
 
 class DefaultController extends \yii\web\Controller
@@ -24,7 +23,8 @@ class DefaultController extends \yii\web\Controller
 
     public function actionIndex()
     {
-        $menu_random_block_text = Yii::$app->sw->getModule('block')->item('findOne', ['tech_name' => 'menu_random_main_page'])->text ?? '';
+        $menu_random_block_text = Yii::$app->sw->getModule('block')
+                ->item('findOne', ['tech_name' => 'menu_random_main_page'])->text ?? '';
         $menu_random_block_text = explode('{separate}', $menu_random_block_text);
 
         $random_delivery_menu = Yii::$app->sw->getModule('product')->item('find')

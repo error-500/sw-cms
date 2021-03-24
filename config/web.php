@@ -13,6 +13,7 @@ $config = [
     'bootstrap' => [
         'log'
     ],
+    //'module' => 'main',
     'controllerNamespace' => 'app\modules\main\controllers',
 
     'controllerMap' => [
@@ -33,6 +34,10 @@ $config = [
             'class' => 'app\modules\main\Module',
             'controllerNamespace' => 'app\modules\main\controllers',
             'initLanguage' => 'en-US',
+            'controllerMap' => [
+                'site' => 'app\modules\main\controllers\DefaultController',
+            ],
+            'defaultRoute' => 'default/index',
         ],
         /*'sw' => [
             'class' => 'app\modules\sw\Module',
@@ -40,7 +45,7 @@ $config = [
                 'en-US' => [
                     'class' => 'app\modules\sw\Module'
                 ]
-            ]
+            ],
         ],*/
     ],
     'components' => [
@@ -53,6 +58,13 @@ $config = [
                     ],
                 ],
             ],
+        ],
+        'urlManager' => [
+            'class' => 'codemix\localeurls\UrlManager',
+            'languages' => ['en-US'],
+        ],
+        'sw' => [
+            'class' => 'app\modules\sw\Sw',
         ],
         'i18n'         => require_once __DIR__.'/i18n.conf.php',
         'formatter'    => [
