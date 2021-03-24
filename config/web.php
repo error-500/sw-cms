@@ -28,6 +28,7 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
         '@sw'    => '@app/modules/sw',
+        '@main'  => '@app/modules/main',
     ],
     'modules' => [
         'en-US' => [
@@ -62,6 +63,9 @@ $config = [
         'urlManager' => [
             'class' => 'codemix\localeurls\UrlManager',
             'languages' => ['en-US'],
+            'ignoreLanguageUrlPatterns' => [
+                '#^sw/' => '#^sw/'
+            ],
         ],
         'sw' => [
             'class' => 'app\modules\sw\Sw',
