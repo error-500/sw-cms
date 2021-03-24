@@ -12,7 +12,8 @@ $this->title = 'Группы';
 
 <div class="panel panel-flat">
     <div class="panel-body">
-        <?= Html::a('<b><i class="icon-plus-circle2"></i></b> Добавить', ['/sw/product/group/create'], ['class' => 'btn bg-teal-400 btn-labeled']) ?>
+        <?= Html::a('<b><i class="icon-plus-circle2"></i></b> Добавить',
+        ['/'.Yii::$app->controller->uniqueId.'/create'], ['class' => 'btn bg-teal-400 btn-labeled']) ?>
         <br><br>
         <div class="alert alert-info alert-styled-left">
             <span class="text-semibold">Инфо:</span> Если группа используется ее невозможно удалить
@@ -34,14 +35,14 @@ $this->title = 'Группы';
                 ],
                 [
                     'attribute' => 'parent_id',
-                    'filter' => ArrayHelper::map(Group::find()->all(), 'id', function($data) {
+                    'filter' => ArrayHelper::map(Group::find()->all(), 'id', function ($data) {
                         if (empty($data->parent->name)) {
                             return $data['name'];
                         }
                         return sprintf('%s (Родительская группа - %s)', $data['name'], $data->parent->name);
                     }),
                     'format' => 'raw',
-                    'value' => function($data) {
+                    'value' => function ($data) {
                         return $data->parent->name ?? '<span class="text-warning">Нет</span>';
                     }
                 ],
@@ -61,7 +62,7 @@ $this->title = 'Группы';
                     'header' => 'Картинка',
                     'filter' => false,
                     'format' => 'raw',
-                    'value' => function($data) {
+                    'value' => function ($data) {
                         if (!$data->imgSrc) {
                             return '<span class="text-warning">Нет</span>';
                         }
@@ -77,10 +78,13 @@ $this->title = 'Группы';
                     'template' => '{update} {delete}',
                     'buttons' => [
                         'update' => function ($url, $data) {
-                            return Html::a('<i class="icon-pencil"></i>', ['/sw/product/group/update', 'id' => $data->id]);
+                            return Html::a(
+                                '<i class="icon-pencil"></i>', [
+                                    '/'.Yii::$app->controller->uniqueId.'/update', 'id' => $data->id]);
                         },
                         'delete' => function ($url, $data) {
-                            return Html::a('<i class="icon-trash"></i>', ['/sw/product/group/delete', 'id' => $data->id], [
+                            return Html::a('<i class="icon-trash"></i>', [
+                                '/'.Yii::$app->controller->uniqueId.'/delete', 'id' => $data->id], [
                                 'data' => [
                                     'confirm' => 'Вы уверены что хотите удалить запись? Действие нельзя отменить!',
                                 ]

@@ -27,7 +27,8 @@
         "swods/fileloader": "^1.0",
         "gumlet/php-image-resize": "^2.0",
         "phpmailer/phpmailer": "^6.1",
-        "himiklab/yii2-recaptcha-widget": "*"
+        "himiklab/yii2-recaptcha-widget": "*",
+        "codemix/yii2-localeurls": "^1.7"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

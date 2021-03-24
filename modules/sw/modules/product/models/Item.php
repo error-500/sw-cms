@@ -17,7 +17,7 @@ class Item extends \yii\db\ActiveRecord
 
     public static function tableName()
     {
-        return 'sw_product_item';
+        return '{{%product_item}}';
     }
 
     public function rules()

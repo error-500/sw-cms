@@ -28,7 +28,7 @@ $this->title = 'Словарь';
                 [
                     'attribute' => 'lang_code',
                     'filter' => ArrayHelper::map(Lang::find()->all(), 'code', 'name'),
-                    'value' => function($lang_translate) {
+                    'value' => function ($lang_translate) {
                         return $lang_translate->lang->name;
                     }
                 ],

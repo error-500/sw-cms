@@ -8,7 +8,6 @@ use yii\data\ActiveDataProvider;
 
 class UserSearch extends User
 {
-
     public function rules()
     {
         return [

@@ -4,7 +4,9 @@ $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
-    'id' => 'basic-console',
+    'id' => 'sw-cms-console',
+    'language' => 'ru-RU',//'en-US',
+    'sourceLanguage' => 'ru-RU',//'en-US',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'app\commands',
@@ -14,6 +16,15 @@ $config = [
         '@tests' => '@app/tests',
     ],
     'components' => [
+        'i18n'         => require_once __DIR__.'/i18n.conf.php',
+        'formatter'    => [
+            'dateFormat'        => 'dd.MM.yyyy',
+            'decimalSeparator'  => ',',
+            'thousandSeparator' => ' ',
+            'currencyCode'      => 'RUB',
+            'timeZone'          => 'UTC',
+            'locale'            => 'ru-RU',
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -26,6 +37,7 @@ $config = [
             ],
         ],
         'db' => $db,
+        'en-db' => include __DIR__.'/en-db.php',
     ],
     'params' => $params,
     /*

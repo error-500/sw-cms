@@ -18,6 +18,7 @@
             no-stacking
             size="xl"
             hide-footer
+            :hide-header="noLabels"
             @hidden="activeImage = null">
             <b-img fluid-grow :src="activeImage ? activeImage.imageSrc : null"></b-img>
             <div v-show="activeImage && activeImage.description" v-html="activeImage ? activeImage.description : null"></div>

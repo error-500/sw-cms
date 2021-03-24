@@ -29,40 +29,6 @@ $this->params['header_class'] = 'fixed-top scroll-change wide-area';
                      data-anima="fade-left">
                     <div class="row">
                         <?= $contacts_block_text[0] ?? '' ?>
-                        <!-- <div class="col-md-6">
-                            <h3>Hello!</h3>
-                            <p class="text-left">
-                                Ligula aenean, voluptatem a lorem laoreet quod dolores acnatoque modiignani merto inventore solone.
-                            </p>
-                            <hr class="space s" />
-                            <div class="btn-group btn-group-icons" role="group">
-                                <a class="btn btn-default">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                                <a class="btn btn-default">
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                                <a class="btn btn-default">
-                                    <i class="fa fa-google-plus"></i>
-                                </a>
-                                <a class="btn btn-default">
-                                    <i class="fa fa-linkedin"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <h3>Contacts</h3>
-                            <p>
-                                05, Martin Street, San Francisco<br />
-                                United States of America
-                            </p>
-                            <hr class="space s" />
-                            <ul class="fa-ul">
-                                <li><i class="fa-li im-envelope"></i> hello@company.com</li>
-                                <li><i class="fa-li im-phone"></i> (123) 456-78910</li>
-                                <li><i class="fa-li im-phone"></i> (123) 456-78915</li>
-                            </ul>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -73,12 +39,13 @@ $this->params['header_class'] = 'fixed-top scroll-change wide-area';
     <div class="container content">
         <div class="row">
             <div class="col-md-8 col-center text-center">
-                <?php echo $contacts_block_text[2] ?? '' ?>
+                <?= $contacts_block_text[2] ?? '' ?>
+                <hr class="space m" />
             </div>
         </div>
         <div class="row">
             <div class="col-md-8 col-center text-center">
-                <?php echo $contacts_block_text[1] ?? '' ?>
+                <?= $contacts_block_text[1] ?? '' ?>
                 <hr class="space s" />
                 <form class="form-box"
                       method="post">
@@ -130,7 +97,10 @@ $this->params['header_class'] = 'fixed-top scroll-change wide-area';
                         </div>
                         <div class="col-md-12">
                             <button class="btn-xs btn"
-                                    type="submit"><i class="im-mail-send"></i>Отправить сообщение</button>
+                                    type="submit">
+                                <i class="im-mail-send"></i>
+                                <?php echo Yii::t('app', 'Отправить сообщение'); ?>
+                            </button>
                         </div>
                     </div>
                     <?php if($contactForm->hasErrors()): ?>
@@ -140,7 +110,8 @@ $this->params['header_class'] = 'fixed-top scroll-change wide-area';
                             <b><?php echo $attrName; ?>:</b><?php echo $attrErr; ?>
                         </div>
                         <?php endforeach; ?>
-                        <div class="alert alert-warning">Error, please retry. Your message has not been sent</div>
+                        <div class="alert alert-warning">
+                            <?php echo Yii::t('app', 'Error, please retry. Your message has not been sent'); ?></div>
                     </div>
                     <?php endif; ?>
                 </form>

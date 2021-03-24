@@ -1,6 +1,7 @@
 <?php
 
-use yii\helpers\{Html, ArrayHelper};
+use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 use yii\bootstrap4\ActiveForm;
 
 use app\modules\sw\modules\product\models\Group;

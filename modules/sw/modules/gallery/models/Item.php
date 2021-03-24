@@ -67,10 +67,10 @@ class Item extends \yii\db\ActiveRecord
         return [
             'id',
             'groupId' => 'group_id',
-            'title' => function() {
+            'title' => function () {
                 return $this->group->name;
             },
-            'imageSrc' => function(){
+            'imageSrc' => function () {
                 return $this->getImgSrc();
             },
             'description' => 'alt',

@@ -27,19 +27,19 @@ class Item extends \yii\db\ActiveRecord
             [['tech_name', 'file'], 'required'],
             [['created', 'updated'], 'safe'],
             [
-                'tech_name', 
-                'match', 
-                'pattern' => '/^[a-z_]*$/', 
+                'tech_name',
+                'match',
+                'pattern' => '/^[a-z_]*$/',
                 'message' => 'Техничесокое имя должно быть слитно, на английском, в нижнем регистре, допускается знак "_"'
             ],
             [['name', 'tech_name'], 'string', 'max' => 50],
             ['file_obj', 'file', 'skipOnEmpty' => true, 'checkExtensionByMimeType' => false, 'extensions' => 'png, jpg, jpeg, rar, zip', 'maxSize' => 3145728],
-        ]; 
+        ];
     }
 
     public function attributeLabels()
-    { 
-        return [ 
+    {
+        return [
             'id' => 'ID',
             'name' => 'Название',
             'tech_name' => 'Техническое название',
@@ -48,7 +48,7 @@ class Item extends \yii\db\ActiveRecord
             'path' => 'Путь',
             'created' => 'Создано',
             'updated' => 'Обновлено',
-        ]; 
+        ];
     }
 
     public function uploadFile()
@@ -64,7 +64,7 @@ class Item extends \yii\db\ActiveRecord
         ]);
     }
 
-    public static function byTechName($tech_name) 
+    public static function byTechName($tech_name)
     {
         return self::findOne(['tech_name' => $tech_name]);
     }

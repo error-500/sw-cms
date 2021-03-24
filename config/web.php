@@ -7,11 +7,22 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'sw-cms-site',
+    'language' => 'ru-RU',//'en-US',
+    'sourceLanguage' => 'ru-RU',//'en-US',
     'basePath' => dirname(__DIR__),
     'bootstrap' => [
         'log'
     ],
-    //'language' => 'ru-RU',
+    //'module' => 'main',
+    'controllerNamespace' => 'app\modules\main\controllers',
+
+    'controllerMap' => [
+        'site' => [
+            'class' => 'app\modules\main\controllers\default',
+        ]
+    ],
+
+    'defaultRoute' => 'default/index',
     'aliases' => [
         '@app'  => dirname(__DIR__),
         '@bower' => '@vendor/bower-asset',
@@ -19,9 +30,23 @@ $config = [
         '@sw'    => '@app/modules/sw',
     ],
     'modules' => [
-        'admin' => [
-            'class' => 'app\modules\admin\Module',
+        'en-US' => [
+            'class' => 'app\modules\main\Module',
+            'controllerNamespace' => 'app\modules\main\controllers',
+            'initLanguage' => 'en-US',
+            'controllerMap' => [
+                'site' => 'app\modules\main\controllers\DefaultController',
+            ],
+            'defaultRoute' => 'default/index',
         ],
+        /*'sw' => [
+            'class' => 'app\modules\sw\Module',
+            'modules' => [
+                'en-US' => [
+                    'class' => 'app\modules\sw\Module'
+                ]
+            ],
+        ],*/
     ],
     'components' => [
         'assetManager' => [
@@ -34,24 +59,19 @@ $config = [
                 ],
             ],
         ],
-        'i18n'         => [
-            'translations' => [
-                'app*' => [
-                    'sourceLanguage' => 'ru-RU',
-                    'class'          => 'yii\i18n\PhpMessageSource',
-                    'basePath'       => '@app/messages',
-                    'fileMap'        => [
-                        'app'       => 'messages.php',
-                        'app/error' => 'errors.php',
-                    ],
-                ],
-            ],
+        'urlManager' => [
+            'class' => 'codemix\localeurls\UrlManager',
+            'languages' => ['en-US'],
         ],
+        'sw' => [
+            'class' => 'app\modules\sw\Sw',
+        ],
+        'i18n'         => require_once __DIR__.'/i18n.conf.php',
         'formatter'    => [
             'dateFormat'        => 'dd.MM.yyyy',
             'decimalSeparator'  => ',',
             'thousandSeparator' => ' ',
-            'currencyCode'      => 'EUR',
+            'currencyCode'      => 'RUB',
             'timeZone'          => 'UTC',
             'locale'            => 'ru-RU',
         ],
@@ -78,13 +98,18 @@ $config = [
         'view' => [
             'theme' => [
                 'basePath' => '@app/themes/qartuliru_default',
-                // 'baseUrl'  => '@web/themes/vue-app',
                 'pathMap'  => [
                     '@app/assets'      => '@app/themes/qartuliru_default',
-                    '@app/views'       => ['@app/views','@app/themes/qartuliru_default/views'],
-                    '@app/widgets'     => ['@app/widgets','@app/themes/qartuliru_default/widgets'],
+                    '@app/views'       => [
+                        '@app/themes/qartuliru_default/views',
+                        '@app/themes/qartuliru_default/modules/main/views',
+                    ],
+                    '@app/widgets'     => [
+                        '@app/widgets',
+                        '@app/themes/qartuliru_default/widgets',
+                        '@app/themes/qartuliru_default/modules/main/widgets',
+                    ],
                     '@app/modules'     => '@app/themes/qartuliru_default/modules',
-                    // '@app/modules/post/widgets/views' => '@app/themes/crystald/widgets',
                 ],
             ],
         ],
@@ -146,7 +171,7 @@ if (YII_ENV_DEV) {
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
+        'allowedIPs' => ['127.0.0.1', '::1', '192.168.57.1'],
     ];
 }
 

@@ -36,7 +36,7 @@ use yii\helpers\Url;
             <?= $model->preview_text ?>
         </p>
         <a class="btn btn-xs"
-           href="<?= Url::to(['/news/single', 'id' => $model->id]) ?>">Читать далее </a>
+           href="<?= Url::to(['/news/single', 'id' => $model->id]) ?>"><?php echo Yii::t('app', 'Читать далее'); ?></a>
         <hr class="space" />
     </div>
 </div>

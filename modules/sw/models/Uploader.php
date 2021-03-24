@@ -24,9 +24,11 @@ class Uploader extends \yii\base\Model
         $model = new self;
         $model->img = UploadedFile::getInstanceByName('upload');
 
-        if (!$model->validate()) $message = $model->errors;
+        if (!$model->validate()) {
+            $message = $model->errors;
+        }
 
-        $filename = date('d.m.Y_').rand(10,99).rand(10,99).'.'.$model->img->extension;
+        $filename = date('d.m.Y_').rand(10, 99).rand(10, 99).'.'.$model->img->extension;
         $path_dir = Yii::getAlias(self::$folder);
         
         if (!is_dir($path_dir)) {
@@ -35,11 +37,13 @@ class Uploader extends \yii\base\Model
 
         $full_path = $path_dir.$filename;
 
-        if(@$model->img->saveAs($full_path)){
+        if (@$model->img->saveAs($full_path)) {
             $message = "Файл загружен";
-        } else $message = 'Не удалось сохранить файл(ы). Не найденный путь: '.$full_path;
+        } else {
+            $message = 'Не удалось сохранить файл(ы). Не найденный путь: '.$full_path;
+        }
 
         $callback = $_REQUEST['CKEditorFuncNum'];
         echo '<script type="text/javascript">window.parent.CKEDITOR.tools.callFunction("'.$callback.'", "'.self::$web_folder.$filename.'", "'.$message.'" );</script>';
-    } 
+    }
 }

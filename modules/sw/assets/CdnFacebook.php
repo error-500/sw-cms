@@ -17,10 +17,10 @@ class CdnFacebook extends AssetBundle
         parent::registerAssetFiles($view);
         $fbId = Yii::$app->sw->getModule('constants')
             ->item(
-                    'findOne',
-                    ['tech_name' => 'fb-pixel-id']
+                'findOne',
+                ['tech_name' => 'fb-pixel-id']
             ) ?? null;
-        if(!empty($fbId)) {
+        if (!empty($fbId)) {
             $view->registerJs(
                 "(function(){
                     fbq('init', '$fbId');

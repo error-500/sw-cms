@@ -6,10 +6,10 @@ use app\modules\sw\models\Uploader;
 
 class UploadController extends _BaseController
 {
-	public $enableCsrfValidation = false;
+    public $enableCsrfValidation = false;
 
     public function actionSave()
     {
-    	return Uploader::upload();
+        return Uploader::upload();
     }
 }

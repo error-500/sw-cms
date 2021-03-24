@@ -16,7 +16,7 @@ if (!empty($page)) {
                loop
                muted
                poster="/theme/main/images/video-1-poster.jpg">
-            <source src="<?= $video_block->imgSrc ?>"
+            <source src="<?php echo  !empty($video_block)  ? $video_block->imgSrc: ''; ?>"
                     type="video/mp4">
         </video>
     </div>
@@ -24,22 +24,22 @@ if (!empty($page)) {
          data-anima="fade-top"
          data-timeline="asc"
          data-time="1000">
-        <?= $video_block->text ?>
+        <?php  !empty($video_block)  ? $video_block->text : ''; ?>
     </div>
 </div>
 <div class="section-empty">
     <div class="container content">
         <div class="row">
             <div class="col-md-6 col-sm-12 text-center-sm">
-                <?= $about_block->text ?>
+                <?php echo  !empty($about_block) ?  $about_block->text : ''; ?>
             </div>
             <div class="col-md-6 col-sm-12 text-center-sm"
                  data-anima="fade-right">
                 <hr class="space m visible-sm" />
                 <a class="img-box lightbox shadow-1"
-                   href="<?= $about_block->imgSrc ?>"
+                   href="<?php echo  !empty($about_block) ? $about_block->imgSrc : ''; ?>"
                    data-lightbox-anima="show-scale">
-                    <img src="<?= $about_block->imgSrc ?>"
+                    <img src="<?php echo  !empty($about_block) ?  $about_block->imgSrc: ''; ?>"
                          alt="">
                 </a>
             </div>
@@ -173,7 +173,8 @@ if (!empty($page)) {
                                     <h3><?php echo $item->name; ?></h3>
                                     <span class="extra-content bg-green price add-to-cart"
                                           @click="addToCart(<?php echo $item->id; ?>, $event)"
-                                          data-id="<?php echo $item->id; ?>">Добавить <i class="fa im-add-cart"></i>
+                                          data-id="<?php echo $item->id; ?>"><?php echo Yii::t('app', 'Добавить'); ?>
+                                        <i class="fa im-add-cart"></i>
                                     </span>
                                     <p><?= $item->consist ?></p>
                                     <p class="sub"><?php echo $item->volume; ?></p>
@@ -190,7 +191,8 @@ if (!empty($page)) {
         </div>
         <div class="text-center">
             <a href="<?= Url::to('/delivery') ?>"
-               class="btn btn-border btn-sm anima anima-fade-bottom">В магазин</a>
+               class="btn btn-border btn-sm anima anima-fade-bottom">
+                <?php echo Yii::t('app', 'В магазин'); ?></a>
         </div>
     </div>
 </div>
@@ -198,12 +200,12 @@ if (!empty($page)) {
     <div class="container content">
         <div class="row">
             <div class="col-md-6">
-                <img src="<?= $chefs_main_block->imgSrc ?>"
+                <img src="<?php echo  !empty($chefs_main_block) ? $chefs_main_block->imgSrc : '#'; ?>"
                      alt="" />
             </div>
             <div class="col-md-6">
                 <div class="content">
-                    <?= $chefs_main_block->text ?>
+                    <?php echo !empty($chefs_main_block) ? $chefs_main_block->text: ''; ?>
                 </div>
             </div>
         </div>

@@ -14,7 +14,7 @@ $this->title = $name;
         <div class="title-base">
             <hr />
             <h2><?= Html::encode($this->title) ?></h2>
-            <p>Genuine and delicious</p>
+            <p><?php echo Yii::t('app', 'Genuine and delicious'); ?></p>
             <div class="alert alert-danger">
                 <?= nl2br(Html::encode($message)) ?>
             </div>

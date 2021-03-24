@@ -45,7 +45,7 @@ if (!empty($page)) {
     <div class="navbar navbar-inner d-md-none main-menu-mobile">
         <div class="navbar-toggle"
              data-toggle="collapse"
-             data-target="#mobMenu"><i class="fa fa-bars"></i><span>Разделы</span><i class="fa fa-angle-down"></i></div>
+             data-target="#mobMenu"><i class="fa fa-bars"></i><span><?php echo Yii::t('app', 'Разделы'); ?></span><i class="fa fa-angle-down"></i></div>
         <div class="collapse navbar-collapse"
              id="mobMenu">
             <ul class="navbar-nav">

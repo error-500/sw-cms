@@ -44,7 +44,7 @@ if (!empty($page)) {
                            name="<?php echo Yii::$app->request->csrfParam; ?>"
                            value="<?php echo Yii::$app->request->csrfToken; ?>" />
                     <div class="col-md-6">
-                        <p>Дата</p>
+                        <p><?php echo Yii::t('app', 'Дата'); ?></p>
                         <input name="checkin"
                                id="checkin"
                                type="date"
@@ -55,7 +55,7 @@ if (!empty($page)) {
                                required>
                     </div>
                     <div class="col-md-6">
-                        <p>Время</p>
+                        <p><?php echo Yii::t('app', 'Время'); ?></p>
                         <input id="time"
                                name="time"
                                placeholder=""
@@ -67,7 +67,7 @@ if (!empty($page)) {
                     <hr class="space s" />
                     <div class="row">
                         <div class="col-md-6 col-xs-12">
-                            <p>Имя</p>
+                            <p><?php echo Yii::t('app', 'Имя'); ?></p>
                             <input id="name"
                                    name="name"
                                    placeholder=""
@@ -77,7 +77,7 @@ if (!empty($page)) {
                                    required />
                         </div>
                         <div class="col-md-6 col-xs-12">
-                            <p>Кол-во гостей</p>
+                            <p><?php echo Yii::t('app', 'Кол-во гостей'); ?></p>
                             <input id="guests"
                                    name="guests"
                                    placeholder=""
@@ -93,7 +93,7 @@ if (!empty($page)) {
                     <hr class="space xs" />
                     <div class="row">
                         <div class="col-md-6 col-xs-12">
-                            <p>Email</p>
+                            <p><?php echo Yii::t('app', 'Email'); ?></p>
                             <input id="email"
                                    name="email"
                                    placeholder=""
@@ -103,7 +103,7 @@ if (!empty($page)) {
                                    required>
                         </div>
                         <div class="col-md-6 col-xs-12">
-                            <p>Телефон</p>
+                            <p><?php echo Yii::t('app', 'Телефон'); ?></p>
                             <input id="phone"
                                    name="phone"
                                    placeholder="+79996543210"
@@ -115,7 +115,7 @@ if (!empty($page)) {
                     <hr class="space xs" />
                     <div class="row">
                         <div class="col-md-12">
-                            <p>Комментарий</p>
+                            <p><?php echo Yii::t('app', 'Комментарий'); ?></p>
                             <textarea id="message"
                                       name="message"
                                       class="form-control form-value"
@@ -124,7 +124,8 @@ if (!empty($page)) {
                             <hr class="space s" />
                             <button class="anima-button circle-button btn-sm btn"
                                     type="submit">
-                                <i class="im-envelope"></i>Забронировать
+                                <i class="im-envelope"></i>
+                                <?php echo Yii::t('app', 'Забронировать'); ?>
                             </button>
                         </div>
                     </div>
@@ -135,7 +136,8 @@ if (!empty($page)) {
                             <b><?php echo $attrName; ?>:</b><?php echo $attrError; ?>
                         </div>
                         <?php endforeach; ?>
-                        <div class="alert alert-warning">Error, please retry. Your message has not been sent</div>
+                        <div class="alert alert-warning">
+                            <?php echo Yii::t('app', 'Error, please retry. Your message has not been sent'); ?></div>
                     </div>
                     <?php endif; ?>
                 </form>

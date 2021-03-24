@@ -10,7 +10,6 @@ use app\modules\sw\modules\lang\models\LangTranslateSearch;
 
 class LangTranslateController extends _BaseController
 {
-
     public function actionIndex()
     {
         $searchModel = new LangTranslateSearch();

@@ -12,7 +12,9 @@ $this->title = 'Элементы';
 
 <div class="panel panel-flat">
     <div class="panel-body">
-        <?= Html::a('<b><i class="icon-plus-circle2"></i></b> Добавить', ['/sw/product/item/create'], ['class' => 'btn bg-teal-400 btn-labeled']) ?>
+        <?= Html::a('<b><i class="icon-plus-circle2"></i></b> Добавить',
+        ['/'.Yii::$app->controller->uniqueId.'/create'],
+        ['class' => 'btn bg-teal-400 btn-labeled']) ?>
     </div>
 
     <div class="table-responsive">
@@ -27,7 +29,7 @@ $this->title = 'Элементы';
                 ],
                 [
                     'attribute' => 'group_id',
-                    'filter' => ArrayHelper::map(Group::find()->all(), 'id', function($data) {
+                    'filter' => ArrayHelper::map(Group::find()->all(), 'id', function ($data) {
                         if (empty($data->parent->name)) {
                             return $data['name'];
                         }
@@ -56,7 +58,7 @@ $this->title = 'Элементы';
                     'header' => 'Картинка',
                     'filter' => false,
                     'format' => 'raw',
-                    'value' => function($data) {
+                    'value' => function ($data) {
                         if (!$data->imgSrc) {
                             return '<span class="text-warning">Нет</span>';
                         }
@@ -72,10 +74,12 @@ $this->title = 'Элементы';
                     'template' => '{update} {delete}',
                     'buttons' => [
                         'update' => function ($url, $data) {
-                            return Html::a('<i class="icon-pencil"></i>', ['/sw/product/item/update', 'id' => $data->id]);
+                            return Html::a('<i class="icon-pencil"></i>',
+                            ['/'.Yii::$app->controller->uniqueId.'/update', 'id' => $data->id]);
                         },
                         'delete' => function ($url, $data) {
-                            return Html::a('<i class="icon-trash"></i>', ['/sw/product/item/delete', 'id' => $data->id], [
+                            return Html::a('<i class="icon-trash"></i>',
+                            ['/'.Yii::$app->controller->uniqueId.'/delete', 'id' => $data->id], [
                                 'data' => [
                                     'confirm' => 'Вы уверены что хотите удалить запись? Действие нельзя отменить!',
                                 ]

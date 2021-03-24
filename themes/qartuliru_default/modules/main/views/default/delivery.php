@@ -94,7 +94,7 @@ if (!empty($page)) {
                                     <span class="extra-content bg-green price add-to-cart"
                                           @click="addToCart(<?php echo $item->id; ?>, $event)"
                                           data-id="<?= $item->id ?>">
-                                        Добавить <i class="fa im-add-cart"></i>
+                                        <?php echo Yii::t('app', 'Добавить'); ?> <i class="fa im-add-cart"></i>
                                     </span>
                                     <p><?= $item->consist ?></p>
                                     <p class="sub"><?= $item->volume ?></p>

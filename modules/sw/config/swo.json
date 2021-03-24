@@ -5,9 +5,6 @@
         }
     },
     "components": {
-        "sw": {
-            "class": "app\\modules\\sw\\Sw"
-        },
         "user": {
             "identityClass": "app\\modules\\sw\\models\\User",
             "loginUrl": [

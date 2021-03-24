@@ -6,7 +6,8 @@ use Yii;
 
 class Sw
 {
-    public function getModule($module) {
+    public function getModule($module)
+    {
         return Yii::$app->getModule('sw')->getModule($module);
     }
 }

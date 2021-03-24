@@ -47,7 +47,6 @@ class ItemController extends _BaseController
         $model = new Item();
 
         if ($model->load(Yii::$app->request->post())) {
-
             $model->file_obj = UploadedFile::getInstance($model, 'file_obj');
             $model->uploadFile();
 
@@ -66,7 +65,6 @@ class ItemController extends _BaseController
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
-
             $model->file_obj = UploadedFile::getInstance($model, 'file_obj');
             $model->uploadFile();
 

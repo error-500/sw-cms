@@ -1,6 +1,7 @@
 <?php
 
-use yii\helpers\{Html, ArrayHelper};
+use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 use yii\bootstrap4\ActiveForm;
 
 $button_text = sprintf('%s <i class="icon-arrow-right14 position-right"></i>', $model->isNewRecord ? 'Сохранить' : 'Обновить');
