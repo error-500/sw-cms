@@ -1,46 +1,60 @@
 <?php
 
+use main\helpers\AutoUrl;
 use app\modules\sw\widgets\swnav\SwNav;
-$ref = '/'.Yii::$app->controller->module->module->uniqueId;
-$jump = explode('/',Yii::$app->controller->uniqueId);
-array_shift($jump);
+$prefix = '/'.implode(
+    '/',
+    array_filter([
+        AutoUrl::rootModuleId(),
+        AutoUrl::getLanguageSection()
+        ])
+);
 $main_menu = [
     // Общее меню
     // '<li class="navigation-header"><span>Система</span> <i class="icon-menu" title="Система"></i></li>',
     [
         'label' => 'Главная',
         'icon' => 'icon-home4',
-        'url' => ['/sw/dashboard/index']
+        'url' => [$prefix.'/dashboard/index']
     ],
     [
-        'label' => 'EN',
+        'label' => 'Languages',
         'icon' => 'icon-earth',
-        'url' => ['/sw/en-US/'.implode('/', $jump)]
+        'items' => [
+                [
+                    'label' => 'En',
+                    'url' => ['/sw/en-US']
+                ],
+                [
+                    'label' => 'Ru',
+                    'url' => ['/sw']
+            ],
+        ],
     ],
     [
         'label' => 'Пользователи',
         'icon' => 'icon-users2',
-        'url' => [$ref.'/user/index']
+        'url' => [$prefix.'/user/index']
     ],
     '<li class="navigation-header"><span>Модули</span> <i class="icon-menu" title="Модули"></i></li>',
     [
         'label' => 'Константы',
         'icon' => 'icon-infinite',
-        'url' => [$ref.'/constant/item/index']
+        'url' => [$prefix.'/constant/item/index']
     ],
     [
         'label' => 'Файловый менеджер',
         'icon' => 'icon-file-plus',
-        'url' => [$ref.'/file_manager/item/index']
+        'url' => [$prefix.'/file_manager/item/index']
     ],
     [
         'label' => 'Страницы',
         'icon' => 'icon-file-text2',
-        'url' => [$ref.'/page/item/index']],
+        'url' => [$prefix.'/page/item/index']],
     [
         'label' => 'Блоки',
         'icon' => 'icon-stack4',
-        'url' => [$ref.'/block/item/index']
+        'url' => [$prefix.'/block/item/index']
     ],
     [
         'label' => 'Слайдеры',
@@ -48,11 +62,11 @@ $main_menu = [
         'items' => [
                 [
                     'label' => 'Группы',
-                    'url' => [$ref.'/slider/group/index']
+                    'url' => [$prefix.'/slider/group/index']
                 ],
                 [
                     'label' => 'Элементы',
-                    'url' => [$ref.'/slider/item/index']
+                    'url' => [$prefix.'/slider/item/index']
             ],
         ]
     ],
@@ -62,11 +76,11 @@ $main_menu = [
         'items' => [
             [
                 'label' => 'Группы',
-                'url' => [$ref.'/blog/group/index']
+                'url' => [$prefix.'/blog/group/index']
             ],
             [
                 'label' => 'Элементы',
-                'url' => [$ref.'/blog/item/index']
+                'url' => [$prefix.'/blog/item/index']
             ],
         ]
     ],
@@ -76,11 +90,11 @@ $main_menu = [
         'items' => [
             [
                 'label' => 'Группы',
-                'url' => [$ref.'/gallery/group/index']
+                'url' => [$prefix.'/gallery/group/index']
             ],
             [
                 'label' => 'Элементы',
-                'url' => [$ref.'/gallery/item/index']],
+                'url' => [$prefix.'/gallery/item/index']],
         ]
     ],
     [
@@ -89,11 +103,11 @@ $main_menu = [
         'items' => [
             [
                 'label' => 'Группы',
-                'url' => [$ref.'/product/group/index']
+                'url' => [$prefix.'/product/group/index']
             ],
             [
                 'label' => 'Элементы',
-                'url' => [$ref.'/product/item/index']
+                'url' => [$prefix.'/product/item/index']
             ],
         ]
     ],
