@@ -40,26 +40,35 @@ class VueObject extends Component
     {
         $jsLines = [];
         foreach ($array as $jsKey => $value) {
-            if (is_array($value)) {
-                if (ArrayHelper::isAssociative($value)) {
+            switch (true) {
+                case is_array($value):
+                    if (ArrayHelper::isAssociative($value)) {
+                        $value = "{\n\t" . self::ArrayToJsString($value) . "\n}";
+                    } else {
+                        $value = "[\n\t" . self::ArrayToJsString($value) . "\n]";
+                    }
+                break;
+
+                case is_object($value):
                     $value = "{\n\t" . self::ArrayToJsString($value) . "\n}";
-                } else {
-                    $value = "[\n\t" . self::ArrayToJsString($value) . "\n]";
-                }
-            }
+                break;
 
-            if (\is_object($value)) {
-                $value = "{\n\t" . self::ArrayToJsString($value) . "\n}";
-            }
+                case \is_null($value):
+                    $value = 'null';
+                break;
+                case (null !== $json = \json_decode($value)):
+                    $value = $value;
+                break;
 
-            if (\is_null($value)) {
-                $value = 'null';
+                case (is_string($value) && empty($value)):
+                    $value = "''";
+                break;
+                case (\is_string($value) && \preg_match('/^function\(.+/i', $value)):
+                break;
+                case (is_string($value) && null === $json = \json_decode($value)):
+                    $value = "'$value'";
+                break;
             }
-
-            if (is_string($value) && empty($value)) {
-                $value = "''";
-            }
-
             if (ArrayHelper::isAssociative($array)) {
                 $jsLines[] = $jsKey . ":" . $value;
             } else {

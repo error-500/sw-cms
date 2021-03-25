@@ -1,12 +1,12 @@
 <?php
 
-namespace app\modules\sw\modules\block;
+namespace sw\modules\block;
 
 use Yii;
 
 class Module extends \yii\base\Module
 {
-    public $controllerNamespace = 'app\modules\sw\modules\block\controllers';
+    public $controllerNamespace = 'sw\modules\block\controllers';
     public $defaultRoute = 'item';
 
     public function init()

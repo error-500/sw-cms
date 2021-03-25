@@ -1,20 +1,41 @@
 <?php
 
-namespace app\modules\sw\modules\block\models;
+namespace sw\modules\block\models;
 
+use app\modules\sw\modules\base\traits\ImgSrc;
+use app\modules\sw\modules\page\models\Item as Page;
+use sw\modules\block\models\Block;
+use sw\modules\block\models\Template;
 use Yii;
 use swods\fileloader\FileLoader;
+use yii\db\ActiveRecord;
 
 /**
- * exp: Yii::$app->swo->module('page', 'Item')->byTechName('main_slider');
- */
-class Item extends \yii\db\ActiveRecord
+* * This is the model class for table "{{%block_item}}".
+*
+* @property int $id
+* @property string $tech_name Техническое название
+* @property string|null $img Картинка
+* @property string $title Заголовок
+* @property string|null $text Текст
+* @property string $created Создано
+* @property string $updated Обновлено
+*
+* @property BlockLinkTemplate[] $blockLinkTemplates
+* @property BlockTemplate[] $templates
+* @property PageBlockLink[] $pageBlockLinks
+* @property PageItem[] $pages
+*/
+class Item extends ActiveRecord
 {
-    use \app\modules\sw\modules\base\traits\ImgSrc;
+    use ImgSrc;
 
     public static $folder = '@webroot/uploads/sw/block/';
     public $web_folder = '/uploads/sw/block/';
     public $img_obj;
+    public $template_id;
+    public $page_id;
+    public $position;
 
     public static function tableName()
     {
@@ -35,20 +56,23 @@ class Item extends \yii\db\ActiveRecord
             ['img_obj', 'file', 'skipOnEmpty' => true, 'checkExtensionByMimeType' => false, 'extensions' => 'png, jpg, mp4', 'maxSize' => 10485760],
             [['tech_name'], 'unique'],
             [['text'], 'string'],
+            [['template_id'], 'exist', 'skipOnError' => true, 'targetClass' => Template::class, 'targetAttribute' => ['template_id' => 'id']],
+            [['page_id'], 'exist', 'skipOnError' => true, 'targetClass' => Page::class, 'targetAttribute' => ['page_id' => 'id']],
         ];
     }
 
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'tech_name' => 'Техническое название',
-            'img' => 'Картинка',
-            'img_obj' => 'Картинка',
-            'title' => 'Заголовок',
-            'text' => 'Текст',
-            'created' => 'Создано',
-            'updated' => 'Обновлено',
+            'id' => Yii::t('app', 'ID'),
+            'tech_name' => Yii::t('app', 'Техническое название'),
+            'img' => Yii::t('app', 'Картинка'),
+            'img_obj' => Yii::t('app', 'Картинка'),
+            'title' => Yii::t('app', 'Заголовок'),
+            'text' => Yii::t('app', 'Текст'),
+            'created' => Yii::t('app', 'Создано'),
+            'updated' => Yii::t('app', 'Обновлено'),
+            'template_id' => Yii::t('app', 'Шаблон блока'),
         ];
     }
 
@@ -66,7 +90,7 @@ class Item extends \yii\db\ActiveRecord
 
     public static function get($tech_name, $attr)
     {
-        $self = self::findOne(['tech_name' => $tech_name]);
+        $self = Item::find(['tech_name' => $tech_name])->one();
 
         if (!$self || !$attr) {
             return $self;
@@ -74,7 +98,34 @@ class Item extends \yii\db\ActiveRecord
 
         return $self->$attr;
     }
+    /**
+    * Gets query for [[BlockLinkTemplates]].
+    *
+    * @return \yii\db\ActiveQuery|BlockLinkTemplateQuery
+    */
+    public function getBlocks() {
+        return $this->hasMany(Block::class, ['id' => 'block_id']);
+    }
+    /**
+    * Gets query for [[Templates]].
+    *
+    * @return \yii\db\ActiveQuery|BlockTemplateQuery
+    */
 
+    public function getTemplates() {
+        return $this->hasMany(Template::class, ['id' => 'template_id'])
+            ->via('block');
+    }
+    /**
+    * Gets query for [[Pages]].
+    *
+    * @return \yii\db\ActiveQuery|PageItemQuery
+    */
+    public function getPages()
+    {
+       return $this->hasMany(Page::class, ['id' => 'page_id'])
+            ->viaTable('{{%page_block_link}}', ['block_id' => 'id']);
+    }
     // public static function byTechName($tech_name)
     // {
     //     $page = self::findOne(['tech_name' => $tech_name]);
@@ -111,4 +162,13 @@ class Item extends \yii\db\ActiveRecord
 
     //     return $page;
     // }
+
+    /**
+    * {@inheritdoc}
+    *  @return ItemQuery the active query used by this AR class.
+    */
+    public static function find()
+    {
+       return (new ItemQuery(get_called_class()));//->joinWith('block');
+    }
 }

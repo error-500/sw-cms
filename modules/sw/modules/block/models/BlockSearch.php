@@ -2,54 +2,45 @@
 
 namespace sw\modules\block\models;
 
-use Yii;
-use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use sw\modules\block\models\Item;
 
-/**
- * ItemSearch represents the model behind the search form of `app\modules\swo\modules\page\models\Item`.
- */
-class ItemSearch extends Item
+class BlockSearch extends Block
 {
-    /**
-     * @inheritdoc
-     */
+    public $page = 0;
+    public $sort = null;
+    public $sortBy = null;
+
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['tech_name', 'img', 'title', 'text', 'created', 'updated'], 'safe'],
+            [
+                $this->attributes, 'safe', 'skipOnEmpty' => true,
+            ],
+            [
+                ['page'], 'integer', 'skipOnError' => true,
+            ],
+            [
+                ['page'], 'default', 'value' => 0,
+            ],
+            [
+                ['sort'], 'boolean', 'skipOnEmpty' => true,
+            ],
+            [
+                ['sort'], 'default', 'value' => false,
+            ],
+            [
+                ['sortBy'], 'string', 'skipOnEmpty' => true,
+            ],
         ];
     }
-
-    /**
-     * @inheritdoc
-     */
-    public function scenarios()
+    public function search($params = [])
     {
-        // bypass scenarios() implementation in the parent class
-        return Model::scenarios();
-    }
-
-    /**
-     * Creates data provider instance with search query applied
-     *
-     * @param array $params
-     *
-     * @return ActiveDataProvider
-     */
-    public function search($params)
-    {
-        $query = Item::find();
-
-        // add conditions that should always apply here
-
+        $query = Block::find()
+            ->with(['template', 'item']);
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => false,
         ]);
-
         $this->load($params);
 
         if (!$this->validate()) {
@@ -60,16 +51,15 @@ class ItemSearch extends Item
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
-            'created' => $this->created,
-            'updated' => $this->updated,
+            'block_id' => $this->block_id,
+            'template_id' => $this->template_id,
         ]);
-
+/*
         $query->andFilterWhere(['like', 'tech_name', $this->tech_name])
             ->andFilterWhere(['like', 'img', $this->img])
             ->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'text', $this->text]);
-
+*/
         $dataProvider->setPagination([
             'page' => 0,
             'pageSize' => 30,

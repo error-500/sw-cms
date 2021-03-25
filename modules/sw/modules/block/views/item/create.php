@@ -9,4 +9,7 @@ $this->params['block'] = 'Модуль: Блоки';
 
 <?= $this->render('_form', [
     'model' => $model,
+    'block' => $block,
+    'templates' => $templates,
+    'pages' => $pages,
 ]) ?>

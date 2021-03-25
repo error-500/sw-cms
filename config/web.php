@@ -18,7 +18,7 @@ $config = [
 
     'controllerMap' => [
         'site' => [
-            'class' => 'app\modules\main\controllers\default',
+            'class' => 'app\modules\main\controllers\DefaultController',
         ]
     ],
 
@@ -37,16 +37,12 @@ $config = [
             'initLanguage' => 'en-US',
             'controllerMap' => [
                 'site' => 'app\modules\main\controllers\DefaultController',
+                'default' => 'app\modules\main\controllers\DefaultController',
             ],
             'defaultRoute' => 'default/index',
         ],
         /*'sw' => [
-            'class' => 'app\modules\sw\Module',
-            'modules' => [
-                'en-US' => [
-                    'class' => 'app\modules\sw\Module'
-                ]
-            ],
+            'class' => 'sw\Module',
         ],*/
     ],
     'components' => [
@@ -84,9 +80,9 @@ $config = [
             'data' => [
                 'ymapProps' => [
                     'settings' => [
-                        'apiKey' => "'85485089-7da9-41be-a978-c2846d2f2d5d'",
-                        'lang' => "'ru_RU'",
-                        'coordorder' => "'latlong'",
+                        'apiKey' => "85485089-7da9-41be-a978-c2846d2f2d5d",
+                        'lang' => "ru_RU",
+                        'coordorder' => "latlong",
                     ],
                     'coords' => [55.77434759100000,37.57800085354571,],
                     'zoom' => 17,
@@ -114,6 +110,10 @@ $config = [
                         '@app/themes/qartuliru_default/modules/main/widgets',
                     ],
                     '@app/modules'     => '@app/themes/qartuliru_default/modules',
+                    '@sw/modules'      => [
+                        '@sw/modules',
+                        '@app/themes/qartuliru_default/modules/sw',
+                    ]
                 ],
             ],
         ],

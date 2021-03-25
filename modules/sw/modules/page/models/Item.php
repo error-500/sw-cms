@@ -2,12 +2,30 @@
 
 namespace app\modules\sw\modules\page\models;
 
+use sw\modules\block\models\Item as BlockMeta;
+use sw\modules\page\models\Block;
+use sw\modules\page\models\ItemQuery;
 use Yii;
 use swods\fileloader\FileLoader;
 
 /**
- * exp: Yii::$app->swo->module('page', 'Item')->byTechName('main_slider');
- */
+* This is the model class for table "{{%page_item}}".
+*
+* @property int $id
+* @property string $tech_name Техническое название
+* @property string|null $img Картинка
+* @property string $title Заголовок
+* @property string|null $description Описание
+* @property string|null $keywords Ключевые слова
+* @property string|null $text Текст
+* @property string $created Создано
+* @property string $updated Обновлено
+* @property string|null $menu_name Наименование пункта меню
+* @property int $active Доступна на сайте
+*
+* @property PageBlockLink[] $pageBlockLinks
+* @property BlockItem[] $blocks
+*/
 class Item extends \yii\db\ActiveRecord
 {
     use \app\modules\sw\modules\base\traits\ImgSrc;
@@ -28,6 +46,7 @@ class Item extends \yii\db\ActiveRecord
             [['description', 'keywords', 'text'], 'string'],
             [['tech_name', 'title'], 'string', 'max' => 200],
             [['menu_name'], 'string', 'max' => 100, 'skipOnEmpty' => true],
+            [['menu_name'], 'unique'],
             ['active', 'boolean', 'skipOnEmpty' => true, 'trueValue' => true, 'falseValue' => false],
             ['active', 'default', 'value' => true],
             [
@@ -44,18 +63,18 @@ class Item extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'tech_name' => 'Техническое название',
-            'img' => 'Картинка',
-            'img_obj' => 'Картинка',
-            'title' => 'Заголовок',
-            'description' => 'Описание',
-            'keywords' => 'Ключевые слова',
-            'text' => 'Текст',
-            'created' => 'Создано',
-            'updated' => 'Обновлено',
-            'active'  => 'Доступно на сайте',
-            'menu_name' => 'Текст пункта меню',
+            'id' => Yii::t('app', 'ID'),
+           'tech_name' => Yii::t('app', 'Техническое название'),
+           'img' => Yii::t('app', 'Картинка'),
+           'img_obj' => Yii::t('app', 'Картинка'),
+           'title' => Yii::t('app', 'Заголовок'),
+           'description' => Yii::t('app', 'Описание'),
+           'keywords' => Yii::t('app', 'Ключевые слова'),
+           'text' => Yii::t('app', 'Текст'),
+           'created' => Yii::t('app', 'Создано'),
+           'updated' => Yii::t('app', 'Обновлено'),
+           'menu_name' => Yii::t('app', 'Наименование пункта меню'),
+           'active' => Yii::t('app', 'Доступна на сайте'),
         ];
     }
 
@@ -81,7 +100,28 @@ class Item extends \yii\db\ActiveRecord
 
         return $self->$attr;
     }
+    public function getBlocks()
+    {
+        return $this->hasMany(Block::class, ['id' => 'page_id'])
+            ->joinWith(['blocksMeta meta' => function($query){
+                return $query->joinWith(['blocksMeta.blocks', 'blocksMeta.blocks.templates']);
+            }])
+            ->orderBy(['position' => \SORT_ASC]);
+    }
+    public function getBlocksMeta()
+    {
+        return $this->hasMany(BlockMeta::class, ['id' => 'page_id'])
+            ->viaTable("{{%page_block_link}}", ['block_id' => 'id']);
+    }
 
+    /**
+    * {@inheritdoc}
+    * @return ItemQuery the active query used by this AR class.
+    */
+    public static function find()
+    {
+        return new ItemQuery(get_called_class());
+    }
     // public static function byTechName($tech_name)
     // {
     //     $page = self::findOne(['tech_name' => $tech_name]);

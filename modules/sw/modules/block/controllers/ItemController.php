@@ -1,19 +1,25 @@
 <?php
 
-namespace app\modules\sw\modules\block\controllers;
+namespace sw\modules\block\controllers;
+
 
 use Yii;
 use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;
 
-use app\modules\sw\modules\block\models\Item;
-use app\modules\sw\modules\block\models\ItemSearch;
+use sw\modules\block\models\ItemSearch;
+use sw\modules\block\controllers\_BaseController;
+use sw\modules\block\models\BlockSearch;
+use sw\modules\block\models\Item;
+use sw\modules\block\models\Template;
+use app\modules\sw\modules\page\models\Item as Page;
+use sw\modules\block\models\Block;
 
 class ItemController extends _BaseController
 {
     public function actionIndex()
     {
-        $searchModel = new ItemSearch();
+        $searchModel = new BlockSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -32,6 +38,7 @@ class ItemController extends _BaseController
     public function actionCreate()
     {
         $model = new Item();
+        $block = new Block();
 
         if ($model->load(Yii::$app->request->post())) {
             $model->img_obj = UploadedFile::getInstance($model, 'img_obj');
@@ -41,9 +48,13 @@ class ItemController extends _BaseController
                 return $this->redirect(['index']);
             }
         }
-
+        $templates = Template::find()->all();
+        $pages = Page::find()->all();
         return $this->render('create', [
             'model' => $model,
+            'block' => $block,
+            'templates' => $templates,
+            'pages' => $pages,
         ]);
     }
 
@@ -74,10 +85,14 @@ class ItemController extends _BaseController
 
     protected function findModel($id)
     {
-        if (($model = Item::findOne($id)) !== null) {
-            return $model;
+        $model = Item::find(['id' => $id])
+            ->with(['block', 'templates'])
+            ->one();
+
+        if (empty($model)) {
+            throw new NotFoundHttpException('The requested page does not exist.');
         }
-        
-        throw new NotFoundHttpException('The requested page does not exist.');
+
+        return $model;
     }
 }
