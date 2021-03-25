@@ -66,6 +66,7 @@ $config = [
             'ignoreLanguageUrlPatterns' => [
                 '#^sw/' => '#^sw/'
             ],
+            'routes' => require_once __DIR__.'/routes.php',
         ],
         'sw' => [
             'class' => 'app\modules\sw\Sw',

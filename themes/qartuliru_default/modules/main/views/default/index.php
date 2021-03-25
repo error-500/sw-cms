@@ -9,7 +9,8 @@ if (!empty($page)) {
 }
 
 ?>
-<div class="section-bg-video grunge-border">
+<div class="section-bg-video grunge-border"
+     style="min-height: 85vh">
     <div class="bg-overlay transparent-dark"></div>
     <div class="videobox">
         <video autoplay
@@ -24,7 +25,7 @@ if (!empty($page)) {
          data-anima="fade-top"
          data-timeline="asc"
          data-time="1000">
-        <?php  !empty($video_block)  ? $video_block->text : ''; ?>
+        <?php echo !empty($video_block)  ? $video_block->text : ''; ?>
     </div>
 </div>
 <div class="section-empty">
