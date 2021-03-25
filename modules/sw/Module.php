@@ -16,12 +16,15 @@ class Module extends \yii\base\Module
     public function init()
     {
         parent::init();
-        $modules = Json::decode(
+        $modConfig = Json::decode(
                     file_get_contents(__DIR__ . '/config/modules.json'),
                     true
                 );
 
-        Yii::configure($this, $modules);
+        //Yii::configure($this, $modules);
+        foreach($modConfig['modules'] as $moduleId => $moduleCfg) {
+            $this->setModule($moduleId, $moduleCfg);
+        }
 
         Yii::info(Yii::t('yii', 'Init module: {0}', [$this->uniqueId]));
         if (!empty($this->initLanguage)) {

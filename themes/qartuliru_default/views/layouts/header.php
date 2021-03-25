@@ -1,5 +1,6 @@
 <?php
 
+use app\widgets\autonavbarnav\LanguageNav;
 use yii\helpers\Url;
 use app\widgets\cart\Cart;
 
@@ -110,6 +111,25 @@ $header_class = $this->params['header_class'] ?? 'fixed-top bg-transparent menu-
                         ->getModule('block')
                         ->item('findOne', ['tech_name' => 'header_icons'])
                         ->text ?? '' ?>
+                <li class="nav-item dropdown">
+                    <a href="#"
+                       class="nav-link dropdown-toggle"
+                       data-toggle="dropdown"
+                       role="button"
+                       area-haspopup="true"
+                       id="main-menu-dropdown-lang"><?php echo Yii::$app->language; ?></a>
+                    <div class="dropdown-menu multi-level"
+                         aria-labelledby="main-menu-dropdown-lang">
+                        <a class="dropdown-item"
+                           href="<?= Url::to(["/en-US/"]) ?>">
+                            Eng
+                        </a>
+                        <a class="dropdown-item"
+                           href="<?= Url::to(["/"]) ?>">
+                            Рус
+                        </a>
+                    </div>
+                </li>
             </ul>
 
         </div>

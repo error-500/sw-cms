@@ -6,4 +6,7 @@ return [
     'password' => 'qartuli',
     'charset' => 'utf8',
     'tablePrefix' => 'en_',
+    'enableSchemaCache'   => true,
+    'schemaCacheDuration' => 3600,
+    'schemaCache'         => 'cache',
 ];
