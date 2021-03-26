@@ -12,7 +12,8 @@ $this->params['title'] = 'Элементы';?>
 
 <div class="panel panel-flat">
     <div class="panel-body">
-        <?= Html::a('<b><i class="icon-plus-circle2"></i></b> Добавить', ['/sw/slider/item/create'], ['class' => 'btn bg-teal-400 btn-labeled']) ?>
+        <?php echo Html::a('<b><i class="icon-plus-circle2"></i></b> Добавить',
+            ["/".Yii::$app->controller->uniqueId."/create"], ['class' => 'btn bg-teal-400 btn-labeled']) ?>
         <hr>
         Элементы которые позволяют создать группы слайдера, акций и т.д.
     </div>
