@@ -93,11 +93,15 @@ Yii::$app->vueApp->mounted = [
                         <?php echo $form->field($model, 'active')->checkbox(); ?>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mb-2">
                     <div class="col-md-12">
-                        <?= $form->field($model, 'about', [
-                                'inputTemplate' => '<div id="html_editor"></div> {input}'
-                            ])->textarea() ?>
+                        <?php echo $form->field($model, 'about',[
+                                'inputOptions' => [
+                                    'id' => 'html_editor',
+                                    'class' => 'd-none'
+                                ]
+                            ])->textarea(); ?>
+                        <sw-code-editor selector="#html_editor"></sw-code-editor>
                     </div>
                 </div>
 
