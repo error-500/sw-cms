@@ -11,14 +11,18 @@ $this->params['title'] = 'Группы';
 
 <div class="panel panel-flat">
     <div class="panel-body">
-        <?= Html::a('<b><i class="icon-plus-circle2"></i></b> Добавить', ['/sw/slider/group/create'], ['class' => 'btn bg-teal-400 btn-labeled']) ?>
-        <hr>
+        <?php echo Html::a(
+            '<b><i class="icon-plus-circle2"></i></b> Добавить',
+            ["/".Yii::$app->controller->uniqueId."/create"],
+            ['class' => 'btn bg-teal-400 btn-labeled']
+        ); ?>
+        <hr/>
         Группы помогут вам разделить инфоблоки по назначению, к примеру: <code>слайдер</code>, <code>акции</code> и т.п.
-        <br><br>
+        <br/><br/>
         <div class="alert alert-info alert-styled-left">
             <span class="text-semibold">Инфо:</span> Если группа используется ее невозможно удалить
         </div>
-        
+
     </div>
 
     <div class="table-responsive">
@@ -52,4 +56,3 @@ $this->params['title'] = 'Группы';
         ]); ?>
     </div>
 </div>
-
