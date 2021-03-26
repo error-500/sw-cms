@@ -8,7 +8,7 @@ class Group extends \yii\db\ActiveRecord
 {
     public static function tableName()
     {
-        return 'sw_slider_group';
+        return '{{%slider_group}}';
     }
 
     public function rules()

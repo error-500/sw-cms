@@ -11,7 +11,7 @@ Yii::$app->vueApp->data = [
 Yii::$app->vueApp->mounted = [
     '
     this.$set(this, "html_editor", window.ace.edit("html_editor"));
-    const textarea = document.querySelector(\'textarea[name="Item[text]"]\');
+    const textarea = document.querySelector(\'textarea[name="Group[text]"]\');
     textarea.classList.add("d-none");
     this.html_editor.setTheme("ace/theme/monokai");
     this.html_editor.getSession().setMode("ace/mode/html");
@@ -27,35 +27,35 @@ Yii::$app->vueApp->mounted = [
 <div class="row">
     <div class="col-md-12">
         <?php $form = ActiveForm::begin(); ?>
-            <div class="panel panel-flat">
-                <div class="panel-body">
+        <div class="panel panel-flat">
+            <div class="panel-body">
 
-                    <?= $form->errorSummary($model) ?>
+                <?= $form->errorSummary($model) ?>
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-                        </div>
-
-                        <div class="col-md-6">
-                            <?= $form->field($model, 'tech_name')->textInput(['maxlength' => true]) ?>
-                        </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <?= $form->field($model, 'text', [
+                    <div class="col-md-6">
+                        <?= $form->field($model, 'tech_name')->textInput(['maxlength' => true]) ?>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <?= $form->field($model, 'text', [
                                 'inputTemplate' => '<div id="html_editor"></div> {input}'
                             ])->textarea() ?>
-                        </div>
                     </div>
-
-                    <div class="text-right">
-                        <?= Html::submitButton($button_text, ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-                    </div>
-
                 </div>
+
+                <div class="text-right">
+                    <?= Html::submitButton($button_text, ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+                </div>
+
             </div>
+        </div>
         <?php ActiveForm::end(); ?>
     </div>
 </div>

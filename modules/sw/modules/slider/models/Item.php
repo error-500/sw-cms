@@ -20,7 +20,7 @@ class Item extends \yii\db\ActiveRecord
 
     public static function tableName()
     {
-        return 'sw_slider_item';
+        return '{{%slider_item}}';
     }
 
     public function rules()

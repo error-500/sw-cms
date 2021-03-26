@@ -18,7 +18,7 @@ $config = [
 
     'controllerMap' => [
         'site' => [
-            'class' => 'app\modules\main\controllers\default',
+            'class' => 'app\modules\main\controllers\DefaultController',
         ]
     ],
 
@@ -59,14 +59,6 @@ $config = [
                     ],
                 ],
             ],
-        ],
-        'urlManager' => [
-            'class' => 'codemix\localeurls\UrlManager',
-            'languages' => ['en-US'],
-            'ignoreLanguageUrlPatterns' => [
-                '#^sw/' => '#^sw/'
-            ],
-            'routes' => require_once __DIR__.'/routes.php',
         ],
         'sw' => [
             'class' => 'app\modules\sw\Sw',
@@ -139,6 +131,11 @@ $config = [
         ],
         'db' => $db,
         'urlManager' => [
+            /*'class' => 'codemix\localeurls\UrlManager',
+            'languages' => ['en-US'],
+            'ignoreLanguageUrlPatterns' => [
+                '#^sw/' => '#^sw/'
+            ],*/
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [

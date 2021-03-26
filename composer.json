@@ -74,5 +74,11 @@
     "repositories": [{
         "type": "composer",
         "url": "https://asset-packagist.org"
-    }]
+    }],
+    "autoload": {
+        "psr-4": {
+            "sw\\": "modules/sw",
+            "main\\": "modules/main"
+        }
+    }
 }
