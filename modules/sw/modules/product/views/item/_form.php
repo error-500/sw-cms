@@ -13,7 +13,7 @@ Yii::$app->vueApp->data = [
 Yii::$app->vueApp->mounted = [
     '
     this.$set(this, "html_editor", window.ace.edit("html_editor"));
-    const textarea = document.querySelector(\'textarea[name="Item[text]"]\');
+    const textarea = document.querySelector(\'textarea[name="Item[about]"]\');
     textarea.classList.add("d-none");
     this.html_editor.setTheme("ace/theme/monokai");
     this.html_editor.getSession().setMode("ace/mode/html");
