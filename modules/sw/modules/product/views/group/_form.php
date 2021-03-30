@@ -122,10 +122,10 @@ $button_text = sprintf('%s <i class="icon-arrow-right14 position-right"></i>', $
                             'template' => '{update} {delete}',
                             'buttons' => [
                                 'update' => function ($url, $data) {
-                                    return Html::a('<i class="icon-pencil"></i>', ['/sw/product/item/update', 'id' => $data->id]);
+                                    return Html::a('<i class="icon-pencil"></i>', ["/".Yii::$app->controller->uniqueId.'/update', 'id' => $data->id]);
                                 },
                                 'delete' => function ($url, $data) {
-                                    return Html::a('<i class="icon-trash"></i>', ['/sw/product/item/delete', 'id' => $data->id], [
+                                    return Html::a('<i class="icon-trash"></i>', ["/".Yii::$app->controller->uniqueId.'/delete', 'id' => $data->id], [
                                         'data' => [
                                             'confirm' => 'Вы уверены что хотите удалить запись? Действие нельзя отменить!',
                                         ]
