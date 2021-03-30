@@ -64,10 +64,10 @@ $this->params['title'] = 'Элементы';?>
                     'template' => '{update} {delete}',
                     'buttons' => [
                         'update' => function ($url, $model) {
-                            return Html::a('<i class="icon-pencil"></i>', ['/sw/slider/item/update', 'id' => $model->id]);
+                            return Html::a('<i class="icon-pencil"></i>', ["/".Yii::$app->controller->uniqueId.'/update', 'id' => $model->id]);
                         },
                         'delete' => function ($url, $model) {
-                            return Html::a('<i class="icon-trash"></i>', ['/sw/slider/item/delete', 'id' => $model->id], [
+                            return Html::a('<i class="icon-trash"></i>', ["/".Yii::$app->controller->uniqueId.'/delete', 'id' => $model->id], [
                                 'data' => [
                                     'confirm' => 'Вы уверены что хотите удалить запись? Действие нельзя отменить!',
                                 ]

@@ -16,9 +16,9 @@ $this->params['title'] = 'Группы';
             ["/".Yii::$app->controller->uniqueId."/create"],
             ['class' => 'btn bg-teal-400 btn-labeled']
         ); ?>
-        <hr/>
+        <hr />
         Группы помогут вам разделить инфоблоки по назначению, к примеру: <code>слайдер</code>, <code>акции</code> и т.п.
-        <br/><br/>
+        <br /><br />
         <div class="alert alert-info alert-styled-left">
             <span class="text-semibold">Инфо:</span> Если группа используется ее невозможно удалить
         </div>
@@ -41,10 +41,10 @@ $this->params['title'] = 'Группы';
                     'template' => '{update} {delete}',
                     'buttons' => [
                         'update' => function ($url, $model) {
-                            return Html::a('<i class="icon-pencil"></i>', ['/sw/slider/group/update', 'id' => $model->id]);
+                            return Html::a('<i class="icon-pencil"></i>', ["/".Yii::$app->controller->uniqueId.'/update', 'id' => $model->id]);
                         },
                         'delete' => function ($url, $model) {
-                            return Html::a('<i class="icon-trash"></i>', ['/sw/slider/group/delete', 'id' => $model->id], [
+                            return Html::a('<i class="icon-trash"></i>', ["/".Yii::$app->controller->uniqueId.'/delete', 'id' => $model->id], [
                                 'data' => [
                                     'confirm' => 'Вы уверены что хотите удалить запись? Действие нельзя отменить!',
                                 ]
