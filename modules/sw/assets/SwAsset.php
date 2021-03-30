@@ -28,7 +28,7 @@ class SwAsset extends AssetBundle
         //'theme/sw/global_assets/js/plugins/loaders/pace.min.js',
         //'theme/sw/global_assets/js/core/libraries/bootstrap.min.js',
         //'theme/sw/global_assets/js/plugins/loaders/blockui.min.js',
-        'theme/sw/global_assets/js/plugins/editors/ace/ace.js',
+        //'theme/sw/global_assets/js/plugins/editors/ace/ace.js',
         //'theme/sw/global_assets/js/plugins/visualization/d3/d3.min.js',
         //'theme/sw/global_assets/js/plugins/visualization/d3/d3_tooltip.js',
         //'theme/sw/global_assets/js/plugins/forms/styling/switchery.min.js',
