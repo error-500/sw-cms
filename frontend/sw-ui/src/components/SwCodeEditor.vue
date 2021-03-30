@@ -7,9 +7,10 @@
         :options="options"
         :commands="commands"
         @init="onInit"
-        @change="setValue"></AceEditor>
+        @input="setValue"></AceEditor>
 </template>
 <script>
+const ace = require('brace/');
 import AceEditor from 'vuejs-ace-editor';
 export default {
     props: {
@@ -59,10 +60,14 @@ export default {
                 return [];
             }
         },
+        value: {
+            type: String,
+            default: null,
+        }
     },
     data() {
         return {
-            content: null,
+            content: this.value,
             target: null,
         };
     },
@@ -97,6 +102,7 @@ export default {
             }
         },
         setValue() {
+            this.$emit('update:value', this.content);
             this.target.value = this.content
         }
     },
@@ -104,7 +110,8 @@ export default {
         this.$nextTick(() => {
             this.target = document.querySelector(this.selector);
             this.getValue();
-        })
+        });
+        //console.log('Brace imports:', ace);
     },
     components: {
         AceEditor,
