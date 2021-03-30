@@ -36,7 +36,7 @@ $config = [
             'controllerNamespace' => 'app\modules\main\controllers',
             'initLanguage' => 'en-US',
             'controllerMap' => [
-                'site' => 'app\modules\main\controllers\DefaultController',
+                'default' => 'app\modules\main\controllers\DefaultController',
             ],
             'defaultRoute' => 'default/index',
         ],
@@ -98,8 +98,9 @@ $config = [
                 'pathMap'  => [
                     '@app/assets'      => '@app/themes/qartuliru_default',
                     '@app/views'       => [
-                        '@app/themes/qartuliru_default/views',
                         '@app/themes/qartuliru_default/modules/main/views',
+                        '@app/themes/qartuliru_default/views',
+                        '@app/views',
                     ],
                     '@app/widgets'     => [
                         '@app/widgets',
@@ -111,7 +112,7 @@ $config = [
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'default/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -141,17 +142,17 @@ $config = [
             'rules' => [
                 'menu/<menu:[\w_\-]+>' => 'menu/menu',
                 'en-US/menu/<menu:[\w_\-]+>' => 'en-US/menu/menu',
-                'page/<name:[\w_\-]+>' => 'site/page',
+                'page/<name:[\w_\-]+>' => 'default/page',
                 'en-US/page/<name:[\w_\-]+>' => 'en-US/default/page',
-                'contacts/' => 'site/contacts',
+                'contacts/' => 'default/contacts',
                 'en-US/contacts/' => 'en-US/default/contacts',
-                'reservation/' => 'site/reservation',
+                'reservation/' => 'default/reservation',
                 'en-US/reservation/' => 'en-US/default/reservation',
-                'delivery/' => 'site/delivery',
+                'delivery/' => 'default/delivery',
                 'en-US/delivery/' => 'en-US/default/delivery',
-                'delivery/<sub_group:[\w_\-]+>' => 'site/delivery',
+                'delivery/<sub_group:[\w_\-]+>' => 'default/delivery',
                 'en-US/delivery/<sub_group:[\w_\-]+>' => 'en-US/default/delivery',
-                'news/' => '/news/list',
+                'news/' => 'news/list',
                 'en-US/news/' => 'en-US/news/list',
             ],
         ],

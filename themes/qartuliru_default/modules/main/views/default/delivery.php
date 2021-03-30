@@ -60,7 +60,7 @@ if (!empty($page)) {
                                             <?php $name = $sub_group->tech_name != $sub_group_name ? $sub_group->name : Html::tag('b', $sub_group->name) ?>
                                             <?= Html::a(
                                                 $name,
-                                                ["/delivery/{$sub_group->tech_name}"],
+                                                ['/'.Yii::$app->controller->uniqueId."/{$sub_group->tech_name}"],
                                                 [
                                                     'data-toggle' => 'collapse-close',
                                                     'data-target' => '#menu-main',

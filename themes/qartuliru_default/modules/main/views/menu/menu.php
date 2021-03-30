@@ -31,7 +31,7 @@ if (!empty($page)) {
            data-toggle="custom-collapse"
            data-target=".card-collapse"
            data-parent="#items-list"
-           data-filter="maso-item">Все</a>
+           data-filter="maso-item"><?php echo Yii::t('app', 'Все'); ?></a>
         <?php foreach ($groups as $sub_group): ?>
         <a class="nav-link"
            data-filter="<?php echo $sub_group->tech_name; ?>"
@@ -45,7 +45,8 @@ if (!empty($page)) {
     <div class="navbar navbar-inner d-md-none main-menu-mobile">
         <div class="navbar-toggle"
              data-toggle="collapse"
-             data-target="#mobMenu"><i class="fa fa-bars"></i><span><?php echo Yii::t('app', 'Разделы'); ?></span><i class="fa fa-angle-down"></i></div>
+             data-target="#mobMenu"><i class="fa fa-bars"></i><span><?php echo Yii::t('app', 'Разделы'); ?></span><i
+               class="fa fa-angle-down"></i></div>
         <div class="collapse navbar-collapse"
              id="mobMenu">
             <ul class="navbar-nav">
