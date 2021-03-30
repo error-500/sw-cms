@@ -1,6 +1,14 @@
 <?php
 
+use main\helpers\AutoUrl;
 use yii\helpers\Url;
+$prefix = '/'.implode(
+    '/',
+    array_filter([
+        AutoUrl::rootModuleId(),
+        AutoUrl::getLanguageSection()
+        ])
+);
 
 if (!empty($page)) {
     $this->title = $page->title;
@@ -47,9 +55,10 @@ if (!empty($page)) {
         </div>
     </div>
 </div>
+<?php if(!empty($our_place_slider)): ?>
 <div class="section-bg-color">
     <div class="container content">
-        <?= $our_place_slider->text ?>
+        <?php echo $our_place_slider->text ; ?>
         <div class="row">
             <?php $block_size = 12 / count($our_place_slider->items) ?>
             <?php foreach ($our_place_slider->items as $item): ?>
@@ -74,7 +83,7 @@ if (!empty($page)) {
         </div>
     </div>
 </div>
-
+<?php endif; ?>
 <div class="section-empty">
     <div class="container content">
         <?= $menu_random_block_text[0] ?? '' ?>
@@ -129,6 +138,7 @@ if (!empty($page)) {
             <div class="col-md-8 col-center">
                 <div class="flexslider slider outer-navs"
                      data-options="controlNav:true,directionNav:true">
+                    <?php if(!empty($quotes_slider)): ?>
                     <ul class="slides">
                         <?php foreach ($quotes_slider->items as $quote): ?>
                         <li>
@@ -140,11 +150,13 @@ if (!empty($page)) {
                         </li>
                         <?php endforeach ?>
                     </ul>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<?php if(!empty($delivery_slider)): ?>
 <div class="section-empty">
     <div class="container content">
         <div class="title-base">
@@ -191,12 +203,13 @@ if (!empty($page)) {
             </div>
         </div>
         <div class="text-center">
-            <a href="<?= Url::to('/delivery') ?>"
+            <a href="<?= Url::to($prefix.'/delivery') ?>"
                class="btn btn-border btn-sm anima anima-fade-bottom">
                 <?php echo Yii::t('app', 'В магазин'); ?></a>
         </div>
     </div>
 </div>
+<?php endif; ?>
 <div class="section-bg-color">
     <div class="container content">
         <div class="row">
