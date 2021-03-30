@@ -54,7 +54,7 @@ $this->params['header_class'] = 'fixed-top scroll-change wide-area';
                            value="<?php echo Yii::$app->request->csrfToken; ?>" />
                     <div class="row">
                         <div class="col-md-6">
-                            <p>Имя</p>
+                            <p><?php echo Yii::t('app', 'Имя'); ?></p>
                             <input id="name"
                                    name="name"
                                    placeholder=""
@@ -78,7 +78,7 @@ $this->params['header_class'] = 'fixed-top scroll-change wide-area';
                     <hr class="space xs" />
                     <div class="row">
                         <div class="col-md-12">
-                            <p>Сообщение</p>
+                            <p><?php echo Yii::t('app', 'Сообщение');?></p>
                             <textarea id="message"
                                       name="message"
                                       placeholder=""
