@@ -11,9 +11,12 @@ use yii\helpers\Json;
 $prefix = '/'.implode(
     '/',
     array_filter([
-        AutoUrl::rootModuleId(),
         AutoUrl::getLanguageSection()
         ])
+);
+$prefix = strlen($prefix) === 1 ? '' : $prefix;
+Yii::info(
+    Yii::t('app', 'Cart widget rendered in {0} - found lang prefix {1}', [Yii::$app->controller->uniqueId, $prefix])
 );
 $cart = new Cart();
 if (!isset(Yii::$app->vueApp->data['cart'])) {
