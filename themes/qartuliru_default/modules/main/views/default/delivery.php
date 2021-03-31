@@ -1,11 +1,13 @@
 <?php
 
+use main\helpers\AutoUrl;
 use yii\widgets\ListView;
 use yii\helpers\Url;
 use yii\helpers\Html;
 
 $header_img = $page->imgSrc ?? '/theme/main/images/bg-23.jpg';
-
+$prefix = AutoUrl::getLanguageSection();
+$prefix = !empty($prefix) ? "/$prefix" : '';
 if (!empty($page)) {
     $this->title = $page->title;
     $this->params['keywords'] = $page->keywords;
@@ -60,7 +62,7 @@ if (!empty($page)) {
                                             <?php $name = $sub_group->tech_name != $sub_group_name ? $sub_group->name : Html::tag('b', $sub_group->name) ?>
                                             <?= Html::a(
                                                 $name,
-                                                ['/'.Yii::$app->controller->uniqueId."/{$sub_group->tech_name}"],
+                                                ["$prefix/delivery/{$sub_group->tech_name}"],
                                                 [
                                                     'data-toggle' => 'collapse-close',
                                                     'data-target' => '#menu-main',

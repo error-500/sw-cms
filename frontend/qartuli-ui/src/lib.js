@@ -6,6 +6,7 @@ Vue.config.productionTip = false;
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
 import '@/assets/scss/lib.scss';
+import 'icomoon/style.css';
 /**
  * Import lib components and global registration
  */

@@ -1,5 +1,6 @@
 <?php
 
+use app\themes\qartuliru_default\assets\SwQartuliAsset;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\bootstrap4\ActiveForm;
@@ -9,7 +10,14 @@ $button_text = sprintf('%s <i class="icon-arrow-right14 position-right"></i>', $
 
 Yii::$app->vueApp->data = [
     'tinyMceOpts' => Json::encode([
-        'image_list' => '/sw/file_manager/item/index'
+        'image_list' => '/sw/file_manager/item/index',
+        'fix_list_elements' => false,
+        'valid_children' => 'li[i]',
+        'verify_html' => false,
+        'content_css' => Yii::$app->assetManager->getBundle(
+            SwQartuliAsset::class,
+            true
+        )->baseUrl.'/sw.css',
     ]),
 ];
 /*
