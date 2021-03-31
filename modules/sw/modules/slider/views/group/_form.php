@@ -143,7 +143,9 @@ Yii::$app->vueApp->methods = [
                     </b-tbody>
                 </b-table-simple>
                 <?php else: ?>
-                <span class="text-center"><?php echo Yii::t("Нет слайдов в группе \"{0}\"", [$model->name]); ?></span>
+                <span class="text-center">
+                    <?php echo Yii::t('app', "Нет слайдов в группе \"{0}\"", [$model->name]); ?>
+                </span>
                 <?php endif; ?>
             </b-col>
         </b-row>
