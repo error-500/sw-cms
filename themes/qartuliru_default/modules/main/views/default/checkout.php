@@ -64,7 +64,8 @@ $min_delivery_price = Yii::$app->sw->getModule('constant')->item('findOne', ['te
                 <h2 class="text-center"><?php echo Yii::t('app', 'Доставка работает с 12:00 до 22:00'); ?></h2>
                 <h3 class="text-center"><?php echo Yii::t('app', 'Приносим свои извинения');?></h3>
                 <?php elseif (!empty($cart['total']) && $cart['total'] < $min_delivery_price) : ?>
-                <h2 class="text-center"><?php echo Yii::t('app', 'Минимальная сумма заказа {0} ₽', [$min_delivery_price]); ?></h2>
+                <h2 class="text-center">
+                    <?php echo Yii::t('app', 'Минимальная сумма заказа {0} ₽', [$min_delivery_price]); ?></h2>
                 <h3 class="text-center"><?php echo Yii::t('app', 'Благодарим за понимание'); ?></h3>
                 <div class="text-center">
                     <div class="text-center top-space-lg">
@@ -96,7 +97,7 @@ $min_delivery_price = Yii::$app->sw->getModule('constant')->item('findOne', ['te
                     <div class="col-md-4">
                         <?php echo $form->field($checkout, 'phone')
                                         ->label(false)
-                                        ->textInput(['placeholder' => Yii::t('app', 'Телефон')]);?> ?>
+                                        ->textInput(['placeholder' => Yii::t('app', 'Телефон')]);?>
                     </div>
                     <div class="col-md-8">
                         <?php echo $form->field($checkout, 'address')
