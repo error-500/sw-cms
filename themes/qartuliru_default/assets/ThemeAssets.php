@@ -27,7 +27,7 @@ class ThemeAssets extends AssetBundle
         'css/image-box.css',
         'css/contact-form.css',
         'css/skin.css',
-        'js/iconsmind/line-icons.min.css',
+        //'js/iconsmind/line-icons.min.css',
         'js/flexslider/flexslider.css',
         'css/social.stream.css',
         //'scripts/magnific-popup.css',
