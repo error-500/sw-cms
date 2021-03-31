@@ -28,7 +28,8 @@
         "gumlet/php-image-resize": "^2.0",
         "phpmailer/phpmailer": "^6.1",
         "himiklab/yii2-recaptcha-widget": "*",
-        "codemix/yii2-localeurls": "^1.7"
+        "codemix/yii2-localeurls": "^1.7",
+        "error500/yii2-bootstrap-vue": "0.0.1-rc4"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

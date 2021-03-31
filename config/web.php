@@ -1,5 +1,6 @@
 <?php
 
+use yii\bootstrap_vue\VueObject;
 use yii\web\View;
 
 $params = require __DIR__ . '/params.php';
@@ -73,13 +74,13 @@ $config = [
             'locale'            => 'ru-RU',
         ],
         'vueApp' => [
-            'class' =>'app\components\VueApp\VueObject',
+            'class' => VueObject::class,
             'data' => [
                 'ymapProps' => [
                     'settings' => [
-                        'apiKey' => "'85485089-7da9-41be-a978-c2846d2f2d5d'",
-                        'lang' => "'ru_RU'",
-                        'coordorder' => "'latlong'",
+                        'apiKey' => "85485089-7da9-41be-a978-c2846d2f2d5d",
+                        'lang' => "ru_RU",
+                        'coordorder' => "latlong",
                     ],
                     'coords' => [55.77434759100000,37.57800085354571,],
                     'zoom' => 17,
