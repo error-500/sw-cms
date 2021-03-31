@@ -15,6 +15,9 @@ $prefix = '/'.implode(
         AutoUrl::getLanguageSection()
         ])
 );
+Yii::info(
+    Yii::t('app', 'Cart widget rendered in {0}', [Yii::$app->controller->uniqueId])
+);
 $cart = new Cart();
 if (!isset(Yii::$app->vueApp->data['cart'])) {
     Yii::$app->vueApp->data = [
@@ -24,7 +27,7 @@ if (!isset(Yii::$app->vueApp->data['cart'])) {
 Yii::$app->vueApp->methods = [
     'rmFromCart' => 'function(itemId, event){
         jQuery.ajax({
-            url:"'.$prefix.'/cart/remove",
+            url:"/cart/remove",
             data: {
                 id: itemId,
             },
@@ -39,7 +42,7 @@ Yii::$app->vueApp->methods = [
         const icon = jQuery(event.target).find("i");
         const cartBtn = document.querySelectorAll(".cart.invisible, .btn-cart.invisible");
         jQuery.ajax({
-            url: "'.$prefix.'/cart/add",
+            url: "/cart/add",
             data: {
                 id: itemId,
             },
@@ -70,7 +73,7 @@ Yii::$app->vueApp->methods = [
     }',
     'clearItem' => 'function(itemId, event){
         jQuery.ajax({
-            url:"'.$prefix.'/cart/remove",
+            url:"/cart/remove",
             data: {
                 id: itemId,
                 all: 1,
