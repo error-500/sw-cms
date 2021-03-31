@@ -26,6 +26,14 @@ $this->params['title'] = 'Элементы';?>
             'layout' => '{items}',
             'columns' => [
                 [
+                    'attribute' => 'imgSrc',
+                    'format' => 'raw',
+                    'header' => 'Изображение',
+                    'value' => function($data) {
+                        return '<b-img fluid thumbnail src="'.$data->imgSrc.'" style="max-height: 3em;"></b-img>';
+                    }
+                ],
+                [
                     'attribute' => 'title',
                     'format' => 'raw',
                     'value' => function ($data) {
