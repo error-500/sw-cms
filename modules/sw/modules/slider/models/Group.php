@@ -53,6 +53,6 @@ class Group extends \yii\db\ActiveRecord
 
     public function getItems()
     {
-        return $this->hasMany(Item::className(), ['group_id' => 'id'])->andWhere(['active' => Item::ACTIVE])->orderBy('pos ASC');
+        return $this->hasMany(Item::class, ['group_id' => 'id'])->andWhere(['active' => Item::ACTIVE])->orderBy('pos ASC');
     }
 }

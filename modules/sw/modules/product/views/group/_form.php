@@ -5,6 +5,7 @@ use yii\helpers\ArrayHelper;
 use yii\bootstrap4\ActiveForm;
 
 use app\modules\sw\modules\product\models\Group;
+use app\modules\sw\modules\product\models\GroupSearch;
 use yii\grid\GridView;
 
 $button_text = sprintf('%s <i class="icon-arrow-right14 position-right"></i>', $model->isNewRecord ? 'Сохранить' : 'Обновить');
@@ -75,6 +76,88 @@ $button_text = sprintf('%s <i class="icon-arrow-right14 position-right"></i>', $
         <?php ActiveForm::end(); ?>
     </b-tab>
     <?php if(!$model->isNewRecord): ?>
+    <b-tab title="Подгруппы">
+        <div class="table-responsive">
+            <?php
+                $subGroupSearch = new GroupSearch();
+                $subGroupProvider = $subGroupSearch->search(
+                    ArrayHelper::merge(
+                        Yii::$app->request->queryParams,
+                        ['GroupSearch[parent_id]' => $model->id]
+                    )
+                );
+                $subGroupProvider->query->andWhere(['parent_id' => $model->id]);
+            ?>
+            <?php echo GridView::widget([
+            'dataProvider' => $subGroupProvider,
+            'filterModel' => $subGroupSearch,
+            'tableOptions' => ['class' => 'table table-striped'],
+            'layout' => '{items}',
+            'columns' => [
+                [
+                    'attribute' => 'name',
+                ],
+                [
+                    'attribute' => 'tech_name',
+                ],
+                [
+                    'attribute' => 'parent_id',
+                    'filter' => false,
+                    'format' => 'raw',
+                    'value' => function ($data) {
+                        return $data->parent->name ?? '<span class="text-warning">Нет</span>';
+                    }
+                ],
+                [
+                    'attribute' => 'active',
+                    'header' => 'Доступно',
+                    'format' => 'raw',
+                    'value'  => function($data) {
+                        if ($data->active) {
+                            return '<i class="fa fa-2x fa-check-square-o text-success"></i>';
+                        }
+                        return '<i class="fa fa-2x fa-square-o text-danger"></i>';
+                    }
+                ],
+                [
+                    'attribute' => 'img',
+                    'header' => 'Картинка',
+                    'filter' => false,
+                    'format' => 'raw',
+                    'value' => function ($data) {
+                        if (!$data->imgSrc) {
+                            return '<span class="text-warning">Нет</span>';
+                        }
+
+                        $img = Html::img($data->imgSrc, ['height' => 50]);
+                        return Html::a($img, [$data->imgSrc], ['target' => '_blank']);
+                    }
+                ],
+                [
+                    'class' => 'yii\grid\ActionColumn',
+                    'contentOptions' => ['style' => 'white-space:nowrap;'],
+                    'header' => 'Действия',
+                    'template' => '{update} {delete}',
+                    'buttons' => [
+                        'update' => function ($url, $data) {
+                            return Html::a(
+                                '<i class="icon-pencil"></i>', [
+                                    '/'.Yii::$app->controller->uniqueId.'/update', 'id' => $data->id]);
+                        },
+                        'delete' => function ($url, $data) {
+                            return Html::a('<i class="icon-trash"></i>', [
+                                '/'.Yii::$app->controller->uniqueId.'/delete', 'id' => $data->id], [
+                                'data' => [
+                                    'confirm' => 'Вы уверены что хотите удалить запись? Действие нельзя отменить!',
+                                ]
+                            ]);
+                        },
+                    ],
+                ],
+            ],
+        ]); ?>
+        </div>
+    </b-tab>
     <b-tab title="Товары в группе">
         <div class="table-responsive">
             <?php echo GridView::widget([
