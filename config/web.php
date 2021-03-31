@@ -154,6 +154,8 @@ $config = [
                 'en-US/delivery/<sub_group:[\w_\-]+>' => 'en-US/default/delivery',
                 'news/' => 'news/list',
                 'en-US/news/' => 'en-US/news/list',
+                'checkout' => 'default/checkout',
+                'en-US/checkout' => 'en-US/default/checkout',
             ],
         ],
 
