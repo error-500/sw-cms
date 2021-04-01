@@ -8,6 +8,7 @@ use yii\data\ArrayDataProvider;
 use app\models\Cart;
 use app\models\ContactForm;
 use app\models\ReservatioForm;
+use yii\helpers\Url;
 
 class DefaultController extends \yii\web\Controller
 {
@@ -107,7 +108,7 @@ class DefaultController extends \yii\web\Controller
         if (Yii::$app->request->isPost) {
             $contactForm->load(Yii::$app->request->post(null, []), '');
             if ($contactForm->send()) {
-                $this->redirect('/contacts');
+                $this->redirect('contacts');
             }
         }
         $contacts_block_text = Yii::$app->sw
@@ -141,7 +142,7 @@ class DefaultController extends \yii\web\Controller
 
             $form->load(Yii::$app->request->post(null, []), '');
             if ( $form->reserv()) {
-                $this->redirect('/');
+                $this->redirect(Url::to(['index']));
             }
         }
 
@@ -203,7 +204,7 @@ class DefaultController extends \yii\web\Controller
         if ($checkout->load(Yii::$app->request->post()) && $checkout->send()) {
             Yii::$app->session->setFlash('contactFormSubmitted');
             Yii::$app->session->set('cart', []);
-            return $this->redirect(['/delivery']);
+            return $this->redirect(['delivery']);
         }
 
         return $this->render('checkout', [
