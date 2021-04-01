@@ -6,23 +6,6 @@ use yii\bootstrap4\ActiveForm;
 
 $button_text = sprintf('%s <i class="icon-arrow-right14 position-right"></i>', $model->isNewRecord ? 'Сохранить' : 'Обновить');
 
-Yii::$app->vueApp->data = [
-    'html_editor' => "null",
-];
-Yii::$app->vueApp->mounted = [
-    '
-    this.$set(this, "html_editor", window.ace.edit("html_editor"));
-    const textarea = document.querySelector(\'textarea[name="Item[text]"]\');
-    textarea.classList.add("d-none");
-    this.html_editor.setTheme("ace/theme/monokai");
-    this.html_editor.getSession().setMode("ace/mode/html");
-    this.html_editor.setShowPrintMargin(false);
-    this.html_editor.getSession().setValue(textarea.value);
-    this.html_editor.getSession().on(\'change\', function(){
-          textarea.value =html_editor.getSession().getValue();
-        });
-    '
-];
 ?>
 
 <div class="row">
@@ -72,11 +55,15 @@ Yii::$app->vueApp->mounted = [
                                 ->checkbox(); ?>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mb-2">
                     <div class="col-md-12">
-                        <?= $form->field($model, 'text', [
-                                'inputTemplate' => '<div id="html_editor"></div> {input}'
-                            ])->textarea() ?>
+                        <?php echo $form->field($model, 'text',[
+                                    'inputOptions' => [
+                                        'id' => 'html_editor',
+                                        'class' => 'd-none'
+                                    ]
+                                ])->textarea(); ?>
+                        <sw-code-editor selector="#html_editor"></sw-code-editor>
                     </div>
                 </div>
 

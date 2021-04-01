@@ -21,6 +21,11 @@ use yii\helpers\Url;
                 <i class="icon-switch2"></i> Выход
             </b-nav-item>
         </b-navbar-nav>
+        <b-navbar-nav class="ml-auto">
+            <b-nav-item right>
+                <?php echo Yii::t('app', 'Язык: {0}', [Yii::$app->language]); ?>
+            </b-nav-item>
+        </b-navbar-nav>
     </b-collapse>
 </b-navbar>
 <?php echo $this->render('events');
