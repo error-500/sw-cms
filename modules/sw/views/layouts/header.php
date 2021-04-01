@@ -1,5 +1,6 @@
 <?php
 
+use main\helpers\AutoUrl;
 use yii\helpers\Url;
 
 ?>
@@ -19,6 +20,16 @@ use yii\helpers\Url;
             </b-nav-item-dropdown>
             <b-nav-item href="<?php echo Url::to(['/sw/auth/logout']) ?>">
                 <i class="icon-switch2"></i> Выход
+            </b-nav-item>
+        </b-navbar-nav>
+        <b-navbar-nav class="ml-auto">
+            <b-nav-item right>
+                <?php echo Yii::t('app', 'Язык: {0}', [Yii::$app->language]); ?>
+            </b-nav-item>
+            <b-nav-item right
+                        href="/<?php echo AutoUrl::getLanguageSection(); ?>"
+                        target="blank">
+                <i class="fa fa-eye"></i>&nbsp;<?php echo Yii::t('app', 'Посмотреть');?>
             </b-nav-item>
         </b-navbar-nav>
     </b-collapse>
