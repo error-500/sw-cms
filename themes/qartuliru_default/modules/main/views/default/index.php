@@ -203,7 +203,7 @@ if (!empty($page)) {
             </div>
         </div>
         <div class="text-center">
-            <a href="<?= Url::to($prefix.'/delivery') ?>"
+            <a href="<?= Url::to(['delivery']) ?>"
                class="btn btn-border btn-sm anima anima-fade-bottom">
                 <?php echo Yii::t('app', 'В магазин'); ?></a>
         </div>
